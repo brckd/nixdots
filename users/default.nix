@@ -1,0 +1,3 @@
+{
+  bricked = import ./bricked;
+}

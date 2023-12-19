@@ -10,21 +10,6 @@
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-	  ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-	    home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.bricked = import ./home.nix;
-	    };
-          }
-        ];
-      };
-    };
+    nixosConfigurations = import ./hosts inputs; 
   };
 }
