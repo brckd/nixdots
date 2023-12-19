@@ -73,19 +73,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    neovim
-    fastfetch
-    kitty
-    librewolf
-    wofi
-    spotify-player
-    cava
-    git
-    gh
-  ];
-
-  programs.hyprland.enable = true;
+  environment.systemPackages = with pkgs; [];
 
   # Do not change
   system.stateVersion = "23.11";

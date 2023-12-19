@@ -2,5 +2,15 @@
 
 { 
   home.stateVersion = "23.11";
-  imports = [ ];
+  imports = [
+    ./hyprland
+    ./kitty
+    ./neovim
+    ./librewolf
+    ./fastfetch
+    ./git
+    ./gh
+    ./spotify-player
+    ./cava
+  ];
 }
