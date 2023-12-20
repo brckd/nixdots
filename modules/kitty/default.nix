@@ -13,6 +13,10 @@ with lib; {
         package = pkgs.jetbrains-mono;
         name = "JetBrains Mono";
       };
+
+      settings = {
+        single_window_padding_width = 10;
+      };
     };
   };
 }
