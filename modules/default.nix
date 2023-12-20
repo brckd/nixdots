@@ -3,6 +3,7 @@
 { 
   home.stateVersion = "23.11";
   imports = [
+    ./zsh
     ./hyprland
     ./kitty
     ./neovim

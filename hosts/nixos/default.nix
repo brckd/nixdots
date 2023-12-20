@@ -77,6 +77,10 @@
     packages = with pkgs; [];
   };
 
+  # Set default shell to Zsh
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   # Enable automatic login for the user.
   services.getty.autologinUser = "bricked";
 

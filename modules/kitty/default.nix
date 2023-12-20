@@ -4,9 +4,14 @@ with lib; {
   options.modules.kitty = {enable = mkEnableOption "kitty"; };
 
   config = mkIf config.modules.kitty.enable {
-    home.packages = with pkgs; [ kitty ];
-    
-    programs.kitty.font.package = pkgs.jetbrains-mono;
-    programs.kitty.font.name = "JetBrains Mono";
+    programs.kitty = {
+      enable = true;
+      shellIntegration.enableZshIntegration = true;
+
+      font = {
+        package = pkgs.jetbrains-mono;
+        name = "JetBrains Mono";
+      };
+    };
   };
 }

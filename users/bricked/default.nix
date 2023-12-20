@@ -4,6 +4,7 @@
   imports = [ ../../modules/default.nix ];
 
   config.modules =  {
+    zsh.enable = true;
     hyprland.enable = true;
     kitty.enable = true;
     neovim.enable = true;
