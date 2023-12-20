@@ -79,7 +79,10 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [
+    git
+    gh
+  ];
 
   # Do not change
   system.stateVersion = "23.11";

@@ -8,8 +8,6 @@
     ./neovim
     ./librewolf
     ./fastfetch
-    ./git
-    ./gh
     ./spotify-player
     ./cava
   ];

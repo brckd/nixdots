@@ -9,8 +9,6 @@
     neovim.enable = true;
     librewolf.enable = true;
     fastfetch.enable = true;
-    git.enable = true;
-    gh.enable = true;
     spotify-player.enable = true;
     cava.enable = true;
   };
