@@ -1,10 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
+
+  # Install fonts
+  fonts.packages = with pkgs; [
+    cascadia-code
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -14,7 +19,6 @@
   networking.networkmanager.enable = true;
   networking.hostName = "nixos"; # Define your hostname.
   
-
   # Enable experimental features
   nix = {
     package = pkgs.nixFlakes;

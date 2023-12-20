@@ -5,5 +5,8 @@ with lib; {
 
   config = mkIf config.modules.kitty.enable {
     home.packages = with pkgs; [ kitty ];
+    
+    programs.kitty.font.package = pkgs.cascadia-mono;
+    programs.kitty.font.name = "Cascadia Mono";
   };
 }
