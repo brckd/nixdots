@@ -17,7 +17,7 @@ liked_icon = "♥"
 border_type = "Hidden"
 progress_bar_type = "Line"
 playback_window_position = "Top"
-cover_img_length = 8
+cover_img_length = 9
 cover_img_width = 4
 cover_img_scale = 1.0
 playback_window_width = 6
@@ -34,8 +34,8 @@ args = [
 ]
 
 [notify_format]
-summary = "{track} • {artists}"
-body = "{album}"
+summary = "{track} • {album}"
+body = "{artists}"
 
 [device]
 name = "Spotify Player TUI"
