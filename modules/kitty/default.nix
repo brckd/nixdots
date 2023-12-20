@@ -7,6 +7,7 @@ with lib; {
     programs.kitty = {
       enable = true;
       shellIntegration.enableZshIntegration = config.modules.zsh.enable;
+      theme = "Catppuccin-Mocha";
 
       font = {
         package = pkgs.jetbrains-mono;
