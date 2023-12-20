@@ -8,7 +8,8 @@
 
   # Install fonts
   fonts.packages = with pkgs; [
-    cascadia-code
+    jetbrains-mono
+    fira-code
   ];
 
   # Bootloader.
