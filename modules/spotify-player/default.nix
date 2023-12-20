@@ -5,5 +5,7 @@ with lib; {
 
   config = mkIf config.modules."spotify-player".enable {
     home.packages = with pkgs; [ spotify-player ];
+
+    home.file.".config/spotify-player/app.toml".source = ./app.toml;
   };
 }
