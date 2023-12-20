@@ -58,6 +58,12 @@
     pulse.enable = true;
   };
 
+  # Enable OpenGL
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bricked = {
     isNormalUser = true;
@@ -73,7 +79,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [ ];
 
   # Do not change
   system.stateVersion = "23.11";
