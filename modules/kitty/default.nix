@@ -6,7 +6,7 @@ with lib; {
   config = mkIf config.modules.kitty.enable {
     programs.kitty = {
       enable = true;
-      shellIntegration.enableZshIntegration = true;
+      shellIntegration.enableZshIntegration = config.modules.zsh.enable;
 
       font = {
         package = pkgs.jetbrains-mono;

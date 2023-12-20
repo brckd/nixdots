@@ -5,6 +5,7 @@
 
   config.modules =  {
     zsh.enable = true;
+    starship.enable = true;
     hyprland.enable = true;
     kitty.enable = true;
     neovim.enable = true;
