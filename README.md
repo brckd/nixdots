@@ -29,3 +29,4 @@ Special thanks to these project that heavily inspired me!
 
 - [Home Manager](https://nix-community.github.io/home-manager)
 - [Notusknot's dotfiles](https://github.com/notusknot/dotfiles-nix)
+- [NvChad](https://github.com/NvChad/NvChad)
