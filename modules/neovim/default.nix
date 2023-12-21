@@ -2,11 +2,23 @@
 
 
 with lib;
-let setup = module: configs: ''
-  lua << EOF
-  require('${module}').setup{${configs}}
-  EOF
-'';
+let mkPlugin = { plugin, as ? null, config ? "{}", configs ? null, ... }: {
+  plugin = if (builtins.typeOf plugin) == "string"
+    then pkgs.vimPlugins.${plugin}
+    else plugin;
+  config = if as != null then ''
+    lua << EOF
+    local module = require('${as}')
+    ${ if config != null then "module.setup${config}" else "" }
+    ${ if configs != null
+      then toString (mapAttrs
+        (name: conf: "module.${name}.setup${configs}\n")
+        configs)
+      else ""
+    }
+    EOF
+  '' else "";
+};
 in {
   options.modules.neovim = { enable = mkEnableOption "neovim"; };
 
@@ -16,37 +28,39 @@ in {
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
-      extraLuaConfig = ''
-        vim.wo.relativenumber = true
-      '';
+      extraLuaConfig = builtins.readFile ./init.lua;
 
       coc.enable = true;
-      plugins = with pkgs.vimPlugins; [
-        vim-nix
-        plenary-nvim
+      plugins = with pkgs.vimPlugins; map mkPlugin [
         {
-          plugin = lualine-nvim;
-          config = setup "lualine" "";
+          plugin = vim-nix;
         }
         {
-          plugin = telescope-nvim;
-          config = setup "telescope" "";
-        }
-        {
-          plugin = which-key-nvim;
-          config = setup "which-key" "";
+          plugin = plenary-nvim;
         }
         {
           plugin = nvim-treesitter;
-          config = setup "nvim-treesitter.configs" "";
+          as = "nvim-treesitter.configs";
+        }
+        {
+          plugin = lualine-nvim;
+          as = "lualine";
+        }
+        {
+          plugin = telescope-nvim;
+          as = "telescope";
+        }
+        {
+          plugin = which-key-nvim;
+          as = "which-key";
         }
         {
           plugin = nvim-autopairs;
-          config = setup "nvim-autopairs" "";
+          as = "nvim-autopairs";
         }
         {
           plugin = indent-blankline-nvim;
-          config = setup "ibl" "";
+          as = "ibl";
         }
       ];
     };
