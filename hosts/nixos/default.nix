@@ -69,6 +69,22 @@
     driSupport = true;
   };
 
+  networking.wg-quick.interfaces.protonvpn = {
+    autostart = true;
+    dns = [ "10.2.0.1" ];
+    privateKeyFile = "/root/secrets/protonvpn";
+    address = [ "10.2.0.2/32" ];
+    listenPort = 51820;
+    
+    peers = [
+      {
+        publicKey = "tHhN+km281/X+TgM628NVZaa0fMVrUwN1E3e5z99C1Q=";
+        allowedIPs = [ "0.0.0.0/0" "::/0" ];
+        endpoint = "169.150.218.21:51820";
+      }
+    ];
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bricked = {
     isNormalUser = true;
