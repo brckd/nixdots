@@ -1,0 +1,21 @@
+{ config, pkgs, lib, ... }:
+
+with lib;
+
+let cfg = config.modules.hyprland;
+in {
+  options.modules.hyprland = {
+    enable = mkEnableOption "Enable Hyprland";
+  };
+
+  config = mkIf cfg.enable {
+    programs.hyprland = {
+      enable = true;
+    };
+
+    hardware.opengl = {
+      enable = true;
+      driSupport = true;
+    };
+  };
+}

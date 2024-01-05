@@ -10,6 +10,6 @@
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
-    nixosConfigurations = import ./hosts inputs; 
+    nixosConfigurations = import ./configs/hosts inputs; 
   };
 }
