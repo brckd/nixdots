@@ -5,6 +5,7 @@
     ./locale
     ./hyprland
     ./pipewire
+    ./protonvpn
     ./zsh
     ./git
   ];

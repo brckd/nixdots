@@ -17,6 +17,13 @@
       };
       hyprland.enable = true;
       pipewire.enable = true;
+      protonvpn = {
+        enable = true;
+        endpoint = "212.8.243.68";
+        publicKey = "n4RGP+MGDzRHZ1eoPLQZgpuWxtjnW7qL8qzOP1DRvHo="; 
+        privateKeyFile = /root/secrets/wireguard/desktop;
+        dns.enable = true;
+      };
       zsh = {
         enable = true;
         defaultUserShell = true;
@@ -42,40 +49,6 @@
       '';
     };
 
-    networking.wg-quick.interfaces = {
-      nixos = {
-        autostart = false;
-        dns = [ "10.2.0.1" ];
-        privateKeyFile = "/root/secrets/wireguard/nixos";
-        address = [ "10.2.0.2/32" ];
-        listenPort = 51820;
-        
-        peers = [
-          {
-            publicKey = "tHhN+km281/X+TgM628NVZaa0fMVrUwN1E3e5z99C1Q=";
-            allowedIPs = [ "0.0.0.0/0" "::/0" ];
-            endpoint = "169.150.218.21:51820";
-          }
-        ];
-      };
-
-      desktop = {
-        autostart = false;
-        dns = [ "10.2.0.1" ];
-        privateKeyFile = "/root/secrets/wireguard/desktop";
-        address = [ "10.2.0.2/32" ];
-        listenPort = 51820;
-        
-        peers = [
-          {
-            publicKey = "n4RGP+MGDzRHZ1eoPLQZgpuWxtjnW7qL8qzOP1DRvHo="; 
-            allowedIPs = [ "0.0.0.0/0" "::/0" ];
-            endpoint = "212.8.243.68:51820";
-          }
-        ];
-      };
-    };
-
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.bricked = {
       isNormalUser = true;
@@ -85,5 +58,5 @@
 
     # Enable automatic login for the user.
     services.getty.autologinUser = "bricked";
-    };
+  };
 }
