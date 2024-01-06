@@ -28,10 +28,7 @@
         privateKeyFile = /root/secrets/wireguard/desktop;
         dns.enable = true;
       };
-      zsh = {
-        enable = true;
-        defaultUserShell = true;
-      };
+      zsh.enable = true;
       git.enable = true;
     };
   
