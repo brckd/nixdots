@@ -2,7 +2,14 @@
 
 with lib;
 
-let cfg = config.modules.cava;
+let
+  cfg = config.modules.cava;
+  colors = config.colorScheme.colors;
+  mkGradient = count: colors: listToAttrs (zipListsWith
+    (i: color: { name = "gradient_color_${toString i}"; value = "'#${color}'"; })
+    (lists.range 1 count)
+    colors
+  ) // { gradient = "1"; gradient_count = toString count; };
 in {
   options.modules.cava = {
     enable = mkEnableOption "Enable Cava";
@@ -14,18 +21,9 @@ in {
 
       settings = {
         input.method = "pipewire";
-        color = {
-          gradient = "1";
-          gradient_count = "8";
-          gradient_color_1 = "'#b4befe'";
-          gradient_color_2 = "'#89b4fa'";
-          gradient_color_3 = "'#89dceb'";
-          gradient_color_4 = "'#a6e3a1'";
-          gradient_color_5 = "'#f9e2af'";
-          gradient_color_6 = "'#fab387'";
-          gradient_color_7 = "'#eba0ac'";
-          gradient_color_8 = "'#f38ba8'";
-        };
+        color = mkGradient 7 (with colors; [
+          base0E base0D base0C base0B base0A base09 base08
+        ]);
       };
     };
   };

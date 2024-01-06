@@ -1,4 +1,4 @@
-{ nixpkgs, home-manager, ... }:
+{ nixpkgs, home-manager, nix-colors, ... }:
 
 let mkHost = path: nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
@@ -10,9 +10,11 @@ let mkHost = path: nixpkgs.lib.nixosSystem {
         useGlobalPkgs = true;
         useUserPackages = true;
         users = import ../users;
+        extraSpecialArgs = { inherit nix-colors; };
       };
     }
   ];
+  specialArgs = { inherit nix-colors; };
 };
 in
 {
