@@ -8,6 +8,10 @@
 
   config = {
     modules = {
+      experimental = {
+        flakes.enable = true;
+        nix-command.enable = true;
+      };
       locale = {
         enable = true;
         timeZone = "Europe/Berlin";
@@ -40,14 +44,6 @@
     # Enable networking
     networking.networkmanager.enable = true;
     networking.hostName = "desktop"; # Define your hostname.
-    
-    # Enable experimental features
-    nix = {
-      package = pkgs.nixFlakes;
-      extraOptions = ''
-        experimental-features = nix-command flakes
-      '';
-    };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.bricked = {

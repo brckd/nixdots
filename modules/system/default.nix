@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./experimental
     ./locale
     ./hyprland
     ./pipewire
