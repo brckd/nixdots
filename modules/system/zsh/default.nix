@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -11,6 +11,6 @@ in {
 
   config = mkIf cfg.enable {
     programs.zsh.enable = true;
-    users.defaultUserShell = cfg.defaultUserShell;
+    users.defaultUserShell = mkIf cfg.defaultUserShell pkgs.zsh;
   };
 }

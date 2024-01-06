@@ -1,40 +1,38 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ../../../modules/system ];
+  imports = [
+    ./configuration.nix
+    ../../../modules/system
+  ];
 
-  config.modules = {
-    hardware.enable = true;
-    locale = {
-      enable = true;
-      timeZone = "Europe/Berlin";
-      language = "en_US.UTF-8";
-      units = "de_DE.UTF-8";
-      layout = "de";
+  config = {
+    modules = {
+      locale = {
+        enable = true;
+        timeZone = "Europe/Berlin";
+        language = "en_US.UTF-8";
+        units = "de_DE.UTF-8";
+        layout = "de";
+      };
+      hyprland.enable = true;
+      pipewire.enable = true;
+      zsh = {
+        enable = true;
+        defaultUserShell = true;
+      };
+      git.enable = true;
     };
-    hyprland.enable = true;
-    pipewire.enable = true;
-    zsh = {
-      enable = true;
-      defaultUserShell = true;
-    };
-    git.enable = true;
-  };
-
-  options = {
+  
     # Install fonts
     fonts.packages = with pkgs; [
       jetbrains-mono
       fira-code
     ];
 
-    # Bootloader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-
     # Enable networking
     networking.networkmanager.enable = true;
-    networking.hostName = "nixos"; # Define your hostname.
+    networking.hostName = "desktop"; # Define your hostname.
     
     # Enable experimental features
     nix = {
@@ -46,7 +44,7 @@
 
     networking.wg-quick.interfaces = {
       nixos = {
-        autostart = true;
+        autostart = false;
         dns = [ "10.2.0.1" ];
         privateKeyFile = "/root/secrets/wireguard/nixos";
         address = [ "10.2.0.2/32" ];
@@ -83,16 +81,9 @@
       isNormalUser = true;
       description = "Bricked";
       extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [];
     };
 
     # Enable automatic login for the user.
     services.getty.autologinUser = "bricked";
-
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
-
-    # Do not change
-    system.stateVersion = "23.11";
-  };
+    };
 }

@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./hardware
     ./locale
     ./hyprland
     ./pipewire

@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  imports = [ ../../home/default.nix ];
+  imports = [ ../../../modules/home ];
 
   config.modules = {
     zsh.enable = true;
