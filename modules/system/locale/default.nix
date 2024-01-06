@@ -5,34 +5,32 @@ with lib;
 let cfg = config.modules.locale;
 in {
   options.modules.locale = {
-    enable = mkEnableOption "Enable locale configurations";
-
     timeZone = mkOption {
       example = "Etc/UTC";
-      type = types.str;
+      type = with types; nullOr str;
       description = "The time zone used when displaying times and dates.";
     };
 
     language = mkOption {
       example = "en_US.UTF-8";
-      type = types.str;
+      type = with types; nullOr str;
       description = "The language to display applications in.";
     };
 
     units = mkOption {
       example = "en_US.UTF-8";
-      type = types.str;
+      type = with types; nullOr str;
       description = "The locale to display units in.";
     };
 
     layout = mkOption {
       example = "us";
-      type = types.str;
+      type = with types; nullOr str;
       description = "The keyboard layout used for console and Xorg.";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = {
     time.timeZone = cfg.timeZone;
 
     i18n = {
@@ -53,7 +51,7 @@ in {
 
     services.xserver = {
       layout = cfg.layout;
-      xkbVariant = "";
+      xkbVariant = if isNull cfg.layout then "" else null;
     };
 
     console.keyMap = cfg.layout;

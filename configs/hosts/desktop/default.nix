@@ -13,7 +13,6 @@
         nix-command.enable = true;
       };
       locale = {
-        enable = true;
         timeZone = "Europe/Berlin";
         language = "en_US.UTF-8";
         units = "de_DE.UTF-8";
