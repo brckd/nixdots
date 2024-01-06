@@ -1,13 +1,17 @@
 { config, pkgs, lib, ... }:
 
-with lib; {
+with lib;
+
+let
+  cfg = config.modules.kitty;
+in {
   options.modules.kitty = {enable = mkEnableOption "kitty"; };
 
   config = mkIf config.modules.kitty.enable {
     programs.kitty = {
       enable = true;
       shellIntegration.enableZshIntegration = config.modules.zsh.enable;
-      theme = "Catppuccin-Mocha";
+      theme = replaceStrings [" "] ["-"] config.colorScheme.name; 
 
       font = {
         package = pkgs.jetbrains-mono;
