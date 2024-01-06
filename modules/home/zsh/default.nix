@@ -1,10 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
 with lib; {
-  options.modules.zsh = {enable = mkEnableOption "zsh"; };
+  options.modules.zsh = { enable = mkEnableOption "zsh"; };
 
   config = mkIf config.modules.zsh.enable {
-    programs.zsh =  {
+    programs.zsh = {
       enable = true;
       enableAutosuggestions = true;
       syntaxHighlighting.enable = true;

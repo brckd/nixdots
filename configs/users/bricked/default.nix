@@ -1,9 +1,9 @@
-{ config, lib, ...}:
+{ config, ... }:
 
 {
-  imports = [ ../../modules/default.nix ];
+  imports = [ ../../../modules/home ];
 
-  config.modules =  {
+  config.modules = {
     zsh.enable = true;
     starship.enable = true;
     hyprland.enable = true;
