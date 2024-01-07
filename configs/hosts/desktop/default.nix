@@ -21,6 +21,10 @@
         layout = "de";
       };
       hyprland.enable = true;
+      sddm = {
+        enable = true;
+        autoLogin.user = "bricked";
+      };
       pipewire.enable = true;
       protonvpn = {
         enable = true;
@@ -49,8 +53,5 @@
       description = "Bricked";
       extraGroups = [ "networkmanager" "wheel" ];
     };
-
-    # Enable automatic login for the user.
-    services.getty.autologinUser = "bricked";
   };
 }

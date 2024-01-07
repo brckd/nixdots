@@ -51,7 +51,6 @@ in {
 
     services.xserver = {
       layout = cfg.layout;
-      xkbVariant = if isNull cfg.layout then "" else null;
     };
 
     console.keyMap = cfg.layout;

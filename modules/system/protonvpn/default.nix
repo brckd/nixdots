@@ -65,7 +65,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    networking.wg-quick.interfaces."${cfg.name}" = {
+    networking.wg-quick.interfaces.${cfg.name} = {
       autostart = cfg.autostart;
       address = [ cfg.address ];
       listenPort = cfg.port;

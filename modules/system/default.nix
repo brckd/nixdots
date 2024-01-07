@@ -6,6 +6,7 @@
     ./experimental
     ./locale
     ./hyprland
+    ./sddm
     ./pipewire
     ./protonvpn
     ./zsh

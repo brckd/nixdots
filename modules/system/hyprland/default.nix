@@ -5,7 +5,7 @@ with lib;
 let cfg = config.modules.hyprland;
 in {
   options.modules.hyprland = {
-    enable = mkEnableOption "Enable Hyprland";
+    enable = mkEnableOption "Enable Hyprland Wayland compositor.";
   };
 
   config = mkIf cfg.enable {
