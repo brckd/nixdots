@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-colors, ... }:
 
 {
   imports = [
@@ -7,6 +7,8 @@
   ];
 
   config = {
+    colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
+
     modules = {
       experimental = {
         flakes.enable = true;
