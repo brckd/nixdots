@@ -8,6 +8,9 @@ with lib; {
   config = mkIf config.modules.librewolf.enable {
     programs.librewolf = {
       enable = true;
-    }
+      settings = {
+        "webgl.disabled" = false;
+      };
+    };
   };
 }
