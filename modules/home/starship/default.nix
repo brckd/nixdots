@@ -1,7 +1,9 @@
 { config, pkgs, lib, ... }:
 
 with lib; {
-  options.modules.starship = {enable = mkEnableOption "starship"; };
+  options.modules.starship = {
+    enable = mkEnableOption "Enable Starship shell prompt.";
+  };
 
   config = mkIf config.modules.starship.enable {
     programs.starship = {

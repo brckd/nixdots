@@ -20,7 +20,9 @@ let mkPlugin = { plugin, as ? null, config ? "{}", configs ? null, ... }: {
   '' else "";
 };
 in {
-  options.modules.neovim = { enable = mkEnableOption "neovim"; };
+  options.modules.neovim = {
+    enable = mkEnableOption "Enable Neovim editor.";
+  };
 
   config = mkIf config.modules.kitty.enable {
     programs.neovim = {

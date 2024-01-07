@@ -5,7 +5,9 @@ with lib;
 let
   cfg = config.modules.kitty;
 in {
-  options.modules.kitty = {enable = mkEnableOption "kitty"; };
+  options.modules.kitty = {
+    enable = mkEnableOption "Enable Kitty terminal emulator.";
+  };
 
   config = mkIf config.modules.kitty.enable {
     programs.kitty = {

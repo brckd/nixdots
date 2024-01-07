@@ -1,9 +1,13 @@
 { config, pkgs, lib, ... }:
 
 with lib; {
-  options.modules.librewolf = { enable = mkEnableOption "librewolf"; };
+  options.modules.librewolf = {
+    enable = mkEnableOption "Enable Librewolf browser.";
+  };
 
   config = mkIf config.modules.librewolf.enable {
-    home.packages = with pkgs; [ librewolf ];
+    programs.librewolf = {
+      enable = true;
+    }
   };
 }

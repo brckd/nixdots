@@ -1,11 +1,14 @@
 { config, pkgs, lib, ... }:
 
 with lib; {
-  options.modules.hyprland = {enable = mkEnableOption "hyprland"; };
+  options.modules.hyprland = {
+    enable = mkEnableOption "Enable Hyprland Wayland compositor.";
+  };
 
   config = mkIf config.modules.hyprland.enable {
-    home.packages = with pkgs; [ hyprland ];
-
-    home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
+    wayland.windowManager.hyprland = {
+      enable = true;
+      extraConfig = readFile ./hyprland.conf;
+    };
   };
 }
