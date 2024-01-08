@@ -2,23 +2,12 @@
 
 
 with lib;
-let mkPlugin = { plugin, as ? null, config ? "{}", configs ? null, ... }: {
-  plugin = if (builtins.typeOf plugin) == "string"
-    then pkgs.vimPlugins.${plugin}
-    else plugin;
-  config = if as != null then ''
+let lua = script:
+  if hasInfix "\n" script then ''
     lua << EOF
-    local module = require('${as}')
-    ${ if config != null then "module.setup${config}" else "" }
-    ${ if configs != null
-      then toString (mapAttrs
-        (name: conf: "module.${name}.setup${configs}\n")
-        configs)
-      else ""
-    }
+      ${script}
     EOF
-  '' else "";
-};
+  '' else "lua ${script}";
 in {
   options.modules.neovim = {
     enable = mkEnableOption "Enable Neovim editor.";
@@ -33,36 +22,36 @@ in {
       extraLuaConfig = builtins.readFile ./init.lua;
 
       coc.enable = true;
-      plugins = with pkgs.vimPlugins; map mkPlugin [
+      plugins = with pkgs.vimPlugins; [
+        vim-nix
+        plenary-nvim
         {
-          plugin = vim-nix;
-        }
-        {
-          plugin = plenary-nvim;
-        }
-        {
-          plugin = nvim-treesitter;
-          as = "nvim-treesitter.configs";
+          plugin = nvim-treesitter.withPlugins (
+            plugins: with plugins; [
+              yuck
+            ]
+          );
+          config = lua "require('nvim-treesitter.configs').setup{}";
         }
         {
           plugin = lualine-nvim;
-          as = "lualine";
+          config = lua "require('lualine').setup{}";
         }
         {
           plugin = telescope-nvim;
-          as = "telescope";
+          config = lua "require('telescope').setup{}";
         }
         {
           plugin = which-key-nvim;
-          as = "which-key";
+          config = lua "require('which-key').setup{}";
         }
         {
           plugin = nvim-autopairs;
-          as = "nvim-autopairs";
+          config = lua "require('nvim-autopairs').setup{}";
         }
         {
           plugin = indent-blankline-nvim;
-          as = "ibl";
+          config = lua "require('ibl').setup{}";
         }
       ];
     };
