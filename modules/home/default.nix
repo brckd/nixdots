@@ -13,5 +13,6 @@
     ./fastfetch
     ./spotify-player
     ./cava
+    ./theseus
   ];
 }

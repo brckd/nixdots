@@ -16,6 +16,26 @@
         "type": "github"
       }
     },
+    "getchoo": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1705356904,
+        "narHash": "sha256-y/fN6HO67BF0yC1Y2lVWlpBZiudnP0ACSrKrqgh7v5g=",
+        "owner": "getchoo",
+        "repo": "nix-exprs",
+        "rev": "1d17d3c66338d81ca1214a7fc11186fe1be9b1d4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "getchoo",
+        "repo": "nix-exprs",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -88,6 +108,7 @@
     },
     "root": {
       "inputs": {
+        "getchoo": "getchoo",
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs"

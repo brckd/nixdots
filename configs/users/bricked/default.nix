@@ -15,6 +15,7 @@
       fastfetch.enable = true;
       spotify-player.enable = true;
       cava.enable = true;
+      theseus.enable = true;
     };
   };
 }
