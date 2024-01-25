@@ -7,6 +7,7 @@
     ./zsh
     ./starship
     ./hyprland
+    ./rofi
     ./kitty
     ./neovim
     ./librewolf

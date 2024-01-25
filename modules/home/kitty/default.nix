@@ -9,7 +9,7 @@ in {
     enable = mkEnableOption "Enable Kitty terminal emulator.";
   };
 
-  config = mkIf config.modules.kitty.enable {
+  config = mkIf cfg.enable {
     programs.kitty = {
       enable = true;
       shellIntegration.enableZshIntegration = config.modules.zsh.enable;
