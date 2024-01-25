@@ -75,7 +75,7 @@ in {
         "inputbar" = {
           children = mkLiteral "[prompt,entry]";
           background-color = mkLiteral "@bg-col";
-          border-radius = mkLiteral "5px";
+          border-radius = mkLiteral "10px";
           padding = mkLiteral "2px";
         };
 
@@ -109,7 +109,7 @@ in {
         };
 
         "element" = {
-          padding = mkLiteral "5px";
+          padding = mkLiteral "10px";
           background-color = mkLiteral "@bg-col";
           text-color = mkLiteral "@fg-col  ";
         };
@@ -144,7 +144,7 @@ in {
           background-color = mkLiteral "@bg-col-light";
           margin = mkLiteral "2px";
           padding = mkLiteral "2px";
-          border-radius = mkLiteral "5px";
+          border-radius = mkLiteral "10px";
         };
 
         "textbox" = {
@@ -156,7 +156,7 @@ in {
       };
     };
     wayland.windowManager.hyprland.settings = mkIf cfg.keybind.enable {
-      bind = with cfg.keybind; "${modkey}, ${key}, exec, ${command}";
+      bind = with cfg.keybind; ["${modkey}, ${key}, exec, ${command}"];
     };
   };
 }
