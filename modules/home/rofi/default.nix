@@ -52,7 +52,6 @@ in {
           grey = mkLiteral "#${base03}";
 
           width = 600;
-          font = "JetBrains Mono";
         };
 
         "element-text, element-icon , mode-switcher" = {
