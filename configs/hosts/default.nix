@@ -19,4 +19,5 @@ let mkHost = path: nixpkgs.lib.nixosSystem {
 in
 {
   desktop = mkHost ./desktop;
+  laptop = mkHost ./laptop;
 }
