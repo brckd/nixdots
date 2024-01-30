@@ -11,5 +11,6 @@
     ./protonvpn
     ./zsh
     ./git
+    ./steam
   ];
 }

@@ -29,6 +29,7 @@ in {
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
+      plugins = with pkgs; [rofi-power-menu rofi-screenshot rofimoji rofi-calc];
       extraConfig = {
         modi = "run,drun,window";
         icon-theme = "Oranchelo";

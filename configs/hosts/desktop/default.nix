@@ -27,7 +27,7 @@
       };
       pipewire.enable = true;
       protonvpn = {
-        enable = true;
+        # enable = true;
         /*
         endpoint = "169.150.218.70";
         publicKey = "8xx8LqTpTHCEWou3Wu43p2CaEqnO9kcKQrLb+C8fZw8=";
@@ -40,8 +40,11 @@
       };
       zsh.enable = true;
       git.enable = true;
+      steam.enable = true;
     };
-  
+
+    nixpkgs.config.allowUnfree = true;
+
     # Install fonts
     fonts.packages = with pkgs; [
       jetbrains-mono
@@ -53,10 +56,17 @@
     networking.hostName = "desktop"; # Define your hostname.
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.bricked = {
-      isNormalUser = true;
-      description = "Bricked";
-      extraGroups = [ "networkmanager" "wheel" ];
+    users.users = {
+      bricked = {
+        isNormalUser = true;
+        description = "Bricked";
+        extraGroups = [ "networkmanager" "wheel" ];
+      };
+      john = {
+        isNormalUser = true;
+        description = "John";
+        extraGroups = [ "networkmanager" ];
+      };
     };
   };
 }

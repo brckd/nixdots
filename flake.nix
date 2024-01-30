@@ -31,5 +31,6 @@
 
   outputs = inputs@{ ... }: {
     nixosConfigurations = import ./configs/hosts inputs;
+    homeManagerConfigurations = import ./configs/configs inputs;
   };
 }
