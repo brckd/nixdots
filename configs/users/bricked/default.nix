@@ -18,6 +18,7 @@
       spotify-player.enable = true;
       cava.enable = true;
       theseus.enable = true;
+      discord.enable = true;
     };
   };
 }

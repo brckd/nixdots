@@ -15,5 +15,6 @@
     ./spotify-player
     ./cava
     ./theseus
+    ./discord
   ];
 }
