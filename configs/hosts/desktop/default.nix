@@ -27,7 +27,7 @@
       };
       pipewire.enable = true;
       protonvpn = {
-        # enable = true;
+        enable = true;
         /*
         endpoint = "169.150.218.70";
         publicKey = "8xx8LqTpTHCEWou3Wu43p2CaEqnO9kcKQrLb+C8fZw8=";
