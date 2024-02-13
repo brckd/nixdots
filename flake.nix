@@ -8,6 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     nix-colors = {
       url = "github:misterio77/nix-colors";
@@ -29,8 +34,13 @@
     ];
   };
 
-  outputs = inputs@{ ... }: {
-    nixosConfigurations = import ./configs/hosts inputs;
-    homeManagerConfigurations = import ./configs/configs inputs;
+  outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
+    flake = {
+      nixosConfigurations = import ./configs/hosts inputs;
+      homeManagerConfigurations = import ./configs/configs inputs;
+    };
+    systems = [
+      "x86_64-linux"
+    ];
   };
 }
