@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.modules.rofi;
-  colors = config.colorScheme.colors;
+  palette = config.colorScheme.palette;
 in {
   options.modules.rofi = {
     enable = mkEnableOption "Enable Rofi application launcher.";
@@ -42,7 +42,7 @@ in {
         sidebar-mode = true;
       };
       theme = let inherit (config.lib.formats.rasi) mkLiteral; in {
-        "*" = with colors; {
+        "*" = with palette; {
           bg-col = mkLiteral "#${base00}";
           bg-col-light = mkLiteral "#${base00}";
           border-col = mkLiteral "#${base00}";

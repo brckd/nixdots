@@ -28,14 +28,14 @@
       pipewire.enable = true;
       protonvpn = {
         enable = true;
-        /*
         endpoint = "169.150.218.70";
         publicKey = "8xx8LqTpTHCEWou3Wu43p2CaEqnO9kcKQrLb+C8fZw8=";
         privateKeyFile = /root/secrets/wireguard/new;
-        */
+        /*
         endpoint = "212.8.243.68";
         publicKey = "n4RGP+MGDzRHZ1eoPLQZgpuWxtjnW7qL8qzOP1DRvHo="; 
         privateKeyFile = /root/secrets/wireguard/desktop;
+        */
         dns.enable = true;
       };
       zsh.enable = true;

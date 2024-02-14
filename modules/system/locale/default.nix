@@ -49,10 +49,7 @@ in {
       };
     };
 
-    services.xserver = {
-      layout = cfg.layout;
-    };
-
+    services.xserver.xkb.layout = cfg.layout;
     console.keyMap = cfg.layout;
   };
 }

@@ -4,11 +4,11 @@ with lib;
 
 let
   cfg = config.modules.cava;
-  colors = config.colorScheme.colors;
-  mkGradient = count: colors: listToAttrs (zipListsWith
+  palette = config.colorScheme.palette;
+  mkGradient = count: palette: listToAttrs (zipListsWith
     (i: color: { name = "gradient_color_${toString i}"; value = "'#${color}'"; })
     (lists.range 1 count)
-    colors
+    palette
   ) // { gradient = "1"; gradient_count = toString count; };
 in {
   options.modules.cava = {
@@ -21,7 +21,7 @@ in {
 
       settings = {
         input.method = "pipewire";
-        color = mkGradient 7 (with colors; [
+        color = mkGradient 7 (with palette; [
           base0E base0D base0C base0B base0A base09 base08
         ]);
       };
