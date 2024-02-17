@@ -61,7 +61,6 @@
         modulesDirectory = "${modules}/darwin";
         configurationsDirectory = "${configs}/darwin";
       };
-
     };
   };
 }
