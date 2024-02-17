@@ -8,8 +8,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     flake-parts.url = "github:hercules-ci/flake-parts";
+    ez-configs.url = "github:ehllie/ez-configs"; 
     
     nix-colors = {
       url = "github:misterio77/nix-colors";
@@ -32,12 +32,30 @@
   };
 
   outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
-    flake = {
-      nixosConfigurations = import ./configs/hosts inputs;
-      homeManagerConfigurations = import ./configs/configs inputs;
-    };
+    imports = [
+      inputs.ez-configs.flakeModule
+    ];
+
     systems = [
       "x86_64-linux"
     ];
+
+    ezConfigs = let
+      root = ./.;
+      modules = "${root}/modules";
+      configs = "${root}/configs";
+    in {
+      globalArgs = inputs;
+
+      inherit root;
+
+      home.modulesDirectory = "${modules}/home";
+      nixos.modulesDirectory = "${modules}/nixos";
+      darwin.modulesDirectory = "${modules}/darwin";
+
+      home.configurationsDirectory = "${configs}/home";
+      nixos.configurationsDirectory = "${configs}/nixos";
+      darwin.configurationsDirectory = "${configs}/darwin";
+    };
   };
 }

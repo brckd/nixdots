@@ -3,7 +3,6 @@
 {
   imports = [
     ./configuration.nix
-    ../../../modules/system
   ];
 
   config = {
