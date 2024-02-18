@@ -2,28 +2,13 @@
 
 with lib;
 
-let cfg = config.modules.sddm;
+let
+  cfg = config.services.xserver.displayManager.sddm;
 in {
-  options.modules.sddm = {
-    enable = mkEnableOption "Enable SDDM display manager.";
-    autoLogin.user = mkOption {
-      default = null;
-      type = with types; nullOr str;
-      description = "User to be used for the automatic login.";
-    };
-  };
-
   config = mkIf cfg.enable {
-    services.xserver = {
-      enable = true;
-      displayManager = {
-        sddm = {
-          enable = true;
-          theme = "catppuccin-sddm-corners";
-          wayland.enable = true;
-        };
-        autoLogin.user = cfg.autoLogin.user;
-      };
+    services.xserver.displayManager.sddm = {
+      theme = "catppuccin-sddm-corners";
+      wayland.enable = true;
     };
 
     environment.systemPackages = with pkgs; [

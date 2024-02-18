@@ -5,7 +5,6 @@
   imports = [
     nix-colors.homeManagerModules.default
     ./zsh
-    ./starship
     ./hyprland
     ./rofi
     ./kitty
@@ -15,6 +14,6 @@
     ./spotify-player
     ./cava
     ./theseus
-    ./discord
+    ./vesktop
   ];
 }

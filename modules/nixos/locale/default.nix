@@ -2,9 +2,10 @@
 
 with lib;
 
-let cfg = config.modules.locale;
+let
+  cfg = config.locale;
 in {
-  options.modules.locale = {
+  options.locale = {
     timeZone = mkOption {
       example = "Etc/UTC";
       type = with types; nullOr str;
@@ -26,7 +27,7 @@ in {
     layout = mkOption {
       example = "us";
       type = with types; nullOr str;
-      description = "The keyboard layout used for console and Xorg.";
+      description = "The keyboard layout used for console and X-org.";
     };
   };
 

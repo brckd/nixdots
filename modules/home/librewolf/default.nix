@@ -1,14 +1,13 @@
 { config, pkgs, lib, ... }:
 
-with lib; {
-  options.modules.librewolf = {
-    enable = mkEnableOption "Enable Librewolf browser.";
-  };
+with lib;
 
-  config = mkIf config.modules.librewolf.enable {
+let
+  cfg = config.programs.librewolf;
+in {
+  config = mkIf cfg.enable {
     programs.librewolf = {
-      enable = true;
-      settings = {
+      settings = mkDefault {
         "webgl.disabled" = false;
       };
     };

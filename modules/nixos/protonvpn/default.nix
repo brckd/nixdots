@@ -2,16 +2,17 @@
 
 with lib;
 
-let cfg = config.modules.protonvpn;
+let
+  cfg = config.networking.protonvpn;
 in {
-  options.modules.protonvpn = {
-    enable = mkEnableOption "Enable ProtonVPN using Wireguard.";
+  options.networking.protonvpn = {
+    enable = mkEnableOption "Whether to enable ProtonVPN using Wireguard.";
 
     autostart = mkOption {
       default = true;
       example = true;
       type = types.bool;
-      description = "Automatically start the VPN on boot.";
+      description = "Wheter to automatically start the VPN on boot.";
     };
 
     name = mkOption {
@@ -54,7 +55,7 @@ in {
     };
 
     dns = {
-      enable = mkEnableOption "Enable ProtonVPN's DNS.";
+      enable = mkEnableOption "Whether to enable ProtonVPN's DNS.";
       address = mkOption {
         default = "10.2.0.1";
         example = "10.2.0.1";

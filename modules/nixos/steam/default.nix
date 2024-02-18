@@ -2,17 +2,13 @@
 
 with lib;
 
-let cfg = config.modules.steam;
+let
+  cfg = config.programs.steam;
 in {
-  options.modules.steam = {
-    enable = mkEnableOption "Enable Steam game launcher.";
-  };
-
   config = mkIf cfg.enable {
     programs.steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
+      remotePlay.openFirewall = mkDefault true;
+      dedicatedServer.openFirewall = mkDefault true;
     };
   };
 }

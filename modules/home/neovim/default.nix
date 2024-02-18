@@ -1,28 +1,24 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 
 with lib;
-let lua = script:
-  if hasInfix "\n" script then ''
-    lua << EOF
-      ${script}
-    EOF
-  '' else "lua ${script}";
+let
+  cfg = config.programs.neovim;
+  lua = script:
+    if hasInfix "\n" script then ''
+      lua << EOF
+        ${script}
+      EOF
+    '' else "lua ${script}";
 in {
-  options.modules.neovim = {
-    enable = mkEnableOption "Enable Neovim editor.";
-  };
-
-  config = mkIf config.modules.kitty.enable {
+  config = mkIf cfg.enable {
     programs.neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      extraLuaConfig = builtins.readFile ./init.lua;
+      viAlias = mkDefault true;
+      vimAlias = mkDefault true;
+      extraLuaConfig = mkDefault (builtins.readFile ./init.lua);
 
-      coc.enable = true;
-      plugins = with pkgs.vimPlugins; [
+      coc.enable = mkDefault true;
+      plugins = with pkgs.vimPlugins; mkDefault [
         vim-nix
         plenary-nvim
         {

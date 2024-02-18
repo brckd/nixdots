@@ -49,13 +49,19 @@
 
       inherit root;
 
-      home.modulesDirectory = "${modules}/home";
-      nixos.modulesDirectory = "${modules}/nixos";
-      darwin.modulesDirectory = "${modules}/darwin";
+      home = {
+        modulesDirectory = "${modules}/home";
+        configurationsDirectory = "${configs}/home";
+      };
+      nixos = {
+        modulesDirectory = "${modules}/nixos";
+        configurationsDirectory = "${configs}/nixos";
+      };
+      darwin = {
+        modulesDirectory = "${modules}/darwin";
+        configurationsDirectory = "${configs}/darwin";
+      };
 
-      home.configurationsDirectory = "${configs}/home";
-      nixos.configurationsDirectory = "${configs}/nixos";
-      darwin.configurationsDirectory = "${configs}/darwin";
     };
   };
 }

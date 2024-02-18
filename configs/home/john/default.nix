@@ -7,18 +7,28 @@
   };
 
   colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
-  modules = {
-    zsh.enable = true;
-    starship.enable = true;
-    hyprland.enable = true;
-    rofi.enable = true;
-    rofi.keybind.enable = true;
-    kitty.enable = true;
-    neovim.enable = true;
-    librewolf.enable = true;
-    fastfetch.enable = true;
-    spotify-player.enable = true;
-    cava.enable = true;
-    theseus.enable = true;
+
+  # Terminal
+  programs.zsh.enable = true;
+  programs.starship.enable = true;
+  programs.kitty.enable = true;
+
+  # Desktop environment
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings.input.kb_layout = "de";
   };
+  programs.rofi = {
+    enable = true;
+    keybind.enable = true;
+  };
+
+  # Editor
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  # Apps
+  programs.librewolf.enable = true;
 }

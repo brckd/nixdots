@@ -9,8 +9,6 @@
     ./sddm
     ./pipewire
     ./protonvpn
-    ./zsh
-    ./git
     ./steam
   ];
 }

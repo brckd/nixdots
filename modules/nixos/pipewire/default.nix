@@ -2,18 +2,14 @@
 
 with lib;
 
-let cfg = config.modules.pipewire;
+let
+  cfg = config.services.pipewire;
 in {
-  options.modules.pipewire = {
-    enable = mkEnableOption "Enable Pipewire sound.";
-  };
-
   config = mkIf cfg.enable {
     services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
+      alsa.enable = mkDefault true;
+      alsa.support32Bit = mkDefault true;
+      pulse.enable = mkDefault true;
     };
   };
 }

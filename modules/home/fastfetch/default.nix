@@ -1,11 +1,14 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
-with lib; {
-  options.modules.fastfetch = {
-    enable = mkEnableOption "Enable Fastfetch system information tool.";
+with lib;
+let
+  cfg = config.programs.fastfetch;
+in {
+  options.programs.fastfetch = {
+    enable = mkEnableOption "Whether to enable Fastfetch, a neofetch-like tool.";
   };
 
-  config = mkIf config.modules.fastfetch.enable {
+  config = mkIf cfg.enable {
     home.packages = with pkgs; [ fastfetch ];
   };
 }

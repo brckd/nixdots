@@ -2,11 +2,12 @@
 
 with lib;
 
-let cfg = config.modules.experimental;
+let
+  cfg = config.nix.experimental;
 in {
-  options.modules.experimental = {
+  options.nix.experimental = {
     flakes = {
-      enable = mkEnableOption "Enable flakes.";
+      enable = mkEnableOption "Whether to enable flakes.";
       package = mkOption {
         default = pkgs.nixFlakes;
         example = pkgs.nixFlakes;
@@ -14,7 +15,7 @@ in {
         description = "The package to be used to enable flakes.";
       };
     };
-    nix-command.enable = mkEnableOption "Enable nix-command.";
+    nix-command.enable = mkEnableOption "Whether to enable nix-command.";
   };
 
   config = {
