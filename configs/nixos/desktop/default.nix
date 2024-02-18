@@ -45,8 +45,8 @@
     networking.hostName = "desktop"; # Define your hostname.
     networking.protonvpn = {
       enable = true;
-      endpoint = "169.150.218.70";
-      publicKey = "8xx8LqTpTHCEWou3Wu43p2CaEqnO9kcKQrLb+C8fZw8=";
+      endpoint = "185.107.56.143";
+      publicKey = "xGIfeXZPiiMUX1lCAXA7VLX12RefzAZEevm6/Yd1yW4=";
       privateKeyFile = /root/secrets/protonvpn;
       dns.enable = true;
     };
