@@ -58,11 +58,6 @@
         description = "Bricked";
         extraGroups = [ "networkmanager" "wheel" ];
       };
-      john = {
-        isNormalUser = true;
-        description = "John";
-        extraGroups = [ "networkmanager" ];
-      };
     };
 
     nixpkgs.config.allowUnfree = true;
