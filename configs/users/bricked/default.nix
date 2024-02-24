@@ -4,6 +4,11 @@
   imports = [ ../../../modules/home ];
 
   config = {
+    home = {
+      username = "bricked";
+      homeDirectory = "/home/bricked";
+    };
+
     colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
     modules = {
       zsh.enable = true;

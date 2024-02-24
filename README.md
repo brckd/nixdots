@@ -17,7 +17,13 @@ git clone --depth 1 https://github.com/brckd/nixdots
 cd nixdots
 ```
 
-4. Build and activate the configuration
+4. Build and activate the home configuration
+
+```bash
+nix run home-manager/master -- switch --flake .
+```
+
+5. Build and activate the system configuration
 
 ```bash
 sudo nixos-rebuild switch --flake .

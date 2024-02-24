@@ -4,6 +4,11 @@
   imports = [ ../../../modules/home ];
 
   config = {
+    home = {
+      username = "john";
+      homeDirectory = "/home/john";
+    };
+
     colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
     modules = {
       zsh.enable = true;

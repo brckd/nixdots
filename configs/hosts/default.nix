@@ -1,23 +1,11 @@
 inputs@{ nixpkgs, home-manager, ... }:
 
-let mkHost = path: nixpkgs.lib.nixosSystem {
+let mkHost = module: nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
-  modules = [
-    path
-    home-manager.nixosModules.home-manager
-    {
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        users = import ../users;
-        extraSpecialArgs = inputs;
-      };
-    }
-  ];
+  modules = [ module ];
   specialArgs = inputs;
 };
-in
-{
+in {
   desktop = mkHost ./desktop;
   laptop = mkHost ./laptop;
 }

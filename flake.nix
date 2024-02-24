@@ -34,7 +34,7 @@
   outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
     flake = {
       nixosConfigurations = import ./configs/hosts inputs;
-      homeManagerConfigurations = import ./configs/configs inputs;
+      homeConfigurations = import ./configs/users inputs;
     };
     systems = [
       "x86_64-linux"
