@@ -48,10 +48,17 @@
     networking.hostName = "laptop"; # Define your hostname.
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.bricked = {
-      isNormalUser = true;
-      description = "Bricked";
-      extraGroups = [ "networkmanager" "wheel" ];
+    users.users = {
+      bricked = {
+        isNormalUser = true;
+        description = "Bricked";
+        extraGroups = [ "networkmanager" "wheel" ];
+      };
+      john = {
+        isNormalUser = true;
+        description = "John";
+        extraGroups = [ "networkmanager" ];
+      };
     };
   };
 }
