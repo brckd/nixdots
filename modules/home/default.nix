@@ -2,6 +2,8 @@
 
 { 
   home.stateVersion = "23.11";
+  programs.home-manager.enable = true;
+
   imports = [
     nix-colors.homeManagerModules.default
     ./zsh
