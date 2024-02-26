@@ -61,10 +61,6 @@
         modulesDirectory = "${modules}/darwin";
         configurationsDirectory = "${configs}/darwin";
       };
-<<<<<<< HEAD
-=======
-
->>>>>>> 3ad2e09 (attempt to fix some errors in nix repl)
     };
   };
 }
