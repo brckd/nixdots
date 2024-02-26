@@ -34,6 +34,7 @@ sudo nixos-rebuild switch --flake .
 Special thanks to these project that heavily inspired me!
 
 - [Home Manager](https://nix-community.github.io/home-manager)
+- [ez-configs](https://github.com/ehllie/ez-configs)
 - [Notusknot's dotfiles](https://github.com/notusknot/dotfiles-nix)
 - [Misterio77's starter-configs](https://github.com/Misterio77/nix-starter-configs)
 - [NvChad](https://github.com/NvChad/NvChad)

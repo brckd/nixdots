@@ -1,16 +1,15 @@
 { config, lib, ... }:
 
-with lib; {
-  options.modules.zsh = {
-    enable = mkEnableOption "Enable Zsh.";
-  };
+with lib;
 
-  config = mkIf config.modules.zsh.enable {
+let
+  cfg = config.programs.zsh;
+in {
+  config = mkIf cfg.enable {
     programs.zsh = {
-      enable = true;
-      enableAutosuggestions = true;
-      syntaxHighlighting.enable = true;
-      autocd = true;
+      enableAutosuggestions = mkDefault true;
+      syntaxHighlighting.enable = mkDefault true;
+      autocd = mkDefault true;
     };
   };
 }

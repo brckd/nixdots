@@ -3,18 +3,11 @@
 with lib;
 
 let
-  cfg = config.modules.hyprland;
-  locale = { layout = "de"; };
+  cfg = config.wayland.windowManager.hyprland;
 in {
-  options.modules.hyprland = {
-    enable = mkEnableOption "Enable Hyprland Wayland compositor.";
-  };
-
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
-      enable = true;
-
-      settings = {
+      settings = mapAttrs (name: mkDefault) {
         # See https://wiki.hyprland.org/Configuring/Monitors/
         monitor = ",preferred,auto,auto";
 
@@ -23,7 +16,6 @@ in {
 
         # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
         "input" = {
-          kb_layout = locale.layout;
           follow_mouse = "1";
 
           "touchpad" = {

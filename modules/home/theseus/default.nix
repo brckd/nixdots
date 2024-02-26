@@ -2,15 +2,14 @@
 
 with lib;
 
-let cfg = config.modules.theseus;
+let
+  cfg = config.programs.theseus;
 in {
-  options.modules.theseus = {
-    enable = mkEnableOption "Enable Minecraft";
+  options.programs.theseus = {
+    enable = mkEnableOption "Whether to enable Theseus, a game launcher which can be used as a CLI, GUI, and a library for creating and playing Modrinth projects.";
   };
 
   config = mkIf cfg.enable {
-    home.packages = with getchoo.packages.${pkgs.system}; [
-      modrinth-app
-    ];
+    home.packages = with getchoo.packages.${pkgs.system}; [ modrinth-app ];
   };
 }

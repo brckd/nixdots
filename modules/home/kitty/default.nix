@@ -1,26 +1,21 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
 let
-  cfg = config.modules.kitty;
+  cfg = config.programs.kitty;
 in {
-  options.modules.kitty = {
-    enable = mkEnableOption "Enable Kitty terminal emulator.";
-  };
-
   config = mkIf cfg.enable {
     programs.kitty = {
-      enable = true;
-      shellIntegration.enableZshIntegration = config.modules.zsh.enable;
-      theme = replaceStrings [" "] ["-"] config.colorScheme.name; 
+      shellIntegration.enableZshIntegration = mkDefault true; 
+      theme = mkDefault (replaceStrings [" "] ["-"] config.colorScheme.name); 
 
-      font = {
+      font = mkDefault {
         package = pkgs.jetbrains-mono;
         name = "JetBrains Mono";
       };
 
-      settings = {
+      settings = mkDefault {
         single_window_padding_width = 10;
       };
     };

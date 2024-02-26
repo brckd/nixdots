@@ -3,11 +3,10 @@
 with lib;
 
 let
-  cfg = config.modules.rofi;
+  cfg = config.programs.rofi;
   palette = config.colorScheme.palette;
 in {
-  options.modules.rofi = {
-    enable = mkEnableOption "Enable Rofi application launcher.";
+  options.programs.rofi = {
     keybind = {
       enable = mkEnableOption "Whether to launch Rofi on Hyprland using a keybind.";
       modkey = mkOption {
@@ -27,21 +26,20 @@ in {
 
   config = mkIf cfg.enable {
     programs.rofi = {
-      enable = true;
-      package = pkgs.rofi-wayland;
-      plugins = with pkgs; [rofi-power-menu rofi-screenshot rofimoji rofi-calc];
-      extraConfig = {
+      package = mkDefault pkgs.rofi-wayland;
+      plugins = with pkgs; mkDefault [rofi-power-menu rofi-screenshot rofimoji rofi-calc];
+      extraConfig = mkDefault {
         modi = "run,drun,window";
         icon-theme = "Oranchelo";
         show-icons = true;
-        terminal = mkIf config.modules.kitty.enable "kitty";
+        terminal = mkIf config.programs.kitty.enable "kitty";
         drun-display-format = "{icon} {name}";
         location = 0;
         disable-history = false;
         hide-scrollbar = true;
         sidebar-mode = true;
       };
-      theme = let inherit (config.lib.formats.rasi) mkLiteral; in {
+      theme = let inherit (config.lib.formats.rasi) mkLiteral; in mkDefault {
         "*" = with palette; {
           bg-col = mkLiteral "#${base00}";
           bg-col-light = mkLiteral "#${base00}";
@@ -155,8 +153,8 @@ in {
         };
       };
     };
-    wayland.windowManager.hyprland.settings = mkIf cfg.keybind.enable {
-      bind = with cfg.keybind; ["${modkey}, ${key}, exec, ${command}"];
-    };
+
+    wayland.windowManager.hyprland.settings.bind = with cfg.keybind;
+      mkIf enable (mkDefault ["${modkey}, ${key}, exec, ${command}"]);
   };
 }

@@ -1,11 +1,15 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
-with lib; {
-  options.modules."spotify-player" = {enable = mkEnableOption "spotify-player"; };
+with lib;
 
-  config = mkIf config.modules."spotify-player".enable {
+let
+  cfg = config.programs.spotify-player;
+in {
+  options.programs.spotify-player = {
+    enable = mkEnableOption "Whether to enable spotify-player, a Spotify player in the terminal with full feature parity.";
+  };
+
+  config = mkIf cfg.enable {
     home.packages = with pkgs; [ spotify-player ];
-
-    home.file.".config/spotify-player/app.toml".source = ./app.toml;
   };
 }
