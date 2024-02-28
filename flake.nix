@@ -2,64 +2,40 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-23.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     flake-parts.url = "github:hercules-ci/flake-parts";
-    ez-configs.url = "github:ehllie/ez-configs"; 
-    
-    nix-colors = {
-      url = "github:misterio77/nix-colors";
-    };
-
-    getchoo = {
-      url = "github:getchoo/nix-exprs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  nixConfig = {
-    trusted-substituters = [
-      "https://getchoo.cachix.org"
-    ];
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "getchoo.cachix.org-1:ftdbAUJVNaFonM0obRGgR5+nUmdLMM+AOvDOSx0z5tE="
-    ];
-  };
+  outputs = inputs@{ flake-parts, nix-on-droid, ... }: let
+    root = ./.;
+    modules = "${root}/modules";
+    configs = "${root}/configs";
+  in flake-parts.lib.mkFlake { inherit inputs; } {
+    systems = [ "aarch64-linux" ];
 
-  outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
-    imports = [
-      inputs.ez-configs.flakeModule
-    ];
-
-    systems = [
-      "x86_64-linux"
-    ];
-
-    ezConfigs = let
-      root = ./.;
-      modules = "${root}/modules";
-      configs = "${root}/configs";
-    in {
-      globalArgs = inputs;
-
-      inherit root;
-
-      home = {
-        modulesDirectory = "${modules}/home";
-        configurationsDirectory = "${configs}/home";
+    flake = {
+      nixOnDroidModules = {
+        default = "${modules}/droid";
       };
-      nixos = {
-        modulesDirectory = "${modules}/nixos";
-        configurationsDirectory = "${configs}/nixos";
-      };
-      darwin = {
-        modulesDirectory = "${modules}/darwin";
-        configurationsDirectory = "${configs}/darwin";
+      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+        modules = [
+	  "${configs}/droid"
+          "${modules}/droid"
+	  ./home.nix
+	];
+	extraSpecialArgs = inputs // { inherit root modules configs; };
       };
     };
   };
