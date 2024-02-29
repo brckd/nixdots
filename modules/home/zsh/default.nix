@@ -8,7 +8,7 @@ in {
   config = mkIf cfg.enable {
     programs.zsh = {
       enableAutosuggestions = mkDefault true;
-      enableSyntaxHighlighting = mkDefault true;
+      syntaxHighlighting.enable = mkDefault true;
       autocd = mkDefault true;
     };
   };
