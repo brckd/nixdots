@@ -12,6 +12,8 @@ let
     '' else "lua ${script}";
 in {
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [ fd ];
+
     programs.neovim = {
       viAlias = mkDefault true;
       vimAlias = mkDefault true;
