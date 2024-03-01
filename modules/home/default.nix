@@ -10,7 +10,7 @@
     ./hyprland
     ./rofi
     ./kitty
-    ./neovim
+    ./nixvim
     ./librewolf
     ./fastfetch
     ./spotify-player

@@ -37,4 +37,5 @@ Special thanks to these project that heavily inspired me!
 - [ez-configs](https://github.com/ehllie/ez-configs)
 - [Notusknot's dotfiles](https://github.com/notusknot/dotfiles-nix)
 - [Misterio77's starter-configs](https://github.com/Misterio77/nix-starter-configs)
+- [Vimjoyer's Nixvim Video](https://github.com/vimjoyer/nixvim-video)
 - [NvChad](https://github.com/NvChad/NvChad)

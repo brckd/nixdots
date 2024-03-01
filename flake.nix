@@ -8,11 +8,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     ez-configs.url = "github:ehllie/ez-configs"; 
     
     nix-colors = {
       url = "github:misterio77/nix-colors";
+    };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     getchoo = {
@@ -31,22 +37,22 @@
     ];
   };
 
-  outputs = inputs@{ flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs@{ flake-parts, ... }: let
+    systems = [ "x86_64-linux" "aarch64-linux" ];
+    root = ./.;
+    modules = "${root}/modules";
+    configs = "${root}/configs";
+  in flake-parts.lib.mkFlake { inherit inputs; } {
+    debug = true;
+
     imports = [
       inputs.ez-configs.flakeModule
     ];
+    
+    inherit systems;
 
-    systems = [
-      "x86_64-linux"
-    ];
-
-    ezConfigs = let
-      root = ./.;
-      modules = "${root}/modules";
-      configs = "${root}/configs";
-    in {
+    ezConfigs = {
       globalArgs = inputs;
-
       inherit root;
 
       home = {
