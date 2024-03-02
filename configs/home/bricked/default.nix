@@ -13,6 +13,8 @@
   programs.starship.enable = true;
   programs.kitty.enable = true;
   programs.fastfetch.enable = true;
+	programs.git.enable = true;
+	programs.gh.enable = true;
 
   # Desktop environment
   wayland.windowManager.hyprland = {

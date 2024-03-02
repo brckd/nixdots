@@ -12,6 +12,7 @@
   programs.zsh.enable = true;
   programs.starship.enable = true;
   programs.kitty.enable = true;
+	programs.git.enable = true;
 
   # Desktop environment
   wayland.windowManager.hyprland = {

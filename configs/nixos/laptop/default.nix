@@ -31,7 +31,6 @@
     services.pipewire.enable = true;
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
-    programs.git.enable = true;
 
     # Install fonts
     fonts.packages = with pkgs; [
