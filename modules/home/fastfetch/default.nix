@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 with lib;
+
 let
   cfg = config.programs.fastfetch;
 in {
@@ -9,6 +10,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ neofetch ];
+    home.packages = with pkgs; [ fastfetch ];
   };
 }

@@ -7,11 +7,7 @@
     experimental-features = nix-command flakes
   '';
 
-  environment.packages = with pkgs; [
-    git
-    gh
-	  zsh
-	];
+  environment.packages = with pkgs; [ zsh ];
 
 	user.shell = "${pkgs.zsh}/bin/zsh";
 }

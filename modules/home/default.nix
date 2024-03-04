@@ -5,8 +5,17 @@
   programs.home-manager.enable = true;
 
   imports = [
+    nix-colors.homeManagerModules.default
     ./zsh
-    ./neovim
+    ./hyprland
+    ./rofi
+    ./kitty
+    ./nixvim
+    ./librewolf
     ./fastfetch
+    ./spotify-player
+    ./cava
+    ./theseus
+    ./vesktop
   ];
 }
