@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.programs.fastfetch;
 in {
   options.programs.fastfetch = {
@@ -10,6 +12,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ fastfetch ];
+    home.packages = with pkgs; [fastfetch];
   };
 }

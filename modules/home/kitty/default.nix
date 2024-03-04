@@ -1,14 +1,16 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.programs.kitty;
 in {
   config = mkIf cfg.enable {
     programs.kitty = {
-      shellIntegration.enableZshIntegration = mkDefault true; 
-      theme = mkDefault (replaceStrings [" "] ["-"] config.colorScheme.name); 
+      shellIntegration.enableZshIntegration = mkDefault true;
+      theme = mkDefault (replaceStrings [" "] ["-"] config.colorScheme.name);
 
       font = mkDefault {
         package = pkgs.jetbrains-mono;

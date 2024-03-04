@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.programs.vesktop;
 in {
   options.programs.vesktop = {
@@ -10,6 +12,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ vesktop ];
+    home.packages = with pkgs; [vesktop];
   };
 }

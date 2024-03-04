@@ -1,6 +1,9 @@
-{ config, pkgs, nix-colors, ... }:
-
 {
+  config,
+  pkgs,
+  nix-colors,
+  ...
+}: {
   imports = [
     ./configuration.nix
   ];
@@ -44,7 +47,7 @@
     networking.protonvpn = {
       enable = true;
       endpoint = "138.199.7.234";
-      publicKey = "ozbmrTpgMTEuR1N7KguQD6qCMJzamTNYtFungG3xpQ0="; 
+      publicKey = "ozbmrTpgMTEuR1N7KguQD6qCMJzamTNYtFungG3xpQ0=";
       privateKeyFile = /root/secrets/protonvpn;
       dns.enable = true;
     };
@@ -54,12 +57,12 @@
       bricked = {
         isNormalUser = true;
         description = "Bricked";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = ["networkmanager" "wheel"];
       };
       john = {
         isNormalUser = true;
         description = "John";
-        extraGroups = [ "networkmanager" ];
+        extraGroups = ["networkmanager"];
       };
     };
 

@@ -1,8 +1,11 @@
-{ config, lib, pkgs, getchoo, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  getchoo,
+  ...
+}:
+with lib; let
   cfg = config.programs.theseus;
 in {
   options.programs.theseus = {
@@ -10,6 +13,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with getchoo.packages.${pkgs.system}; [ modrinth-app ];
+    home.packages = with getchoo.packages.${pkgs.system}; [modrinth-app];
   };
 }

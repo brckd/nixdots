@@ -1,8 +1,11 @@
-{ config, pkgs, lib, ... }:
-
-with lib; 
-
-let cfg = config.modules.eww;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.eww;
 in {
   options.modules.eww = {
     enable = mkEnableOption "Enable ElKowars wacky widgets.";

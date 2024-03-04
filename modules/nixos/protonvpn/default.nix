@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.networking.protonvpn;
 in {
   options.networking.protonvpn = {
@@ -68,19 +70,19 @@ in {
   config = mkIf cfg.enable {
     networking.wg-quick.interfaces.${cfg.name} = {
       autostart = cfg.autostart;
-      address = [ cfg.address ];
+      address = [cfg.address];
       listenPort = cfg.port;
       privateKeyFile = "${cfg.privateKeyFile}";
 
       peers = [
         {
           publicKey = cfg.publicKey;
-          allowedIPs = [ "0.0.0.0/0" "::/0" ];
+          allowedIPs = ["0.0.0.0/0" "::/0"];
           endpoint = "${cfg.endpoint}:${builtins.toString cfg.port}";
         }
       ];
 
-      dns = mkIf cfg.dns.enable [ cfg.dns.address ];
+      dns = mkIf cfg.dns.enable [cfg.dns.address];
     };
   };
 }

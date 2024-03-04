@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.programs.spotify-player;
 in {
   options.programs.spotify-player = {
@@ -10,6 +12,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ spotify-player ];
+    home.packages = with pkgs; [spotify-player];
   };
 }

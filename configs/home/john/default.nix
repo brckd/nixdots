@@ -1,6 +1,4 @@
-{ nix-colors, ... }:
-
-{
+{nix-colors, ...}: {
   home = {
     username = "bricked";
     homeDirectory = "/home/bricked";
@@ -12,7 +10,7 @@
   programs.zsh.enable = true;
   programs.starship.enable = true;
   programs.kitty.enable = true;
-	programs.git.enable = true;
+  programs.git.enable = true;
 
   # Desktop environment
   wayland.windowManager.hyprland = {

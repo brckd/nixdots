@@ -1,14 +1,17 @@
-{ config, lib, pkgs, nixvim, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  nixvim,
+  ...
+}:
+with lib; let
   cfg = config.programs.nixvim;
 in {
-  imports = [ nixvim.homeManagerModules.nixvim ];
-  
+  imports = [nixvim.homeManagerModules.nixvim];
+
   config = {
-    home.packages = with pkgs; [ (mkIf cfg.plugins.telescope.enable fd) ];
+    home.packages = with pkgs; [(mkIf cfg.plugins.telescope.enable fd)];
 
     programs.nixvim = {
       viAlias = mkDefault true;
@@ -25,9 +28,11 @@ in {
         number = mkDefault true;
       };
 
-      keymaps = let options = {
-        silent = true;
-      }; in [
+      keymaps = let
+        options = {
+          silent = true;
+        };
+      in [
         {
           action = "<cmd>Telescope find_files<CR>";
           key = "<C-f>";
@@ -68,10 +73,10 @@ in {
           enable = mkDefault true;
           autoEnableSources = true;
           sources = [
-            { name = "treesitter"; }
-            { name = "nvim_lsp"; }
-            { name = "buffer"; }
-            { name = "luasnip"; }
+            {name = "treesitter";}
+            {name = "nvim_lsp";}
+            {name = "buffer";}
+            {name = "luasnip";}
           ];
           mapping = {
             "<CR>" = "cmp.mapping.confirm({ select = true })";
@@ -91,7 +96,7 @@ in {
                   end
                 end
               '';
-              modes = [ "i" "s" ];
+              modes = ["i" "s"];
             };
           };
         };

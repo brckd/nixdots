@@ -1,8 +1,9 @@
-{ config, lib, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.programs.zsh;
 in {
   config = mkIf cfg.enable {

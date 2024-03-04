@@ -1,6 +1,9 @@
-{ config, pkgs, nix-colors, ... }:
-
 {
+  config,
+  pkgs,
+  nix-colors,
+  ...
+}: {
   imports = [
     ./configuration.nix
   ];
@@ -55,7 +58,7 @@
       bricked = {
         isNormalUser = true;
         description = "Bricked";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = ["networkmanager" "wheel"];
       };
     };
 

@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.nix.experimental;
 in {
   options.nix.experimental = {
@@ -23,8 +25,16 @@ in {
       package = mkIf cfg.flakes.enable cfg.flakes.package;
       extraOptions = ''
         experimental-features = ${
-          (if cfg.flakes.enable then "flakes " else "") +
-          (if cfg.nix-command.enable then "nix-command " else "")
+          (
+            if cfg.flakes.enable
+            then "flakes "
+            else ""
+          )
+          + (
+            if cfg.nix-command.enable
+            then "nix-command "
+            else ""
+          )
         }
       '';
     };
