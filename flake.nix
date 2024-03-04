@@ -9,6 +9,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/prerelease-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     ez-configs.url = "github:ehllie/ez-configs"; 
     
@@ -35,9 +41,9 @@
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "getchoo.cachix.org-1:ftdbAUJVNaFonM0obRGgR5+nUmdLMM+AOvDOSx0z5tE="
     ];
-  };
+  }; 
 
-  outputs = inputs@{ flake-parts, ... }: let
+  outputs = inputs@{ flake-parts, nix-on-droid, ... }: let
     systems = [ "x86_64-linux" "aarch64-linux" ];
     root = ./.;
     modules = "${root}/modules";
@@ -45,9 +51,7 @@
   in flake-parts.lib.mkFlake { inherit inputs; } {
     debug = true;
 
-    imports = [
-      inputs.ez-configs.flakeModule
-    ];
+    imports = [ inputs.ez-configs.flakeModule ];
     
     inherit systems;
 
@@ -59,13 +63,37 @@
         modulesDirectory = "${modules}/home";
         configurationsDirectory = "${configs}/home";
       };
+
       nixos = {
         modulesDirectory = "${modules}/nixos";
         configurationsDirectory = "${configs}/nixos";
       };
+
       darwin = {
         modulesDirectory = "${modules}/darwin";
         configurationsDirectory = "${configs}/darwin";
+      };
+    };
+
+    flake = {
+      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+        modules = [
+          "${modules}/droid"
+          "${configs}/droid"
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              config = {
+                imports = [
+                  "${modules}/home"
+                  "${configs}/home/droid"
+                ];
+              };
+              extraSpecialArgs = inputs;
+            };
+          }
+        ];
+        extraSpecialArgs = inputs;
       };
     };
   };

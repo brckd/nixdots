@@ -1,13 +1,15 @@
-{ config, lib, nixvim, ... }:
-
+{ config, lib, pkgs, nixvim, ... }:
 
 with lib;
+
 let
   cfg = config.programs.nixvim;
 in {
   imports = [ nixvim.homeManagerModules.nixvim ];
-
+  
   config = {
+    home.packages = with pkgs; [ (mkIf cfg.plugins.telescope.enable fd) ];
+
     programs.nixvim = {
       viAlias = mkDefault true;
       vimAlias = mkDefault true;
@@ -36,17 +38,17 @@ in {
           key = "<C-g>";
           inherit options;
         }
-				{
-					action = "<cmd>NvimTreeToggle<CR>";
-					key = "<C-n>";
-					inherit options;
-				}
+        {
+          action = "<cmd>NvimTreeToggle<CR>";
+          key = "<C-n>";
+          inherit options;
+        }
       ];
 
       plugins = {
-        treesitter.enable = true;
+        treesitter.enable = mkDefault true;
         lsp = {
-          enable = true;
+          enable = mkDefault true;
           servers = {
             nil_ls.enable = true;
             tsserver.enable = true;
@@ -60,16 +62,16 @@ in {
             astro.enable = true;
           };
         };
-        luasnip.enable = true;
+        luasnip.enable = mkDefault true;
 
         nvim-cmp = {
-          enable = true;
+          enable = mkDefault true;
           autoEnableSources = true;
           sources = [
             { name = "treesitter"; }
             { name = "nvim_lsp"; }
-            { name = "luasnip"; }
             { name = "buffer"; }
+            { name = "luasnip"; }
           ];
           mapping = {
             "<CR>" = "cmp.mapping.confirm({ select = true })";
@@ -94,16 +96,13 @@ in {
           };
         };
 
-        indent-blankline.enable = true;
-        nvim-autopairs.enable = true;
+        indent-blankline.enable = mkDefault true;
+        nvim-autopairs.enable = mkDefault true;
 
-        telescope.enable = true;
-        nvim-tree = {
-					enable = true;
-					autoClose = true;
-				};
-        lualine.enable = true;
-        which-key.enable = true;
+        telescope.enable = mkDefault true;
+        nvim-tree.enable = mkDefault true;
+        lualine.enable = mkDefault true;
+        which-key.enable = mkDefault true;
       };
     };
   };
