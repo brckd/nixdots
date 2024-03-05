@@ -25,7 +25,7 @@ cd nixdots
 nix run home-manager/master -- switch --flake .
 ```
 
-6. Build and activate the system configuration, if one exists.
+5. Build and activate the system configuration, if one exists.
 
 On NixOS (device specific)
 
@@ -48,18 +48,18 @@ nix-on-droid switch --flake .
 2. Use `nixos-generate-config` to create a hardware configuration.
 
 ```bash
-nixos-generate-config --dir .configurations/nixos/$HOSTNAME
+nixos-generate-config --dir ./configurations/nixos/$HOSTNAME
 ```
 
 3. Create a `default.nix` module that imports `configuration.nix` to configure your system.
 
 ### On nix-on-droid
 
-Just override the existing configuration in `.configurations/droid/default.nix`.
+Just override the existing configuration in `./configurations/droid/default.nix`.
 
 ### On Home Manager
 
-1. Create a new directory at `.configurations/home/$USERNAME`
+1. Create a new directory at `./configurations/home/$USERNAME`
 
 2. Create a `default.nix` module to configure your user.
 
