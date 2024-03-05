@@ -66,6 +66,7 @@
     };
 
   inputs = {
+    # Loaders
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -82,6 +83,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     ez-configs.url = "github:ehllie/ez-configs";
 
+    # Meta
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -91,6 +93,7 @@
       url = "github:misterio77/nix-colors";
     };
 
+    # Packages
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -100,6 +103,8 @@
       url = "github:getchoo/nix-exprs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    erosanix.url = "github:emmanuelrosa/erosanix";
   };
 
   nixConfig = {
