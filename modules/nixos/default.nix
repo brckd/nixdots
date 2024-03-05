@@ -1,7 +1,11 @@
-{nix-colors, erosanix, ...}: {
+{
+  nix-colors,
+  erosanix,
+  ...
+}: {
   imports = [
     nix-colors.homeManagerModules.default
-		erosanix.nixosModules.protonvpn
+    erosanix.nixosModules.protonvpn
     ./experimental
     ./locale
     ./hyprland

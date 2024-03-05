@@ -46,14 +46,14 @@
     networking.hostName = "laptop"; # Define your hostname.
     services.protonvpn = {
       enable = true;
-			interface = {
-				privateKeyFile = "/root/secrets/protonvpn";
-				dns.enable = true;
-			};
-			endpoint = {
-				publicKey = "ozbmrTpgMTEuR1N7KguQD6qCMJzamTNYtFungG3xpQ0=";
-				ip = "138.199.7.234";
-			};
+      interface = {
+        privateKeyFile = "/root/secrets/protonvpn";
+        dns.enable = true;
+      };
+      endpoint = {
+        publicKey = "ozbmrTpgMTEuR1N7KguQD6qCMJzamTNYtFungG3xpQ0=";
+        ip = "138.199.7.234";
+      };
     };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.

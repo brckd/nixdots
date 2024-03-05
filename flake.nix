@@ -12,9 +12,9 @@
     configs = "${root}/configs";
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
-      debug = true;
-
-      imports = [inputs.ez-configs.flakeModule];
+      imports = [
+        inputs.ez-configs.flakeModule
+      ];
 
       inherit systems;
 
@@ -80,23 +80,38 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    ez-configs.url = "github:ehllie/ez-configs";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    ez-configs = {
+      url = "github:ehllie/ez-configs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
 
     # Meta
+    flake-compat.url = "github:edolstra/flake-compat";
+
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flakeCompat.follows = "flake-compat";
     };
 
     nix-colors = {
       url = "github:misterio77/nix-colors";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     # Packages
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.home-manager.follows = "home-manager";
     };
 
     getchoo = {
@@ -104,7 +119,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    erosanix.url = "github:emmanuelrosa/erosanix";
+    erosanix = {
+      url = "github:emmanuelrosa/erosanix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+    };
   };
 
   nixConfig = {
