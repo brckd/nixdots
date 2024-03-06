@@ -8,8 +8,8 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       fonts = rec {
         monospace = {
-          package = pkgs.jetbrains-mono;
-          name = "JetBrains Mono";
+          package = with pkgs; nerdfonts.override { fonts = ["JetBrainsMono"]; };
+          name = "JetBrainsMono Nerd Font Mono";
         };
         serif = monospace;
         sansSerif = monospace;
