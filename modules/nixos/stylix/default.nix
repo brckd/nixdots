@@ -7,12 +7,15 @@
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       fonts = rec {
-        monospace = {
-          package = with pkgs; nerdfonts.override { fonts = ["JetBrainsMono"]; };
-          name = "JetBrainsMono Nerd Font Mono";
+        sansSerif = {
+					package = pkgs.noto-fonts;
+					name = "Noto Sans";
+				};
+        serif = sansSerif;
+        monospace = let font = "JetBrainsMono"; in {
+          package = with pkgs; nerdfonts.override { fonts = [font]; };
+          name = "${font} Nerd Font Mono";
         };
-        serif = monospace;
-        sansSerif = monospace;
         emoji = monospace;
       };
     };
