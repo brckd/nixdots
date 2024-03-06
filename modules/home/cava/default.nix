@@ -1,12 +1,11 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
 with lib; let
   cfg = config.programs.cava;
-  palette = config.colorScheme.palette;
+  palette = config.lib.stylix.colors;
   mkGradient = count: palette:
     listToAttrs (
       zipListsWith
@@ -24,7 +23,7 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     programs.cava = {
-      settings = mkDefault {
+      settings = {
         input.method = "pipewire";
         color = mkGradient 7 (with palette; [
           base0E

@@ -28,9 +28,9 @@ in {
 
   config = mkIf cfg.enable {
     programs.rofi = {
-      package = mkDefault pkgs.rofi-wayland;
-      plugins = with pkgs; mkDefault [rofi-power-menu rofi-screenshot rofimoji rofi-calc];
-      extraConfig = mkDefault {
+      package = pkgs.rofi-wayland;
+      plugins = with pkgs; [rofi-power-menu rofi-screenshot rofimoji rofi-calc];
+      extraConfig = {
         modi = "run,drun,window";
         icon-theme = "Oranchelo";
         show-icons = true;
@@ -44,17 +44,8 @@ in {
       theme = let
         inherit (config.lib.formats.rasi) mkLiteral;
       in
-        mkDefault {
-          "*" = with palette; {
-            bg-col = mkLiteral "#${base00}";
-            bg-col-light = mkLiteral "#${base00}";
-            border-col = mkLiteral "#${base00}";
-            selected-col = mkLiteral "#${base00}";
-            blue = mkLiteral "#${base0D}";
-            fg-col = mkLiteral "#${base05}";
-            fg-col2 = mkLiteral "#${base08}";
-            grey = mkLiteral "#${base03}";
-
+        {
+          "*" = {
             width = 600;
           };
 
@@ -67,25 +58,16 @@ in {
             height = mkLiteral "360px";
             border = mkLiteral "3px";
             border-radius = mkLiteral "5px";
-            border-color = mkLiteral "@border-col";
-            background-color = mkLiteral "@bg-col";
-          };
-
-          "mainbox" = {
-            background-color = mkLiteral "@bg-col";
           };
 
           "inputbar" = {
             children = mkLiteral "[prompt,entry]";
-            background-color = mkLiteral "@bg-col";
             border-radius = mkLiteral "10px";
             padding = mkLiteral "2px";
           };
 
           "prompt" = {
-            background-color = mkLiteral "@blue";
             padding = mkLiteral "6px";
-            text-color = mkLiteral "@bg-col";
             border-radius = mkLiteral "3px";
             margin = mkLiteral "20px 0px 0px 20px";
           };
@@ -98,32 +80,22 @@ in {
           "entry" = {
             padding = mkLiteral "6px";
             margin = mkLiteral "20px 0px 0px 10px";
-            text-color = mkLiteral "@fg-col";
-            background-color = mkLiteral "@bg-col";
           };
 
           "listview" = {
             border = mkLiteral "0px 0px 0px";
             padding = mkLiteral "6px 0px 0px";
-            margin = mkLiteral "10px 0px 0px 20px";
-            columns = mkLiteral "2";
-            lines = mkLiteral "5";
-            background-color = mkLiteral "@bg-col";
+            margin = mkLiteral "10px 20px 0px 20px";
+						lines = mkLiteral "5";
           };
 
           "element" = {
             padding = mkLiteral "10px";
-            background-color = mkLiteral "@bg-col";
-            text-color = mkLiteral "@fg-col  ";
+            border-radius = mkLiteral "5px";
           };
 
           "element-icon" = {
             size = mkLiteral "25px";
-          };
-
-          "element selected" = {
-            background-color = mkLiteral "@selected-col";
-            text-color = mkLiteral "@fg-col2";
           };
 
           "mode-switcher" = {
@@ -132,19 +104,12 @@ in {
 
           "button" = {
             padding = mkLiteral "10px";
-            background-color = mkLiteral "@bg-col-light";
-            text-color = mkLiteral "@grey";
             vertical-align = mkLiteral "0.5";
             horizontal-align = mkLiteral "0.5";
-          };
-
-          "button selected" = {
-            background-color = mkLiteral "@bg-col";
-            text-color = mkLiteral "@blue";
+            border-radius = mkLiteral "5px 5px 0px 0px";
           };
 
           "message" = {
-            background-color = mkLiteral "@bg-col-light";
             margin = mkLiteral "2px";
             padding = mkLiteral "2px";
             border-radius = mkLiteral "10px";
@@ -153,13 +118,11 @@ in {
           "textbox" = {
             padding = mkLiteral "6px";
             margin = mkLiteral "20px 0px 0px 20px";
-            text-color = mkLiteral "@blue";
-            background-color = mkLiteral "@bg-col-light";
           };
         };
     };
 
     wayland.windowManager.hyprland.settings.bind = with cfg.keybind;
-      mkIf enable (mkDefault ["${modkey}, ${key}, exec, ${command}"]);
+      mkIf enable ["${modkey}, ${key}, exec, ${command}"];
   };
 }

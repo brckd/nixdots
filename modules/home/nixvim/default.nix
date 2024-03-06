@@ -14,18 +14,18 @@ in {
     home.packages = with pkgs; [(mkIf cfg.plugins.telescope.enable fd)];
 
     programs.nixvim = {
-      viAlias = mkDefault true;
-      vimAlias = mkDefault true;
+      viAlias = true;
+      vimAlias = true;
 
       options = {
         # Tabs
-        smartindent = mkDefault true;
-        tabstop = mkDefault 2;
-        shiftwidth = mkDefault 2;
+        smartindent = true;
+        tabstop = 2;
+        shiftwidth = 2;
 
         # Line numbers
-        relativenumber = mkDefault true;
-        number = mkDefault true;
+        relativenumber = true;
+        number = true;
       };
 
       keymaps = let
@@ -51,9 +51,9 @@ in {
       ];
 
       plugins = {
-        treesitter.enable = mkDefault true;
+        treesitter.enable = true;
         lsp = {
-          enable = mkDefault true;
+          enable = true;
           servers = {
             nil_ls.enable = true;
             tsserver.enable = true;
@@ -67,10 +67,10 @@ in {
             astro.enable = true;
           };
         };
-        luasnip.enable = mkDefault true;
+        luasnip.enable = true;
 
         nvim-cmp = {
-          enable = mkDefault true;
+          enable = true;
           autoEnableSources = true;
           sources = [
             {name = "treesitter";}
@@ -101,13 +101,13 @@ in {
           };
         };
 
-        indent-blankline.enable = mkDefault true;
-        nvim-autopairs.enable = mkDefault true;
+        indent-blankline.enable = true;
+        nvim-autopairs.enable = true;
 
-        telescope.enable = mkDefault true;
-        nvim-tree.enable = mkDefault true;
-        lualine.enable = mkDefault true;
-        which-key.enable = mkDefault true;
+        telescope.enable = true;
+        nvim-tree.enable = true;
+        lualine.enable = true;
+        which-key.enable = true;
       };
     };
   };

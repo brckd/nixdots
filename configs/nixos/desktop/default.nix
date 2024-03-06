@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  nix-colors,
   ...
 }: {
   imports = [
@@ -9,8 +8,6 @@
   ];
 
   config = {
-    colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
-
     nix.experimental = {
       flakes.enable = true;
       nix-command.enable = true;
@@ -36,12 +33,6 @@
     users.defaultUserShell = pkgs.zsh;
     programs.steam.enable = true;
 
-    # Install fonts
-    fonts.packages = with pkgs; [
-      jetbrains-mono
-      fira-code
-    ];
-
     # Enable networking
     networking.networkmanager.enable = true;
     networking.hostName = "desktop"; # Define your hostname.
@@ -52,8 +43,8 @@
         dns.enable = true;
       };
       endpoint = {
-        publicKey = "xGIfeXZPiiMUX1lCAXA7VLX12RefzAZEevm6/Yd1yW4=";
-        ip = "185.107.56.143";
+        publicKey = "fHQZJoKLRiQi/5QcPLE91BT8JTcArjR0l/PXWfv56yw=";
+        ip = "169.150.218.6";
       };
     };
 

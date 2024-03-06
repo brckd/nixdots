@@ -9,8 +9,8 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     programs.steam = {
-      remotePlay.openFirewall = mkDefault true;
-      dedicatedServer.openFirewall = mkDefault true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
     };
   };
 }

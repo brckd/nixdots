@@ -1,11 +1,12 @@
 {
-  nix-colors,
+  stylix,
   erosanix,
   ...
 }: {
   imports = [
-    nix-colors.homeManagerModules.default
     erosanix.nixosModules.protonvpn
+    stylix.nixosModules.stylix
+    ./stylix
     ./experimental
     ./locale
     ./hyprland

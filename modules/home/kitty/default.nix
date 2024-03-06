@@ -9,15 +9,9 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     programs.kitty = {
-      shellIntegration.enableZshIntegration = mkDefault true;
-      theme = mkDefault (replaceStrings [" "] ["-"] config.colorScheme.name);
+      shellIntegration.enableZshIntegration = true;
 
-      font = mkDefault {
-        package = pkgs.jetbrains-mono;
-        name = "JetBrains Mono";
-      };
-
-      settings = mkDefault {
+      settings = {
         single_window_padding_width = 10;
       };
     };

@@ -1,10 +1,9 @@
-{nix-colors, ...}: {
+{...}:
+with builtins; {
   home = {
     username = "bricked";
     homeDirectory = "/home/bricked";
   };
-
-  colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
 
   # Terminal
   programs.zsh.enable = true;
@@ -19,6 +18,7 @@
     enable = true;
     settings.input.kb_layout = "de";
   };
+  programs.wpaperd.enable = true;
   programs.rofi = {
     enable = true;
     keybind.enable = true;

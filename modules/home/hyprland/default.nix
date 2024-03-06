@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -9,46 +8,37 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
-      settings = mapAttrs (name: mkDefault) {
-        # See https://wiki.hyprland.org/Configuring/Monitors/
+      settings = {
         monitor = ",preferred,auto,auto";
 
-        # Some default env vars.
         env = "XCURSOR_SIZE,24";
 
-        # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
-        "input" = {
+        input = {
           follow_mouse = "1";
 
-          "touchpad" = {
+          touchpad = {
             natural_scroll = "no";
           };
 
-          sensitivity = "0"; # -1.0 - 1.0, 0 means no modification.
+          sensitivity = "0";
         };
 
-        "general" = {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
+        general = {
           gaps_in = "5";
           gaps_out = "10";
           border_size = "0";
 
           layout = "dwindle";
 
-          # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
           allow_tearing = "false";
         };
 
-        "decoration" = {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
+        decoration = {
           rounding = "10";
 
           drop_shadow = "true";
           shadow_range = "4";
           shadow_render_power = "3";
-          "col.shadow" = "rgba(1a1a1aee)";
 
           active_opacity = "1";
           inactive_opacity = "1";
@@ -57,10 +47,8 @@ in {
           dim_strength = "0.2";
         };
 
-        "animations" = {
+        animations = {
           enabled = "yes";
-
-          # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
           bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
 
@@ -74,44 +62,26 @@ in {
           ];
         };
 
-        "dwindle" = {
-          # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+        dwindle = {
           pseudotile = "yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below";
           preserve_split = "yes # you probably want this";
         };
 
-        "master" = {
-          # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+        master = {
           new_is_master = "true";
         };
 
-        "gestures" = {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
+        gestures = {
           workspace_swipe = "off";
         };
 
-        "misc" = {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
+        misc = {
           force_default_wallpaper = "-1 # Set to 0 to disable the anime mascot wallpapers";
         };
 
-        # Example per-device config
-        # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-        # "device:epic-mouse-v1" = {
-        #   sensitivity: -0.5;
-        # };
-
-        # Example windowrule v1
-        # windowrule = "float, ^(kitty)$";
-        # Example windowrule v2
-        # windowrulev2 = "float,class:^(kitty)$,title:^(kitty)$";
-        # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-
-        # See https://wiki.hyprland.org/Configuring/Keywords/ for more
         "$mainMod" = "SUPER";
 
         bind = [
-          # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
           "$mainMod SHIFT, C, exec, kitty"
           "$mainMod SHIFT, F, exec, librewolf"
           "$mainMod, Q, killactive, "

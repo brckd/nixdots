@@ -9,7 +9,7 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     programs.librewolf = {
-      settings = mkDefault {
+      settings = {
         "webgl.disabled" = false;
       };
     };

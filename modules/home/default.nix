@@ -1,11 +1,12 @@
-{nix-colors, ...}: {
+{stylix, ...}: {
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 
   imports = [
-    nix-colors.homeManagerModules.default
+    stylix.homeManagerModules.stylix
     ./zsh
     ./hyprland
+    ./wpaperd
     ./rofi
     ./kitty
     ./nixvim

@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  nix-colors,
   ...
 }: {
   imports = [
@@ -9,8 +8,6 @@
   ];
 
   config = {
-    colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
-
     nix.experimental = {
       flakes.enable = true;
       nix-command.enable = true;
@@ -34,12 +31,6 @@
     services.pipewire.enable = true;
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
-
-    # Install fonts
-    fonts.packages = with pkgs; [
-      jetbrains-mono
-      fira-code
-    ];
 
     # Enable networking
     networking.networkmanager.enable = true;

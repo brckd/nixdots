@@ -100,9 +100,9 @@
       inputs.flakeCompat.follows = "flake-compat";
     };
 
-    nix-colors = {
-      url = "github:misterio77/nix-colors";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Packages
