@@ -19,9 +19,9 @@
           name = "${font} Nerd Font Mono";
         };
         emoji = {
-					package = pkgs.twemoji-color-font;
-					name = "Twitter Color Emoji";
-				};
+          package = pkgs.twemoji-color-font;
+          name = "Twitter Color Emoji";
+        };
       };
     };
   };

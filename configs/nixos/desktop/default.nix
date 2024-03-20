@@ -43,7 +43,7 @@
         dns.enable = true;
       };
       endpoint = {
-				publicKey = "O7NAlrmJoPD3RFQgzzOf1nsb8CBxGaI6nT7ikNs7Ky8=";
+        publicKey = "O7NAlrmJoPD3RFQgzzOf1nsb8CBxGaI6nT7ikNs7Ky8=";
         ip = "93.190.138.166";
       };
     };
