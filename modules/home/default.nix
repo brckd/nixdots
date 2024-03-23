@@ -4,6 +4,7 @@
 
   imports = [
     stylix.homeManagerModules.stylix
+		./stylix
     ./zsh
     ./hyprland
     ./wpaperd
