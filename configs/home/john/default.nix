@@ -20,7 +20,7 @@
     enable = true;
     keybind.enable = true;
   };
-	services.cliphist.enable = true;
+  services.cliphist.enable = true;
 
   # Editor
   programs.nixvim = {
