@@ -80,25 +80,10 @@ in {
               {name = "luasnip";}
             ];
             mapping = {
+							"<C-Space>" = "cmp.mapping.complete()";
               "<CR>" = "cmp.mapping.confirm({ select = true })";
-              "<Tab>" = {
-                action = ''
-                  function(fallback)
-                    if cmp.visible() then
-                      cmp.select_next_item()
-                    elseif luasnip.expandable() then
-                      luasnip.expand()
-                    elseif luasnip.expand_or_jumpable() then
-                      luasnip.expand_or_jump()
-                    elseif check_backspace() then
-                      fallback()
-                    else
-                      fallback()
-                    end
-                  end
-                '';
-                modes = ["i" "s"];
-              };
+              "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+              "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
             };
           };
         };
