@@ -9,7 +9,7 @@ with lib; let
 in {
   options.nix.experimental = {
     flakes = {
-      enable = mkEnableOption "Whether to enable flakes.";
+      enable = mkEnableOption "flakes";
       package = mkOption {
         default = pkgs.nixFlakes;
         example = pkgs.nixFlakes;
@@ -17,7 +17,7 @@ in {
         description = "The package to be used to enable flakes.";
       };
     };
-    nix-command.enable = mkEnableOption "Whether to enable nix-command.";
+    nix-command.enable = mkEnableOption "nix-command";
   };
 
   config = {

@@ -8,7 +8,7 @@ with lib; let
   cfg = config.programs.fastfetch;
 in {
   options.programs.fastfetch = {
-    enable = mkEnableOption "Whether to enable Fastfetch, a neofetch-like tool.";
+    enable = mkEnableOption "Fastfetch, a neofetch-like tool";
   };
 
   config = mkIf cfg.enable {

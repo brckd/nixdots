@@ -6,7 +6,6 @@
 }:
 with lib; let
   cfg = config.programs.rofi;
-  palette = config.colorScheme.palette;
 in {
   options.programs.rofi = {
     keybind = {

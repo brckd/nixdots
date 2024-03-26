@@ -8,7 +8,7 @@ with lib; let
   cfg = config.programs.vesktop;
 in {
   options.programs.vesktop = {
-    enable = mkEnableOption "Enable Discord chat app.";
+    enable = mkEnableOption "Vesktop";
   };
 
   config = mkIf cfg.enable {
