@@ -1,16 +1,13 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./configuration.nix
   ];
 
   config = {
     nix = {
-			package = pkgs.nix;
-			settings.experimental-features = [ "nix-command" "flakes" ];
-		};
+      package = pkgs.nix;
+      settings.experimental-features = ["nix-command" "flakes"];
+    };
     locale = {
       timeZone = "Europe/Berlin";
       language = "en_US.UTF-8";
@@ -52,6 +49,11 @@
       bricked = {
         isNormalUser = true;
         description = "Bricked";
+        extraGroups = ["networkmanager" "wheel"];
+      };
+      john = {
+        isNormalUser = true;
+        description = "John";
         extraGroups = ["networkmanager" "wheel"];
       };
     };

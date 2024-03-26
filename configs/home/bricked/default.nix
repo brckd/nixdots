@@ -1,5 +1,4 @@
-{...}:
-{
+{...}: {
   home = {
     username = "bricked";
     homeDirectory = "/home/bricked";
@@ -30,7 +29,7 @@
     enable = true;
     defaultEditor = true;
   };
-	programs.bun.enable = true;
+  programs.bun.enable = true;
 
   # Music
   programs.spotify-player.enable = true;
