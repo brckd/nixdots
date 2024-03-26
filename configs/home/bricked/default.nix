@@ -1,5 +1,5 @@
 {...}:
-with builtins; {
+{
   home = {
     username = "bricked";
     homeDirectory = "/home/bricked";
@@ -30,6 +30,7 @@ with builtins; {
     enable = true;
     defaultEditor = true;
   };
+	programs.bun.enable = true;
 
   # Music
   programs.spotify-player.enable = true;
