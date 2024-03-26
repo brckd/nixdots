@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }: {
@@ -8,10 +7,10 @@
   ];
 
   config = {
-    nix.experimental = {
-      flakes.enable = true;
-      nix-command.enable = true;
-    };
+    nix = {
+			package = pkgs.nix;
+			settings.experimental-features = [ "nix-command" "flakes" ];
+		};
     locale = {
       timeZone = "Europe/Berlin";
       language = "en_US.UTF-8";
