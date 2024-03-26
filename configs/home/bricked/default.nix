@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   home = {
     username = "bricked";
     homeDirectory = "/home/bricked";
@@ -39,4 +39,5 @@
   programs.librewolf.enable = true;
   programs.theseus.enable = true;
   programs.vesktop.enable = true;
+	home.packages = with pkgs; [ heroic ];
 }
