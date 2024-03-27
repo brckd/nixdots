@@ -18,6 +18,7 @@
     settings.input.kb_layout = "de";
   };
   programs.wpaperd.enable = true;
+  programs.ags.enable = true;
   programs.rofi = {
     enable = true;
     keybind.enable = true;
