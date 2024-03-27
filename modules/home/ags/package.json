@@ -1,0 +1,14 @@
+{
+  "name": "@bricked/ags-dots",
+  "module": "src/main.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+	"scripts": {
+		"postinstall": "rm types; ln -s $HOME/.local/share/com.github.Aylur.ags/types types"
+	}
+}
