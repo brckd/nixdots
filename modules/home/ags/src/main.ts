@@ -1,3 +1,4 @@
 App.config({
-	windows: []
+	windows: [],
+	style: `${App.configDir}/style/global.css`,
 });
