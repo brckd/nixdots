@@ -1,4 +1,4 @@
-const entry = `${App.configDir}/src/main.ts`;
+const entry = `${App.configDir}/src/index.ts`;
 const main = `/tmp/ags/main.js`;
 
 await Utils.execAsync([
