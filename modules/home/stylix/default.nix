@@ -1,11 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  wallpaper,
+  ...
+}: {
   config = {
     stylix = {
       # placeholder
-      image = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/1023077979591cdeca76aae94e0359da1707a60e/misc/rainbow-cat.png";
-        hash = "sha256-WP+kQ7mgjpeekatDEPSP/XeDc5ZihCm+BxgqgwYDIEU=";
-      };
+      image = wallpaper;
 
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       fonts = rec {
