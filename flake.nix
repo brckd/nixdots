@@ -15,6 +15,7 @@
       imports = [
         inputs.ez-configs.flakeModule
         inputs.treefmt-nix.flakeModule
+        inputs.pre-commit-hooks.flakeModule
       ];
 
       inherit systems;
@@ -39,16 +40,6 @@
         };
       };
 
-      perSystem = {...}: {
-        treefmt.config = {
-          projectRootFile = "flake.nix";
-          programs = {
-            alejandra.enable = true;
-            prettier.enable = true;
-          };
-        };
-      };
-
       flake = {
         nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
           modules = [
@@ -69,6 +60,27 @@
           ];
           extraSpecialArgs = inputs;
         };
+      };
+
+      perSystem = {
+        config,
+        pkgs,
+        ...
+      }: {
+        treefmt.config = {
+          projectRootFile = "flake.nix";
+          programs = {
+            alejandra.enable = true;
+            prettier.enable = true;
+          };
+          flakeCheck = false;
+        };
+
+        pre-commit.settings = {
+          hooks.treefmt.enable = true;
+        };
+
+        devShells.default = config.pre-commit.devShell;
       };
     };
 

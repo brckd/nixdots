@@ -1,4 +1,4 @@
-name: mirror 
+name: mirror
 
 on: [push]
 
@@ -11,6 +11,6 @@ jobs:
           fetch-depth: 0
       - uses: yesolutions/mirror-action@master
         with:
-          REMOTE: 'https://codeberg.org/bricked/nixdots.git'
+          REMOTE: "https://codeberg.org/bricked/nixdots.git"
           GIT_USERNAME: bricked
           GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
