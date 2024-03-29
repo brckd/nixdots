@@ -6,7 +6,7 @@
 
 ```bash
 home-manager switch --flake .
-``````
+```
 
 2. Install type definitions.
 

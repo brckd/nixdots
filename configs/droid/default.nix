@@ -3,9 +3,7 @@
   pkgs,
   ...
 }:
-
-with builtins;
-let
+with builtins; let
   hm-config = config.home-manager.config;
 in {
   system.stateVersion = "23.11";

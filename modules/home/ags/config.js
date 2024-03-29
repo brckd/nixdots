@@ -2,11 +2,17 @@ const entry = `${App.configDir}/src/index.ts`;
 const main = `/tmp/ags/main.js`;
 
 await Utils.execAsync([
-	"bun", "build", entry,
-	"--outfile", main,
-	"--external", "ressource://*",
-	"--external", "gi://*",
-	"--external", "file://*",
+  "bun",
+  "build",
+  entry,
+  "--outfile",
+  main,
+  "--external",
+  "ressource://*",
+  "--external",
+  "gi://*",
+  "--external",
+  "file://*",
 ]).catch(console.error);
 
-await import(`file://${main}`)
+await import(`file://${main}`);

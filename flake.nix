@@ -14,6 +14,7 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         inputs.ez-configs.flakeModule
+        inputs.treefmt-nix.flakeModule
       ];
 
       inherit systems;
@@ -38,8 +39,14 @@
         };
       };
 
-      perSystem = {pkgs, ...}: {
-        formatter = pkgs.alejandra;
+      perSystem = {...}: {
+        treefmt.config = {
+          projectRootFile = "flake.nix";
+          programs = {
+            alejandra.enable = true;
+            prettier.enable = true;
+          };
+        };
       };
 
       flake = {
@@ -66,7 +73,7 @@
     };
 
   inputs = {
-    # Loaders
+    # Systems
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -80,6 +87,7 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    # Flake Framework
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -91,21 +99,21 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    # Meta
     flake-compat.url = "github:edolstra/flake-compat";
 
-    alejandra = {
-      url = "github:kamadorueda/alejandra/3.0.0";
+    # Formatter
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flakeCompat.follows = "flake-compat";
     };
 
+    # Scheming
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Packages
+    # Programs
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";

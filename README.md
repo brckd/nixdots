@@ -7,8 +7,8 @@ Dotfiles for NixOS using Flakes. Contains modules and configurations for NixOS, 
 ## Using existing configurations
 
 1. Make sure to have [NixOS](https://nixos.org/manual/nixos/stable/index.html#ch-installation),
-[nix-on-droid](https://github.com/nix-community/nix-on-droid#try-it-out) or just
-[Nix](https://nixos.org/download#download-nix) properly installed.
+   [nix-on-droid](https://github.com/nix-community/nix-on-droid#try-it-out) or just
+   [Nix](https://nixos.org/download#download-nix) properly installed.
 
 2. [Enable Flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes_temporarily) if you haven't already.
 
