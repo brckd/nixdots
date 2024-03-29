@@ -2,7 +2,10 @@
   config,
   pkgs,
   ...
-}: let
+}:
+
+with builtins;
+let
   hm-config = config.home-manager.config;
 in {
   system.stateVersion = "23.11";
@@ -41,6 +44,6 @@ in {
       color14 = base0C;
       color15 = base07;
     };
-    font = with hm-config.stylix.fonts.monospace; "${package}/share/fonts/truetype/${name}";
+    font = with hm-config.stylix.fonts.monospace; "${package}/share/fonts/truetype/NerdFonts/${replaceStrings [" "] [""] name}-Regular.ttf";
   };
 }
