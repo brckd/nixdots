@@ -1,7 +1,8 @@
 export default (monitor = 0) => Widget.Window({
 	monitor,
 	name: `bar-${monitor}`,
-	anchor: ['top', 'left', 'right'],
+	anchor: ["top", "left", "right"],
+	exclusivity: "exclusive",
 	child: Widget.CenterBox({
 		startWidget: Widget.Box({
 			hexpand: true,
