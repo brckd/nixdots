@@ -14,19 +14,22 @@ in {
         name = "ags-dots";
         src = ./.;
 
-        nativeBuildInputs = with pkgs; [bun];
+        nativeBuildInputs = with pkgs; [bun sass];
         buildPhase = ''
-          # Copy assets
-          cp ${nixos-symbolic} ./assets/nixos-symbolic.svg
+               # Copy assets
+               cp ${nixos-symbolic} ./assets/nixos-symbolic.svg
 
-          # Build bun files
-          bun install
-          bun run build
+          # Build sass
+          sass ./style.scss style.css
+
+               # Build bun files
+               bun install
+               bun run build
         '';
 
         installPhase = ''
           mkdir -p $out
-          cp -r assets style config.js $out
+          cp -r config.js style.css assets $out
         '';
       };
     };
