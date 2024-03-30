@@ -10,6 +10,12 @@
   },
   "scripts": {
     "postinstall": "rm types; ln -s $HOME/.local/share/com.github.Aylur.ags/types types",
-    "build": "bun build ./config.ts --outfile ./config.js --external \"resource://*\" --external \"gi://*\""
+    "build": "bun build:bun & bun build:sass",
+    "build:bun": "bun build ./config.ts --outfile ./config.js --external \"resource://*\" --external \"gi://*\"",
+    "build:sass": "sass style.scss:style.css",
+    "watch": "bun watch:bun & bun watch:sass",
+    "watch:bun": "bun build:bun --watch",
+    "watch:sass": "bun build:sass --watch",
+    "start": "ags --config ./config.js"
   }
 }

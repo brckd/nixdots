@@ -16,15 +16,15 @@ in {
 
         nativeBuildInputs = with pkgs; [bun sass];
         buildPhase = ''
-               # Copy assets
-               cp ${nixos-symbolic} ./assets/nixos-symbolic.svg
+          # Copy assets
+          cp ${nixos-symbolic} ./assets/nixos-symbolic.svg
 
           # Build sass
           sass ./style.scss style.css
 
-               # Build bun files
-               bun install
-               bun run build
+          # Build bun files
+          bun install
+          bun run build
         '';
 
         installPhase = ''
@@ -33,5 +33,6 @@ in {
         '';
       };
     };
+    home.packages = with pkgs; [bun sass];
   };
 }

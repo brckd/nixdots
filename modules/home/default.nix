@@ -17,7 +17,6 @@
     ./rofi
     ./kitty
     ./nixvim
-    ./bun
     ./librewolf
     ./fastfetch
     ./spotify-player

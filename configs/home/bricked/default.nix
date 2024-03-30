@@ -30,7 +30,6 @@
     enable = true;
     defaultEditor = true;
   };
-  programs.bun.enable = true;
 
   # Music
   programs.spotify-player.enable = true;
