@@ -65,10 +65,14 @@ Just override the existing configuration in `./configurations/droid/default.nix`
 
 ## Acknowledgements
 
-Special thanks to these project that heavily inspired me!
+Special thanks to the dotfiles that heavily inspired me!
 
-- [ez-configs](https://github.com/ehllie/ez-configs)
-- [Notusknot's dotfiles](https://github.com/notusknot/dotfiles-nix)
-- [Misterio77's starter-configs](https://github.com/Misterio77/nix-starter-configs)
-- [Vimjoyer's Nixvim Video](https://github.com/vimjoyer/nixvim-video)
+- [Ellie](https://github.com/ehllie/dotfiles)
+- [Notusknot](https://github.com/notusknot/dotfiles-nix)
+- [Misterio77](https://github.com/Misterio77/nix-starter-configs)
+- [LilleAila](https://github.com/LilleAila/dotfiles/tree/main/home/programs/wm/ags)
+- [Vimjoyer](https://github.com/vimjoyer/nixvim-video)
 - [NvChad](https://github.com/NvChad/NvChad)
+
+See the [Flake inputs](./flake.nix) for some of the programs used.
+Check my [GitHub stars](https://github.com/brckd?tab=stars) for more incredible projects!
