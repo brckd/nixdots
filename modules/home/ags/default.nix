@@ -1,25 +1,34 @@
 {
   config,
   lib,
+  pkgs,
   nixos-symbolic,
   ...
 }:
 with lib; let
   cfg = config.programs.ags;
-  colors = config.lib.stylix.colors;
-  colorNames = map (n: "base${fixedWidthNumber 2 n}") (range 0 16);
 in {
   config = mkIf cfg.enable {
     programs.ags = {
-      configDir = ./.;
+      configDir = pkgs.stdenv.mkDerivation {
+        name = "ags-dots";
+        src = ./.;
+
+        nativeBuildInputs = with pkgs; [bun];
+        buildPhase = ''
+          # Copy assets
+          cp ${nixos-symbolic} ./assets/nixos-symbolic.svg
+
+          # Build bun files
+          bun install
+          bun run build
+        '';
+
+        installPhase = ''
+          mkdir -p $out
+          cp -r assets style config.js $out
+        '';
+      };
     };
-    xdg.configFile."ags".recursive = true;
-
-    xdg.configFile."ags/src/style/colors.css".text =
-      concatMapStringsSep "\n"
-      (color: "@define-color ${color} ${colors.withHashtag.${color}};")
-      colorNames;
-
-    xdg.configFile."ags/src/assets/nixos-symbolic.svg".source = nixos-symbolic;
   };
 }

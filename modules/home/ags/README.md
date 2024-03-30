@@ -1,17 +1,23 @@
 # AgsDots
 
-## Contributing
+## Getting Started
 
-1. Install AGS and Bun.
+### Installing AGS and Bun
 
 ```bash
 home-manager switch --flake .
 ```
 
-2. Install type definitions.
+### Installing type definitions
 
 ```bash
 bun install
+```
+
+### Building
+
+```bash
+bun run build
 ```
 
 ## Acknowledgements
