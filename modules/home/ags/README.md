@@ -17,7 +17,15 @@ bun install
 ### Building
 
 ```bash
-bun run build
+bun comp
+bun watch # rebuilds when files change
+```
+
+### Running
+
+```bash
+bun start
+bun dev # restarts when files change
 ```
 
 ## Acknowledgements

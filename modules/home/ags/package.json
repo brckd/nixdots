@@ -1,21 +1,19 @@
 {
   "name": "@bricked/ags-dots",
   "module": "src/index.ts",
-  "type": "module",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "sass": "^1.72.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "scripts": {
     "postinstall": "rm types; ln -s $HOME/.local/share/com.github.Aylur.ags/types types",
-    "build": "bun build:bun & bun build:sass",
-    "build:bun": "bun build ./config.ts --outfile ./config.js --external \"resource://*\" --external \"gi://*\"",
-    "build:sass": "sass style.scss:style.css",
-    "watch": "bun watch:bun & bun watch:sass",
-    "watch:bun": "bun build:bun --watch",
-    "watch:sass": "bun build:sass --watch",
-    "start": "ags --config ./config.js"
-  }
+    "comp": "bun scripts/build.ts",
+    "watch": "bun scripts/watch.ts",
+    "start": "bun scripts/start.ts",
+    "dev": "bun scripts/dev.ts"
+  },
+  "type": "module"
 }

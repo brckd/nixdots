@@ -19,12 +19,9 @@ in {
           # Copy assets
           cp ${nixos-symbolic} ./assets/nixos-symbolic.svg
 
-          # Build sass
-          sass ./style.scss style.css
-
           # Build bun files
           bun install
-          bun run build
+          bun comp
         '';
 
         installPhase = ''
