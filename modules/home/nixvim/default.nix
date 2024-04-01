@@ -17,7 +17,7 @@ in {
       viAlias = true;
       vimAlias = true;
 
-      options = {
+      opts = {
         # Tabs
         smartindent = true;
         tabstop = 2;
