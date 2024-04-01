@@ -172,8 +172,14 @@
     };
 
     # Assets
-    wallpaper.url = "file+https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/misc/rainbow-cat.png";
-    nixos-symbolic.url = "file+https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/white.svg";
+    wallpaper = {
+			url = "file+https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/misc/rainbow-cat.png";
+			flake = false;
+		};
+    nixos-symbolic = {
+			url = "file+https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/white.svg";
+			flake = false;
+	  };
   };
 
   nixConfig = {
