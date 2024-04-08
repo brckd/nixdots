@@ -1,6 +1,4 @@
 {
-	pkgs,
-	nixpkgs-staging,
   stylix,
   erosanix,
   ...
@@ -15,11 +13,4 @@
     ./pipewire
     ./steam
   ];
-
-	system.replaceRuntimeDependencies = [
-	{
-		original = pkgs.xz;
-		replacement = nixpkgs-staging.legacyPackages.${pkgs.system}.xz;
-	}
-	];
 }

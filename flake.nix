@@ -86,8 +86,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-		
-    nixpkgs-staging.url = "github:nixos/nixpkgs/staging-next";
 
     # Systems
     home-manager = {
@@ -173,13 +171,13 @@
 
     # Assets
     wallpaper = {
-			url = "file+https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/misc/rainbow-cat.png";
-			flake = false;
-		};
+      url = "file+https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/misc/rainbow-cat.png";
+      flake = false;
+    };
     nixos-symbolic = {
-			url = "file+https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/white.svg";
-			flake = false;
-	  };
+      url = "file+https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/white.svg";
+      flake = false;
+    };
   };
 
   nixConfig = {
