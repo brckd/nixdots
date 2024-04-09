@@ -13,6 +13,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with getchoo.packages.${pkgs.system}; [modrinth-app];
+    environment.systemPackages = with getchoo.packages.${pkgs.system}; [modrinth-app];
   };
 }

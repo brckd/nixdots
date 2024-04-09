@@ -28,6 +28,7 @@
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
     programs.steam.enable = true;
+		programs.theseus.enable = true;
 
     # Enable networking
     networking.networkmanager.enable = true;

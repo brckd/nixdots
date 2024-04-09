@@ -21,7 +21,6 @@
     ./fastfetch
     ./spotify-player
     ./cava
-    ./theseus
     ./vesktop
   ];
 }
