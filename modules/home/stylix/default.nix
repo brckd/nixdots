@@ -5,9 +5,8 @@
 }: {
   config = {
     stylix = {
-      # placeholder
+			enable = true;
       image = wallpaper;
-
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       fonts = rec {
         sansSerif = {

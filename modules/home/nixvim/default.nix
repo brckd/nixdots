@@ -55,7 +55,7 @@ in {
         lsp = {
           enable = true;
           servers = {
-            nil_ls.enable = true;
+            nil-ls.enable = true;
             tsserver.enable = true;
             eslint.enable = true;
             rust-analyzer = {

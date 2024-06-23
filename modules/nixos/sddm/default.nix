@@ -5,10 +5,10 @@
   ...
 }:
 with lib; let
-  cfg = config.services.xserver.displayManager.sddm;
+  cfg = config.services.displayManager.sddm;
 in {
   config = mkIf cfg.enable {
-    services.xserver.displayManager.sddm = {
+    services.displayManager.sddm = {
       theme = "catppuccin-sddm-corners";
       wayland.enable = true;
     };

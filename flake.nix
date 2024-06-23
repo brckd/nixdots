@@ -116,9 +116,29 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
+		# Development
+
     flake-compat.url = "github:edolstra/flake-compat";
 
     flake-utils.url = "github:numtide/flake-utils";
+
+		gitignore = {
+			url = "github:hercules-ci/gitignore";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
+		git-hooks = {
+			url = "github:cachix/git-hooks.nix";
+			inputs.flake-compat.follows = "flake-compat";
+			inputs.gitignore.follows = "gitignore";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
+		devshell = {
+			url = "github:numtide/devshell";
+			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.flake-utils.follows = "flake-utils";
+		};
 
     # Formatter
     treefmt-nix = {
@@ -129,9 +149,8 @@
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
-      inputs.flake-utils.follows = "flake-utils";
+			inputs.gitignore.follows = "gitignore";
     };
 
     # Scheming
@@ -148,9 +167,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
       inputs.home-manager.follows = "home-manager";
       inputs.nix-darwin.follows = "nix-darwin";
+			inputs.treefmt-nix.follows = "treefmt-nix";
+			inputs.devshell.follows = "devshell";
+			inputs.git-hooks.follows = "git-hooks";
     };
 
     ags = {
@@ -175,7 +196,7 @@
       flake = false;
     };
     nixos-symbolic = {
-      url = "file+https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/white.svg";
+      url = "file+https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos-white.svg";
       flake = false;
     };
   };
