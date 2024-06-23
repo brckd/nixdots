@@ -9,7 +9,11 @@
   programs.starship.enable = true;
   programs.kitty.enable = true;
   programs.fastfetch.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+		enable = true;
+		userName = "bricked";
+		userEmail = "git@bricked.dev";
+	};
   programs.gh.enable = true;
 
   # Desktop environment
