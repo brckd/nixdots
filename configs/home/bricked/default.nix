@@ -13,6 +13,10 @@
     enable = true;
     userName = "bricked";
     userEmail = "git@bricked.dev";
+    extraConfig = {
+      push.autoSetupRemote = true;
+      pull.rebase = true;
+    };
   };
   programs.gh.enable = true;
 
