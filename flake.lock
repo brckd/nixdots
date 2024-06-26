@@ -381,13 +381,13 @@
       "locked": {
         "lastModified": 1719418488,
         "narHash": "sha256-Hu75KIbGLJA8qe42rO5WkRQ+E+BuzjS42bNEZcy9zT8=",
-        "owner": "nix-community",
+        "owner": "brckd",
         "repo": "home-manager",
         "rev": "607f969f5dca2dc100cbc53e24ab49ac24ef8987",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "brckd",
         "repo": "home-manager",
         "type": "github"
       }
