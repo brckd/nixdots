@@ -4,10 +4,10 @@
   ...
 }:
 with lib; let
-  cfg = config.programs.firefox;
+  cfg = config.programs.floorp;
 in {
   config = mkIf cfg.enable {
-    programs.firefox = {
+    programs.floorp = {
       profiles = {
         default = {
           name = "Default";
