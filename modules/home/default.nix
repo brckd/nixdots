@@ -19,6 +19,7 @@
     ./rofi
     ./kitty
     ./nixvim
+		./firefox
     ./librewolf
     ./cava
     ./vesktop
