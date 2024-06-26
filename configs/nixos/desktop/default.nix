@@ -16,9 +16,9 @@
     };
     programs.hyprland.enable = true;
     services.displayManager = {
-			sddm.enable = true;
-			autoLogin.user = "bricked";
-		};
+      sddm.enable = true;
+      autoLogin.user = "bricked";
+    };
     services.pipewire.enable = true;
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
