@@ -90,7 +90,7 @@
 
     # Systems
     home-manager = {
-      url = "github:brckd/home-manager";
+      url = "github:brckd/home-manager/firefox-forks";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
