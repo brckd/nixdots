@@ -90,7 +90,7 @@
 
     # Systems
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:brckd/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
