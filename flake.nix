@@ -86,6 +86,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
 
     # Systems
     home-manager = {
@@ -116,29 +117,29 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
-		# Development
+    # Development
 
     flake-compat.url = "github:edolstra/flake-compat";
 
     flake-utils.url = "github:numtide/flake-utils";
 
-		gitignore = {
-			url = "github:hercules-ci/gitignore";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+    gitignore = {
+      url = "github:hercules-ci/gitignore";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-		git-hooks = {
-			url = "github:cachix/git-hooks.nix";
-			inputs.flake-compat.follows = "flake-compat";
-			inputs.gitignore.follows = "gitignore";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.gitignore.follows = "gitignore";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-		devshell = {
-			url = "github:numtide/devshell";
-			inputs.nixpkgs.follows = "nixpkgs";
-			inputs.flake-utils.follows = "flake-utils";
-		};
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
 
     # Formatter
     treefmt-nix = {
@@ -150,7 +151,7 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
-			inputs.gitignore.follows = "gitignore";
+      inputs.gitignore.follows = "gitignore";
     };
 
     # Scheming
@@ -169,9 +170,9 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.home-manager.follows = "home-manager";
       inputs.nix-darwin.follows = "nix-darwin";
-			inputs.treefmt-nix.follows = "treefmt-nix";
-			inputs.devshell.follows = "devshell";
-			inputs.git-hooks.follows = "git-hooks";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+      inputs.devshell.follows = "devshell";
+      inputs.git-hooks.follows = "git-hooks";
     };
 
     ags = {

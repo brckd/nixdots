@@ -1,4 +1,5 @@
 {
+  nur,
   stylix,
   ags,
   ...
@@ -7,6 +8,7 @@
   programs.home-manager.enable = true;
 
   imports = [
+    nur.hmModules.nur
     stylix.homeManagerModules.stylix
     ags.homeManagerModules.default
     ./stylix
