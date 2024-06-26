@@ -21,6 +21,7 @@
     ./kitty
     ./nixvim
     ./lf
+		./firefox
     ./librewolf
     ./cava
     ./vesktop

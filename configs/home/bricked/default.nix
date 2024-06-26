@@ -51,41 +51,7 @@
   programs.cava.enable = true;
 
   # Apps
-  programs.firefox = {
-    enable = true;
-    profiles = {
-      bricked = {
-        name = "bricked";
-        extensions = with config.nur.repos.rycee.firefox-addons; [
-          ublock-origin
-          bitwarden
-          darkreader
-          libredirect
-        ];
-        search = {
-          default = "DuckDuckGo";
-          force = true;
-          engines = {
-            "Google".metaData.hidden = true;
-            "Bing".metaData.hidden = true;
-          };
-        };
-        bookmarks = [
-          {
-            name = "NixDots";
-            tags = ["nix"];
-            keyword = "nixdots";
-            url = "https://github.com/brckd/nixdots";
-          }
-        ];
-        settings = {
-          "extensions.autoDisableScopes" = 0;
-          "browser.toolbars.bookmarks.visibility" = "never";
-          "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
-        };
-      };
-    };
-  };
+	programs.firefox.enable = true;
   programs.librewolf.enable = true;
   programs.vesktop.enable = true;
   home.packages = with pkgs; [heroic];
