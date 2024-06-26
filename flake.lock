@@ -364,16 +364,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1719424993,
-        "narHash": "sha256-LBJ/xobh9to6kxxbAZY7MkjR1gZwcB0IozEh/J+kWqg=",
+        "lastModified": 1720857381,
+        "narHash": "sha256-BWLoJUTuSGjlkn9vvD6y0n4UpBHb5h+nq+ljhN7b6IM=",
         "owner": "brckd",
         "repo": "home-manager",
-        "rev": "157d5c51767260623ad66490364b0e4a6f90301b",
+        "rev": "d5f4073afd78cd44386a9871650d68b005c3b7b8",
         "type": "github"
       },
       "original": {
         "owner": "brckd",
-        "ref": "firefox-forks",
+        "ref": "firefox/librewolf",
         "repo": "home-manager",
         "type": "github"
       }

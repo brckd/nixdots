@@ -51,7 +51,6 @@
   programs.cava.enable = true;
 
   # Apps
-  programs.firefox.enable = true;
   programs.librewolf.enable = true;
   programs.vesktop.enable = true;
   home.packages = with pkgs; [heroic];
