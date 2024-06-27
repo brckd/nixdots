@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./configuration.nix
   ];
@@ -19,14 +15,11 @@
       layout = "de";
     };
     programs.hyprland.enable = true;
-    services.xserver = {
-      enable = true;
-      displayManager = {
-        sddm = {
-          enable = true;
-        };
-        autoLogin.user = "bricked";
+    services.xserver.displayManager = {
+      sddm = {
+        enable = true;
       };
+      autoLogin.user = "bricked";
     };
     services.pipewire.enable = true;
     programs.zsh.enable = true;
