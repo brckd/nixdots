@@ -4,10 +4,10 @@
   ...
 }:
 with lib; let
-  cfg = config.programs.librewolf;
+  cfg = config.programs.floorp;
 in {
   config = mkIf cfg.enable {
-    programs.librewolf = {
+    programs.floorp = {
       profiles = {
         default = {
           name = "Default";

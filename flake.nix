@@ -90,7 +90,7 @@
 
     # Systems
     home-manager = {
-      url = "github:brckd/home-manager/firefox/librewolf";
+      url = "github:brckd/home-manager/firefox/floorp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
