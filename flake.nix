@@ -90,7 +90,7 @@
 
     # Systems
     home-manager = {
-      url = "github:brckd/home-manager/firefox-forks";
+      url = "github:brckd/home-manager/firefox/librewolf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

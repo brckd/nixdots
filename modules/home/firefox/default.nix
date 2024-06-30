@@ -4,10 +4,10 @@
   ...
 }:
 with lib; let
-  cfg = config.programs.firefox;
+  cfg = config.programs.librewolf;
 in {
   config = mkIf cfg.enable {
-    programs.firefox = {
+    programs.librewolf = {
       profiles = {
         default = {
           name = "Default";
