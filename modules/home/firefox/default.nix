@@ -34,10 +34,20 @@ in {
             }
           ];
           settings = {
-            "extensions.autoDisableScopes" = 0;
+            "extensions.autoDisableScopes" = 0; # Enable extensions
+						"toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable userchrome
+						"browser.aboutConfig.showWarning" = false;
+
+						# Blank homepage
+						"browser.newtabpage.enable" = false;
+						"browser.startup.homepage" = "chrome://browser/content/blanktab.html";
             "browser.toolbars.bookmarks.visibility" = "never";
-            "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
+
+						# Toolbar customization
+						"browser.uiCustomization.state" = builtins.readFile ./toolbar.json;
           };
+
+					userChrome = builtins.readFile ./userChrome.css;
         };
       };
     };
