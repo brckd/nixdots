@@ -17,7 +17,7 @@ bun install
 ### Building
 
 ```bash
-bun comp
+bun build
 bun watch # rebuilds when files change
 ```
 
