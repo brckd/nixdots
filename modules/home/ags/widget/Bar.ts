@@ -1,10 +1,14 @@
 import GLib from "gi://GLib";
+import VolumeSlider from "./VolumeSlider";
 
 export const clock = Variable(GLib.DateTime.new_now_local(), {
-    poll: [1000, () => GLib.DateTime.new_now_local()],
-})
+  poll: [1000, () => GLib.DateTime.new_now_local()],
+});
 
-export const time = Utils.derive([clock], (c) => c.format("%B %d - %H:%M") ?? "")
+export const time = Utils.derive(
+  [clock],
+  (c) => c.format("%B %d - %H:%M") ?? "",
+);
 
 export const Start = () =>
   Widget.Box({
@@ -17,15 +21,15 @@ export const Center = () =>
   Widget.Box({
     hpack: "center",
     child: Widget.Label({
-			label: time.bind(),
-		})
+      label: time.bind(),
+    }),
   });
 
 export const End = () =>
   Widget.Box({
     hexpand: true,
     hpack: "end",
-    child: Widget.Icon("nixos-symbolic"),
+    child: VolumeSlider(),
   });
 
 export const Bar = (monitor = 0) =>
