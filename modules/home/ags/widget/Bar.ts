@@ -1,5 +1,6 @@
 import GLib from "gi://GLib";
 import VolumeSlider from "./VolumeSlider";
+import PowerMenu from "./PowerMenu";
 
 export const clock = Variable(GLib.DateTime.new_now_local(), {
   poll: [1000, () => GLib.DateTime.new_now_local()],
@@ -29,7 +30,7 @@ export const End = () =>
   Widget.Box({
     hexpand: true,
     hpack: "end",
-    child: VolumeSlider(),
+    children: [VolumeSlider(), PowerMenu()]
   });
 
 export const Bar = (monitor = 0) =>
