@@ -10,26 +10,21 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     programs.ags = {
-      configDir = pkgs.stdenv.mkDerivation {
+      configDir = pkgs.buildNpmPackage {
         name = "ags-dots";
         src = ./.;
+				npmDepsHash = "sha256-0Phl7IrrKSd8j4yQ3nefJ4xT/QgrvDnlN68G7bDHCfE=";
 
-        nativeBuildInputs = with pkgs; [bun sass];
-        buildPhase = ''
-          # Copy assets
+        nativeBuildInputs = with pkgs; [bun];
+        postPatch = ''
           cp ${nixos-symbolic} ./assets/nixos-symbolic.svg
-
-          # Build bun files
-          bun install || true
-          bun comp || true
         '';
-
         installPhase = ''
           mkdir -p $out
-          cp -r config.js style.css assets $out || true
+          cp -r config.js assets $out
         '';
       };
     };
-    home.packages = with pkgs; [bun sass];
+    home.packages = with pkgs; [bun prefetch-npm-deps];
   };
 }

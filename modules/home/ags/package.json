@@ -1,5 +1,6 @@
 {
   "name": "@bricked/ags-dots",
+	"version": "0.1.0",
   "module": "src/index.ts",
   "devDependencies": {
     "@types/bun": "latest",
@@ -10,7 +11,7 @@
   },
   "scripts": {
     "postinstall": "rm types; ln -s $HOME/.local/share/com.github.Aylur.ags/types types",
-    "comp": "bun scripts/build.ts",
+    "build": "bun scripts/build.ts",
     "watch": "bun scripts/watch.ts",
     "start": "bun scripts/start.ts",
     "dev": "bun scripts/dev.ts"
