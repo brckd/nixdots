@@ -48,7 +48,7 @@ in {
           preserve_split = true;
         };
 
-        master.new_is_master = true;
+        master.new_status = "master";
 
         bind =
           [
