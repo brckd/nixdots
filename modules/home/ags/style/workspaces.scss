@@ -1,0 +1,13 @@
+.workspaces {
+  .workspace {
+    min-width: 0em;
+    min-height: 0.5em;
+    border-radius: 2em;
+    color: #{"@view_color"};
+
+    &.active {
+      min-width: 1em;
+      background-color: #{"@view_fg_color"};
+    }
+  }
+}

@@ -1,35 +1,27 @@
-import GLib from "gi://GLib";
+import Workspaces from "./Workspaces";
+import Clock from "./Clock";
 import VolumeSlider from "./VolumeSlider";
 import PowerMenu from "./PowerMenu";
-
-export const clock = Variable(GLib.DateTime.new_now_local(), {
-  poll: [1000, () => GLib.DateTime.new_now_local()],
-});
-
-export const time = Utils.derive(
-  [clock],
-  (c) => c.format("%B %d - %H:%M") ?? "",
-);
 
 export const Start = () =>
   Widget.Box({
     hexpand: true,
     hpack: "start",
-    child: Widget.Icon("nixos-symbolic"),
+    spacing: 10,
+    children: [Widget.Icon("nixos-symbolic"), Workspaces()],
   });
 
 export const Center = () =>
   Widget.Box({
     hpack: "center",
-    child: Widget.Label({
-      label: time.bind(),
-    }),
+    child: Clock(),
   });
 
 export const End = () =>
   Widget.Box({
     hexpand: true,
     hpack: "end",
+    spacing: 10,
     children: [VolumeSlider(), PowerMenu()],
   });
 
