@@ -25,6 +25,13 @@ in {
         '';
       };
     };
-    home.packages = with pkgs; [bun prefetch-npm-deps];
+		gtk = {
+			enable = true;
+			iconTheme = {
+				name = "MoreWaita";
+				package = pkgs.morewaita-icon-theme;
+			};
+		};
+    home.packages = with pkgs; [bun prefetch-npm-deps gnome.adwaita-icon-theme morewaita-icon-theme];
   };
 }
