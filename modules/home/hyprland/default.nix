@@ -46,14 +46,14 @@ in {
 
         animations = {
           enabled = true;
-          bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+          bezier = "easeInOut, 0.5, 0, 0, 1";
           animation = [
-            "windows, 1, 7, myBezier"
-            "windowsOut, 1, 7, default, popin 80%"
-            "border, 1, 10, default"
-            "borderangle, 1, 8, default"
-            "fade, 1, 7, default"
-            "workspaces, 1, 6, default"
+            "windows, 1, 3, easeInOut"
+            "windowsOut, 1, 3, easeInOut, popin 80%"
+            "workspaces, 1, 3, easeInOut"
+            "border, 1, 3, easeInOut"
+            "borderangle, 1, 3, easeInOut"
+            "fade, 1, 3, easeInOut"
           ];
         };
 
