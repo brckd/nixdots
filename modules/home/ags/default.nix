@@ -13,7 +13,7 @@ in {
       configDir = pkgs.buildNpmPackage {
         name = "ags-dots";
         src = ./.;
-				npmDepsHash = "sha256-0Phl7IrrKSd8j4yQ3nefJ4xT/QgrvDnlN68G7bDHCfE=";
+        npmDepsHash = "sha256-0Phl7IrrKSd8j4yQ3nefJ4xT/QgrvDnlN68G7bDHCfE=";
 
         nativeBuildInputs = with pkgs; [bun];
         postPatch = ''

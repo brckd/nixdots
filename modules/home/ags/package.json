@@ -1,6 +1,6 @@
 {
   "name": "@bricked/ags-dots",
-	"version": "0.1.0",
+  "version": "0.1.0",
   "module": "src/index.ts",
   "devDependencies": {
     "@types/bun": "latest",

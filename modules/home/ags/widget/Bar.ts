@@ -30,7 +30,7 @@ export const End = () =>
   Widget.Box({
     hexpand: true,
     hpack: "end",
-    children: [VolumeSlider(), PowerMenu()]
+    children: [VolumeSlider(), PowerMenu()],
   });
 
 export const Bar = (monitor = 0) =>
