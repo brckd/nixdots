@@ -14,7 +14,7 @@ const SysTrayItem = (item: (typeof systemtray.items)[number]) =>
 console.log(systemtray.items);
 export const SysTray = () =>
   Widget.Box({
-		className: "systray menu-bar",
+    className: "systray menu-bar",
     children: systemtray.bind("items").as((i) => i.map(SysTrayItem)),
   });
 

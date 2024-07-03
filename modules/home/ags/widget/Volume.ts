@@ -15,7 +15,7 @@ export const VolumeSlider = (type = Type.Speaker) =>
     value: audio[type].bind("volume"),
   });
 
-function getIcon(volume: number) {
+export function getIcon(volume: number) {
   const icons = ["muted", "low", "medium", "high", "overamplified"];
   const i = Math.ceil(volume * (icons.length - 1));
   return `audio-volume-${icons[i]}-symbolic`;
