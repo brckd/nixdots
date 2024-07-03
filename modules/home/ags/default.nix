@@ -24,6 +24,7 @@ in {
           cp -r config.js assets $out
         '';
       };
+      extraPackages = with pkgs; [libdbusmenu-gtk3];
     };
     gtk = {
       enable = true;
