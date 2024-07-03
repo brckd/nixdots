@@ -25,7 +25,7 @@ in {
         };
 
         decoration = {
-          rounding = 10;
+          rounding = 15;
           dim_inactive = true;
           dim_strength = 0.2;
         };
