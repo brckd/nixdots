@@ -26,6 +26,8 @@ in {
 
         decoration = {
           rounding = 15;
+          shadow_range = 10;
+          shadow_render_power = 4;
           dim_inactive = true;
           dim_strength = 0.2;
         };
