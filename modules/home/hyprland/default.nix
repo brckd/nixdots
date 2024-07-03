@@ -72,10 +72,6 @@ in {
             "${mainMod}, P, pin"
             "${mainMod}, U, togglesplit"
             "${mainMod}, F, fullscreen"
-
-            # Scroll through existing workspaces with mainMod + scroll
-            "${mainMod}, mouse_down, workspace, e+1"
-            "${mainMod}, mouse_up, workspace, e-1"
           ]
           # Move focus with mainMod + directional keys
           ++ mapAttrsToList (key: dir: "${mainMod}, ${key}, movefocus, ${dir}") directions
