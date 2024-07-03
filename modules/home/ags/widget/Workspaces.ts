@@ -8,7 +8,7 @@ export const Workspaces = (count = 10) =>
       Widget.Button({
         classNames: hyprland.active.workspace
           .bind("id")
-          .as((i) => ["workspace", ...(i === id + 1 ? ["active"] : [])]),
+          .as((i) => ["workspace", i === id + 1 ? "active" : ""]),
         vpack: "center",
         onClicked: () => hyprland.messageAsync(`dispatch workspace ${id + 1}`),
       }),

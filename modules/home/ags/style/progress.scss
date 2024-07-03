@@ -1,4 +1,4 @@
-.slider {
+.progress {
   min-width: 10em;
   padding: 0;
 
@@ -12,7 +12,7 @@
     background-color: #{"@scrollbar_outline_color"};
 
     &,
-    highlight {
+    * {
       border-radius: 2em;
     }
   }

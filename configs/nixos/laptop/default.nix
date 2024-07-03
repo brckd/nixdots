@@ -22,6 +22,7 @@
       autoLogin.user = "bricked";
     };
     services.pipewire.enable = true;
+    services.upower.enable = true;
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
 

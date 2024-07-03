@@ -1,6 +1,7 @@
 import Workspaces from "./Workspaces";
 import Clock from "./Clock";
 import Volume from "./Volume";
+import Battery from "./Battery";
 import PowerMenu from "./PowerMenu";
 
 export const Start = () =>
@@ -22,7 +23,7 @@ export const End = () =>
     hexpand: true,
     hpack: "end",
     spacing: 20,
-    children: [Volume(), PowerMenu()],
+    children: [Volume(), Battery(), PowerMenu()],
   });
 
 export const Bar = (monitor = 0) =>

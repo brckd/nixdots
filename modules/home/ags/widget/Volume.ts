@@ -7,7 +7,7 @@ export enum Type {
 
 export const VolumeSlider = (type = Type.Speaker) =>
   Widget.Slider({
-    className: "slider",
+    className: "progress",
     hexpand: true,
     drawValue: false,
 
