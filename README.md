@@ -70,6 +70,7 @@ Special thanks to the dotfiles that heavily inspired me!
 - [Ellie](https://github.com/ehllie/dotfiles)
 - [Notusknot](https://github.com/notusknot/dotfiles-nix)
 - [Misterio77](https://github.com/Misterio77/nix-starter-configs)
+- [Aylur](https://github.com/Aylur/dotfiles)
 - [LilleAila](https://github.com/LilleAila/dotfiles/tree/main/home/programs/wm/ags)
 - [Vimjoyer](https://github.com/vimjoyer/nixvim-video)
 - [NvChad](https://github.com/NvChad/NvChad)
