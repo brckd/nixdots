@@ -3,11 +3,11 @@
     min-width: 0em;
     min-height: 0.5em;
     border-radius: 2em;
-    color: #{"@view_color"};
+    background-color: #{"@scrollbar_outline_color"};
 
     &.active {
       min-width: 1em;
-      background-color: #{"@view_fg_color"};
+      background-color: #{"@accent_color"};
     }
   }
 }

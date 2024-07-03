@@ -1,0 +1,18 @@
+.slider {
+  min-width: 10em;
+
+  slider {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  trough {
+    min-height: 1em;
+    background-color: #{"@scrollbar_outline_color"};
+
+    &,
+    highlight {
+      border-radius: 2em;
+    }
+  }
+}

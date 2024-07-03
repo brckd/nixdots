@@ -1,6 +1,6 @@
 import Workspaces from "./Workspaces";
 import Clock from "./Clock";
-import VolumeSlider from "./VolumeSlider";
+import Volume from "./Volume";
 import PowerMenu from "./PowerMenu";
 
 export const Start = () =>
@@ -22,7 +22,7 @@ export const End = () =>
     hexpand: true,
     hpack: "end",
     spacing: 10,
-    children: [VolumeSlider(), PowerMenu()],
+    children: [Volume(), PowerMenu()],
   });
 
 export const Bar = (monitor = 0) =>
