@@ -193,7 +193,7 @@
 
     # Assets
     wallpaper = {
-      url = "file+https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/misc/rainbow-cat.png";
+      url = "file+https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/1023077979591cdeca76aae94e0359da1707a60e/minimalistic/blue-cat.png";
       flake = false;
     };
     nixos-symbolic = {

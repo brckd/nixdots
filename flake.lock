@@ -788,13 +788,13 @@
     "wallpaper": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-O/fxjSpcWWqZQNlGUQ27XRfYYkAdShyAXV4FMjdUxrc=",
+        "narHash": "sha256-jH4edD4koJX7sVGj6j/BWCKMDEY/65zb7DJTXtJB5yA=",
         "type": "file",
-        "url": "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/misc/rainbow-cat.png"
+        "url": "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/1023077979591cdeca76aae94e0359da1707a60e/minimalistic/blue-cat.png"
       },
       "original": {
         "type": "file",
-        "url": "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/misc/rainbow-cat.png"
+        "url": "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/1023077979591cdeca76aae94e0359da1707a60e/minimalistic/blue-cat.png"
       }
     }
   },
