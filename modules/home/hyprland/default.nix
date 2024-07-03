@@ -11,6 +11,18 @@ with lib; let
     F = "librewolf";
     D = "vesktop";
   };
+  directions = {
+    J = "l";
+    L = "r";
+    I = "u";
+    K = "d";
+  };
+  resizeparams = {
+    J = "-20 0";
+    L = "20 0";
+    I = "0 -20";
+    K = "0 20";
+  };
 in {
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
@@ -54,31 +66,31 @@ in {
 
         bind =
           [
-            "${mainMod} SHIFT, Q, exit, "
-            "${mainMod}, Q, killactive, "
-            "${mainMod}, V, togglefloating, "
-            "${mainMod}, P, pseudo," # dwindle
-            "${mainMod}, J, togglesplit," # dwindle
-
-            # Move focus with mainMod + arrow keys
-            "${mainMod}, left, movefocus, l"
-            "${mainMod}, right, movefocus, r"
-            "${mainMod}, up, movefocus, u"
-            "${mainMod}, down, movefocus, d"
-
-            # Example special workspace (scratchpad)
-            "${mainMod}, S, togglespecialworkspace, magic"
-            "${mainMod} SHIFT, S, movetoworkspace, special:magic"
+            "${mainMod} SHIFT, Q, exit"
+            "${mainMod}, Q, killactive"
+            "${mainMod}, O, togglefloating"
+            "${mainMod}, P, pin"
+            "${mainMod}, U, togglesplit"
+            "${mainMod}, F, fullscreen"
 
             # Scroll through existing workspaces with mainMod + scroll
             "${mainMod}, mouse_down, workspace, e+1"
             "${mainMod}, mouse_up, workspace, e-1"
           ]
+          # Move focus with mainMod + directional keys
+          ++ mapAttrsToList (key: dir: "${mainMod}, ${key}, movefocus, ${dir}") directions
+          # Move windows with mainMod + SHIFT + directional keys
+          ++ mapAttrsToList (key: dir: "${mainMod} SHIFT, ${key}, movewindow, ${dir}") directions
+          # App bindings
           ++ mapAttrsToList (key: app: "${mainMod} SHIFT, ${key}, exec, ${app}") binds
           # Switch workspaces with mainMod + [0-9]
           ++ map (ws: "${mainMod}, ${toString (mod ws 10)}, workspace, ${toString ws}") (range 1 10)
           # Move active window to a workspace with mainMod + SHIFT + [0-9]
           ++ map (ws: "${mainMod} SHIFT, ${toString (mod ws 10)}, movetoworkspace, ${toString ws}") (range 1 10);
+
+        # Resize windows with mainMod + ALT + directional keys
+        binde =
+          mapAttrsToList (key: resize: "${mainMod} Control, ${key}, resizeactive, ${resize}") resizeparams;
 
         # Move/resize windows with mainMod + LMB/RMB and dragging
         bindm = [
