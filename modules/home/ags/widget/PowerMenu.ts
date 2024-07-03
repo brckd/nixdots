@@ -4,11 +4,10 @@ export const PowerButton = (command: string, icon: string) =>
     child: Widget.Icon(icon),
   });
 
-export const PowerMenu = () => Widget.Box({
-	className: "powermenu",
-	children: [
-		PowerButton("shutdown now", "system-shutdown-symbolic")
-	]
-})
+export const PowerMenu = () =>
+  Widget.Box({
+    className: "powermenu",
+    children: [PowerButton("shutdown now", "system-shutdown-symbolic")],
+  });
 
 export default PowerMenu;
