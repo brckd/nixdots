@@ -7,7 +7,7 @@ export const Start = () =>
   Widget.Box({
     hexpand: true,
     hpack: "start",
-    spacing: 10,
+    spacing: 20,
     children: [Widget.Icon("nixos-symbolic"), Workspaces()],
   });
 
@@ -21,7 +21,7 @@ export const End = () =>
   Widget.Box({
     hexpand: true,
     hpack: "end",
-    spacing: 10,
+    spacing: 20,
     children: [Volume(), PowerMenu()],
   });
 
