@@ -15,7 +15,7 @@
       layout = "de";
     };
     programs.hyprland.enable = true;
-    services.xserver.displayManager = {
+    services.displayManager = {
       sddm = {
         enable = true;
       };
