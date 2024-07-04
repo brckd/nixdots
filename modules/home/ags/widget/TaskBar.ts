@@ -53,11 +53,19 @@ export const TaskBarItem = (client: (typeof hyprland.clients)[number]) =>
       hyprland.messageAsync(`dispatch focuswindow address:${client.address}`),
   });
 
+export function sortedClients(clients: typeof hyprland.clients) {
+  return clients
+    .toReversed()
+    .toSorted((a, b) => a.workspace.id - b.workspace.id);
+}
+
 export const TaskBar = () =>
   Widget.Box({
     className: "tasks menu-bar",
     spacing: 5,
-    children: hyprland.bind("clients").as((c) => c.map(TaskBarItem)),
+    children: hyprland
+      .bind("clients")
+      .as((c) => sortedClients(c).map(TaskBarItem)),
   });
 
 export default TaskBar;
