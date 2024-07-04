@@ -11,7 +11,6 @@ const SysTrayItem = (item: (typeof systemtray.items)[number]) =>
     onSecondaryClick: (_, event) => item.openMenu(event),
   });
 
-console.log(systemtray.items);
 export const SysTray = () =>
   Widget.Box({
     className: "systray menu-bar",
