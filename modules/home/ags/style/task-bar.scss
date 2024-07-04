@@ -1,0 +1,6 @@
+.tasks {
+  &.button.active {
+    border-bottom: 3px solid #{"@accent_color"};
+    border-radius: 0;
+  }
+}

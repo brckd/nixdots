@@ -34,6 +34,17 @@ export function iconExists(name: string) {
   return false;
 }
 
+const recentClients = Variable([...hyprland.clients.map((c) => c.address)]);
+const recentWorkspaces = Variable([...hyprland.workspaces.map((w) => w.id)]);
+
+hyprland.active.connect("changed", (active) => {
+  recentClients.setValue([active.client.address, ...recentClients.getValue()]);
+  recentWorkspaces.setValue([
+    active.workspace.id,
+    ...recentWorkspaces.getValue(),
+  ]);
+});
+
 export function getIcon(client: (typeof hyprland.clients)[number]) {
   const fallback = "application-x-executable";
   const matchingApps = matchApps(client);
@@ -47,25 +58,30 @@ export function getIcon(client: (typeof hyprland.clients)[number]) {
 
 export const TaskBarItem = (client: (typeof hyprland.clients)[number]) =>
   Widget.Button({
-    className: "tasks button",
+    className: `tasks button ${client.address === hyprland.active.client.address ? "active" : ""}`,
     child: Widget.Icon(getIcon(client)),
     onClicked: () =>
       hyprland.messageAsync(`dispatch focuswindow address:${client.address}`),
   });
 
 export function sortedClients(clients: typeof hyprland.clients) {
+  const c = recentClients.getValue();
+  const w = recentWorkspaces.getValue();
   return clients
     .toReversed()
-    .toSorted((a, b) => a.workspace.id - b.workspace.id);
+    .toSorted((a, b) => a.workspace.id - b.workspace.id)
+    .toSorted((a, b) => c.indexOf(a.address) - c.indexOf(b.address))
+    .toSorted((a, b) => w.indexOf(a.workspace.id) - w.indexOf(b.workspace.id));
 }
 
 export const TaskBar = () =>
   Widget.Box({
     className: "tasks menu-bar",
     spacing: 5,
-    children: hyprland
-      .bind("clients")
-      .as((c) => sortedClients(c).map(TaskBarItem)),
+    children: Utils.merge(
+      [hyprland.bind("clients"), recentClients.bind(), recentWorkspaces.bind()],
+      (c) => sortedClients(c).map(TaskBarItem),
+    ),
   });
 
 export default TaskBar;
