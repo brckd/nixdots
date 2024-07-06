@@ -21,13 +21,18 @@ export function getIcon(volume: number, isMuted?: boolean | null) {
   return `audio-volume-${icons[i]}-symbolic`;
 }
 
-export const VolumeIcon = (type = Type.Speaker) =>
-  Widget.Icon({
-    icon: Utils.merge(
-      [audio[type].bind("volume"), audio[type].bind("is_muted")],
-      getIcon,
-    ),
-  });
+export const VolumeIcon = (type = Type.Speaker) => 
+	Widget.Button({
+		className: "button",
+		child:
+		Widget.Icon({
+			icon: Utils.merge(
+				[audio[type].bind("volume"), audio[type].bind("is_muted")],
+				getIcon,
+			),
+		}),
+		onClicked: () => audio[type].is_muted = !audio[type].is_muted
+	})
 
 export const Volume = (type = Type.Speaker) =>
   Widget.Box({
