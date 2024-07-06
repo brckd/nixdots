@@ -72,6 +72,10 @@ in {
             "${mainMod}, P, pin"
             "${mainMod}, U, togglesplit"
             "${mainMod}, F, fullscreen"
+
+            ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+            ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 0.1-"
+            ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 0.1+"
           ]
           # Move focus with mainMod + directional keys
           ++ mapAttrsToList (key: dir: "${mainMod}, ${key}, movefocus, ${dir}") directions
