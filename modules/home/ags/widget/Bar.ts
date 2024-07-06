@@ -1,3 +1,4 @@
+import Launcher from "./Launcher";
 import Workspaces from "./Workspaces";
 import TaskBar from "./TaskBar";
 import Clock from "./Clock";
@@ -11,7 +12,7 @@ export const Start = () =>
     hexpand: true,
     hpack: "start",
     spacing: 20,
-    children: [Widget.Icon("nixos-symbolic"), Workspaces(), TaskBar()],
+    children: [Launcher(), Workspaces(), TaskBar()],
   });
 
 export const Center = () =>
