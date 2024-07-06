@@ -4,6 +4,8 @@
     homeDirectory = "/home/bricked";
   };
 
+  stylix.enable = true;
+
   # Terminal
   programs.zsh.enable = true;
   programs.starship.enable = true;

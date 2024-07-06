@@ -1,8 +1,10 @@
 {...}: {
   home = {
-    username = "bricked";
-    homeDirectory = "/home/bricked";
+    username = "john";
+    homeDirectory = "/home/john";
   };
+
+  stylix.enable = true;
 
   # Terminal
   programs.zsh.enable = true;

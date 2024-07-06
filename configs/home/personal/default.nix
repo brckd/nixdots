@@ -4,6 +4,8 @@
     homeDirectory = "/home/personal";
   };
 
+  stylix.enable = true;
+
   # Terminal
   programs.zsh.enable = true;
   programs.starship.enable = true;
