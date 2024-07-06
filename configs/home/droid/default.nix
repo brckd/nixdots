@@ -1,4 +1,12 @@
 {...}: {
+	stylix = {
+		enable = true;
+		autoEnable = false;
+		targets = {
+			nixvim.enable = true;
+		};
+	};
+
   # Terminal
   programs.zsh.enable = true;
   programs.starship.enable = true;
