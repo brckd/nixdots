@@ -13,7 +13,6 @@
     ./hyprland
     ./sddm
     ./pipewire
-    ./theseus
     ./steam
   ];
 }

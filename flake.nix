@@ -201,14 +201,4 @@
       flake = false;
     };
   };
-
-  nixConfig = {
-    trusted-substituters = [
-      "https://getchoo.cachix.org"
-    ];
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "getchoo.cachix.org-1:ftdbAUJVNaFonM0obRGgR5+nUmdLMM+AOvDOSx0z5tE="
-    ];
-  };
 }
