@@ -15,15 +15,18 @@ export const VolumeSlider = (type = Type.Speaker) =>
     value: audio[type].bind("volume"),
   });
 
-export function getIcon(volume: number) {
+export function getIcon(volume: number, isMuted?: boolean | null) {
   const icons = ["muted", "low", "medium", "high", "overamplified"];
-  const i = Math.ceil(volume * (icons.length - 1));
+  const i = isMuted ? 0 : Math.ceil(volume * (icons.length - 1));
   return `audio-volume-${icons[i]}-symbolic`;
 }
 
 export const VolumeIcon = (type = Type.Speaker) =>
   Widget.Icon({
-    icon: audio[type].bind("volume").as((v) => getIcon(v)),
+    icon: Utils.merge(
+      [audio[type].bind("volume"), audio[type].bind("is_muted")],
+      getIcon,
+    ),
   });
 
 export const Volume = (type = Type.Speaker) =>
