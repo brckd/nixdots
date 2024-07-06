@@ -34,18 +34,6 @@ export function iconExists(name: string) {
   return false;
 }
 
-const recentClients = Variable([...hyprland.clients.map((c) => c.address)]);
-const recentWorkspaces = Variable([...hyprland.workspaces.map((w) => w.id)]);
-const sortedClients = Utils.derive([recentClients, recentWorkspaces], () => sortClients(hyprland.clients))
-
-hyprland.active.connect("changed", (active) => {
-  recentClients.setValue([active.client.address, ...recentClients.getValue()]);
-  recentWorkspaces.setValue([
-    active.workspace.id,
-    ...recentWorkspaces.getValue(),
-  ]);
-});
-
 export function getIcon(client: (typeof hyprland.clients)[number]) {
   const fallback = "application-x-executable";
   const matchingApps = matchApps(client);
@@ -57,31 +45,47 @@ export function getIcon(client: (typeof hyprland.clients)[number]) {
   return fallback;
 }
 
-export const TaskBarItem = (client: (typeof hyprland.clients)[number]) =>
+export const TaskIndicator = (client: (typeof hyprland.clients)[number]) =>
+  Widget.Box({
+    className: hyprland.active
+      .bind("client")
+      .as((c) => `indicator ${c.address === client.address ? "active" : ""}`),
+    hpack: "center",
+    vpack: "end",
+  });
+
+export const TaskButton = (client: (typeof hyprland.clients)[number]) =>
   Widget.Button({
-    className: `tasks button ${client.address === hyprland.active.client.address ? "active" : ""}`,
-		attribute: {address: client.address},
+    className: "tasks button",
     child: Widget.Icon(getIcon(client)),
     onClicked: () =>
       hyprland.messageAsync(`dispatch focuswindow address:${client.address}`),
   });
 
-export function sortClients(clients: typeof hyprland.clients) {
-  const c = recentClients.getValue();
-  const w = recentWorkspaces.getValue();
-  return clients
-    .toReversed()
-    .toSorted((a, b) => a.workspace.id - b.workspace.id)
-    .toSorted((a, b) => c.indexOf(a.address) - c.indexOf(b.address))
-    .toSorted((a, b) => w.indexOf(a.workspace.id) - w.indexOf(b.workspace.id));
-}
+export const Task = (client: (typeof hyprland.clients)[number]) =>
+  Widget.Overlay({
+    className: "overlay",
+    passThrough: true,
+    child: TaskButton(client),
+    overlays: [TaskIndicator(client)],
+  });
 
+export function sortClients(clients: typeof hyprland.clients) {
+  return clients
+    .filter((c) => c.workspace.id === hyprland.active.workspace.id)
+    .toReversed()
+    .toSorted((a, b) => a.at[1] - b.at[1])
+    .toSorted((a, b) => a.at[0] - b.at[0]);
+}
 
 export const TaskBar = () =>
   Widget.Box({
     className: "tasks menu-bar",
     spacing: 5,
-    children: sortedClients.bind().as(c => c.map(TaskBarItem)),
+    children: Utils.merge(
+      [hyprland.bind("clients"), hyprland.bind("active")],
+      () => sortClients(hyprland.clients).map(Task),
+    ),
   });
 
 export default TaskBar;

@@ -1,11 +1,11 @@
 {...}: {
-	stylix = {
-		enable = true;
-		autoEnable = false;
-		targets = {
-			nixvim.enable = true;
-		};
-	};
+  stylix = {
+    enable = true;
+    autoEnable = false;
+    targets = {
+      nixvim.enable = true;
+    };
+  };
 
   # Terminal
   programs.zsh.enable = true;
