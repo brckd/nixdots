@@ -24,6 +24,7 @@
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
     programs.steam.enable = true;
+		programs.adb.enable = true;
 		environment.systemPackages = with pkgs; [modrinth-app jdk cartridges ungoogled-chromium xdg-desktop-portal-gtk];
 
     # Enable networking
@@ -46,7 +47,7 @@
       bricked = {
         isNormalUser = true;
         description = "Bricked";
-        extraGroups = ["networkmanager" "wheel"];
+        extraGroups = ["networkmanager" "wheel" "adbuser"];
       };
       personal = {
         isNormalUser = true;
