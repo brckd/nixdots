@@ -41,7 +41,15 @@
     users.defaultUserShell = pkgs.zsh;
     programs.steam.enable = true;
     programs.adb.enable = true;
-    environment.systemPackages = with pkgs; [modrinth-app jdk cartridges xdg-desktop-portal-gtk busybox];
+    environment.systemPackages = with pkgs; [
+      modrinth-app
+      jdk
+      cartridges
+      xdg-desktop-portal-gtk
+      busybox
+      itch
+      cutter
+    ];
 
     # Enable networking
     networking.networkmanager.enable = true;
