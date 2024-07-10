@@ -7,5 +7,9 @@ $bar-height: 2em;
   .button {
     background-color: transparent;
     padding: 0;
+
+    &:hover {
+      color: #{"@accent_color"};
+    }
   }
 }

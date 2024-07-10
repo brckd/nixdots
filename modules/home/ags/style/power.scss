@@ -1,3 +1,7 @@
-.power image {
+.power.button {
   color: #{"@destructive_color"};
+
+  &:hover {
+    color: #{"@warning_color"};
+  }
 }

@@ -6,6 +6,10 @@
     border-radius: 2em;
     background-color: #{"@scrollbar_outline_color"};
 
+    &:hover {
+      background-color: #{"@accent_color"};
+    }
+
     &.active {
       min-width: 2em;
       background-color: #{"@accent_color"};
