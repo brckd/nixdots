@@ -24,7 +24,9 @@
         xorg.libXcursor
         xorg.libXext
         xorg.libXi
+        xorg.libXinerama
         xorg.libXrandr
+        xorg.libXrender
       ];
     };
 
