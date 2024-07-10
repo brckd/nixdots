@@ -30,6 +30,7 @@ in {
     wayland.windowManager.hyprland = {
       settings = {
         monitor = ",preferred,auto,auto";
+        xwayland.use_nearest_neighbor = false;
 
         general = {
           layout = "dwindle";
