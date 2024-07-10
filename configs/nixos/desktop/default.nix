@@ -42,13 +42,15 @@
     programs.steam.enable = true;
     programs.adb.enable = true;
     environment.systemPackages = with pkgs; [
-      modrinth-app
-      jdk
-      cartridges
-      xdg-desktop-portal-gtk
       busybox
-      itch
+      jdk
       cutter
+      xdg-desktop-portal-gtk
+      wineWowPackages.stable
+      winetricks
+      cartridges
+      modrinth-app
+      itch
     ];
 
     # Enable networking
