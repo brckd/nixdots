@@ -25,6 +25,7 @@
     services.upower.enable = true;
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
+    environment.systemPackages = with pkgs; [busybox];
 
     # Enable networking
     networking.networkmanager.enable = true;
