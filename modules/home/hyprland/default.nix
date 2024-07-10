@@ -11,6 +11,8 @@ with lib; let
     F = "librewolf";
     D = "vesktop";
   };
+  # Like WASD, but reachable from 10 finger typing position
+  # May be changed to vi keys
   directions = {
     J = "l";
     L = "r";
@@ -66,12 +68,12 @@ in {
 
         bind =
           [
-            "${mainMod} SHIFT, Q, exit"
-            "${mainMod}, Q, killactive"
-            "${mainMod}, O, togglefloating"
-            "${mainMod}, P, pin"
-            "${mainMod}, U, togglesplit"
-            "${mainMod}, F, fullscreen"
+            "${mainMod} SHIFT, Q, exit" # Q as in quit
+            "${mainMod}, Q, killactive" # Q as in quit
+            "${mainMod}, O, togglefloating" # O as in flOat
+            "${mainMod}, P, pin" # P as in pin
+            "${mainMod}, U, togglesplit" # U as in tUrn
+            "${mainMod}, F, fullscreen" # F as in fullscreen
 
             ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
             ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 0.1-"
