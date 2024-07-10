@@ -10,6 +10,7 @@
   programs.zsh.enable = true;
   programs.starship.enable = true;
   programs.kitty.enable = true;
+  programs.lf.enable = true;
   programs.fastfetch.enable = true;
   programs.git = {
     enable = true;
