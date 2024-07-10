@@ -14,6 +14,20 @@
       units = "en_DK.UTF-8";
       layout = "de";
     };
+
+		programs.nix-ld = {
+			enable = true;
+			libraries = with pkgs; [
+            libGL
+            vulkan-loader
+            xorg.libX11
+            xorg.libXcursor
+            xorg.libXext
+            xorg.libXi
+            xorg.libXrandr
+			];
+		};
+
     programs.hyprland.enable = true;
     services.displayManager = {
       sddm.enable = true;

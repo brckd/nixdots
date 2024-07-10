@@ -9,6 +9,9 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     programs.lf = {
+      commands = {
+        q = "quit";
+      };
       previewer = {
         keybinding = "i";
         source = "${pkgs.ctpv}/bin/ctpv";
