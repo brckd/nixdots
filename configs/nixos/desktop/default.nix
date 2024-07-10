@@ -24,8 +24,8 @@
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
     programs.steam.enable = true;
-		programs.adb.enable = true;
-		environment.systemPackages = with pkgs; [modrinth-app jdk cartridges ungoogled-chromium xdg-desktop-portal-gtk];
+    programs.adb.enable = true;
+    environment.systemPackages = with pkgs; [modrinth-app jdk cartridges ungoogled-chromium xdg-desktop-portal-gtk];
 
     # Enable networking
     networking.networkmanager.enable = true;

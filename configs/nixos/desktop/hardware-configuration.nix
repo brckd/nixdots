@@ -30,13 +30,13 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
-	fileSystems."/home/generic" = {
-		device = "/dev/mapper/generic";
-		fsType = "ext4";
-		options = ["nofail"];
-	};
+  fileSystems."/home/generic" = {
+    device = "/dev/mapper/generic";
+    fsType = "ext4";
+    options = ["nofail"];
+  };
 
-	boot.initrd.luks.devices.generic.device = "/dev/disk/by-uuid/d4601a52-96a3-4d05-a6a1-bfafd598d614";
+  boot.initrd.luks.devices.generic.device = "/dev/disk/by-uuid/d4601a52-96a3-4d05-a6a1-bfafd598d614";
 
   swapDevices = [];
 
