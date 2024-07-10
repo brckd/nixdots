@@ -34,6 +34,6 @@ in {
       };
     };
     wayland.windowManager.hyprland.settings.exec = ["ags --quit; ags"];
-    home.packages = with pkgs; [bun prefetch-npm-deps gnome.adwaita-icon-theme morewaita-icon-theme];
+    home.packages = with pkgs; [bun prefetch-npm-deps adwaita-icon-theme morewaita-icon-theme];
   };
 }
