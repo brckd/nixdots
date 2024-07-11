@@ -46,6 +46,9 @@
       jdk
       cutter
       xdg-desktop-portal-gtk
+      wineWowPackages.waylandFull
+      winetricks
+      mono5
       cartridges
       modrinth-app
       itch
