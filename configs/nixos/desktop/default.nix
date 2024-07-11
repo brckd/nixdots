@@ -46,8 +46,6 @@
       jdk
       cutter
       xdg-desktop-portal-gtk
-      wineWowPackages.stable
-      winetricks
       cartridges
       modrinth-app
       itch
