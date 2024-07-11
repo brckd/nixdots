@@ -13,6 +13,7 @@
     ags.homeManagerModules.default
     ./stylix
     ./zsh
+    ./starship
     ./hyprland
     ./wpaperd
     ./ags

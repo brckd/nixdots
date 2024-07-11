@@ -8,6 +8,7 @@
       enable = true;
       image = wallpaper;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+      override.base0C = "90c0e4"; # make teal less intense
       fonts = rec {
         sansSerif = {
           package = pkgs.lexend;
