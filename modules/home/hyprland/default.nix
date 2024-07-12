@@ -70,11 +70,14 @@ in {
         bind =
           [
             "${mainMod} SHIFT, Q, exit" # Q as in quit
-            "${mainMod}, Q, killactive" # Q as in quit
+            "${mainMod}, Q, killactive"
             "${mainMod}, O, togglefloating" # O as in flOat
             "${mainMod}, P, pin" # P as in pin
             "${mainMod}, U, togglesplit" # U as in tUrn
             "${mainMod}, F, fullscreen" # F as in fullscreen
+            "${mainMod}, S, exec, hyprshot -m region" # S as in Screenshot
+            "${mainMod} CONTROL, S, exec, hyprshot -m window"
+            "${mainMod} SHIFT, S, exec, hyprshot -m output"
 
             ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
             ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 0.1-"
