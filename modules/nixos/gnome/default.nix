@@ -1,7 +1,7 @@
 {
   config,
   lib,
-	pkgs,
+  pkgs,
   ...
 }:
 with lib; let
@@ -13,8 +13,8 @@ in {
       gnome-connections
       epiphany
       simple-scan
-			gnome-software
-			gnome-weather
+      gnome-software
+      gnome-weather
     ];
   };
 }

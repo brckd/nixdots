@@ -9,7 +9,7 @@
   imports = [
     nur.hmModules.nur
     stylix.homeManagerModules.stylix
-		./dconf
+    ./dconf
     ./stylix
     ./zsh
     ./starship

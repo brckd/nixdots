@@ -91,7 +91,7 @@ in {
         indent-blankline.enable = true;
         nvim-autopairs.enable = true;
 
-				web-devicons.enable = true;
+        web-devicons.enable = true;
         telescope.enable = true;
         nvim-tree.enable = true;
         lualine.enable = true;

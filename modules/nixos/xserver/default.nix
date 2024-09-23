@@ -1,7 +1,7 @@
 {
   config,
   lib,
-	pkgs,
+  pkgs,
   ...
 }:
 with lib; let
@@ -9,7 +9,7 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     services.xserver.excludePackages = with pkgs; [
-			xterm
+      xterm
     ];
   };
 }
