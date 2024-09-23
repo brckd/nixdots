@@ -9,7 +9,7 @@ with lib; let
   cfg = config.dconf;
 	extensions = with pkgs.gnomeExtensions; [
 		launch-new-instance
-		tiling-shell
+		forge
 	];
 in {
   config = mkIf cfg.enable {
@@ -29,8 +29,8 @@ in {
 			"org/gnome/desktop/wm/keybindings" = {
 				close = ["<Super>q"];
 			};
-			"org/gnome/shell/extensions/tilingshell" = {
-				tiling-system-activation-key = ["-1"];
+			"org/gnome/shell/extensions/forge" = {
+				dnd-center-layout = "swap";
 			};
 		}] ++ (map (i: {
 			# See https://unix.stackexchange.com/a/677879
