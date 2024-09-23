@@ -42,6 +42,7 @@
     programs.steam.enable = true;
     programs.adb.enable = true;
     environment.systemPackages = with pkgs; [
+      nodejs_22
       busybox
       jdk
       cutter
