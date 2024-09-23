@@ -8,11 +8,10 @@
     nur.nixosModules.nur
     erosanix.nixosModules.protonvpn
     stylix.nixosModules.stylix
+		./xserver
+		./gnome
     ./stylix
     ./locale
-    ./hyprland
-    ./sddm
-    ./pipewire
     ./steam
   ];
 }

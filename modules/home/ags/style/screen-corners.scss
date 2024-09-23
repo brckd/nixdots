@@ -1,7 +1,0 @@
-@import "bar.scss";
-
-.corners {
-  border-radius: 1.3em 1.3em 0em 0em;
-  min-height: $bar-height;
-  box-shadow: 0 0 0 $bar-height #{"@window_bg_color"};
-}

@@ -175,11 +175,6 @@
       inputs.git-hooks.follows = "git-hooks";
     };
 
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     getchoo = {
       url = "github:getchoo/nix-exprs";
       inputs.nixpkgs.follows = "nixpkgs";

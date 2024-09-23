@@ -1,7 +1,6 @@
 {
   nur,
   stylix,
-  ags,
   ...
 }: {
   home.stateVersion = "24.05";
@@ -10,14 +9,10 @@
   imports = [
     nur.hmModules.nur
     stylix.homeManagerModules.stylix
-    ags.homeManagerModules.default
+		./dconf
     ./stylix
     ./zsh
     ./starship
-    ./hyprland
-    ./wpaperd
-    ./ags
-    ./rofi
     ./kitty
     ./nixvim
     ./lf

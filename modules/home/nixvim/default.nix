@@ -56,7 +56,7 @@ in {
           enable = true;
           servers = {
             nil-ls.enable = true;
-            tsserver.enable = true;
+            ts-ls.enable = true;
             eslint.enable = true;
             rust-analyzer = {
               enable = true;
@@ -91,6 +91,7 @@ in {
         indent-blankline.enable = true;
         nvim-autopairs.enable = true;
 
+				web-devicons.enable = true;
         telescope.enable = true;
         nvim-tree.enable = true;
         lualine.enable = true;

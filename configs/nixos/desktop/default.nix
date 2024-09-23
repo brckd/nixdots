@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}:
+with lib; {
   imports = [
     ./configuration.nix
   ];
@@ -29,14 +30,11 @@
         xorg.libXrender
       ];
     };
-
-    programs.hyprland.enable = true;
-    services.displayManager = {
-      sddm.enable = true;
-      autoLogin.user = "bricked";
+    services.xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
     };
-    services.pipewire.enable = true;
-    services.upower.enable = true;
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
     programs.steam.enable = true;
