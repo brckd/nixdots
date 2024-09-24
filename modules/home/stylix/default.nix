@@ -8,6 +8,8 @@
 with lib; let
   cfg = config.stylix;
 in {
+  imports = [./forge];
+
   config = mkIf cfg.enable {
     stylix = {
       image = wallpaper;
