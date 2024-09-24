@@ -19,5 +19,6 @@
     ./librewolf
     ./cava
     ./vesktop
+    ./heroic
   ];
 }

@@ -373,6 +373,22 @@
         "type": "github"
       }
     },
+    "heroic-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712168040,
+        "narHash": "sha256-JpQtZAxx+GdB3oVk1uFTidO3sykhQxea9nDFcCrcyQI=",
+        "owner": "catppuccin",
+        "repo": "heroic",
+        "rev": "8f32fd139320a8d85d9d5176090538cbf05f3c0f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "heroic",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -710,6 +726,7 @@
         "getchoo": "getchoo",
         "git-hooks": "git-hooks",
         "gitignore": "gitignore",
+        "heroic-theme": "heroic-theme",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nix-on-droid": "nix-on-droid",

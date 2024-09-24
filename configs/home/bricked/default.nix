@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  heroic-theme,
+  pkgs,
+  config,
+  ...
+}: {
   home = {
     username = "bricked";
     homeDirectory = "/home/bricked";
@@ -36,5 +41,21 @@
   # Apps
   programs.librewolf.enable = true;
   programs.vesktop.enable = true;
+  programs.heroic = {
+    enable = false;
+    settings = {
+      general = {
+        defaultSettings = {
+          customThemesPath = "${heroic-theme}/themes";
+        };
+        version = "v0";
+      };
+      store = {
+        userHome = config.home.homeDirectory;
+        language = "en";
+        theme = "catpuccin-mocha.css";
+      };
+    };
+  };
   home.packages = with pkgs; [heroic];
 }

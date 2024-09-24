@@ -195,5 +195,10 @@
       url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/de03e887f03037e7e781a678b57fdae603c9ca20/logo/nix-snowflake-white.svg";
       flake = false;
     };
+
+    heroic-theme = {
+      url = "github:catppuccin/heroic";
+      flake = false;
+    };
   };
 }
