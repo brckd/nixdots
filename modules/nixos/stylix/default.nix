@@ -3,6 +3,7 @@
   lib,
   pkgs,
   wallpaper,
+  nixos-symbolic,
   ...
 }:
 with lib; let
@@ -29,6 +30,10 @@ in {
           package = pkgs.twemoji-color-font;
           name = "Twitter Color Emoji";
         };
+      };
+      targets.plymouth = {
+        logo = nixos-symbolic;
+        logoAnimated = true;
       };
     };
   };

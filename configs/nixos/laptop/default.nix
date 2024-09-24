@@ -19,12 +19,17 @@ with lib; {
       units = "de_DE.UTF-8";
       layout = "de";
     };
+    stylix.enable = true;
+
+    boot = {
+      loader.systemd-boot.configurationLimit = 10;
+      plymouth.enable = true;
+    };
     services.xserver = {
       enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
-    stylix.enable = true;
 
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
