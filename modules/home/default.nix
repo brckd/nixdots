@@ -17,6 +17,7 @@
     ./starship
     ./kitty
     ./nixvim
+    ./vscode
     ./lf
     ./librewolf
     ./cava

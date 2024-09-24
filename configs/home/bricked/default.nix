@@ -33,6 +33,7 @@
     enable = true;
     defaultEditor = true;
   };
+  programs.vscode.enable = true;
 
   # Music
   programs.spotify-player.enable = true;
