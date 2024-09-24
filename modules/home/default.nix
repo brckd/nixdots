@@ -1,6 +1,7 @@
 {
   nur,
   stylix,
+  spicetify-nix,
   ...
 }: {
   home.stateVersion = "24.05";
@@ -9,6 +10,7 @@
   imports = [
     nur.hmModules.nur
     stylix.homeManagerModules.stylix
+    spicetify-nix.homeManagerModules.default
     ./dconf
     ./stylix
     ./zsh
@@ -19,6 +21,7 @@
     ./librewolf
     ./cava
     ./vesktop
+    ./spicetify
     ./heroic
   ];
 }

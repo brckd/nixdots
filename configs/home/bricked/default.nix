@@ -41,6 +41,7 @@
   # Apps
   programs.librewolf.enable = true;
   programs.vesktop.enable = true;
+  programs.spicetify.enable = true;
   programs.heroic = {
     enable = false;
     settings = {

@@ -175,6 +175,11 @@
       inputs.git-hooks.follows = "git-hooks";
     };
 
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     getchoo = {
       url = "github:getchoo/nix-exprs";
       inputs.nixpkgs.follows = "nixpkgs";
