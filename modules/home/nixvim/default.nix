@@ -63,6 +63,7 @@ in {
               installCargo = true;
               installRustc = true;
             };
+            gopls.enable = true;
             lua-ls.enable = true;
             astro.enable = true;
           };
