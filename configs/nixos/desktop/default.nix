@@ -15,7 +15,7 @@ with lib; {
     };
     locale = {
       timeZone = "Europe/Berlin";
-      language = "en_US.UTF-8";
+      language = "en_DK.UTF-8";
       units = "en_DK.UTF-8";
       layout = "de";
     };
@@ -82,7 +82,7 @@ with lib; {
     networking.networkmanager.enable = true;
     networking.hostName = "desktop"; # Define your hostname.
     services.protonvpn = {
-      enable = true;
+      enable = false;
       interface = {
         privateKeyFile = "/root/secrets/protonvpn";
         dns.enable = true;

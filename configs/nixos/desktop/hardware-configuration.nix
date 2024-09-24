@@ -18,25 +18,24 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/5772ca04-6b96-4080-904d-d298bb05efd6";
+    device = "/dev/mapper/nixos";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-3a70cc83-e485-4c3b-b607-b489364224d1".device = "/dev/disk/by-uuid/3a70cc83-e485-4c3b-b607-b489364224d1";
+  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-label/NIXOS";
+
+  fileSystems."/home" = {
+    device = "/dev/mapper/home";
+    fsType = "ext4";
+  };
+
+  boot.initrd.luks.devices."home".device = "/dev/disk/by-label/HOME";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/307C-1DAA";
+    device = "/dev/disk/by-label/BOOT";
     fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
+    options = ["fmask=0077" "dmask=0077"];
   };
-
-  fileSystems."/home/generic" = {
-    device = "/dev/mapper/generic";
-    fsType = "ext4";
-    options = ["nofail"];
-  };
-
-  boot.initrd.luks.devices.generic.device = "/dev/disk/by-uuid/d4601a52-96a3-4d05-a6a1-bfafd598d614";
 
   swapDevices = [];
 
