@@ -19,6 +19,7 @@ with lib; {
       units = "en_DK.UTF-8";
       layout = "de";
     };
+    stylix.enable = true;
 
     programs.nix-ld = {
       enable = true;

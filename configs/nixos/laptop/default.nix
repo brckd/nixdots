@@ -24,7 +24,8 @@ with lib; {
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
-    services.upower.enable = true;
+    stylix.enable = true;
+
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
     environment.systemPackages = with pkgs; [busybox];

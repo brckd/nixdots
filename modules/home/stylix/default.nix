@@ -1,9 +1,14 @@
 {
+  config,
+  lib,
   pkgs,
   wallpaper,
   ...
-}: {
-  config = {
+}:
+with lib; let
+  cfg = config.stylix;
+in {
+  config = mkIf cfg.enable {
     stylix = {
       image = wallpaper;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
