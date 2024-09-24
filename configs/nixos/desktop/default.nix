@@ -65,6 +65,7 @@ with lib; {
     programs.steam.enable = true;
     programs.adb.enable = true;
     environment.systemPackages = with pkgs; [
+      comma
       nodejs_22
       busybox
       jdk

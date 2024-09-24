@@ -34,7 +34,10 @@ with lib; {
 
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
-    environment.systemPackages = with pkgs; [busybox];
+    environment.systemPackages = with pkgs; [
+      comma
+      busybox
+    ];
 
     # Enable networking
     networking.networkmanager.enable = true;
