@@ -82,14 +82,14 @@ with lib; {
     networking.networkmanager.enable = true;
     networking.hostName = "desktop"; # Define your hostname.
     services.protonvpn = {
-      enable = false;
+      enable = true;
       interface = {
         privateKeyFile = "/root/secrets/protonvpn";
         dns.enable = true;
       };
       endpoint = {
-        publicKey = "avWNWfLsQAQhnRAioRnpZ2LI1nMqd73lWr5zt4aZ1Vo=";
-        ip = "212.8.253.154";
+        publicKey = "/XceEDLyYIGsHhqkfZH0dU7g9IyI6DTawWRAa5+k6DM=";
+        ip = "185.107.56.44";
       };
     };
 
