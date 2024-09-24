@@ -24,6 +24,7 @@ with lib; {
     boot = {
       loader.systemd-boot.configurationLimit = 10;
       plymouth.enable = true;
+      silent = true;
     };
     services.xserver = {
       enable = true;

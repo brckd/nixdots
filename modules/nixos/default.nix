@@ -8,6 +8,7 @@
     nur.nixosModules.nur
     erosanix.nixosModules.protonvpn
     stylix.nixosModules.stylix
+    ./boot
     ./xserver
     ./gnome
     ./stylix
