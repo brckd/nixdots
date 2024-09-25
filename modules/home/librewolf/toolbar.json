@@ -15,7 +15,7 @@
       "unified-extensions-button"
     ],
     "toolbar-menubar": ["menubar-items"],
-    "TabsToolbar": ["tabbrowser-tabs", "alltabs-button"],
+    "TabsToolbar": ["tabbrowser-tabs", "new-tab-button", "alltabs-button"],
     "PersonalToolbar": ["import-button", "personal-bookmarks"]
   },
   "seen": [
@@ -34,5 +34,5 @@
     "TabsToolbar"
   ],
   "currentVersion": 20,
-  "newElementCount": 7
+  "newElementCount": 4
 }

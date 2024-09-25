@@ -8,9 +8,6 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     programs.librewolf = {
-      settings = {
-        "webgl.disabled" = false;
-      };
       profiles = {
         default = {
           name = "Default";
@@ -37,13 +34,14 @@ in {
             }
           ];
           settings = {
+						"webgl.disabled" = false;
             "extensions.autoDisableScopes" = 0; # Enable extensions
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable userchrome
             "browser.aboutConfig.showWarning" = false;
 
             # Blank homepage
             "browser.newtabpage.enable" = false;
-            "browser.startup.homepage" = "chrome://browser/content/blanktab.html";
+            "browser.startup.homepage" = "about:newtab";
             "browser.toolbars.bookmarks.visibility" = "never";
 
             # Toolbar customization
