@@ -34,7 +34,7 @@ in {
             }
           ];
           settings = {
-						"webgl.disabled" = false;
+            "webgl.disabled" = false;
             "extensions.autoDisableScopes" = 0; # Enable extensions
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable userchrome
             "browser.aboutConfig.showWarning" = false;
@@ -50,6 +50,17 @@ in {
 
           userChrome = builtins.readFile ./userChrome.css;
         };
+      };
+      policies = {
+        Cookies.Allow = map (d: "https://${d}") [
+          "github.com"
+          "codeberg.org"
+          "gitlab.com"
+          "proton.me"
+          "purelymail.com"
+          "discord.com"
+          "spotify.com"
+        ];
       };
     };
   };
