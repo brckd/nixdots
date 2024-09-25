@@ -21,38 +21,10 @@ with lib; {
     };
     stylix.enable = true;
 
-    programs.nix-ld = {
-      enable = true;
-      libraries = with pkgs; [
-        libGL
-        vulkan-loader
-        xorg.libX11
-        xorg.libXcursor
-        xorg.libXext
-        xorg.libXi
-        xorg.libXinerama
-        xorg.libXrandr
-        xorg.libXrender
-      ];
-    };
     boot = {
       loader.systemd-boot.configurationLimit = 10;
       plymouth.enable = true;
-
-      # Enable "Silent Boot"
-      consoleLogLevel = 0;
-      initrd.verbose = false;
-      kernelParams = [
-        "quiet"
-        "splash"
-        "boot.shell_on_fail"
-        "loglevel=3"
-        "rd.systemd.show_status=false"
-        "rd.udev.log_level=3"
-        "udev.log_priority=3"
-      ];
-
-      loader.timeout = 0;
+      silent = true;
     };
     services.xserver = {
       enable = true;
@@ -77,29 +49,18 @@ with lib; {
       cartridges
       modrinth-app
       itch
+      (writeShellScriptBin "wine-mono" "mono")
     ];
 
     # Enable networking
-    networking.networkmanager.enable = true;
     networking.hostName = "desktop"; # Define your hostname.
-    services.protonvpn = {
-      enable = true;
-      interface = {
-        privateKeyFile = "/root/secrets/protonvpn";
-        dns.enable = true;
-      };
-      endpoint = {
-        publicKey = "/XceEDLyYIGsHhqkfZH0dU7g9IyI6DTawWRAa5+k6DM=";
-        ip = "185.107.56.44";
-      };
-    };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users = {
       bricked = {
         isNormalUser = true;
         description = "Bricked";
-        extraGroups = ["networkmanager" "wheel" "adbuser"];
+        extraGroups = ["networkmanager" "wheel"];
       };
       personal = {
         isNormalUser = true;
@@ -109,7 +70,7 @@ with lib; {
       john = {
         isNormalUser = true;
         description = "John";
-        extraGroups = ["networkmanager" "wheel"];
+        extraGroups = ["networkmanager"];
       };
     };
 

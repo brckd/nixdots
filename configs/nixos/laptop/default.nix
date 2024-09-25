@@ -15,8 +15,8 @@ with lib; {
     };
     locale = {
       timeZone = "Europe/Berlin";
-      language = "en_US.UTF-8";
-      units = "de_DE.UTF-8";
+      language = "en_DK.UTF-8";
+      units = "en_DK.UTF-8";
       layout = "de";
     };
     stylix.enable = true;
@@ -40,25 +40,18 @@ with lib; {
     ];
 
     # Enable networking
-    networking.networkmanager.enable = true;
     networking.hostName = "laptop"; # Define your hostname.
-    services.protonvpn = {
-      enable = true;
-      interface = {
-        privateKeyFile = "/root/secrets/protonvpn";
-        dns.enable = true;
-      };
-      endpoint = {
-        publicKey = "ozbmrTpgMTEuR1N7KguQD6qCMJzamTNYtFungG3xpQ0=";
-        ip = "138.199.7.234";
-      };
-    };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users = {
       bricked = {
         isNormalUser = true;
         description = "Bricked";
+        extraGroups = ["networkmanager" "wheel"];
+      };
+      personal = {
+        isNormalUser = true;
+        description = "Personal";
         extraGroups = ["networkmanager" "wheel"];
       };
       john = {
