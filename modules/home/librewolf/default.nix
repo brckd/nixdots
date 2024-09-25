@@ -26,7 +26,7 @@ in {
               "Nix Documentation" = {
                 urls = singleton {template = "https://nix.dev/search.html?q={searchTerms}";};
                 iconsUpdateURL = "https://nix.dev/_static/favicon.png";
-                definedAliases = ["@nxd" "@nixdocumentation"];
+                definedAliases = ["@nxd" "@nixdocs"];
               };
               "Nix Manual" = {
                 urls = singleton {template = "https://nix.dev/manual/nix/latest/?search={searchTerms}";};
@@ -51,12 +51,17 @@ in {
               "Home Manager Options" = {
                 urls = singleton {template = "https://home-manager-options.extranix.com/?query={searchTerms}";};
                 iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.png";
-                definedAliases = ["@hmo" "@homemmanageroptions"];
+                definedAliases = ["@hmo" "@homemmanageropts"];
               };
-              "NixVim Wiki" = {
+              "Flake Parts Docs" = {
+                urls = singleton {template = "https://flake.parts/?search={searchTerms}";};
+                iconUpdateURL = "https://flake.parts/favicon.svg";
+                definedAliases = ["@fpd" "flakepartsdocs"];
+              };
+              "NixVim Docs" = {
                 urls = singleton {template = "https://nix-community.github.io/nixvim/?search={searchTerms}";};
                 iconUpdateURL = "https://nix-community.github.io/nixvim/favicon.svg";
-                definedAliases = ["@nvw" "@nixvimwiki"];
+                definedAliases = ["@nvd" "@nixvimdocs"];
               };
               "Fancade Wiki" = {
                 urls = singleton {template = "https://www.fancade.com/wiki/gollum/search?q={searchTerms}";};
