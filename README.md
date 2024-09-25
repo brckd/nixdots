@@ -4,6 +4,9 @@
 
 Dotfiles for NixOS using Flakes. Contains modules and configurations for NixOS, nix-on-droid and Home Manager.
 
+![A preview of the tiling window management](assets/tiling.png)
+![A preview of the launcher](assets/launcher.png)
+
 ## Using existing configurations
 
 1. Make sure to have [NixOS](https://nixos.org/manual/nixos/stable/index.html#ch-installation),
