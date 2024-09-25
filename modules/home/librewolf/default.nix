@@ -23,6 +23,31 @@ in {
             engines = {
               "Google".metaData.hidden = true;
               "Bing".metaData.hidden = true;
+              "Nix Packages" = {
+                urls = singleton {template = "https://search.nixos.org/packages?query={searchTerms}";};
+                iconUpdateURL = "https://search.nixos.org/favicon.png";
+                definedAliases = ["@np"];
+              };
+              "NixOS Options" = {
+                urls = singleton {template = "https://search.nixos.org/options?query={searchTerms}";};
+                iconUpdateURL = "https://search.nixos.org/favicon.png";
+                definedAliases = ["@no"];
+              };
+              "NixOS Wiki" = {
+                urls = singleton {template = "https://nixos.wiki/index.php?search={searchTerms}";};
+                iconUpdateURL = "https://nixos.wiki/favicon.png";
+                definedAliases = ["@nw"];
+              };
+              "Home Manager Options" = {
+                urls = singleton {template = "https://home-manager-options.extranix.com/?query={searchTerms}";};
+                iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.png";
+                definedAliases = ["@ho"];
+              };
+              "Fancade Wiki" = {
+                urls = singleton {template = "https://www.fancade.com/wiki/gollum/search?q={searchTerms}";};
+                iconUpdateURL = "https://www.fancade.com/favicon.ico";
+                definedAliases = ["@fw"];
+              };
             };
           };
           bookmarks = [
