@@ -23,30 +23,45 @@ in {
             engines = {
               "Google".metaData.hidden = true;
               "Bing".metaData.hidden = true;
+              "Nix Documentation" = {
+                urls = singleton {template = "https://nix.dev/search.html?q={searchTerms}";};
+                iconsUpdateURL = "https://nix.dev/_static/favicon.png";
+                definedAliases = ["@nxd" "@nixdocumentation"];
+              };
+              "Nix Manual" = {
+                urls = singleton {template = "https://nix.dev/manual/nix/latest/?search={searchTerms}";};
+                iconUpdateURL = "https://nix.dev/manual/nix/latest/favicon.svg";
+                definedAliases = ["@nxm" "@nixmanual"];
+              };
               "Nix Packages" = {
                 urls = singleton {template = "https://search.nixos.org/packages?query={searchTerms}";};
                 iconUpdateURL = "https://search.nixos.org/favicon.png";
-                definedAliases = ["@np"];
+                definedAliases = ["@nxp" "@nixpackages"];
               };
               "NixOS Options" = {
                 urls = singleton {template = "https://search.nixos.org/options?query={searchTerms}";};
                 iconUpdateURL = "https://search.nixos.org/favicon.png";
-                definedAliases = ["@no"];
+                definedAliases = ["@nxo" "@nixosops"];
               };
               "NixOS Wiki" = {
                 urls = singleton {template = "https://nixos.wiki/index.php?search={searchTerms}";};
                 iconUpdateURL = "https://nixos.wiki/favicon.png";
-                definedAliases = ["@nw"];
+                definedAliases = ["@nxw" "@nixoswiki"];
               };
               "Home Manager Options" = {
                 urls = singleton {template = "https://home-manager-options.extranix.com/?query={searchTerms}";};
                 iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.png";
-                definedAliases = ["@ho"];
+                definedAliases = ["@hmo" "@homemmanageroptions"];
+              };
+              "NixVim Wiki" = {
+                urls = singleton {template = "https://nix-community.github.io/nixvim/?search={searchTerms}";};
+                iconUpdateURL = "https://nix-community.github.io/nixvim/favicon.svg";
+                definedAliases = ["@nvw" "@nixvimwiki"];
               };
               "Fancade Wiki" = {
                 urls = singleton {template = "https://www.fancade.com/wiki/gollum/search?q={searchTerms}";};
                 iconUpdateURL = "https://www.fancade.com/favicon.ico";
-                definedAliases = ["@fw"];
+                definedAliases = ["@fcw" "@fancadewiki"];
               };
             };
           };
