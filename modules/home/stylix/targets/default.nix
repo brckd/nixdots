@@ -1,3 +1,3 @@
 {
-	imports = [./forge];
+  imports = [./forge ./spicetify];
 }

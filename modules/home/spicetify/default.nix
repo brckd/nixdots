@@ -12,7 +12,6 @@ in {
   config = mkIf cfg.enable {
     programs.spicetify = {
       enabledExtensions = with spicePkgs.extensions; [
-        adblock
         hidePodcasts
         beautifulLyrics
         {
@@ -28,8 +27,6 @@ in {
       enabledCustomApps = with spicePkgs.apps; [
         ncsVisualizer
       ];
-      theme = spicePkgs.themes.catppuccin;
-      colorScheme = "mocha";
     };
   };
 }
