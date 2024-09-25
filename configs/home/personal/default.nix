@@ -26,10 +26,6 @@
     defaultEditor = true;
   };
 
-  # Music
-  programs.spotify-player.enable = true;
-  programs.cava.enable = true;
-
   # Apps
   programs.librewolf.enable = true;
 }

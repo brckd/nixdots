@@ -47,6 +47,7 @@ with lib; {
       winetricks
       mono5
       cartridges
+      heroic
       modrinth-app
       itch
       (writeShellScriptBin "wine-mono" "mono")
