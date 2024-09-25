@@ -8,7 +8,7 @@
 with lib; let
   cfg = config.stylix;
 in {
-  imports = [./forge];
+  imports = [./targets];
 
   config = mkIf cfg.enable {
     stylix = {
