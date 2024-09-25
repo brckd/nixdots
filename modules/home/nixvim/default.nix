@@ -51,6 +51,7 @@ in {
       ];
 
       plugins = {
+        # Linting
         treesitter.enable = true;
         lsp = {
           enable = true;
@@ -70,6 +71,7 @@ in {
         };
         luasnip.enable = true;
 
+        # Autocompletion
         cmp = {
           enable = true;
           autoEnableSources = true;
@@ -89,9 +91,21 @@ in {
           };
         };
 
+        # Formatting
         indent-blankline.enable = true;
         nvim-autopairs.enable = true;
 
+        # Preview
+        markview = {
+          enable = true;
+          settings = {
+            buf_ignore = [];
+            hybrid_modes = ["i" "r"];
+            modes = ["n" "x"];
+          };
+        };
+
+        # UI
         web-devicons.enable = true;
         telescope.enable = true;
         nvim-tree.enable = true;
