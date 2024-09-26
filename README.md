@@ -4,6 +4,9 @@
 
 Dotfiles for NixOS using Flakes. Contains modules and configurations for NixOS, nix-on-droid and Home Manager.
 
+![A preview of the desktop with terminal applications](./assets/terminal.png)
+![A preview of the desktop with graphical applications](./assets/gui.png)
+
 ## Using existing configurations
 
 1. Make sure to have [NixOS](https://nixos.org/manual/nixos/stable/index.html#ch-installation),
