@@ -103,6 +103,9 @@ in {
           "gitlab.com"
           "proton.me"
           "purelymail.com"
+          "huggingface.co"
+          "vercel.com"
+          "netlify.com"
           "discord.com"
           "spotify.com"
         ];
