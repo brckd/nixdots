@@ -18,14 +18,17 @@ in {
       vimAlias = true;
 
       opts = {
+        # Indentation
+        smartindent = true; # Indent from prev. line and C syntax
+
         # Tabs
-        smartindent = true;
-        tabstop = 2;
-        shiftwidth = 2;
+        expandtab = true; # Insert spaces instead of tabs
+        list = true; # Highlight tabs
+        tabstop = 2; # Tab display width
 
         # Line numbers
-        relativenumber = true;
-        number = true;
+        number = true; # Enable line numbers
+        relativenumber = true; # Relative to current line
       };
 
       keymaps = let
