@@ -70,6 +70,7 @@
         treefmt.config = {
           projectRootFile = "flake.nix";
           programs = {
+            statix.enable = true;
             alejandra.enable = true;
             prettier.enable = true;
           };

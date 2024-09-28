@@ -13,13 +13,13 @@ in {
 
     settings = {
       general = mkOption {
-        type = json.type;
+        inherit (json) type;
         default = {};
         description = "Attribute set of general Heroic settings.";
       };
 
       store = mkOption {
-        type = json.type;
+        inherit (json) type;
         default = {};
         description = "Attribute set of Heroic store settings.";
       };
