@@ -44,7 +44,7 @@ in {
                 definedAliases = ["@nxm" "@nixmanual"];
               };
               "Nix Packages" = {
-                urls = singleton {template = "https://search.nixos.org/packages?query={searchTerms}";};
+                urls = singleton {template = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";};
                 iconUpdateURL = "https://search.nixos.org/favicon.png";
                 definedAliases = ["@nxp" "@nixpackages"];
               };
