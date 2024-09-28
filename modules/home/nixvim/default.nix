@@ -25,6 +25,7 @@ in {
         expandtab = true; # Insert spaces instead of tabs
         list = true; # Highlight tabs
         tabstop = 2; # Tab display width
+        shiftwidth = 0; # Same as tabstop
 
         # Line numbers
         number = true; # Enable line numbers
