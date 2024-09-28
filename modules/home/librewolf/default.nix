@@ -23,6 +23,16 @@ in {
             engines = {
               "Google".metaData.hidden = true;
               "Bing".metaData.hidden = true;
+              "Startpage" = {
+                urls = singleton {template = "https://www.startpage.com/sp/search?query={searchTerms}";};
+                iconsUpdateURL = "https://www.startpage.com/sp/cdn/favicons/favicon-96x96.png";
+                definedAliases = ["@sp" "@startpage"];
+              };
+              "Noogle" = {
+                urls = singleton {template = "https://noogle.dev/q?term={searchTerms}";};
+                iconsUpdateURL = "https://noogle.dev/favicon.png";
+                definedAliases = ["@nx" "@noogle"];
+              };
               "Nix Documentation" = {
                 urls = singleton {template = "https://nix.dev/search.html?q={searchTerms}";};
                 iconsUpdateURL = "https://nix.dev/_static/favicon.png";
