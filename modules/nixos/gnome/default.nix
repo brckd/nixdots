@@ -11,6 +11,7 @@ in {
     environment.gnome.excludePackages = with pkgs; [
       gnome-tour
       gnome-connections
+      kgx
       epiphany
       simple-scan
       gnome-software
