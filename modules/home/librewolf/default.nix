@@ -31,7 +31,7 @@ in {
               "Noogle" = {
                 urls = singleton {template = "https://noogle.dev/q?term={searchTerms}";};
                 iconsUpdateURL = "https://noogle.dev/favicon.png";
-                definedAliases = ["@nx" "@noogle"];
+                definedAliases = ["@ng" "@noogle"];
               };
               "Nix Documentation" = {
                 urls = singleton {template = "https://nix.dev/search.html?q={searchTerms}";};
@@ -48,15 +48,19 @@ in {
                 iconUpdateURL = "https://search.nixos.org/favicon.png";
                 definedAliases = ["@nxp" "@nixpackages"];
               };
+              "Searchix" = {
+                urls = singleton {template = "https://searchix.alanpearce.eu/all/search?query={searchTerms}";};
+                definedAliases = ["@sx" "@searchix"];
+              };
               "NixOS Options" = {
                 urls = singleton {template = "https://search.nixos.org/options?query={searchTerms}";};
                 iconUpdateURL = "https://search.nixos.org/favicon.png";
-                definedAliases = ["@nxo" "@nixosops"];
+                definedAliases = ["@noo" "@nixosops"];
               };
               "NixOS Wiki" = {
                 urls = singleton {template = "https://nixos.wiki/index.php?search={searchTerms}";};
                 iconUpdateURL = "https://nixos.wiki/favicon.png";
-                definedAliases = ["@nxw" "@nixoswiki"];
+                definedAliases = ["@now" "@nixoswiki"];
               };
               "Home Manager Options" = {
                 urls = singleton {template = "https://home-manager-options.extranix.com/?query={searchTerms}";};
