@@ -34,6 +34,13 @@ with lib; {
 
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
+    programs.nautilus = {
+      enable = true;
+      extensions.open-any-terminal = {
+        enable = true;
+        terminal = "kitty";
+      };
+    };
     environment.systemPackages = with pkgs; [
       comma
       busybox

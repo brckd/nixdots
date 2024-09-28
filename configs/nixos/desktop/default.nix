@@ -36,6 +36,13 @@ with lib; {
     users.defaultUserShell = pkgs.zsh;
     programs.steam.enable = true;
     programs.adb.enable = true;
+    programs.nautilus = {
+      enable = true;
+      extensions.open-any-terminal = {
+        enable = true;
+        terminal = "kitty";
+      };
+    };
     environment.systemPackages = with pkgs; [
       comma
       nodejs_22

@@ -11,6 +11,7 @@
     ./boot
     ./xserver
     ./gnome
+    ./nautilus
     ./stylix
     ./locale
     ./steam
