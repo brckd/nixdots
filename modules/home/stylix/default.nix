@@ -8,8 +8,6 @@
 with lib; let
   cfg = config.stylix;
 in {
-  imports = [./targets];
-
   config = mkIf cfg.enable {
     stylix = {
       image = wallpaper;
