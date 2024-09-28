@@ -44,6 +44,7 @@ with lib; {
     environment.systemPackages = with pkgs; [
       comma
       busybox
+      (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
     ];
 
     # Enable networking

@@ -58,6 +58,7 @@ with lib; {
       modrinth-app
       itch
       (writeShellScriptBin "wine-mono" "mono")
+      (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
     ];
 
     # Enable networking
