@@ -17,7 +17,7 @@ in {
         "/share/nautilus-python/extensions"
       ];
 
-      systemPackages = with pkgs; [ gnome.nautilus-python ];
+      systemPackages = with pkgs; [ nautilus-python ];
     };
   };
 }
