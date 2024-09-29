@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   home = {
     username = "bricked";
     homeDirectory = "/home/bricked";
@@ -9,6 +9,7 @@
   # Terminal
   programs.zsh.enable = true;
   programs.starship.enable = true;
+  programs.direnv.enable = true;
   programs.kitty.enable = true;
   programs.lf.enable = true;
   programs.fastfetch.enable = true;

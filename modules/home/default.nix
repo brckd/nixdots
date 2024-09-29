@@ -15,6 +15,7 @@
     ./stylix
     ./zsh
     ./starship
+    ./direnv
     ./kitty
     ./nixvim
     ./vscode

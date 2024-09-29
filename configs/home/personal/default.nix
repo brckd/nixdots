@@ -1,4 +1,4 @@
-_: {
+{
   home = {
     username = "personal";
     homeDirectory = "/home/personal";
@@ -9,6 +9,7 @@ _: {
   # Terminal
   programs.zsh.enable = true;
   programs.starship.enable = true;
+  programs.direnv.enable = true;
   programs.kitty.enable = true;
   programs.fastfetch.enable = true;
   programs.git = {
