@@ -11,7 +11,10 @@ with lib; {
   config = {
     nix = {
       package = pkgs.nix;
-      settings.experimental-features = ["nix-command" "flakes"];
+      settings = {
+        experimental-features = ["nix-command" "flakes"];
+        trusted-users = ["@wheel"];
+      };
     };
     locale = {
       timeZone = "Europe/Berlin";
