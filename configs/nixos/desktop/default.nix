@@ -20,6 +20,7 @@ with lib; {
       layout = "de";
     };
     stylix.enable = true;
+    programs.nh.enable = true;
 
     boot = {
       loader.systemd-boot.configurationLimit = 10;
