@@ -29,4 +29,5 @@
 
   # Apps
   programs.librewolf.enable = true;
+  programs.spicetify.enable = true;
 }
