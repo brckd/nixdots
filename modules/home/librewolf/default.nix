@@ -120,6 +120,8 @@ in {
           "huggingface.co"
           "vercel.com"
           "netlify.com"
+          "penpot.app"
+          "figma.com"
           "discord.com"
           "spotify.com"
         ];
