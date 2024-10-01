@@ -49,11 +49,10 @@ with lib; {
     };
     environment.systemPackages = with pkgs; [
       comma
-      nodejs_22
       busybox
-      jdk
+      nodejs_22
+      gimp
       cutter
-      xdg-desktop-portal-gtk
       wineWowPackages.waylandFull
       winetricks
       mono5
