@@ -73,6 +73,7 @@
             statix.enable = true;
             alejandra.enable = true;
             prettier.enable = true;
+            actionlint.enable = true;
           };
           flakeCheck = false;
         };
