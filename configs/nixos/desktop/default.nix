@@ -51,6 +51,9 @@ with lib; {
       comma
       busybox
       nodejs_22
+      rustc
+      cargo
+      clang
       gimp
       cutter
       wineWowPackages.waylandFull
