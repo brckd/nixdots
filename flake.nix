@@ -82,7 +82,31 @@
           hooks.treefmt.enable = true;
         };
 
-        devShells.default = config.pre-commit.devShell;
+        devShells = {
+          default = config.pre-commit.devShell;
+          tauri_1 = with pkgs;
+            mkShell {
+              buildInputs = [
+                cairo
+                gdk-pixbuf
+                glib
+                gtk3
+                libappindicator
+                librsvg
+                libsoup
+                webkitgtk
+                webkitgtk.dev
+                openssl
+                pkg-config
+              ];
+
+              PKG_CONFIG_PATH = "${glib.dev}/lib/pkgconfig:${libsoup.dev}/lib/pkgconfig:${webkitgtk.dev}/lib/pkgconfig:${at-spi2-atk.dev}/lib/pkgconfig:${gtk3.dev}/lib/pkgconfig:${gdk-pixbuf.dev}/lib/pkgconfig:${cairo.dev}/lib/pkgconfig:${pango.dev}/lib/pkgconfig:${harfbuzz.dev}/lib/pkgconfig:${openssl.dev}/lib/pkgconfig";
+
+              shellHook = ''
+                $SHELL
+              '';
+            };
+        };
       };
     };
 
