@@ -776,15 +776,15 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1727787847,
-        "narHash": "sha256-Fr5dB46dh0vS4QAxAI6mISCZlK/5EeIJnDHH6hKv4ls=",
-        "owner": "brckd",
+        "lastModified": 1728312564,
+        "narHash": "sha256-z01cTK5VeLFOUekhAXrJHLDzE74uAxxMwE2p6+Wp9Sg=",
+        "owner": "danth",
         "repo": "stylix",
-        "rev": "9df485a4be754508b783af13a0d4d8ed1f6ff07d",
+        "rev": "63426a59e714c4389c5a8e559dee05a0087a3043",
         "type": "github"
       },
       "original": {
-        "owner": "brckd",
+        "owner": "danth",
         "repo": "stylix",
         "type": "github"
       }

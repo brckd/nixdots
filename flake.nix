@@ -185,7 +185,7 @@
 
     # Scheming
     stylix = {
-      url = "github:brckd/stylix";
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.systems.follows = "systems";
