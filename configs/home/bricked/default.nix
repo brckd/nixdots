@@ -23,6 +23,7 @@
     };
   };
   programs.gh.enable = true;
+  programs.npm.enable = true;
 
   # Editor
   programs.nixvim = {

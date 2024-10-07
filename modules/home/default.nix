@@ -20,6 +20,7 @@
     ./nixvim
     ./vscode
     ./lf
+    ./npm
     ./librewolf
     ./cava
     ./vesktop
