@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   home = {
     username = "personal";
     homeDirectory = "/home/personal";
@@ -30,4 +30,5 @@
   # Apps
   programs.librewolf.enable = true;
   programs.spicetify.enable = true;
+  home.packages = with pkgs; [onlyoffice-bin];
 }
