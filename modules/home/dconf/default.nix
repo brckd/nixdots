@@ -11,6 +11,7 @@ with lib; let
     launch-new-instance
     forge
   ];
+  num-workspaces = 10;
 in {
   config = mkIf cfg.enable {
     home.packages = extensions;
@@ -25,7 +26,7 @@ in {
           };
           "org/gnome/desktop/wm/preferences" = {
             resize-with-right-button = true;
-            num-workspaces = 9;
+            inherit num-workspaces;
           };
           "org/gnome/desktop/wm/keybindings" = {
             close = ["<Super>q"];
@@ -41,9 +42,9 @@ in {
           "switch-to-application-${toString i}" = [];
         };
         "org/gnome/desktop/wm/keybindings" = {
-          "switch-to-workspace-${toString i}" = ["<Super>${toString i}"];
-          "move-to-workspace-${toString i}" = ["<Super><Shift>${toString i}"];
+          "switch-to-workspace-${toString i}" = ["<Super>${toString (mod i 10)}"];
+          "move-to-workspace-${toString i}" = ["<Super><Shift>${toString (mod i 10)}"];
         };
-      }) (range 1 9)));
+      }) (range 1 num-workspaces)));
   };
 }
