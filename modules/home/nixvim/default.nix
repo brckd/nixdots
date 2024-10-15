@@ -71,9 +71,12 @@ in {
             gopls.enable = true;
             lua-ls.enable = true;
             astro.enable = true;
+            emmet-ls = {
+              enable = true;
+              filetypes = ["html" "css" "scss" "astro"];
+            };
           };
         };
-        luasnip.enable = true;
 
         # Autocompletion
         cmp = {
@@ -83,8 +86,9 @@ in {
             sources = [
               {name = "treesitter";}
               {name = "nvim_lsp";}
-              {name = "buffer";}
               {name = "luasnip";}
+              {name = "buffer";}
+              {name = "emoji";}
             ];
             mapping = {
               "<C-Space>" = "cmp.mapping.complete()";
@@ -95,8 +99,10 @@ in {
           };
         };
 
-        # Formatting
-        indent-blankline.enable = true;
+        # Editing
+        luasnip.enable = true;
+        comment.enable = true;
+        ts-context-commentstring.enable = true;
         nvim-autopairs.enable = true;
 
         # Preview
@@ -111,10 +117,44 @@ in {
 
         # UI
         web-devicons.enable = true;
+        dashboard = {
+          enable = true;
+          settings = {
+            config = {
+              header = [
+                "    _   _______  ___    ________  ___"
+                "   / | / /  _/ |/ / |  / /  _/  |/  /"
+                "  /  |/ // / |   /| | / // // /|_/ / "
+                " / /|  // / /   | | |/ // // /  / /  "
+                "/_/ |_/___//_/|_| |___/___/_/  /_/   "
+                "                                     "
+              ];
+              footer = ["" "Cooonfiguring to infinity and beyond 🚀"];
+
+              shortcut = [
+                {
+                  action = {
+                    __raw = "function(path) vim.cmd('Telescope find_files') end";
+                  };
+                  desc = "Files";
+                  group = "Label";
+                  icon = " ";
+                  icon_hl = "@variable";
+                  key = "f";
+                }
+              ];
+            };
+          };
+        };
         telescope.enable = true;
         nvim-tree.enable = true;
         lualine.enable = true;
         which-key.enable = true;
+        nvim-colorizer.enable = true;
+        indent-blankline = {
+          enable = true;
+          settings.exclude.filetypes = ["dashboard"];
+        };
       };
     };
   };

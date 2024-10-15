@@ -25,10 +25,6 @@ in {
           package = with pkgs; nerdfonts.override {fonts = [font];};
           name = "${font} Nerd Font Mono";
         };
-        emoji = {
-          package = pkgs.twemoji-color-font;
-          name = "Twitter Color Emoji";
-        };
       };
     };
   };
