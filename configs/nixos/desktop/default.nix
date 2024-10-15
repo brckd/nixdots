@@ -56,6 +56,7 @@ with lib; {
       clang
       gimp
       cutter
+      insomnia
       wineWowPackages.waylandFull
       winetricks
       mono5
