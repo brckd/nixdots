@@ -216,12 +216,6 @@
       inputs.treefmt-nix.follows = "treefmt-nix";
     };
 
-    erosanix = {
-      url = "github:emmanuelrosa/erosanix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
-    };
-
     # Assets
     wallpaper = {
       url = "file+https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/1023077979591cdeca76aae94e0359da1707a60e/minimalistic/blue-cat.png";

@@ -86,29 +86,6 @@
         "type": "github"
       }
     },
-    "erosanix": {
-      "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1726933281,
-        "narHash": "sha256-ydwc45VLUU95iJ9K+QU62gxz12ayUYgznsXGxsOaazk=",
-        "owner": "emmanuelrosa",
-        "repo": "erosanix",
-        "rev": "df435beac4a196101c8eb961a6286c09433dd491",
-        "type": "github"
-      },
-      "original": {
-        "owner": "emmanuelrosa",
-        "repo": "erosanix",
-        "type": "github"
-      }
-    },
     "ez-configs": {
       "inputs": {
         "flake-parts": [
@@ -690,7 +667,6 @@
     "root": {
       "inputs": {
         "devshell": "devshell",
-        "erosanix": "erosanix",
         "ez-configs": "ez-configs",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
