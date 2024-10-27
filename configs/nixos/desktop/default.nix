@@ -64,6 +64,8 @@ with lib; {
       heroic
       modrinth-app
       itch
+      git
+      kitty
       (writeShellScriptBin "wine-mono" "mono")
       (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
     ];

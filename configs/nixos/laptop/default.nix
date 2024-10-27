@@ -48,6 +48,8 @@ with lib; {
     environment.systemPackages = with pkgs; [
       comma
       busybox
+      git
+      kitty
       (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
     ];
 
