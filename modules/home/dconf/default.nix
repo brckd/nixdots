@@ -10,6 +10,7 @@ with lib; let
   extensions = with pkgs.gnomeExtensions; [
     launch-new-instance
     forge
+    clipboard-indicator
   ];
   num-workspaces = 10;
 in {
