@@ -64,6 +64,7 @@ with lib; {
       heroic
       modrinth-app
       itch
+      fractal
       git
       kitty
       (writeShellScriptBin "wine-mono" "mono")
