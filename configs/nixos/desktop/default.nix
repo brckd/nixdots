@@ -65,6 +65,7 @@ with lib; {
       modrinth-app
       itch
       fractal
+      tuba
       git
       kitty
       (writeShellScriptBin "wine-mono" "mono")
