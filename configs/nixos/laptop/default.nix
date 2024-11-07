@@ -50,6 +50,7 @@ with lib; {
       busybox
       git
       kitty
+      mission-center
       (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
     ];
 

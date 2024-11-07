@@ -55,8 +55,6 @@ with lib; {
       cargo
       clang
       gimp
-      cutter
-      insomnia
       wineWowPackages.waylandFull
       winetricks
       mono5
@@ -68,6 +66,7 @@ with lib; {
       tuba
       git
       kitty
+      mission-center
       (writeShellScriptBin "wine-mono" "mono")
       (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
     ];
