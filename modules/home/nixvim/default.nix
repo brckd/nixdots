@@ -60,18 +60,18 @@ in {
         lsp = {
           enable = true;
           servers = {
-            nil-ls.enable = true;
-            ts-ls.enable = true;
+            nil_ls.enable = true;
+            ts_ls.enable = true;
             eslint.enable = true;
-            rust-analyzer = {
+            rust_analyzer = {
               enable = true;
               installCargo = true;
               installRustc = true;
             };
             gopls.enable = true;
-            lua-ls.enable = true;
+            lua_ls.enable = true;
             astro.enable = true;
-            emmet-ls = {
+            emmet_ls = {
               enable = true;
               filetypes = ["html" "css" "scss" "astro"];
             };
