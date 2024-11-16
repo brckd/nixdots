@@ -11,6 +11,7 @@ with lib; let
     launch-new-instance
     forge
     clipboard-indicator
+    reboottouefi
   ];
   num-workspaces = 10;
 in {
