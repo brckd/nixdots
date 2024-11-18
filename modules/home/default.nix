@@ -23,7 +23,6 @@
     ./npm
     ./librewolf
     ./cava
-    ./vesktop
     ./spicetify
   ];
 }

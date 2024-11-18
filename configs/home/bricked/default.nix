@@ -41,6 +41,6 @@
 
   # Apps
   programs.librewolf.enable = true;
-  programs.vesktop.enable = true;
   programs.spicetify.enable = true;
+  home.packages = with pkgs; [vesktop];
 }
