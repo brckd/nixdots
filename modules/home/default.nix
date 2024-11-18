@@ -25,6 +25,5 @@
     ./cava
     ./vesktop
     ./spicetify
-    ./heroic
   ];
 }
