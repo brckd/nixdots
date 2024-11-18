@@ -256,26 +256,6 @@
         "type": "github"
       }
     },
-    "getchoo": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1730821439,
-        "narHash": "sha256-dmtVMery7SAAUFLiUvcWlxIE5nRI4dqNQCZmP8O4Dss=",
-        "owner": "getchoo",
-        "repo": "nix-exprs",
-        "rev": "459cbfa0da30ee118a95c61ccad781464011a488",
-        "type": "github"
-      },
-      "original": {
-        "owner": "getchoo",
-        "repo": "nix-exprs",
-        "type": "github"
-      }
-    },
     "git-hooks": {
       "inputs": {
         "flake-compat": [
@@ -719,7 +699,6 @@
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
-        "getchoo": "getchoo",
         "git-hooks": "git-hooks",
         "gitignore": "gitignore",
         "heroic-theme": "heroic-theme",
