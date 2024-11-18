@@ -22,7 +22,6 @@
     ./lf
     ./npm
     ./librewolf
-    ./cava
     ./spicetify
   ];
 }
