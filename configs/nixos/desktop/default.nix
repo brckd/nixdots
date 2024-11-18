@@ -44,13 +44,17 @@ with lib; {
   boot = {
     loader = {
       systemd-boot = {
-        enable = true;
+        # enable = true;
         configurationLimit = 10;
       };
       efi.canTouchEfiVariables = true;
     };
     plymouth.enable = true;
     silent = true;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
   };
 
   # Preferences

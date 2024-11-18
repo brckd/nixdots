@@ -143,12 +143,6 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    # Installation
-    disko = {
-      url = "github:nix-community/disko/latest";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Development
     flake-compat.url = "github:edolstra/flake-compat";
 
@@ -189,7 +183,7 @@
       inputs.gitignore.follows = "gitignore";
     };
 
-    # Scheming
+    # Theming
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -216,11 +210,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Boot
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Assets
     wallpaper = {
       url = "file+https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/1023077979591cdeca76aae94e0359da1707a60e/minimalistic/blue-cat.png";
       flake = false;
     };
+
     nixos-symbolic = {
       url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/de03e887f03037e7e781a678b57fdae603c9ca20/logo/nix-snowflake-white.svg";
       flake = false;
