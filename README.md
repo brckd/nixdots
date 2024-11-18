@@ -1,7 +1,7 @@
 <div align="center">
 
 # NixDots
-Simple - Sane - Secure
+simple &ndash; sleek &ndash; secure
 </div>
 
 Nix configurations as simple as possible. Runs anywhere nix does!
