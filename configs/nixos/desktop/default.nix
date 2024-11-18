@@ -4,7 +4,7 @@
   ...
 }:
 with lib; {
-  imports = [ ./hardware.nix ];
+  imports = [./hardware.nix];
 
   # System
   networking.hostName = "desktop";
@@ -43,18 +43,16 @@ with lib; {
   # Boot
   boot = {
     loader = {
-      systemd-boot = {
-        # enable = true;
-        configurationLimit = 10;
-      };
       efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
     };
-    plymouth.enable = true;
-    silent = true;
+    initrd.systemd.enable = true;
     lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
+    plymouth.enable = true;
+    silent = true;
   };
 
   # Preferences
@@ -65,7 +63,7 @@ with lib; {
     units = "en_DK.UTF-8";
     layout = "de";
   };
-  
+
   # Desktop
   services.xserver = {
     enable = true;
