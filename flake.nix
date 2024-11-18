@@ -143,6 +143,12 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
+    # Installation
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Development
     flake-compat.url = "github:edolstra/flake-compat";
 
