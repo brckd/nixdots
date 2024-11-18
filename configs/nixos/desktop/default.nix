@@ -4,95 +4,106 @@
   ...
 }:
 with lib; {
-  imports = [
-    ./configuration.nix
-  ];
+  imports = [ ./hardware.nix ];
 
-  config = {
-    nix = {
-      package = pkgs.nix;
-      settings = {
-        experimental-features = ["nix-command" "flakes"];
-        trusted-users = ["@wheel"];
-      };
-    };
-    locale = {
-      timeZone = "Europe/Berlin";
-      language = "en_DK.UTF-8";
-      units = "en_DK.UTF-8";
-      layout = "de";
-    };
-    stylix.enable = true;
-    programs.nh.enable = true;
+  # System
+  networking.hostName = "desktop";
+  system.stateVersion = "24.05";
+  nixpkgs.config.allowUnfree = true;
 
-    boot = {
-      loader.systemd-boot.configurationLimit = 10;
-      plymouth.enable = true;
-      silent = true;
+  # Users
+  users.users = {
+    bricked = {
+      isNormalUser = true;
+      description = "Bricked";
+      extraGroups = ["networkmanager" "wheel"];
     };
-    services.xserver = {
-      enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+    personal = {
+      isNormalUser = true;
+      description = "Personal";
+      extraGroups = ["networkmanager" "wheel"];
     };
-
-    programs.zsh.enable = true;
-    users.defaultUserShell = pkgs.zsh;
-    programs.steam.enable = true;
-    programs.adb.enable = true;
-    programs.nautilus = {
-      enable = true;
-      extensions.open-any-terminal = {
-        enable = true;
-        terminal = "kitty";
-      };
+    john = {
+      isNormalUser = true;
+      description = "John";
+      extraGroups = ["networkmanager"];
     };
-    environment.systemPackages = with pkgs; [
-      comma
-      busybox
-      nodejs_22
-      rustc
-      cargo
-      clang
-      gimp
-      wineWowPackages.waylandFull
-      winetricks
-      mono5
-      cartridges
-      heroic
-      modrinth-app
-      itch
-      fractal
-      tuba
-      git
-      kitty
-      mission-center
-      (writeShellScriptBin "wine-mono" "mono")
-      (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
-    ];
-
-    # Enable networking
-    networking.hostName = "desktop"; # Define your hostname.
-
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users = {
-      bricked = {
-        isNormalUser = true;
-        description = "Bricked";
-        extraGroups = ["networkmanager" "wheel"];
-      };
-      personal = {
-        isNormalUser = true;
-        description = "Personal";
-        extraGroups = ["networkmanager" "wheel"];
-      };
-      john = {
-        isNormalUser = true;
-        description = "John";
-        extraGroups = ["networkmanager"];
-      };
-    };
-
-    nixpkgs.config.allowUnfree = true;
   };
+
+  # Nix
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["@wheel"];
+    };
+  };
+  programs.nh.enable = true;
+
+  # Boot
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    plymouth.enable = true;
+    silent = true;
+  };
+
+  # Preferences
+  stylix.enable = true;
+  locale = {
+    timeZone = "Europe/Berlin";
+    language = "en_DK.UTF-8";
+    units = "en_DK.UTF-8";
+    layout = "de";
+  };
+  
+  # Desktop
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
+  # Shell
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
+  # Misc
+  programs.steam.enable = true;
+  programs.nautilus = {
+    enable = true;
+    extensions.open-any-terminal = {
+      enable = true;
+      terminal = "kitty";
+    };
+  };
+
+  environment.systemPackages = with pkgs; [
+    comma
+    busybox
+    nodejs_22
+    rustc
+    cargo
+    clang
+    gimp
+    wineWowPackages.waylandFull
+    winetricks
+    mono5
+    cartridges
+    heroic
+    modrinth-app
+    itch
+    fractal
+    tuba
+    git
+    kitty
+    mission-center
+    (writeShellScriptBin "wine-mono" "mono")
+    (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
+  ];
 }

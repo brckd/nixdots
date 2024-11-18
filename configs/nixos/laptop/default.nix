@@ -4,78 +4,93 @@
   ...
 }:
 with lib; {
-  imports = [
-    ./configuration.nix
-  ];
+  imports = [ ./hardware.nix ];
 
-  config = {
-    nix = {
-      package = pkgs.nix;
-      settings = {
-        experimental-features = ["nix-command" "flakes"];
-        trusted-users = ["@wheel"];
-      };
-    };
-    locale = {
-      timeZone = "Europe/Berlin";
-      language = "en_DK.UTF-8";
-      units = "en_DK.UTF-8";
-      layout = "de";
-    };
-    stylix.enable = true;
-    programs.nh.enable = true;
+  # System
+  networking.hostName = "laptop";
+  system.stateVersion = "24.05";
+  nixpkgs.config.allowUnfree = true;
 
-    boot = {
-      loader.systemd-boot.configurationLimit = 10;
-      plymouth.enable = true;
-      silent = true;
+  # Users
+  users.users = {
+    bricked = {
+      isNormalUser = true;
+      description = "Bricked";
+      extraGroups = ["networkmanager" "wheel"];
     };
-    services.xserver = {
-      enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+    personal = {
+      isNormalUser = true;
+      description = "Personal";
+      extraGroups = ["networkmanager" "wheel"];
     };
-
-    programs.zsh.enable = true;
-    users.defaultUserShell = pkgs.zsh;
-    programs.nautilus = {
-      enable = true;
-      extensions.open-any-terminal = {
-        enable = true;
-        terminal = "kitty";
-      };
+    john = {
+      isNormalUser = true;
+      description = "John";
+      extraGroups = ["networkmanager"];
     };
-    environment.systemPackages = with pkgs; [
-      comma
-      busybox
-      git
-      kitty
-      mission-center
-      (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
-    ];
-
-    # Enable networking
-    networking.hostName = "laptop"; # Define your hostname.
-
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users = {
-      bricked = {
-        isNormalUser = true;
-        description = "Bricked";
-        extraGroups = ["networkmanager" "wheel"];
-      };
-      personal = {
-        isNormalUser = true;
-        description = "Personal";
-        extraGroups = ["networkmanager" "wheel"];
-      };
-      john = {
-        isNormalUser = true;
-        description = "John";
-        extraGroups = ["networkmanager"];
-      };
-    };
-
-    nixpkgs.config.allowUnfree = true;
   };
+
+  # Nix
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["@wheel"];
+    };
+  };
+  programs.nh.enable = true;
+
+  # Boot
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    plymouth.enable = true;
+    silent = true;
+  };
+
+  # Preferences
+  stylix.enable = true;
+  locale = {
+    timeZone = "Europe/Berlin";
+    language = "en_DK.UTF-8";
+    units = "en_DK.UTF-8";
+    layout = "de";
+  };
+  
+  # Desktop
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
+  # Shell
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
+  # Misc
+  programs.nautilus = {
+    enable = true;
+    extensions.open-any-terminal = {
+      enable = true;
+      terminal = "kitty";
+    };
+  };
+
+  environment.systemPackages = with pkgs; [
+    comma
+    busybox
+    gimp
+    fractal
+    tuba
+    git
+    kitty
+    mission-center
+    (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
+  ];
 }
