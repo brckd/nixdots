@@ -37,6 +37,10 @@ with lib; {
       experimental-features = ["nix-command" "flakes"];
       trusted-users = ["@wheel"];
     };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
   };
   programs.nh.enable = true;
 
