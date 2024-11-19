@@ -8,7 +8,7 @@ with lib; {
 
   # System
   networking.hostName = "desktop";
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
   nixpkgs.config.allowUnfree = true;
 
   # Users
@@ -104,7 +104,6 @@ with lib; {
     tuba
     git
     kitty
-    mission-center
     (writeShellScriptBin "wine-mono" "mono")
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];

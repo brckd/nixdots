@@ -4,11 +4,11 @@
   ...
 }:
 with lib; {
-  imports = [ ./hardware.nix ];
+  imports = [./hardware.nix];
 
   # System
   networking.hostName = "laptop";
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
   nixpkgs.config.allowUnfree = true;
 
   # Users
@@ -61,7 +61,7 @@ with lib; {
     units = "en_DK.UTF-8";
     layout = "de";
   };
-  
+
   # Desktop
   services.xserver = {
     enable = true;
@@ -90,7 +90,6 @@ with lib; {
     tuba
     git
     kitty
-    mission-center
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
 }

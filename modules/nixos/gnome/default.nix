@@ -16,7 +16,6 @@ in {
       simple-scan
       gnome-software
       gnome-weather
-      gnome-system-monitor
     ];
   };
 }
