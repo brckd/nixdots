@@ -11,6 +11,7 @@ in {
   config = mkIf cfg.enable {
     programs.vscode = {
       package = pkgs.vscodium;
+      mutableExtensionsDir = false;
       extensions = with pkgs.vscode-extensions; [
         bbenoist.nix
         dbaeumer.vscode-eslint
@@ -18,7 +19,15 @@ in {
         rust-lang.rust-analyzer
         golang.go
         sumneko.lua
+        esbenp.prettier-vscode
       ];
+      userSettings = {
+        "editor.fontFamily" = "'JetBrainsMono Nerd Font Mono'";
+        "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Mono'";
+        "workbench.colorTheme" = "Stylix";
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "prettier.proseWrap" = "always";
+      };
     };
   };
 }
