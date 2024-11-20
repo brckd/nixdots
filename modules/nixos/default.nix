@@ -3,6 +3,7 @@
   stylix,
   disko,
   lanzaboote,
+  nix-flatpak,
   ...
 }: {
   imports = [
@@ -10,6 +11,7 @@
     stylix.nixosModules.stylix
     disko.nixosModules.disko
     lanzaboote.nixosModules.lanzaboote
+    nix-flatpak.nixosModules.nix-flatpak
     ./boot
     ./xserver
     ./gnome

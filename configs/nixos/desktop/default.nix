@@ -30,7 +30,7 @@ with lib; {
     };
   };
 
-  # Nix
+  # Package Management
   nix = {
     package = pkgs.nix;
     settings = {
@@ -43,6 +43,7 @@ with lib; {
     };
   };
   programs.nh.enable = true;
+  services.flatpak.enable = true;
 
   # Boot
   boot = {
@@ -110,5 +111,9 @@ with lib; {
     kitty
     (writeShellScriptBin "wine-mono" "mono")
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
+  ];
+
+  services.flatpak.packages = [
+    "app.fotema.Fotema"
   ];
 }

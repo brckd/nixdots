@@ -121,8 +121,10 @@
   };
 
   inputs = {
+    # Package reposities
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     # Systems
     home-manager = {

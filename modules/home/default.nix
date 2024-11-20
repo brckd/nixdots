@@ -2,6 +2,7 @@
   nur,
   stylix,
   spicetify-nix,
+  nix-flatpak,
   ...
 }: {
   home.stateVersion = "24.05";
@@ -11,6 +12,7 @@
     nur.hmModules.nur
     stylix.homeManagerModules.stylix
     spicetify-nix.homeManagerModules.default
+    nix-flatpak.homeManagerModules.nix-flatpak
     ./dconf
     ./stylix
     ./zsh
