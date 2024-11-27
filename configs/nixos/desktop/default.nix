@@ -96,6 +96,7 @@ with lib; {
     nodejs_22
     rustc
     cargo
+    rustfmt
     clang
     gimp
     wineWowPackages.waylandFull
