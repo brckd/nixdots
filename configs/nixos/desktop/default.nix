@@ -16,7 +16,7 @@ with lib; {
     bricked = {
       isNormalUser = true;
       description = "Bricked";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "gamemode"];
     };
     personal = {
       isNormalUser = true;
@@ -80,8 +80,11 @@ with lib; {
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  # Misc
+  # Gaming
   programs.steam.enable = true;
+  programs.gamemode.enable = true;
+
+  # Misc
   programs.nautilus = {
     enable = true;
     extensions.open-any-terminal = {
