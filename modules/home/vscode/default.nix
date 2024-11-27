@@ -27,6 +27,8 @@ in {
         "workbench.colorTheme" = "Stylix";
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "prettier.proseWrap" = "always";
+        "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
+        "git.confirmSync" = false;
       };
     };
   };
