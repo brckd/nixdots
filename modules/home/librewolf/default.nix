@@ -129,11 +129,16 @@ in {
           "fancade.club"
           "discord.com"
           "spotify.com"
-          "epicgams.com"
+          "epicgames.com"
           "steam.com"
           "adventofcode.com"
           "fancade.com"
           "hypehype.com"
+          "tilde.zone"
+          "feddit.org"
+          "nope.chat"
+          "flaci.com"
+          "lernraum-berlin.de"
         ];
       };
     };
