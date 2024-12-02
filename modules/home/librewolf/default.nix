@@ -117,6 +117,8 @@ in {
           "gitlab.com"
           "proton.me"
           "purelymail.com"
+          "addy.io"
+          "simplelogin.com"
           "huggingface.co"
           "vercel.com"
           "netlify.com"
@@ -127,6 +129,11 @@ in {
           "fancade.club"
           "discord.com"
           "spotify.com"
+          "epicgams.com"
+          "steam.com"
+          "adventofcode.com"
+          "fancade.com"
+          "hypehype.com"
         ];
       };
     };
