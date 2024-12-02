@@ -29,6 +29,8 @@ in {
         "prettier.proseWrap" = "always";
         "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
         "git.confirmSync" = false;
+        "git.suggestSmartCommit" = false;
+        "git.autofetch" = true;
       };
     };
   };
