@@ -96,7 +96,9 @@ with lib; {
   environment.systemPackages = with pkgs; [
     comma
     busybox
-    nodejs_22
+    nodejs_23
+    bun
+    deno
     rustc
     cargo
     rustfmt
