@@ -1,0 +1,124 @@
+---
+title: Install NixDots
+description: Learn how to quickly install NixDots anywhere.
+---
+
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+
+<Aside>
+  This guide assumes that you have [set up your Nix environment](setup-nix),
+  including flakes and the Git repository.
+</Aside>
+
+## Generate configuration
+
+<Tabs syncKey="nix-environment">
+<TabItem label="NixOS">
+
+Create a new configuration for the current system.
+
+```sh
+config_dir=configs/nixos/$(hostname)
+mkdir $config_dir
+nixos-generate-config --dir $config_dir
+mv $config_dir/configuration.nix $config_dir/default.nix
+```
+
+</TabItem>
+<TabItem label="Nix-on-Droid">
+
+Nix-on-Droid uses the same default configuration on every system. No action is required.
+
+</TabItem>
+<TabItem label="Home Manager">
+
+Create a new configuration for the current user.
+
+```sh
+config_dir=configs/home/$(whoami)
+mkdir $config_dir
+touch $config_dir/default.nix
+```
+
+</TabItem>
+</Tabs>
+
+## Initial build
+
+The initial build may differ, because some missing dependencies need to be substituted.
+
+<Tabs syncKey="nix-environment">
+<TabItem label="NixOS">
+
+<Tabs syncKey="flakes-enabled">
+<TabItem label="Flakes enabled">
+
+```sh
+nix run nixpkgs#nh os switch .
+```
+
+</TabItem>
+<TabItem label="Flakes disabled">
+
+```sh
+nix --experimental-features 'nix-command flakes' run nixpkgs#nh os switch .
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem label="Nix-on-Droid">
+
+```sh
+nix-on-droid switch --flake .
+```
+
+</TabItem>
+<TabItem label="Home Manager">
+
+<Tabs syncKey="flakes-enabled">
+<TabItem label="Flakes enabled">
+
+```sh
+nix run nixpkgs#nh home switch .
+```
+
+</TabItem>
+<TabItem label="Flakes disabled">
+
+```sh
+nix --experimental-features 'nix-command flakes' run nixpkgs#nh home switch .
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
+## Subsequent builds
+
+<Tabs syncKey="nix-environment">
+<TabItem label="NixOS">
+
+```sh
+nh os switch .
+```
+
+</TabItem>
+<TabItem label="Nix-on-Droid">
+
+```sh
+nix-on-droid switch --flake .
+```
+
+</TabItem>
+<TabItem label="Home Manager">
+
+```sh
+nh home switch .
+```
+
+</TabItem>
+</Tabs>

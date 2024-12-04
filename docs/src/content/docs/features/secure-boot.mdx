@@ -1,0 +1,56 @@
+---
+title: Secure Boot
+description: Learn how to set up secure boot on NixOS.
+---
+
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+
+## Setup
+
+<Aside type="caution">
+  This feature is experimental. Use at your own risk, as it could brick your
+  device!
+</Aside>
+
+<Tabs syncKey="nix-environment">
+<TabItem label="NixOS">
+
+Create keys to use for secure boot.
+
+```sh
+sudo nix run nixpkgs#sbctl create-keys
+```
+
+</TabItem>
+</Tabs>
+
+Enable Secure Boot in your BIOS and enter Setup Mode or erase the Platform Keys.
+
+<Tabs syncKey="nix-environment">
+<TabItem label="NixOS">
+
+```sh
+sudo nix run nixpkgs#sbctl enroll-keys -- --microsoft
+```
+
+</TabItem>
+</Tabs>
+
+## TPM disk unlock
+
+With secure boot in place, TPM can be used to automatically unlock encrypted partitions. After enabling this feature in the BIOS, setup your partitions. For each encrypted partition, run the following command by replacing `<encrypted-partion>` with its identifier, e.g. `nvme0n1p1` or `sda1`.
+
+<Tabs syncKey="nix-environment">
+<TabItem label="NixOS">
+
+```sh "<encrypted-partition>"
+sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+2+7+12 /dev/<encrypted-partition>
+```
+
+</TabItem>
+</Tabs>
+
+## Further reading
+
+- Setting up [lanzaboote](https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md)
+- [TPM disk unlock](https://jnsgr.uk/2024/04/nixos-secure-boot-tpm-fde/#tpm-unlock-of-root-partition) on Nix
