@@ -99,6 +99,8 @@ with lib; {
     nodejs_23
     bun
     deno
+    pnpm
+    aoc-cli
     rustc
     cargo
     rustfmt
