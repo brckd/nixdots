@@ -20,11 +20,9 @@ in {
           name = "Lexend";
         };
         serif = sansSerif;
-        monospace = let
-          font = "JetBrainsMono";
-        in {
-          package = with pkgs; nerdfonts.override {fonts = [font];};
-          name = "${font} Nerd Font Mono";
+        monospace = {
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font Mono Regular";
         };
       };
       targets.plymouth = {

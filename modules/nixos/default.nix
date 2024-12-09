@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    nur.nixosModules.nur
+    nur.modules.nixos.default
     stylix.nixosModules.stylix
     disko.nixosModules.disko
     lanzaboote.nixosModules.lanzaboote

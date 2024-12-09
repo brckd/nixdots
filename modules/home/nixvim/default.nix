@@ -150,7 +150,7 @@ in {
         nvim-tree.enable = true;
         lualine.enable = true;
         which-key.enable = true;
-        nvim-colorizer.enable = true;
+        colorizer.enable = true;
         indent-blankline = {
           enable = true;
           settings.exclude.filetypes = ["dashboard"];

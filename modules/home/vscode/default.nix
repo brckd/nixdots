@@ -22,9 +22,6 @@ in {
         esbenp.prettier-vscode
       ];
       userSettings = {
-        "editor.fontFamily" = "'JetBrainsMono Nerd Font Mono'";
-        "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Mono'";
-        "workbench.colorTheme" = "Stylix";
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "prettier.proseWrap" = "always";
         "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";

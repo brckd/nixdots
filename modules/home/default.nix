@@ -9,7 +9,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    nur.hmModules.nur
+    nur.modules.homeManager.default
     stylix.homeManagerModules.stylix
     spicetify-nix.homeManagerModules.default
     nix-flatpak.homeManagerModules.nix-flatpak
