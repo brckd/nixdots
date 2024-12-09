@@ -146,7 +146,8 @@ in {
           "nope.chat"
           "flaci.com"
           "lernraum-berlin.de"
-          "typing.academy"
+          "monkeytype.com"
+          "typst.app"
         ];
       };
     };
