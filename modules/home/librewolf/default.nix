@@ -84,6 +84,11 @@ in {
                 iconUpdateURL = "https://www.fancade.com/favicon.ico";
                 definedAliases = ["@fcw" "@fancadewiki"];
               };
+              "Deepl" = {
+                urls = singleton {template = "https://www.deepl.com/en/translator#en/en/{searchTerms}";};
+                iconUpdateURL = "https://static.deepl.com/img/logo/deepl-logo-blue.svg";
+                definedAliases = ["@dpl" "@deepl"];
+              };
             };
           };
           bookmarks = [
