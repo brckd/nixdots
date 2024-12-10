@@ -25,10 +25,6 @@ in {
           name = "JetBrainsMono Nerd Font Mono Regular";
         };
       };
-      targets.plymouth = {
-        logo = nixos-symbolic;
-        logoAnimated = true;
-      };
     };
   };
 }
