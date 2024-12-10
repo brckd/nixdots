@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import catppuccin from "starlight-theme-catppuccin";
 
 export default defineConfig({
   integrations: [
@@ -24,6 +25,10 @@ export default defineConfig({
           ],
         },
       ],
+      expressiveCode: {
+        themes: ["catppuccin-frappe", "catppuccin-mocha"],
+      },
+      plugins: [catppuccin({})],
     }),
   ],
 });
