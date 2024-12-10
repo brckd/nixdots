@@ -18,7 +18,10 @@ export default defineConfig({
         },
         {
           label: "Features",
-          autogenerate: { directory: "features" },
+          items: [
+            { slug: "features/secure-boot" },
+            { slug: "features/tpm-disk-unlock" },
+          ],
         },
       ],
     }),
