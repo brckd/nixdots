@@ -12,9 +12,20 @@ import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 ## Setup
 
 With secure boot in place, TPM can be used to automatically unlock encrypted
-partitions. After enabling this feature in the BIOS, setup your partitions. For
-each encrypted partition, setup disk unlock by replacing `<encrypted-partion>`
-with its identifier, e.g. `nvme0n1p1`, `sda1` or `disk/by-label/NIXOS`.
+partitions.
+
+<Steps>
+<ol>
+<li>
+
+Enable TPM in the BIOS.
+
+</li>
+<li>
+
+For each encrypted partition, setup disk unlock by replacing
+`<encrypted-partion>` with its identifier, e.g. `nvme0n1p1`, `sda1` or
+`disk/by-label/NIXOS`.
 
 <Tabs syncKey="nix-environment">
 <TabItem label="NixOS">
@@ -25,6 +36,10 @@ sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+2+7+12 /dev/<encrypted
 
 </TabItem>
 </Tabs>
+
+</li>
+</ol>
+</Steps>
 
 ## Troubleshooting
 
@@ -39,8 +54,7 @@ boot. The following steps might resolve this issue.
 <li>
 
 For each encrypted partition, remove disk unlock by replacing
-`<encrypted-partion>` with its identifier, e.g. `nvme0n1p1`, `sda1` or
-`disk/by-label/NIXOS`.
+`<encrypted-partion>` with its identifier.
 
 <Tabs syncKey="nix-environment">
 <TabItem label="NixOS">
