@@ -54,7 +54,10 @@ sudo nix run nixpkgs#sbctl enroll-keys -- --microsoft
 
 ## TPM disk unlock
 
-With secure boot in place, TPM can be used to automatically unlock encrypted partitions. After enabling this feature in the BIOS, setup your partitions. For each encrypted partition, setup disk unlock by replacing `<encrypted-partion>` with its identifier, e.g. `nvme0n1p1`, `sda1` or `disk/by-label/NIXOS`.
+With secure boot in place, TPM can be used to automatically unlock encrypted
+partitions. After enabling this feature in the BIOS, setup your partitions. For
+each encrypted partition, setup disk unlock by replacing `<encrypted-partion>`
+with its identifier, e.g. `nvme0n1p1`, `sda1` or `disk/by-label/NIXOS`.
 
 <Tabs syncKey="nix-environment">
 <TabItem label="NixOS">
@@ -70,7 +73,8 @@ sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+2+7+12 /dev/<encrypted
 
 ### Outdated secure boot keys
 
-After an OS update while using secure boot, keys might become outdated and this error appears on boot:
+After an OS update while using secure boot, keys might become outdated and this
+error appears on boot:
 
 ```
 Verification failed: (0x1A) Security Violation
@@ -110,13 +114,17 @@ sudo nix run nixpkgs#sbctl reset
 
 ### Outdated TPM disk unlock
 
-After an OS or UEFI update using TPM disk unlock, the disks may not be automatically unlocked and you will be prompted for the encryption password on boot. The following steps might resolve this issue.
+After an OS or UEFI update using TPM disk unlock, the disks may not be
+automatically unlocked and you will be prompted for the encryption password on
+boot. The following steps might resolve this issue.
 
 <Steps>
 <ol>
 <li>
 
-For each encrypted partition, remove disk unlock by replacing `<encrypted-partion>` with its identifier, e.g. `nvme0n1p1`, `sda1` or `disk/by-label/NIXOS`.
+For each encrypted partition, remove disk unlock by replacing
+`<encrypted-partion>` with its identifier, e.g. `nvme0n1p1`, `sda1` or
+`disk/by-label/NIXOS`.
 
 <Tabs syncKey="nix-environment">
 <TabItem label="NixOS">
@@ -139,5 +147,7 @@ sudo systemd-cryptenroll --wipe-slot tpm2 /dev/<encrypted-partition>
 
 ## Further reading
 
-- Setting up [lanzaboote](https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md)
-- [TPM disk unlock](https://jnsgr.uk/2024/04/nixos-secure-boot-tpm-fde/#tpm-unlock-of-root-partition) on Nix
+- Setting up
+  [lanzaboote](https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md)
+- [TPM disk unlock](https://jnsgr.uk/2024/04/nixos-secure-boot-tpm-fde/#tpm-unlock-of-root-partition)
+  on Nix

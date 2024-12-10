@@ -7,34 +7,50 @@ import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 
 ## Platforms
 
-NixDots works on a variety of platforms. Follow the respective guides for obtaining those if you haven't already. It is recommended to install Home Manager on any of the listed operating systems.
+NixDots works on a variety of platforms. Follow the respective guides for
+obtaining those if you haven't already. It is recommended to install Home
+Manager on any of the listed operating systems.
 
 <Tabs syncKey="nix-environment">
 <TabItem label="NixOS">
 
-Install [NixOS](https://nixos.org/manual/nixos/stable/index.html#ch-installation) for the most integrated experience.
+Install
+[NixOS](https://nixos.org/manual/nixos/stable/index.html#ch-installation) for
+the most integrated experience.
 
 </TabItem>
 <TabItem label="Nix-on-Droid">
 
-Install [Nix-on-Droid](https://github.com/nix-community/nix-on-droid?tab=readme-ov-file#try-it-out) for an experimental terminal experience on Android. This provides integrated support for Home Manager, which therefore doesn't need to be installed separately.
+Install
+[Nix-on-Droid](https://github.com/nix-community/nix-on-droid?tab=readme-ov-file#try-it-out)
+for an experimental terminal experience on Android. This provides integrated
+support for Home Manager, which therefore doesn't need to be installed
+separately.
 
 </TabItem>
 <TabItem label="Home Manager">
 
-Install [Home Manager](https://nix-community.github.io/home-manager/index.xhtml#ch-nix-flakes) for user configurations in any Nix environment. This is required for most of the functionality of NixDots.
+Install
+[Home Manager](https://nix-community.github.io/home-manager/index.xhtml#ch-nix-flakes)
+for user configurations in any Nix environment. This is required for most of the
+functionality of NixDots.
 
 </TabItem>
 <TabItem label="Standalone Nix">
 
-Use the [Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file#determinate-nix-installer) (recommended) or the [default installer](https://nix.dev/install-nix.html) for non-NixOS systems, such as Linux distributions, MacOS or WSL.
+Use the
+[Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file#determinate-nix-installer)
+(recommended) or the [default installer](https://nix.dev/install-nix.html) for
+non-NixOS systems, such as Linux distributions, MacOS or WSL.
 
 </TabItem>
 </Tabs>
 
 ## Enable flakes
 
-NixDots heavily relies on Nix flakes to provide most of its features. These aren't enabled by default on most Nix environments, so it's recommended but not required to set them up before proceding.
+NixDots heavily relies on Nix flakes to provide most of its features. These
+aren't enabled by default on most Nix environments, so it's recommended but not
+required to set them up before proceding.
 
 <Tabs syncKey="nix-environment">
 <TabItem label="NixOS">
@@ -72,7 +88,8 @@ experimental-features = nix-command flakes
 
 ## Clone the Git repository
 
-NixDots uses Git to keep track of versions. Clone the repository into an accessible location.
+NixDots uses Git to keep track of versions. Clone the repository into an
+accessible location.
 
 <Steps>
 <ol>
