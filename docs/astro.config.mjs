@@ -26,9 +26,9 @@ export default defineConfig({
         },
       ],
       expressiveCode: {
-        themes: ["catppuccin-frappe", "catppuccin-mocha"],
+        themes: ["catppuccin-mocha", "catppuccin-latte"],
       },
-      plugins: [catppuccin({})],
+      plugins: [catppuccin()],
     }),
   ],
 });
