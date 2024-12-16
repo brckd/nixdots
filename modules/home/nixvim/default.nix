@@ -110,7 +110,7 @@ in {
         ts-context-commentstring.enable = true;
         nvim-autopairs.enable = true;
 
-        # Preview
+        # UI
         markview = {
           enable = true;
           settings = {
@@ -119,8 +119,7 @@ in {
             modes = ["n" "x"];
           };
         };
-
-        # UI
+        hex.enable = true;
         web-devicons.enable = true;
         dashboard = {
           enable = true;
