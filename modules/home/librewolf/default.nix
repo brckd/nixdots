@@ -3,6 +3,7 @@
   lib,
   nur,
   pkgs,
+  firefox-gnome-theme,
   ...
 }:
 with lib; let
@@ -100,21 +101,37 @@ in {
             }
           ];
           settings = {
-            "webgl.disabled" = false;
             "extensions.autoDisableScopes" = 0; # Enable extensions
-            "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable userchrome
             "browser.aboutConfig.showWarning" = false;
+            "webgl.disabled" = false;
 
             # Blank homepage
             "browser.newtabpage.enable" = false;
             "browser.startup.homepage" = "about:newtab";
             "browser.toolbars.bookmarks.visibility" = "never";
 
-            # Toolbar customization
+            # UI customization
+            "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
             "browser.uiCustomization.state" = builtins.readFile ./toolbar.json;
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable userchrome
+            "svg.context-properties.content.enabled" = true;
+            "browser.theme.dark-private-windows" = false;
+            "layers.acceleration.force-enabled" = true; # Rounded window corners on Wayland
+
+            # Gnome Theme
+            "gnomeTheme.bookmarksToolbarUnderTabs" = true;
+            "gnomeTheme.dragWindowHeaderbarButtons" = true;
+            "gnomeTheme.symbolicTabIcons" = true;
           };
 
-          userChrome = builtins.readFile ./userChrome.css;
+          userChrome = builtins.readFile (config.lib.stylix.colors {
+            template = ./userChrome.mustache;
+            extension = "css";
+          });
+
+          userContent = ''
+            @import "firefox-gnome-theme/userContent.css";
+          '';
         };
       };
       policies = {
@@ -151,5 +168,7 @@ in {
         ];
       };
     };
+
+    home.file.".librewolf/default/chrome/firefox-gnome-theme".source = firefox-gnome-theme;
   };
 }

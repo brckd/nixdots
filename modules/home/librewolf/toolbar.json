@@ -10,13 +10,17 @@
       "back-button",
       "forward-button",
       "stop-reload-button",
+      "new-tab-button",
+      "customizableui-special-spring8",
       "urlbar-container",
+      "customizableui-special-spring9",
       "downloads-button",
       "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action",
       "unified-extensions-button"
     ],
     "toolbar-menubar": ["menubar-items"],
-    "TabsToolbar": ["tabbrowser-tabs", "new-tab-button", "alltabs-button"],
+    "TabsToolbar": ["tabbrowser-tabs", "alltabs-button"],
+    "vertical-tabs": [],
     "PersonalToolbar": ["import-button", "personal-bookmarks"]
   },
   "seen": [
@@ -25,15 +29,17 @@
     "addon_darkreader_org-browser-action",
     "ublock0_raymondhill_net-browser-action",
     "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action",
-    "developer-button"
+    "developer-button",
+    "profiler-button"
   ],
   "dirtyAreaCache": [
     "unified-extensions-area",
     "nav-bar",
     "PersonalToolbar",
     "toolbar-menubar",
-    "TabsToolbar"
+    "TabsToolbar",
+    "vertical-tabs"
   ],
   "currentVersion": 20,
-  "newElementCount": 5
+  "newElementCount": 9
 }
