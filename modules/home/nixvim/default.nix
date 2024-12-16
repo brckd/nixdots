@@ -32,6 +32,10 @@ in {
         relativenumber = true; # Relative to current line
       };
 
+      globals = {
+        mapleader = " ";
+      };
+
       keymaps = let
         options = {
           silent = true;
@@ -39,17 +43,12 @@ in {
       in [
         {
           action = "<cmd>Telescope find_files<CR>";
-          key = "<C-f>";
+          key = "<leader>ff";
           inherit options;
         }
         {
-          action = "<cmd>Telescope live_grep<CR>";
-          key = "<C-g>";
-          inherit options;
-        }
-        {
-          action = "<cmd>NvimTreeToggle<CR>";
-          key = "<C-n>";
+          action = "<cmd>lua vim.lsp.buf.format()<CR>";
+          key = "<leader>rf";
           inherit options;
         }
       ];
@@ -60,7 +59,13 @@ in {
         lsp = {
           enable = true;
           servers = {
-            nil_ls.enable = true;
+            nixd = {
+              enable = true;
+              settings = {
+                formatting.command = singleton "alejandra";
+                nixpkgs.expr = "import <nixpkgs> { }";
+              };
+            };
             ts_ls.enable = true;
             eslint.enable = true;
             rust_analyzer = {
@@ -147,7 +152,6 @@ in {
           };
         };
         telescope.enable = true;
-        nvim-tree.enable = true;
         lualine.enable = true;
         which-key.enable = true;
         colorizer.enable = true;

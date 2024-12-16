@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  nixpkgs,
   ...
 }:
 with lib; {
@@ -33,6 +34,7 @@ with lib; {
   # Package Management
   nix = {
     package = pkgs.nix;
+    nixPath = ["nixpkgs=${nixpkgs}"];
     settings = {
       experimental-features = ["nix-command" "flakes"];
       trusted-users = ["@wheel"];

@@ -13,7 +13,7 @@ in {
       package = pkgs.vscodium;
       mutableExtensionsDir = false;
       extensions = with pkgs.vscode-extensions; [
-        bbenoist.nix
+        jnoortheen.nix-ide
         dbaeumer.vscode-eslint
         astro-build.astro-vscode
         rust-lang.rust-analyzer
