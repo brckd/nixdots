@@ -3,6 +3,7 @@
   lib,
   pkgs,
   spicetify-nix,
+  spicetify-waveform-extension,
   ...
 }:
 with lib; let
@@ -15,17 +16,9 @@ in {
         hidePodcasts
         beautifulLyrics
         {
-          src = pkgs.fetchFromGitHub {
-            owner = "SPOTLAB-Live";
-            repo = "Spicetify-waveform";
-            rev = "89fa8a6e29258984bc296790e6f41ee017e87c71";
-            hash = "sha256-LOOtdlnpKRE/D95hbuk8vTtFUsA+nUtmsKTiQiy2s7w=";
-          };
+          src = spicetify-waveform-extension;
           name = "waveform.js";
         }
-      ];
-      enabledCustomApps = with spicePkgs.apps; [
-        ncsVisualizer
       ];
     };
   };

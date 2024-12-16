@@ -921,6 +921,7 @@
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",
         "spicetify-nix": "spicetify-nix",
+        "spicetify-waveform-extension": "spicetify-waveform-extension",
         "stylix": "stylix",
         "systems": "systems_3",
         "treefmt-nix": "treefmt-nix_2",
@@ -986,6 +987,22 @@
       "original": {
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
+        "type": "github"
+      }
+    },
+    "spicetify-waveform-extension": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725470126,
+        "narHash": "sha256-LOOtdlnpKRE/D95hbuk8vTtFUsA+nUtmsKTiQiy2s7w=",
+        "owner": "spotlab-live",
+        "repo": "spicetify-waveform",
+        "rev": "89fa8a6e29258984bc296790e6f41ee017e87c71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "spotlab-live",
+        "repo": "spicetify-waveform",
         "type": "github"
       }
     },
