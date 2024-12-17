@@ -122,8 +122,18 @@ with lib; {
     itch
     fractal
     tuba
+    libreoffice
     git
     kitty
+    kooha
+    switcheroo
+    conjure
+    upscaler
+    curtail
+    fragments
+    dconf-editor
+    dconf2nix
+    nurl
     (writeShellScriptBin "wine-mono" "mono")
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
