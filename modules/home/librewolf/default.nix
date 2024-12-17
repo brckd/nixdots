@@ -3,7 +3,6 @@
   lib,
   nur,
   pkgs,
-  firefox-gnome-theme,
   ...
 }:
 with lib; let
@@ -123,15 +122,6 @@ in {
             "gnomeTheme.dragWindowHeaderbarButtons" = true;
             "gnomeTheme.symbolicTabIcons" = true;
           };
-
-          userChrome = builtins.readFile (config.lib.stylix.colors {
-            template = ./userChrome.mustache;
-            extension = "css";
-          });
-
-          userContent = ''
-            @import "firefox-gnome-theme/userContent.css";
-          '';
         };
       };
       policies = {
@@ -168,7 +158,5 @@ in {
         ];
       };
     };
-
-    home.file.".librewolf/default/chrome/firefox-gnome-theme".source = firefox-gnome-theme;
   };
 }

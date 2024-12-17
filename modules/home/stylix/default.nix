@@ -8,6 +8,8 @@
 with lib; let
   cfg = config.stylix;
 in {
+  imports = [./targets/steam ./targets/firefox];
+
   config = mkIf cfg.enable {
     stylix = {
       image = wallpaper;
