@@ -134,6 +134,8 @@ with lib; {
     dconf-editor
     dconf2nix
     nurl
+    nitch
+    cavalier
     (writeShellScriptBin "wine-mono" "mono")
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
