@@ -8,7 +8,7 @@
 with lib; let
   cfg = config.stylix;
 in {
-  imports = [./targets/steam ./targets/firefox];
+  imports = [./targets/steam ./targets/firefox ./targets/flatpak];
 
   config = mkIf cfg.enable {
     stylix = {

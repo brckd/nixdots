@@ -9,14 +9,14 @@
   config = lib.mkIf (config.stylix.enable && config.stylix.targets.steam.enable) {
     home.packages = with pkgs; [adwsteamgtk];
 
-    home.activation.applyAdwaitaForSteam = let
-      shellScript = pkgs.writeShellScript "aplyAdwaitaForSteam" ''
+    home.activation.adwaitaForSteam = let
+      shellScript = pkgs.writeShellScript "adwaitaForSteam" ''
         rm -f "$HOME/.cache/AdwSteamInstaller/extracted/custom/custom.css"
         ${lib.getExe pkgs.adwsteamgtk}  -i
       '';
     in
       config.lib.dag.entryAfter ["writeBoundary" "dconfSettings"] ''
-        run ${shellScript}
+        run --quiet ${shellScript}
       '';
 
     xdg.configFile."AdwSteamGtk/custom.css".source = config.lib.stylix.colors {

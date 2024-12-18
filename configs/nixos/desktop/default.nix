@@ -144,5 +144,6 @@ with lib; {
 
   services.flatpak.packages = [
     "app.fotema.Fotema"
+    "org.gnome.design.Palette"
   ];
 }
