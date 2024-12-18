@@ -44,31 +44,22 @@ in {
 
           "org/gnome/shell" = {
             favourite-apps = ["librewolf.desktop" "nvim.desktop" "kitty.desktop"];
-            /*
-            app-picker-layout = let
-              mkAppPickerLayout = with lib.hm.gvariant; name: position: mkDictionaryEntry[
-                name
-                (mkVariant [mkDictionaryEntry["position" (mkInt32 position)]])
-              ];
-            in [[
-              (mkAppPickerLayout "System" 0)
-              (mkAppPickerLayout "Productivity" 1)
-              (mkAppPickerLayout "Gaming" 2)
-              (mkAppPickerLayout "Office" 3)
-              (mkAppPickerLayout "Multimedia" 4)
-              (mkAppPickerLayout "Social" 5)
-              (mkAppPickerLayout "Coding" 6)
-            ]];
-            */
           };
 
+          # App Picker
           "org/gnome/desktop/app-folders" = {
-            folder-children = ["System" "Productivity" "Gaming" "Office" "Multimedia" "Social" "Coding"];
+            folder-children = ["System" "Ressources" "Productivity" "Files" "Media" "Design" "Office" "Games" "Social" "Development" "Libraries"];
           };
 
           "org/gnome/desktop/app-folders/folders/System" = {
-            apps = ["org.gnome.SystemMonitor.desktop" "org.gnome.Settings.desktop" "yelp.desktop" "nixos-manual.desktop" "org.gnome.Extensions.desktop" "org.gnome.DiskUtility.desktop" "winetricks.desktop" "ca.desrt.dconf-editor.desktop" "org.gnome.Characters.desktop" "org.gnome.baobab.desktop" "org.gnome.FileRoller.desktop" "org.gnome.font-viewer.desktop" "org.gnome.Logs.desktop" "org.gnome.seahorse.Application.desktop" "io.github.Foldex.AdwSteamGtk.desktop"];
+            apps = ["org.gnome.Settings.desktop" "ca.desrt.dconf-editor.desktop" "org.gnome.Logs.desktop" "org.gnome.Extensions.desktop" "nixos-manual.desktop" "yelp.desktop"];
             name = "System";
+            translate = false;
+          };
+
+          "org/gnome/desktop/app-folders/folders/Ressources" = {
+            apps = ["org.gnome.SystemMonitor.desktop" "org.gnome.baobab.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.font-viewer.desktop" "org.gnome.Characters.desktop" "org.gnome.seahorse.Application.desktop"];
+            name = "Ressources";
             translate = false;
           };
 
@@ -78,20 +69,33 @@ in {
             translate = false;
           };
 
-          "org/gnome/desktop/app-folders/folders/Gaming" = {
-            apps = ["page.kramo.Cartridges.desktop" "com.heroicgameslauncher.hgl.desktop" "itch.desktop" "Rocket League®.desktop" "steam.desktop" "Baba Is You.desktop" "Bloons TD 6.desktop" "Modrinth App.desktop" "Progressbar95.desktop" "Proton Experimental.desktop" "Raft.desktop" "Rogue Tower.desktop" "Satisfactory.desktop" "Sheepy A Short Adventure.desktop" "Steam Linux Runtime 1.0 (scout).desktop" "Steam Linux Runtime 2.0 (soldier).desktop" "Steam Linux Runtime 3.0 (sniper).desktop" "Word Factori.desktop"];
-            name = "Gaming";
+          "org/gnome/desktop/app-folders/folders/Files" = {
+            apps = ["org.gnome.Nautilus.desktop" "org.gnome.FileRoller.desktop" "de.haeckerfelix.Fragments.desktop" "lf.desktop"];
+            name = "Files";
+            translate = false;
+          };
+
+          "org/gnome/desktop/app-folders/folders/Media" = {
+            apps = ["app.fotema.Fotema.desktop" "org.gnome.Loupe.desktop" "org.gnome.Totem.desktop" "org.gnome.Music.desktop" "org.gnome.Snapshot.desktop" "io.github.seadve.Kooha.desktop" "spotify.desktop" "org.nickvision.cavalier.desktop"];
+            name = "Media";
+            translate = false;
+          };
+
+          "org/gnome/desktop/app-folders/folders/Design" = {
+            apps = ["gimp.desktop" "io.github.nate_xyz.Conjure.desktop" "io.gitlab.adhami3310.Converter.desktop" "io.gitlab.theevilskeleton.Upscaler.desktop" "com.github.huluti.Curtail.desktop" "com.belmoussaoui.Obfuscate.desktop"];
+            name = "Design";
             translate = false;
           };
 
           "org/gnome/desktop/app-folders/folders/Office" = {
             apps = ["startcenter.desktop" "base.desktop" "calc.desktop" "draw.desktop" "impress.desktop" "math.desktop" "writer.desktop" "org.gnome.Evince.desktop"];
             name = "Office";
+            translate = false;
           };
 
-          "org/gnome/desktop/app-folders/folders/Multimedia" = {
-            apps = ["app.fotema.Fotema.desktop" "org.gnome.Nautilus.desktop" "de.haeckerfelix.Fragments.desktop" "spotify.desktop" "gimp.desktop" "org.gnome.Snapshot.desktop" "org.gnome.Totem.desktop" "org.gnome.Music.desktop" "io.github.nate_xyz.Conjure.desktop" "com.github.huluti.Curtail.desktop" "io.github.seadve.Kooha.desktop" "io.gitlab.adhami3310.Converter.desktop" "lf.desktop" "io.gitlab.theevilskeleton.Upscaler.desktop" "org.gnome.Loupe.desktop"];
-            name = "Multimedia";
+          "org/gnome/desktop/app-folders/folders/Games" = {
+            apps = ["page.kramo.Cartridges.desktop" "steam.desktop" "com.heroicgameslauncher.hgl.desktop" "itch.desktop" "Modrinth App.desktop" "Rocket League\174.desktop" "Satisfactory.desktop" "Raft.desktop" "Sheepy A Short Adventure.desktop" "Progressbar95.desktop" "Baba Is You.desktop" "Bloons TD 6.desktop" "Rogue Tower.desktop" "Word Factori.desktop"];
+            name = "Games";
             translate = false;
           };
 
@@ -101,9 +105,15 @@ in {
             translate = false;
           };
 
-          "org/gnome/desktop/app-folders/folders/Coding" = {
+          "org/gnome/desktop/app-folders/folders/Development" = {
             apps = ["org.gnome.TextEditor.desktop" "codium.desktop"];
-            name = "Coding";
+            name = "Development";
+            translate = false;
+          };
+
+          "org/gnome/desktop/app-folders/folders/Libraries" = {
+            apps = ["winetricks.desktop" "io.github.Foldex.AdwSteamGtk.desktop" "Proton Experimental.desktop" "Steam Linux Runtime 1.0 (scout).desktop" "Steam Linux Runtime 2.0 (soldier).desktop" "Steam Linux Runtime 3.0 (sniper).desktop"];
+            name = "Libraries";
             translate = false;
           };
         }
