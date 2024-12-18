@@ -8,7 +8,7 @@
 
   config = lib.mkIf (config.stylix.enable && config.stylix.targets.flatpak.enable) {
     services.flatpak.overrides.global = {
-      Context.filesystems = ["/nix/store" config.home.homeDirectory];
+      Context.filesystems = ["${config.home.homeDirectory}/.themes/${config.gtk.theme.name}"];
       Environment.GTK_THEME = config.gtk.theme.name;
     };
 
@@ -25,7 +25,5 @@
         cat "$config" >> $out/gtk-4.0/gtk.css
       '';
     };
-
-    gtk.theme.package = lib.mkDefault null;
   };
 }
