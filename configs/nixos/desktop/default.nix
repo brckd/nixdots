@@ -137,6 +137,7 @@ with lib; {
     nitch
     cavalier
     gnome-obfuscate
+    bottles
     (writeShellScriptBin "wine-mono" "mono")
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
