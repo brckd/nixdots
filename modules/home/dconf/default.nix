@@ -94,7 +94,7 @@ in {
           };
 
           "org/gnome/desktop/app-folders/folders/Games" = {
-            apps = ["page.kramo.Cartridges.desktop" "steam.desktop" "com.heroicgameslauncher.hgl.desktop" "itch.desktop" "Modrinth App.desktop" "Rocket League\174.desktop" "Satisfactory.desktop" "Raft.desktop" "Sheepy A Short Adventure.desktop" "Progressbar95.desktop" "Baba Is You.desktop" "Bloons TD 6.desktop" "Rogue Tower.desktop" "Word Factori.desktop"];
+            apps = ["page.kramo.Cartridges.desktop" "steam.desktop" "com.heroicgameslauncher.hgl.desktop" "itch.desktop" "Modrinth App.desktop" "Rocket League®.desktop" "Satisfactory.desktop" "Raft.desktop" "Sheepy A Short Adventure.desktop" "Progressbar95.desktop" "Baba Is You.desktop" "Bloons TD 6.desktop" "Rogue Tower.desktop" "Word Factori.desktop"];
             name = "Games";
             translate = false;
           };
