@@ -9,9 +9,10 @@ with lib; let
   cfg = config.dconf;
   extensions = with pkgs.gnomeExtensions; [
     launch-new-instance
-    forge
     clipboard-indicator
     reboottouefi
+    caffeine
+    forge
   ];
   num-workspaces = 10;
 in {
