@@ -95,12 +95,12 @@ with lib; {
 
   environment.systemPackages = with pkgs; [
     comma
-    busybox
     gimp
     fractal
     tuba
     git
     kitty
+    (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
 }

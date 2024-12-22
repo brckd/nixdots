@@ -102,7 +102,6 @@ with lib; {
 
   environment.systemPackages = with pkgs; [
     comma
-    busybox
     nodejs_23
     bun
     deno
@@ -138,6 +137,7 @@ with lib; {
     cavalier
     gnome-obfuscate
     bottles
+    (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
