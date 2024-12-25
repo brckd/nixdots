@@ -95,11 +95,33 @@ with lib; {
 
   environment.systemPackages = with pkgs; [
     comma
+    nodejs_23
+    bun
+    deno
+    pnpm
+    aoc-cli
+    rustc
+    cargo
+    rustfmt
+    clang
     gimp
     fractal
     tuba
+    libreoffice
     git
     kitty
+    kooha
+    switcheroo
+    conjure
+    upscaler
+    curtail
+    fragments
+    dconf-editor
+    dconf2nix
+    nurl
+    nitch
+    cavalier
+    gnome-obfuscate
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
