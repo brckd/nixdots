@@ -5,7 +5,7 @@
   ...
 }:
 with lib; {
-  imports = [./hardware.nix];
+  imports = [./hardware.nix ./disko.nix];
 
   # System
   networking.hostName = "laptop";
