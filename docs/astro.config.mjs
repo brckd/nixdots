@@ -20,6 +20,7 @@ export default defineConfig({
         {
           label: "Features",
           items: [
+            { slug: "features/disk-partitioning" },
             { slug: "features/secure-boot" },
             { slug: "features/tpm-disk-unlock" },
           ],
