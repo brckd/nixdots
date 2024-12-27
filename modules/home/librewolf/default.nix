@@ -110,11 +110,7 @@ in {
             "browser.toolbars.bookmarks.visibility" = "never";
 
             # UI customization
-            "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
             "browser.uiCustomization.state" = builtins.readFile ./toolbar.json;
-            "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable userchrome
-            "svg.context-properties.content.enabled" = true;
-            "browser.theme.dark-private-windows" = false;
             "layers.acceleration.force-enabled" = true; # Rounded window corners on Wayland
 
             # Gnome Theme

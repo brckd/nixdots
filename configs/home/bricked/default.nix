@@ -5,6 +5,10 @@
   };
 
   stylix.enable = true;
+  stylix.targets.librewolf = {
+    profileNames = ["default"];
+    firefoxGnomeTheme.enable = true;
+  };
 
   # Terminal
   programs.zsh.enable = true;

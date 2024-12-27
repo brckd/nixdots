@@ -198,7 +198,7 @@
 
     # Theming
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:brckd/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.systems.follows = "systems";
