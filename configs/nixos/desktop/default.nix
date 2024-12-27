@@ -56,7 +56,7 @@ with lib; {
     initrd.systemd.enable = true;
     lanzaboote = {
       enable = true;
-      pkiBundle = "/etc/secureboot";
+      pkiBundle = "/var/lib/sbctl";
     };
     plymouth.enable = true;
     silent = true;
