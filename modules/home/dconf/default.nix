@@ -13,6 +13,7 @@ with lib; let
     reboottouefi
     caffeine
     forge
+    gamemode-shell-extension
   ];
   num-workspaces = 10;
 in {
@@ -40,6 +41,10 @@ in {
 
           "org/gnome/shell/extensions/forge" = {
             dnd-center-layout = "swap";
+          };
+
+          "org/gnome/shell/extensions/gamemodeshellextension" = {
+            show-icon-only-when-active = true;
           };
 
           "org/gnome/shell" = {
