@@ -137,6 +137,7 @@ with lib; {
     cavalier
     gnome-obfuscate
     bottles
+    mission-center
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")

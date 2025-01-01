@@ -122,6 +122,7 @@ with lib; {
     nitch
     cavalier
     gnome-obfuscate
+    mission-center
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
