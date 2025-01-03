@@ -47,6 +47,7 @@ with lib; {
   };
   programs.nh.enable = true;
   services.flatpak.enable = true;
+  programs.nix-ld.enable = true;
 
   # Boot
   boot = {
@@ -92,6 +93,15 @@ with lib; {
   programs.steam.enable = true;
   programs.gamemode.enable = true;
 
+  # Virtualisation
+  virtualisation = {
+    waydroid.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.swtpm.enable = true;
+    };
+  };
+
   # Misc
   programs.nautilus = {
     enable = true;
@@ -101,8 +111,15 @@ with lib; {
     };
   };
 
-  programs.nix-ld.enable = true;
-  virtualisation.waydroid.enable = true;
+  # Taken from https://github.com/NixOS/nixpkgs/issues/115996#issuecomment-2224296279
+  # Fixes libvirtd QEMU integration for GNOME boxes
+  systemd.tmpfiles.rules = let
+    firmware = pkgs.runCommandLocal "qemu-firmware" {} ''
+      mkdir $out
+      cp ${pkgs.qemu}/share/qemu/firmware/*.json $out
+      substituteInPlace $out/*.json --replace ${pkgs.qemu} /run/current-system/sw
+    '';
+  in ["L+ /var/lib/qemu/firmware - - - - ${firmware}"];
 
   environment.systemPackages = with pkgs; [
     comma
@@ -142,6 +159,10 @@ with lib; {
     gnome-obfuscate
     bottles
     mission-center
+    gnome-boxes
+    qemu
+    collision
+    swtpm
     nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")

@@ -59,6 +59,7 @@ with lib; let
     {
       name = "Development";
       categories = ["Development" "TextEditor"];
+      excluded-apps = map mkApp ["org.gnome.Boxes"];
     }
 
     {
