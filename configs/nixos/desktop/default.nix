@@ -2,6 +2,7 @@
   pkgs,
   lib,
   nixpkgs,
+  nix-alien,
   ...
 }:
 with lib; {
@@ -100,6 +101,8 @@ with lib; {
     };
   };
 
+  programs.nix-ld.enable = true;
+
   environment.systemPackages = with pkgs; [
     comma
     nodejs_23
@@ -138,6 +141,7 @@ with lib; {
     gnome-obfuscate
     bottles
     mission-center
+    nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
