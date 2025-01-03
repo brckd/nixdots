@@ -15,7 +15,91 @@ with lib; let
     forge
     gamemode-indicator-in-system-settings
   ];
-  num-workspaces = 10;
+  workspacesCount = 10;
+  mkSlug = str: concatStrings (filter (c: elem c lowerChars) (stringToCharacters (toLower str)));
+  mkApp = name: "${name}.desktop";
+  appFolders = [
+    {
+      name = "System";
+      categories = ["System" "Settings" "Documentation"];
+      apps = map mkApp ["org.gnome.Extensions"];
+    }
+
+    {
+      name = "Core";
+      categories = ["Core"];
+      apps = map mkApp ["org.gnome.Maps" "org.gnome.clocks" "org.gnome.Calculator" "org.gnome.Contacts"];
+      excluded-apps = map mkApp ["yelp"];
+    }
+
+    {
+      name = "Utility";
+      categories = ["Utility"];
+      excluded-apps = map mkApp ["codium" "codium-url-handler" "yelp" "org.gnome.TextEditor" "org.gnome.Logs" "org.gnome.Extensions" "org.gnome.Maps" "org.gnome.Nautilus" "org.gnome.clocks" "org.gnome.Calculator" "com.belmoussaoui.Obfuscate" "io.gitlab.adhami3310.Converter" "io.github.seadve.Kooha" "winetricks" "com.usebottles.bottles"];
+    }
+
+    {
+      name = "Network";
+      categories = ["Network"];
+      excluded-apps = map mkApp ["steam"];
+    }
+
+    {
+      name = "Graphics";
+      categories = ["Graphics"];
+      apps = map mkApp ["app.fotema.Fotema" "com.belmoussaoui.Obfuscate"];
+      excluded-apps = map mkApp ["draw"];
+    }
+
+    {
+      name = "Sound & Video";
+      categories = ["AudioVideo" "Audio" "Video" "Recorder"];
+    }
+
+    {
+      name = "Development";
+      categories = ["Development" "TextEditor"];
+    }
+
+    {
+      name = "Office";
+      categories = ["Office"];
+      excluded-apps = map mkApp ["org.gnome.Calendar" "org.gnome.Contacts"];
+    }
+
+    {
+      name = "Education";
+      categories = ["Education"];
+      excluded-apps = map mkApp ["math"];
+    }
+
+    {
+      name = "Science";
+      categories = ["Science"];
+      excluded-apps = map mkApp ["math"];
+    }
+
+    {
+      name = "Games";
+      categories = ["Game"];
+    }
+
+    {
+      name = "Waydroid";
+      categories = ["X-WayDroid-App"];
+    }
+
+    {
+      name = "Wine";
+      categories = ["Wine" "X-Wine" "Wine-Programs-Accessories" "Application"];
+      apps = map mkApp ["winetricks" "com.usebottles.bottles"];
+    }
+
+    {
+      name = "Console";
+      categories = ["ConsoleOnly"];
+    }
+  ];
 in {
   config = mkIf cfg.enable {
     home.packages = extensions;
@@ -33,7 +117,7 @@ in {
 
           "org/gnome/desktop/wm/preferences" = {
             resize-with-right-button = true;
-            inherit num-workspaces;
+            num-workspaces = workspacesCount;
           };
 
           "org/gnome/desktop/wm/keybindings" = {
@@ -45,80 +129,31 @@ in {
           };
 
           "org/gnome/shell" = {
-            favourite-apps = ["librewolf.desktop" "nvim.desktop" "kitty.desktop"];
+            favourite-apps = map mkApp ["librewolf" "nvim" "kitty"];
           };
 
           # App Picker
           "org/gnome/desktop/app-folders" = {
-            folder-children = ["System" "Ressources" "Productivity" "Files" "Media" "Design" "Office" "Games" "Social" "Development" "Libraries"];
+            folder-children = map mkSlug (catAttrs "name" appFolders);
           };
 
-          "org/gnome/desktop/app-folders/folders/System" = {
-            apps = ["org.gnome.Settings.desktop" "ca.desrt.dconf-editor.desktop" "org.gnome.Logs.desktop" "org.gnome.Extensions.desktop" "nixos-manual.desktop" "yelp.desktop"];
-            name = "System";
-            translate = false;
-          };
-
-          "org/gnome/desktop/app-folders/folders/Ressources" = {
-            apps = ["org.gnome.SystemMonitor.desktop" "org.gnome.baobab.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.font-viewer.desktop" "org.gnome.Characters.desktop" "org.gnome.seahorse.Application.desktop"];
-            name = "Ressources";
-            translate = false;
-          };
-
-          "org/gnome/desktop/app-folders/folders/Productivity" = {
-            apps = ["org.gnome.Geary.desktop" "org.gnome.Contacts.desktop" "org.gnome.clocks.desktop" "org.gnome.Calendar.desktop" "org.gnome.Maps.desktop" "org.gnome.Calculator.desktop"];
-            name = "Productivity";
-            translate = false;
-          };
-
-          "org/gnome/desktop/app-folders/folders/Files" = {
-            apps = ["org.gnome.Nautilus.desktop" "org.gnome.FileRoller.desktop" "de.haeckerfelix.Fragments.desktop" "lf.desktop"];
-            name = "Files";
-            translate = false;
-          };
-
-          "org/gnome/desktop/app-folders/folders/Media" = {
-            apps = ["app.fotema.Fotema.desktop" "org.gnome.Loupe.desktop" "org.gnome.Totem.desktop" "org.gnome.Music.desktop" "org.gnome.Snapshot.desktop" "io.github.seadve.Kooha.desktop" "spotify.desktop" "org.nickvision.cavalier.desktop"];
-            name = "Media";
-            translate = false;
-          };
-
-          "org/gnome/desktop/app-folders/folders/Design" = {
-            apps = ["gimp.desktop" "io.github.nate_xyz.Conjure.desktop" "io.gitlab.adhami3310.Converter.desktop" "io.gitlab.theevilskeleton.Upscaler.desktop" "com.github.huluti.Curtail.desktop" "com.belmoussaoui.Obfuscate.desktop"];
-            name = "Design";
-            translate = false;
-          };
-
-          "org/gnome/desktop/app-folders/folders/Office" = {
-            apps = ["startcenter.desktop" "base.desktop" "calc.desktop" "draw.desktop" "impress.desktop" "math.desktop" "writer.desktop" "org.gnome.Evince.desktop"];
-            name = "Office";
-            translate = false;
-          };
-
-          "org/gnome/desktop/app-folders/folders/Games" = {
-            apps = ["page.kramo.Cartridges.desktop" "steam.desktop" "com.heroicgameslauncher.hgl.desktop" "itch.desktop" "Modrinth App.desktop" "Rocket League®.desktop" "Satisfactory.desktop" "Raft.desktop" "Sheepy A Short Adventure.desktop" "Progressbar95.desktop" "Baba Is You.desktop" "Bloons TD 6.desktop" "Rogue Tower.desktop" "Word Factori.desktop"];
-            name = "Games";
-            translate = false;
-          };
-
-          "org/gnome/desktop/app-folders/folders/Social" = {
-            apps = ["vesktop.desktop" "dev.geopjr.Tuba.desktop" "org.gnome.Fractal.desktop"];
-            name = "Social";
-            translate = false;
-          };
-
-          "org/gnome/desktop/app-folders/folders/Development" = {
-            apps = ["org.gnome.TextEditor.desktop" "codium.desktop"];
-            name = "Development";
-            translate = false;
-          };
-
-          "org/gnome/desktop/app-folders/folders/Libraries" = {
-            apps = ["winetricks.desktop" "io.github.Foldex.AdwSteamGtk.desktop" "Proton Experimental.desktop" "Steam Linux Runtime 1.0 (scout).desktop" "Steam Linux Runtime 2.0 (soldier).desktop" "Steam Linux Runtime 3.0 (sniper).desktop"];
-            name = "Libraries";
-            translate = false;
+          "org/gnome/shell" = {
+            app-picker-layout = with lib.gvariant;
+              singleton (imap0 (
+                  i: appFolder:
+                    mkDictionaryEntry (mkSlug appFolder.name) (mkVariant (singleton (
+                      mkDictionaryEntry "position" (mkInt32 i)
+                    )))
+                )
+                appFolders);
           };
         }
+
+        (listToAttrs (map (
+            appFolder:
+              nameValuePair "org/gnome/desktop/app-folders/folders/${mkSlug appFolder.name}" appFolder
+          )
+          appFolders))
       ]
       ++ (map (i: {
         # See https://unix.stackexchange.com/a/677879
@@ -129,6 +164,6 @@ in {
           "switch-to-workspace-${toString i}" = ["<Super>${toString (mod i 10)}"];
           "move-to-workspace-${toString i}" = ["<Super><Shift>${toString (mod i 10)}"];
         };
-      }) (range 1 num-workspaces)));
+      }) (range 1 workspacesCount)));
   };
 }
