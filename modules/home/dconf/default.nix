@@ -23,6 +23,7 @@ with lib; let
       name = "System";
       categories = ["System" "Settings" "Documentation"];
       apps = map mkApp ["org.gnome.Extensions"];
+      excluded-apps = map mkApp ["lf"];
     }
 
     {
@@ -48,7 +49,7 @@ with lib; let
       name = "Graphics";
       categories = ["Graphics"];
       apps = map mkApp ["app.fotema.Fotema" "com.belmoussaoui.Obfuscate"];
-      excluded-apps = map mkApp ["draw"];
+      excluded-apps = map mkApp ["draw" "org.gnome.Evince"];
     }
 
     {
