@@ -46,7 +46,20 @@ with lib; {
     };
   };
   programs.nh.enable = true;
-  services.flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+    remotes = [
+      {
+        name = "flathub";
+        location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+      }
+      {
+        name = "flathub-beta";
+        location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
+      }
+    ];
+    overrides.global.Context.sockets = ["wayland" "!x11" "!fallback-x11"]; # Force Wayland by default
+  };
   programs.nix-ld.enable = true;
 
   # Boot
@@ -132,7 +145,6 @@ with lib; {
     cargo
     rustfmt
     clang
-    gimp
     wineWowPackages.waylandFull
     winetricks
     mono5
@@ -172,6 +184,10 @@ with lib; {
   ];
 
   services.flatpak.packages = [
+    {
+      appId = "org.gimp.GIMP";
+      origin = "flathub-beta";
+    }
     "app.fotema.Fotema"
     "org.gnome.design.Palette"
   ];
