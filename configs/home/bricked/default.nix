@@ -37,6 +37,10 @@
   };
   programs.gh.enable = true;
   programs.npm.enable = true;
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   # Editor
   programs.nixvim = {
