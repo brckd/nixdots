@@ -170,11 +170,11 @@
     "firefox-gnome-theme_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1734969791,
-        "narHash": "sha256-A9PxLienMYJ/WUvqFie9qXrNC2MeRRYw7TG/q7DRjZg=",
+        "lastModified": 1735922675,
+        "narHash": "sha256-wRN87/3VO48XDxasaYwrMtrJIvUPIAg0KLIBpp8SOFc=",
         "owner": "rafaelmardojai",
         "repo": "firefox-gnome-theme",
-        "rev": "92f4890bd150fc9d97b61b3583680c0524a8cafe",
+        "rev": "28b913d79d1419585e0f3fc783f5728cd6200347",
         "type": "github"
       },
       "original": {
@@ -1179,11 +1179,11 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1736040380,
-        "narHash": "sha256-V88mvzmA1TAXi/M0XIuVhIRCqORwf+Pdhkyru/6bv0k=",
+        "lastModified": 1736043527,
+        "narHash": "sha256-vVDcDyaQspsT2sCnfpCWNI2GNvDSFDxOXYnIPU4vwM4=",
         "owner": "brckd",
         "repo": "stylix",
-        "rev": "16e58cd863644d38b3f66721d731bd47e0e1c569",
+        "rev": "ce6f5faab15cf6205d08a38297943d0a3ef6ca82",
         "type": "github"
       },
       "original": {
