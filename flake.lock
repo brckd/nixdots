@@ -776,18 +776,6 @@
         "type": "github"
       }
     },
-    "nixos-symbolic": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-yYwzjDyVZD/dtn8VOD5zxtVDbRzT0XJClij82UZwQuY=",
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/NixOS/nixos-artwork/de03e887f03037e7e781a678b57fdae603c9ca20/logo/nix-snowflake-white.svg"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/NixOS/nixos-artwork/de03e887f03037e7e781a678b57fdae603c9ca20/logo/nix-snowflake-white.svg"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1735834308,
@@ -1061,7 +1049,6 @@
         "nix-darwin": "nix-darwin",
         "nix-flatpak": "nix-flatpak",
         "nix-on-droid": "nix-on-droid",
-        "nixos-symbolic": "nixos-symbolic",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "nur": "nur",
@@ -1071,7 +1058,7 @@
         "stylix": "stylix",
         "systems": "systems_4",
         "treefmt-nix": "treefmt-nix_2",
-        "wallpaper": "wallpaper"
+        "wallpapers": "wallpapers"
       }
     },
     "rust-overlay": {
@@ -1343,16 +1330,20 @@
         "type": "github"
       }
     },
-    "wallpaper": {
+    "wallpapers": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-jH4edD4koJX7sVGj6j/BWCKMDEY/65zb7DJTXtJB5yA=",
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/1023077979591cdeca76aae94e0359da1707a60e/minimalistic/blue-cat.png"
+        "lastModified": 1733577584,
+        "narHash": "sha256-/Zj+bmqmWWGvH0Gr3QgV5+ApuW/7GBDM4IIdkYU+M+Y=",
+        "owner": "orangci",
+        "repo": "walls-catppuccin-mocha",
+        "rev": "c5e8c84af804ac0d291ca21b3ebf9129f7292470",
+        "type": "github"
       },
       "original": {
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/1023077979591cdeca76aae94e0359da1707a60e/minimalistic/blue-cat.png"
+        "owner": "orangci",
+        "repo": "walls-catppuccin-mocha",
+        "type": "github"
       }
     }
   },

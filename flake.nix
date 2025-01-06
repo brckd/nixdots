@@ -218,13 +218,8 @@
     };
 
     # Assets
-    wallpaper = {
-      url = "file+https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/1023077979591cdeca76aae94e0359da1707a60e/minimalistic/blue-cat.png";
-      flake = false;
-    };
-
-    nixos-symbolic = {
-      url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/de03e887f03037e7e781a678b57fdae603c9ca20/logo/nix-snowflake-white.svg";
+    wallpapers = {
+      url = "github:orangci/walls-catppuccin-mocha";
       flake = false;
     };
 

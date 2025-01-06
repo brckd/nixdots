@@ -2,8 +2,7 @@
   config,
   lib,
   pkgs,
-  wallpaper,
-  nixos-symbolic,
+  wallpapers,
   ...
 }:
 with lib; let
@@ -11,7 +10,7 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     stylix = {
-      image = wallpaper;
+      image = "${wallpapers}/pink-clouds.jpg";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       override.base0C = "90c0e4"; # make teal less intense
       fonts = rec {
