@@ -15,7 +15,7 @@
       imports = [
         inputs.ez-configs.flakeModule
         inputs.treefmt-nix.flakeModule
-        inputs.pre-commit-hooks.flakeModule
+        inputs.git-hooks.flakeModule
       ];
 
       inherit systems;
@@ -161,13 +161,6 @@
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.gitignore.follows = "gitignore";
     };
 
     # Theming
