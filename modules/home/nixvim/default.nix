@@ -2,14 +2,11 @@
   config,
   lib,
   pkgs,
-  nixvim,
   ...
 }:
 with lib; let
   cfg = config.programs.nixvim;
 in {
-  imports = [nixvim.homeManagerModules.nixvim];
-
   config = {
     home.packages = with pkgs; [(mkIf cfg.plugins.telescope.enable fd)];
 

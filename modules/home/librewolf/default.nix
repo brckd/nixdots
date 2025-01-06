@@ -1,8 +1,8 @@
 {
   config,
   lib,
-  nur,
   pkgs,
+  inputs,
   ...
 }:
 with lib; let
@@ -13,7 +13,7 @@ in {
       profiles = {
         default = {
           name = "Default";
-          extensions = with nur.legacyPackages.${pkgs.system}.repos.rycee.firefox-addons; [
+          extensions = with inputs.nur.legacyPackages.${pkgs.system}.repos.rycee.firefox-addons; [
             ublock-origin
             bitwarden
             darkreader

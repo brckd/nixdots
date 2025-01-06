@@ -21,7 +21,7 @@
       inherit systems;
 
       ezConfigs = {
-        globalArgs = inputs;
+        globalArgs = {inherit inputs;};
         inherit root;
 
         home = {
@@ -54,19 +54,15 @@
                     "${configs}/home/droid"
                   ];
                 };
-                extraSpecialArgs = inputs;
+                extraSpecialArgs = {inherit inputs;};
               };
             }
           ];
-          extraSpecialArgs = inputs;
+          extraSpecialArgs = {inherit inputs;};
         };
       };
 
-      perSystem = {
-        config,
-        pkgs,
-        ...
-      }: {
+      perSystem = {config, ...}: {
         treefmt.config = {
           projectRootFile = "flake.nix";
           programs = {

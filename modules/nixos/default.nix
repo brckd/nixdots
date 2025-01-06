@@ -1,12 +1,5 @@
-{
-  nur,
-  stylix,
-  disko,
-  lanzaboote,
-  nix-flatpak,
-  ...
-}: {
-  imports = [
+{inputs, ...}: {
+  imports = with inputs; [
     nur.modules.nixos.default
     stylix.nixosModules.stylix
     disko.nixosModules.disko

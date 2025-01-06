@@ -2,13 +2,12 @@
   config,
   lib,
   pkgs,
-  spicetify-nix,
-  spicetify-waveform-extension,
+  inputs,
   ...
 }:
 with lib; let
   cfg = config.programs.spicetify;
-  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
   config = mkIf cfg.enable {
     programs.spicetify = {
@@ -16,7 +15,7 @@ in {
         hidePodcasts
         beautifulLyrics
         {
-          src = spicetify-waveform-extension;
+          src = inputs.spicetify-waveform-extension;
           name = "waveform.js";
         }
       ];

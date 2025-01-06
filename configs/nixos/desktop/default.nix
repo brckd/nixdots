@@ -1,8 +1,7 @@
 {
   pkgs,
   lib,
-  nixpkgs,
-  nix-alien,
+  inputs,
   ...
 }:
 with lib; {
@@ -35,7 +34,7 @@ with lib; {
   # Package Management
   nix = {
     package = pkgs.nix;
-    nixPath = ["nixpkgs=${nixpkgs}"];
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     settings = {
       experimental-features = ["nix-command" "flakes"];
       trusted-users = ["@wheel"];
@@ -177,7 +176,7 @@ with lib; {
     turtle
     meld
     blender
-    nix-alien.packages.${system}.nix-alien
+    inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
