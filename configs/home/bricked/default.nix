@@ -4,13 +4,7 @@
     homeDirectory = "/home/bricked";
   };
 
-  stylix = {
-    enable = true;
-    targets.librewolf = {
-      profileNames = ["default"];
-      firefoxGnomeTheme.enable = true;
-    };
-  };
+  stylix.enable = true;
 
   # Terminal
   programs.zsh.enable = true;

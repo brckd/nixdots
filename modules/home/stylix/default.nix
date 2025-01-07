@@ -24,6 +24,10 @@ in {
           name = "JetBrainsMono Nerd Font Mono Regular";
         };
       };
+      targets.librewolf = {
+        profileNames = ["default"];
+        firefoxGnomeTheme.enable = true;
+      };
     };
   };
 }
