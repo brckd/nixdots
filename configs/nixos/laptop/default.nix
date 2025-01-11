@@ -48,11 +48,13 @@ with lib; {
   # Boot
   boot = {
     loader = {
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 10;
-      };
       efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
+    };
+    initrd.systemd.enable = true;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
     };
     plymouth.enable = true;
     silent = true;
