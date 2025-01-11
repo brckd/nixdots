@@ -85,6 +85,9 @@ with lib; {
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
+  # Virtualisation
+  virtualisation.libvirtd.enable = true;
+
   # Misc
   programs.nautilus = {
     enable = true;
@@ -93,6 +96,16 @@ with lib; {
       terminal = "kitty";
     };
   };
+
+  # Taken from https://github.com/NixOS/nixpkgs/issues/115996#issuecomment-2224296279
+  # Fixes libvirtd QEMU integration for GNOME boxes
+  systemd.tmpfiles.rules = let
+    firmware = pkgs.runCommandLocal "qemu-firmware" {} ''
+      mkdir $out
+      cp ${pkgs.qemu}/share/qemu/firmware/*.json $out
+      substituteInPlace $out/*.json --replace ${pkgs.qemu} /run/current-system/sw
+    '';
+  in ["L+ /var/lib/qemu/firmware - - - - ${firmware}"];
 
   environment.systemPackages = with pkgs; [
     comma
@@ -124,6 +137,9 @@ with lib; {
     cavalier
     gnome-obfuscate
     mission-center
+    collision
+    gnome-boxes
+    qemu
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
