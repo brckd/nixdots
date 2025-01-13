@@ -108,8 +108,8 @@ in {
     blender
     godot_4
     gimp
-    unityhub
     gnome-software
+    inputs.nix-software-center.packages.${system}.nix-software-center
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
 }

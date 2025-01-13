@@ -211,6 +211,12 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
+    nix-software-center = {
+      url = "github:ljubitje/nix-software-center";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.utils.follows = "flake-utils";
+    };
+
     # Boot
     disko = {
       url = "github:nix-community/disko/latest";

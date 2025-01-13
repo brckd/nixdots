@@ -569,6 +569,30 @@
         "type": "github"
       }
     },
+    "nix-software-center": {
+      "inputs": {
+        "nixos-appstream-data": "nixos-appstream-data",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": [
+          "flake-utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1736046022,
+        "narHash": "sha256-YWCRJO+lBGZND2lXY6U5xUpDJkYRJu8fqCeINIVIMj4=",
+        "owner": "ljubitje",
+        "repo": "nix-software-center",
+        "rev": "cd2387fda8227c32e1197e1d69bbac4e81d849e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ljubitje",
+        "repo": "nix-software-center",
+        "type": "github"
+      }
+    },
     "nixlib": {
       "locked": {
         "lastModified": 1734829460,
@@ -581,6 +605,32 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixos-appstream-data": {
+      "inputs": {
+        "flake-utils": [
+          "nix-software-center",
+          "utils"
+        ],
+        "nixpkgs": [
+          "nix-software-center",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1712858390,
+        "narHash": "sha256-XE7gr+zU3N4SHPAhsgk8cVAFp1iBg+Lxxp3y4dUF1vE=",
+        "owner": "korfuri",
+        "repo": "nixos-appstream-data",
+        "rev": "0465d42a4433faa63b7a5eb0b8d397937c9fc13a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "korfuri",
+        "ref": "flake",
+        "repo": "nixos-appstream-data",
         "type": "github"
       }
     },
@@ -783,6 +833,7 @@
         "nix-darwin": "nix-darwin",
         "nix-flatpak": "nix-flatpak",
         "nix-on-droid": "nix-on-droid",
+        "nix-software-center": "nix-software-center",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
