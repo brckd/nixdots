@@ -98,8 +98,13 @@
   inputs = {
     # Package reposities
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+    };
 
     # Systems
     home-manager = {
@@ -115,6 +120,7 @@
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/prerelease-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-for-bootstrap.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
 
@@ -173,6 +179,8 @@
       url = "github:brckd/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.git-hooks.follows = "git-hooks";
       inputs.systems.follows = "systems";
       inputs.home-manager.follows = "home-manager";
     };
@@ -193,11 +201,14 @@
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
     };
 
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-utils.follows = "flake-utils";
     };
 
     # Boot
@@ -209,6 +220,10 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.pre-commit-hooks-nix.follows = "git-hooks";
     };
 
     # Assets
