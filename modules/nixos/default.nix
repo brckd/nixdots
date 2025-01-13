@@ -5,6 +5,7 @@
     disko.nixosModules.disko
     lanzaboote.nixosModules.lanzaboote
     nix-flatpak.nixosModules.nix-flatpak
+    nixos-generators.nixosModules.all-formats
     ./boot
     ./xserver
     ./gnome

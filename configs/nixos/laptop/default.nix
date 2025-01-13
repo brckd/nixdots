@@ -52,7 +52,10 @@ with lib; {
       efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 10;
     };
-    initrd.systemd.enable = true;
+    initrd.systemd = {
+      enable = true;
+      tpm2.enable = false;
+    };
     lanzaboote = {
       enable = true;
       pkiBundle = "/var/lib/sbctl";
@@ -60,14 +63,10 @@ with lib; {
     plymouth.enable = true;
     silent = true;
   };
+  systemd.tpm2.enable = false;
 
   # Preferences
-  stylix = {
-    enable = true;
-    targets = {
-      plymouth.enable = false;
-    };
-  };
+  stylix.enable = true;
   locale = {
     timeZone = "Europe/Berlin";
     language = "en_DK.UTF-8";

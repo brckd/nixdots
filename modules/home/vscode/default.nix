@@ -20,6 +20,8 @@ in {
         golang.go
         sumneko.lua
         esbenp.prettier-vscode
+        ms-python.python
+        visualstudiotoolsforunity.vstuc
       ];
       userSettings = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";

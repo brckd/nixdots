@@ -77,12 +77,7 @@ with lib; {
   };
 
   # Preferences
-  stylix = {
-    enable = true;
-    targets = {
-      plymouth.enable = false;
-    };
-  };
+  stylix.enable = true;
   locale = {
     timeZone = "Europe/Berlin";
     language = "en_DK.UTF-8";

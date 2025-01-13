@@ -24,6 +24,7 @@ in {
           name = "JetBrainsMono Nerd Font Mono Regular";
         };
       };
+      targets.plymouth.enable = false;
     };
   };
 }

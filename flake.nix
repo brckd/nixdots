@@ -118,6 +118,11 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Flake Framework
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
