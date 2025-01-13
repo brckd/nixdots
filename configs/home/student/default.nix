@@ -18,7 +18,10 @@
       run ${shellScript}
     '';
 
-  stylix.enable = true;
+  stylix = {
+    enable = true;
+    targets.steam.adwaitaForSteam.enable = false;
+  };
 
   # Terminal
   programs.zsh.enable = true;
