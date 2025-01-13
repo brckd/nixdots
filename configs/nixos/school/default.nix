@@ -4,7 +4,9 @@
   inputs,
   ...
 }:
-with lib; {
+with lib; let
+  proxy = "http://10.16.1.1:8080";
+in {
   # This configuration is made to be used with nixos-generators.
   # It may not work on live systems.
 
@@ -54,6 +56,16 @@ with lib; {
     loader.timeout = mkForce 0;
   };
   systemd.tpm2.enable = false;
+
+  # Networking
+  systemd.services.nix-daemon.environment = {
+    http_proxy = proxy;
+    https_proxy = proxy;
+  };
+  networking.proxy = {
+    default = proxy;
+    noProxy = "127.0.0.1,localhost";
+  };
 
   # Preferences
   stylix = {
