@@ -11,7 +11,7 @@
   home.activation.placeConfig = let
     shellScript = pkgs.writeShellScript "" ''
       mkdir -p $HOME/Documents
-      cp --dereference ${../../..} $HOME/Documents/nixdots
+      cp --recursive --dereference ${../../..} $HOME/Documents/nixdots
     '';
   in
     lib.hm.dag.entryAfter ["writeBoundary"] ''
