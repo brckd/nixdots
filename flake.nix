@@ -1,65 +1,67 @@
 {
   description = "NixOS configuration";
 
-  outputs = inputs @ {
-    flake-parts,
-    nix-on-droid,
-    ...
-  }: let
-    systems = ["x86_64-linux" "aarch64-linux"];
-    root = ./.;
-    modules = "${root}/modules";
-    configs = "${root}/configs";
-  in
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} ({
+      lib,
+      self,
+      ...
+    }: let
+      tree = rec {
+        root = ./.;
+        modules = "${root}/modules";
+        configs = "${root}/configs";
+      };
+      systems = ["x86_64-linux" "aarch64-linux"];
+      hosts = self.nixosConfigurations // self.nixOnDroidConfigurations;
+      specialArgs = {inherit inputs self tree;};
+      extraSpecialArgs = specialArgs;
+    in {
       imports = [
-        inputs.ez-configs.flakeModule
         inputs.treefmt-nix.flakeModule
         inputs.git-hooks.flakeModule
       ];
 
       inherit systems;
 
-      ezConfigs = {
-        globalArgs = {inherit inputs;};
-        inherit root;
-
-        home = {
-          modulesDirectory = "${modules}/home";
-          configurationsDirectory = "${configs}/home";
-        };
-
-        nixos = {
-          modulesDirectory = "${modules}/nixos";
-          configurationsDirectory = "${configs}/nixos";
-        };
-
-        darwin = {
-          modulesDirectory = "${modules}/darwin";
-          configurationsDirectory = "${configs}/darwin";
-        };
-      };
-
       flake = {
-        nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-          modules = [
-            "${modules}/droid"
-            "${configs}/droid"
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                config = {
-                  imports = [
-                    "${modules}/home"
-                    "${configs}/home/droid"
-                  ];
-                };
-                extraSpecialArgs = {inherit inputs;};
+        lib.dots = {
+          readModules = path:
+            lib.concatMapAttrs (
+              item: type:
+                if type == "directory"
+                then {${item} = "${path}/${item}";}
+                else {${lib.removeSuffix ".nix" item} = "${path}/${item}";}
+            ) (builtins.readDir path);
+        };
+
+        homeModules = self.lib.dots.readModules "${tree.modules}/home";
+        homeConfigurations = lib.concatMapAttrs (name: module:
+          lib.concatMapAttrs (
+            hostName: host: {
+              "${name}@${hostName}" = inputs.home-manager.lib.homeManagerConfiguration {
+                inherit extraSpecialArgs;
+                inherit (host) pkgs;
+                modules = [module self.homeModules.default];
               };
             }
-          ];
-          extraSpecialArgs = {inherit inputs;};
-        };
+          )
+          hosts) (self.lib.dots.readModules "${tree.configs}/home");
+
+        nixosModules = self.lib.dots.readModules "${tree.modules}/nixos";
+        nixosConfigurations = lib.mapAttrs (name: module:
+          lib.nixosSystem {
+            inherit specialArgs;
+            modules = [module self.nixosModules.default];
+          }) (self.lib.dots.readModules "${tree.configs}/nixos");
+
+        nixOnDroidModules = self.lib.dots.readModules "${tree.modules}/droid";
+        nixOnDroidConfigurations = lib.mapAttrs (name: module:
+          inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+            inherit extraSpecialArgs;
+            pkgs = inputs.nixpkgs.legacyPackages."aarch64-linux";
+            modules = [module self.nixOnDroidModules.default];
+          }) (self.lib.dots.readModules "${tree.configs}/droid");
       };
 
       perSystem = {config, ...}: {
@@ -82,7 +84,7 @@
           default = config.pre-commit.devShell;
         };
       };
-    };
+    });
 
   nixConfig = {
     substituters = [
@@ -133,12 +135,6 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
-    ez-configs = {
-      url = "github:ehllie/ez-configs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
     };
 
     # Development

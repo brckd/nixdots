@@ -128,29 +128,6 @@
         "type": "github"
       }
     },
-    "ez-configs": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1720994547,
-        "narHash": "sha256-5WmTdtALYr8zSTBEeyKWos08pqNwRJ2SiT/vAnw19TU=",
-        "owner": "ehllie",
-        "repo": "ez-configs",
-        "rev": "563000e533a1b1aa957a4b788bf505cd243e5154",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ehllie",
-        "repo": "ez-configs",
-        "type": "github"
-      }
-    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -820,7 +797,6 @@
       "inputs": {
         "devshell": "devshell",
         "disko": "disko",
-        "ez-configs": "ez-configs",
         "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
