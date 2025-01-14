@@ -11,6 +11,9 @@
         root = ./.;
         modules = "${root}/modules";
         configs = "${root}/configs";
+        checks = "${root}/checks";
+        packages = "${root}/packages";
+        apps = "${root}/apps";
       };
       systems = ["x86_64-linux" "aarch64-linux"];
       hosts = self.nixosConfigurations // self.nixOnDroidConfigurations;
@@ -27,12 +30,15 @@
       flake = {
         lib.dots = {
           readModules = path:
-            lib.concatMapAttrs (
-              item: type:
-                if type == "directory"
-                then {${item} = "${path}/${item}";}
-                else {${lib.removeSuffix ".nix" item} = "${path}/${item}";}
-            ) (builtins.readDir path);
+            if builtins.pathExists path
+            then
+              lib.concatMapAttrs (
+                item: type:
+                  if type == "directory"
+                  then {${item} = "${path}/${item}";}
+                  else {${lib.removeSuffix ".nix" item} = "${path}/${item}";}
+              ) (builtins.readDir path)
+            else {};
         };
 
         homeModules = self.lib.dots.readModules "${tree.modules}/home";
@@ -83,6 +89,10 @@
         devShells = {
           default = config.pre-commit.devShell;
         };
+
+        checks = self.lib.dots.readModules tree.checks;
+        packages = self.lib.dots.readModules tree.packages;
+        apps = self.lib.dots.readModules tree.apps;
       };
     });
 
