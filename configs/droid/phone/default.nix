@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 
   nix.extraOptions = ''
     experimental-features = nix-command flakes

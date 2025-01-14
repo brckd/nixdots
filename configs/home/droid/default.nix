@@ -2,9 +2,7 @@
   stylix = {
     enable = true;
     autoEnable = false;
-    targets = {
-      nixvim.enable = true;
-    };
+    targets.nixvim.enable = true;
   };
 
   # Terminal
