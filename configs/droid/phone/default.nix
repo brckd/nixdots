@@ -7,10 +7,4 @@
 
   environment.packages = with pkgs; [zsh];
   user.shell = "${pkgs.zsh}/bin/zsh";
-
-  stylix = {
-    enable = true;
-    autoEnable = false;
-    targets.terminal.enable = true;
-  };
 }
