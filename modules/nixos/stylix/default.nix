@@ -25,6 +25,7 @@ in {
         };
       };
       targets.plymouth.enable = false;
+      homeManagerIntegration.autoImport = false;
     };
   };
 }
