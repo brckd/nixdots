@@ -10,6 +10,8 @@ with lib; let
 in {
   imports = [./targets/terminal.nix];
 
+  options.programs = {};
+
   config = mkIf cfg.enable {
     stylix = {
       image = "${inputs.wallpapers}/pink-clouds.jpg";
