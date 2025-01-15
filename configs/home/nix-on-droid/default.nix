@@ -17,4 +17,7 @@
     enable = true;
     defaultEditor = true;
   };
+
+  # Misc
+  dconf.enable = false;
 }
