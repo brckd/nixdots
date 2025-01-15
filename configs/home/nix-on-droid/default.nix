@@ -11,6 +11,10 @@
   programs.fastfetch.enable = true;
   programs.git.enable = true;
   programs.gh.enable = true;
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   # Editor
   programs.nixvim = {
