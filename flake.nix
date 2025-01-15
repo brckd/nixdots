@@ -108,7 +108,7 @@
                     inherit extraSpecialArgs;
                     useGlobalPkgs = true;
                     useUserPackages = true;
-                    users.${homeName}.imports = [home self.homeModules.default];
+                    config.imports = [home self.homeModules.default];
                   };
                 }
               ];
