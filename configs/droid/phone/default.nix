@@ -40,6 +40,12 @@
       color14 = base0C;
       color15 = base07;
     };
-    font = with config.home-manager.config.stylix.fonts.monospace; "${package}/share/fonts/truetype/NerdFonts/${builtins.replaceStrings [" "] [""] name}-Regular.ttf";
+    font = let
+      font = config.home-manager.config.stylix.fonts.monospace;
+      inherit (font) package;
+      identifiers = lib.splitString " " font.name;
+      name = builtins.head identifiers;
+      variant = lib.last identifiers;
+    in "${package}/share/fonts/truetype/NerdFonts/${name}/${name}NerdFont-${variant}.ttf";
   };
 }
