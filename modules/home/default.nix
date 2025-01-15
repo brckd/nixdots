@@ -8,6 +8,7 @@
     spicetify-nix.homeManagerModules.default
     nix-flatpak.homeManagerModules.nix-flatpak
     nixvim.homeManagerModules.nixvim
+    nix-index-database.hmModules.nix-index
     ./dconf
     ./stylix
     ./zsh

@@ -265,6 +265,11 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-software-center = {
       url = "github:ljubitje/nix-software-center";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -60,6 +60,7 @@ with lib; {
     overrides.global.Context.sockets = ["wayland" "!x11" "!fallback-x11"]; # Force Wayland by default
   };
   programs.nix-ld.enable = true;
+  programs.nix-index-database.comma.enable = true;
 
   # Boot
   boot = {
@@ -129,7 +130,6 @@ with lib; {
   in ["L+ /var/lib/qemu/firmware - - - - ${firmware}"];
 
   environment.systemPackages = with pkgs; [
-    comma
     nodejs_23
     bun
     deno

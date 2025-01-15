@@ -517,6 +517,26 @@
         "type": "github"
       }
     },
+    "nix-index-database_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1736652904,
+        "narHash": "sha256-8uolHABgroXqzs03QdulHp8H9e5kWQZnnhcda1MKbBM=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "271e5bd7c57e1f001693799518b10a02d1123b12",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nix-on-droid": {
       "inputs": {
         "home-manager": [
@@ -825,6 +845,7 @@
         "nix-alien": "nix-alien",
         "nix-darwin": "nix-darwin",
         "nix-flatpak": "nix-flatpak",
+        "nix-index-database": "nix-index-database_2",
         "nix-on-droid": "nix-on-droid",
         "nix-software-center": "nix-software-center",
         "nixos-generators": "nixos-generators",

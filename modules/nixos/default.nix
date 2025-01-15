@@ -6,6 +6,7 @@
     lanzaboote.nixosModules.lanzaboote
     nix-flatpak.nixosModules.nix-flatpak
     nixos-generators.nixosModules.all-formats
+    nix-index-database.nixosModules.nix-index
     ./boot
     ./xserver
     ./gnome
