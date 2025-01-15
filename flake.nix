@@ -16,7 +16,12 @@
         apps = "${root}/apps";
       };
       systems = ["x86_64-linux" "aarch64-linux"];
-      hosts = self.nixosConfigurations // self.nixOnDroidConfigurations;
+      systemConfigs = builtins.listToAttrs (map (system:
+        lib.nameValuePair system {
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+        })
+      systems);
+      hostConfigs = self.nixosConfigurations // self.nixOnDroidConfigurations;
       specialArgs = {inherit inputs self tree;};
       extraSpecialArgs = specialArgs;
     in {
@@ -42,17 +47,18 @@
         };
 
         homeModules = self.lib.dots.readModules "${tree.modules}/home";
-        homeConfigurations = lib.concatMapAttrs (name: module:
-          lib.concatMapAttrs (
-            hostName: host: {
-              "${name}@${hostName}" = inputs.home-manager.lib.homeManagerConfiguration {
-                inherit extraSpecialArgs;
-                inherit (host) pkgs;
-                modules = [module self.homeModules.default];
-              };
-            }
-          )
-          hosts) (self.lib.dots.readModules "${tree.configs}/home");
+        homeConfigurations = lib.concatMapAttrs (
+          name: module:
+            lib.concatMapAttrs (
+              hostName: host: {
+                "${name}@${hostName}" = inputs.home-manager.lib.homeManagerConfiguration {
+                  inherit extraSpecialArgs;
+                  inherit (host) pkgs;
+                  modules = [module self.homeModules.default];
+                };
+              }
+            ) (hostConfigs // systemConfigs)
+        ) (self.lib.dots.readModules "${tree.configs}/home");
 
         nixosModules = self.lib.dots.readModules "${tree.modules}/nixos";
         nixosConfigurations = lib.mapAttrs (name: module:
