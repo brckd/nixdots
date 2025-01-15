@@ -1,9 +1,4 @@
 {
-  home = {
-    username = "nix-on-droid";
-    homeDirectory = "/data/data/com.termux.nix/files/home";
-  };
-
   stylix = {
     enable = true;
     autoEnable = false;
