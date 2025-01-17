@@ -37,6 +37,7 @@
   };
   programs.nix-index-database.comma.enable = true;
   programs.nix-index.enable = true;
+  programs.nix-your-shell.enable = true;
 
   # Editor
   programs.nixvim = {
