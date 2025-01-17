@@ -22,7 +22,7 @@
         })
       systems);
       hostConfigs = self.nixosConfigurations // self.nixOnDroidConfigurations;
-      specialArgs = {inherit inputs self tree;};
+      specialArgs = {inherit inputs self tree systems;};
       extraSpecialArgs = specialArgs;
     in {
       imports = [
