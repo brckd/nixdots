@@ -1,7 +1,9 @@
 {
   pkgs,
+  config,
   lib,
   inputs,
+  systems,
   ...
 }:
 with lib; {
@@ -109,6 +111,8 @@ with lib; {
       qemu.swtpm.enable = true;
     };
   };
+  boot.binfmt.emulatedSystems = filter (sys: sys != pkgs.system) systems;
+  nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
 
   # Misc
   programs.nautilus = {
