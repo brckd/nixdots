@@ -175,6 +175,7 @@ with lib; {
     turtle
     meld
     blender
+    appimage-run
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
