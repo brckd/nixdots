@@ -176,6 +176,7 @@ with lib; {
     meld
     blender
     appimage-run
+    godot_4
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
