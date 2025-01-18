@@ -1,5 +1,10 @@
-{inputs, ...}: {
-  imports = with inputs; [
+{
+  inputs,
+  self,
+  ...
+}: let
+  internalModules = builtins.attrValues (builtins.removeAttrs self.nixosModules ["default"]);
+  externalModules = with inputs; [
     nur.modules.nixos.default
     stylix.nixosModules.stylix
     disko.nixosModules.disko
@@ -7,12 +12,9 @@
     nix-flatpak.nixosModules.nix-flatpak
     nixos-generators.nixosModules.all-formats
     nix-index-database.nixosModules.nix-index
-    ./boot
-    ./xserver
-    ./gnome
-    ./nautilus
-    ./stylix
-    ./locale
-    ./steam
   ];
+in {
+  system.stateVersion = "25.05";
+
+  imports = internalModules ++ externalModules;
 }

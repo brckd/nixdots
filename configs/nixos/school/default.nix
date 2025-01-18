@@ -12,7 +12,6 @@ in {
 
   # System
   networking.hostName = "school";
-  system.stateVersion = "25.05";
   nixpkgs = {
     hostPlatform = "x86_64-linux";
     config.allowUnfree = true;

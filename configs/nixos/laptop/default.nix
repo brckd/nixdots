@@ -9,7 +9,6 @@ with lib; {
 
   # System
   networking.hostName = "laptop";
-  system.stateVersion = "25.05";
   nixpkgs.config.allowUnfree = true;
 
   # Users

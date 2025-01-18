@@ -1,10 +1,14 @@
 {
   inputs,
-  lib,
+  self,
   ...
-}: {
-  imports = with inputs; [
+}: let
+  internalModules = builtins.attrValues (builtins.removeAttrs self.nixOnDroidModules ["default"]);
+  externalModules = with inputs; [
     stylix.nixOnDroidModules.stylix
-    ./stylix
   ];
+in {
+  system.stateVersion = "24.05";
+
+  imports = internalModules ++ externalModules;
 }
