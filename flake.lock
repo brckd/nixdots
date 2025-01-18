@@ -972,11 +972,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1737153673,
-        "narHash": "sha256-QQoUoQKZxxvAwEsP9bQkOLvpgAf3D2HN2j8JyRzAcGU=",
+        "lastModified": 1737229953,
+        "narHash": "sha256-T65hzLrcWFGCQqJXuIDfngaPKd8GSv7HfpZbncY+QXc=",
         "owner": "brckd",
         "repo": "stylix",
-        "rev": "c8a94cddc1017e1090d805ab7f39479dbd0d08c0",
+        "rev": "e9bfe030521d46bd6622bc938a9337045db00479",
         "type": "github"
       },
       "original": {
