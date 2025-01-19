@@ -15,7 +15,7 @@
         packages = "${root}/packages";
         apps = "${root}/apps";
       };
-      systems = ["x86_64-linux" "aarch64-linux"];
+      systems = import inputs.systems;
       systemConfigs = builtins.listToAttrs (map (system:
         lib.nameValuePair system {
           pkgs = inputs.nixpkgs.legacyPackages.${system};
@@ -198,7 +198,7 @@
     # Development
     flake-compat.url = "github:edolstra/flake-compat";
 
-    systems.url = "github:nix-systems/default";
+    systems.url = "github:nix-systems/default-linux";
 
     flake-utils = {
       url = "github:numtide/flake-utils";
