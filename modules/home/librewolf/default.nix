@@ -104,6 +104,7 @@ in {
             "browser.aboutConfig.showWarning" = false;
             "webgl.disabled" = false;
             "browser.tabs.closeWindowWithLastTab" = false;
+            "browser.startup.page" = 3;
 
             # Blank homepage
             "browser.newtabpage.enable" = false;
