@@ -21,6 +21,12 @@
       push.autoSetupRemote = true;
       pull.rebase = true;
       commit.gpgsign = true;
+      pager = {
+        diff = "riff";
+        show = "riff";
+        log = "riff";
+      };
+      interactive.diffFilter = "riff --color=on";
     };
   };
   services.gnome-keyring.enable = true;
@@ -73,5 +79,5 @@
       ActiveProfile = 0;
     };
   };
-  home.packages = with pkgs; [vesktop];
+  home.packages = with pkgs; [vesktop riffdiff];
 }
