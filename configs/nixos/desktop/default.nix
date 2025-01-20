@@ -178,11 +178,17 @@ with lib; {
     appimage-run
     godot_4
     ripgrep
+    moar
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
+
+  environment.variables = {
+    EDITOR = "nvim";
+    PAGER = "moar";
+  };
 
   services.flatpak.packages = [
     {
