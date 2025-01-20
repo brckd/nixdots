@@ -16,12 +16,6 @@
         apps = "${root}/apps";
       };
       systems = import inputs.systems;
-      systemConfigs = builtins.listToAttrs (map (system:
-        lib.nameValuePair system {
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
-        })
-      systems);
-      hostConfigs = self.nixosConfigurations // self.nixOnDroidConfigurations;
       specialArgs = {inherit inputs self tree systems;};
       extraSpecialArgs = specialArgs;
     in {
@@ -47,76 +41,16 @@
         };
 
         homeModules = self.lib.dots.readModules "${tree.modules}/home";
-        homeConfigurations = lib.concatMapAttrs (
-          name: module:
-            lib.concatMapAttrs (
-              hostName: host: {
-                "${name}@${hostName}" = inputs.home-manager.lib.homeManagerConfiguration {
-                  inherit extraSpecialArgs;
-                  inherit (host) pkgs;
-                  modules = [module self.homeModules.default];
-                };
-              }
-            ) (hostConfigs // systemConfigs)
-        ) (self.lib.dots.readModules "${tree.configs}/home");
-
         nixosModules = self.lib.dots.readModules "${tree.modules}/nixos";
-        nixosConfigurations = lib.concatMapAttrs (name: module:
-          {
-            ${name} = lib.nixosSystem {
-              inherit specialArgs;
-              modules = [module self.nixosModules.default];
-            };
-          }
-          // (lib.concatMapAttrs (homeName: home: {
-            "${homeName}@${name}" = lib.nixosSystem {
-              inherit specialArgs;
-              modules = [
-                module
-                self.nixosModules.default
-                inputs.home-manager.nixosModules.home-manager
-                {
-                  home-manager = {
-                    inherit extraSpecialArgs;
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    users.${homeName}.imports = [home self.homeModules.default];
-                  };
-                }
-              ];
-            };
-          }) (self.lib.dots.readModules "${tree.configs}/home"))) (self.lib.dots.readModules "${tree.configs}/nixos");
-
         nixOnDroidModules = self.lib.dots.readModules "${tree.modules}/droid";
-        nixOnDroidConfigurations = lib.concatMapAttrs (name: module:
-          {
-            ${name} = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-              inherit extraSpecialArgs;
-              pkgs = inputs.nixpkgs.legacyPackages."aarch64-linux";
-              modules = [module self.nixOnDroidModules.default];
-            };
-          }
-          // (lib.concatMapAttrs (homeName: home: {
-            "${homeName}@${name}" = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-              inherit extraSpecialArgs;
-              pkgs = inputs.nixpkgs.legacyPackages."aarch64-linux";
-              modules = [
-                module
-                self.nixOnDroidModules.default
-                {
-                  home-manager = {
-                    inherit extraSpecialArgs;
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    config.imports = [home self.homeModules.default];
-                  };
-                }
-              ];
-            };
-          })) (self.lib.dots.readModules "${tree.configs}/home")) (self.lib.dots.readModules "${tree.configs}/droid");
       };
 
-      perSystem = {config, ...}: {
+      perSystem = {
+        config,
+        system,
+        pkgs,
+        ...
+      }: {
         treefmt.config = {
           projectRootFile = "flake.nix";
           programs = {
@@ -139,6 +73,78 @@
         checks = self.lib.dots.readModules tree.checks;
         packages = self.lib.dots.readModules tree.packages;
         apps = self.lib.dots.readModules tree.apps;
+
+        legacyPackages = {
+          homeConfigurations = lib.concatMapAttrs (
+            name: module: {
+              ${name} = inputs.home-manager.lib.homeManagerConfiguration {
+                inherit extraSpecialArgs;
+                inherit pkgs;
+                modules = [module self.homeModules.default];
+              };
+            }
+          ) (self.lib.dots.readModules "${tree.configs}/home");
+
+          nixosConfigurations = lib.concatMapAttrs (name: module:
+            {
+              ${name} = lib.nixosSystem {
+                inherit specialArgs;
+                modules = [
+                  module
+                  self.nixosModules.default
+                  {
+                    nixpkgs.hostPlatform = system;
+                  }
+                ];
+              };
+            }
+            // (lib.concatMapAttrs (homeName: home: {
+              "${homeName}@${name}" = lib.nixosSystem {
+                inherit specialArgs;
+                modules = [
+                  module
+                  self.nixosModules.default
+                  inputs.home-manager.nixosModules.home-manager
+                  {
+                    nixpkgs.hostPlatform = system;
+                    home-manager = {
+                      inherit extraSpecialArgs;
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      users.${homeName}.imports = [home self.homeModules.default];
+                    };
+                  }
+                ];
+              };
+            }) (self.lib.dots.readModules "${tree.configs}/home"))) (self.lib.dots.readModules "${tree.configs}/nixos");
+
+          nixOnDroidConfigurations = lib.concatMapAttrs (name: module:
+            {
+              ${name} = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+                inherit extraSpecialArgs;
+                pkgs = inputs.nixpkgs.legacyPackages.${system};
+                modules = [module self.nixOnDroidModules.default];
+              };
+            }
+            // (lib.concatMapAttrs (homeName: home: {
+              "${homeName}@${name}" = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+                inherit extraSpecialArgs;
+                pkgs = inputs.nixpkgs.legacyPackages.${system};
+                modules = [
+                  module
+                  self.nixOnDroidModules.default
+                  {
+                    home-manager = {
+                      inherit extraSpecialArgs;
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      config.imports = [home self.homeModules.default];
+                    };
+                  }
+                ];
+              };
+            })) (self.lib.dots.readModules "${tree.configs}/home")) (self.lib.dots.readModules "${tree.configs}/droid");
+        };
       };
     });
 
