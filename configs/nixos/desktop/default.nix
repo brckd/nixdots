@@ -180,6 +180,7 @@ with lib; {
     ripgrep
     moar
     fzf
+    wl-clipboard
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
