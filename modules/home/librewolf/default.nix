@@ -126,6 +126,7 @@ in {
           "github.com"
           "codeberg.org"
           "gitlab.com"
+          "gitlab.gnome.org"
           "proton.me"
           "purelymail.com"
           "addy.io"
@@ -141,7 +142,8 @@ in {
           "discord.com"
           "spotify.com"
           "epicgames.com"
-          "steam.com"
+          "steamcommunity.com"
+          "steampowered.com"
           "adventofcode.com"
           "fancade.com"
           "hypehype.com"
@@ -152,6 +154,8 @@ in {
           "lernraum-berlin.de"
           "monkeytype.com"
           "typst.app"
+          "keybr.com"
+          "cachix.org"
         ];
       };
     };
