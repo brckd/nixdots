@@ -181,6 +181,7 @@ with lib; {
     moar
     fzf
     wl-clipboard
+    jq
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
