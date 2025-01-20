@@ -103,6 +103,7 @@ in {
             "extensions.autoDisableScopes" = 0; # Enable extensions
             "browser.aboutConfig.showWarning" = false;
             "webgl.disabled" = false;
+            "browser.tabs.closeWindowWithLastTab" = false;
 
             # Blank homepage
             "browser.newtabpage.enable" = false;
