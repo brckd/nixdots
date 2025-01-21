@@ -19,12 +19,12 @@ with lib; {
     bricked = {
       isNormalUser = true;
       description = "Bricked";
-      extraGroups = ["networkmanager" "wheel" "gamemode"];
+      extraGroups = ["networkmanager" "wheel" "gamemode" "uinput"];
     };
     personal = {
       isNormalUser = true;
       description = "Personal";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "uinput"];
     };
     john = {
       isNormalUser = true;
@@ -86,6 +86,10 @@ with lib; {
     language = "en_DK.UTF-8";
     units = "en_DK.UTF-8";
     layout = "de";
+  };
+  services.kanata = {
+    enable = true;
+    keyboards.default.devices = ["/dev/input/by-id/usb-Razer_Razer_Huntsman_Mini_00000000001A-event-kbd"];
   };
 
   # Desktop
