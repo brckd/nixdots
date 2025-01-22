@@ -1,46 +1,46 @@
 {
-  config,
   lib,
+  config,
   ...
 }: let
-  inherit (builtins) attrNames concatStringsSep mapAttrs;
-  inherit (lib) mkIf attrsToList;
+  inherit (builtins) attrNames concatStringsSep mapAttrs concatLists replaceStrings typeOf;
+  inherit (lib) mkIf mapAttrsToList concatMapAttrs concatMapAttrsStringSep unique;
   cfg = config.services.kanata;
 
   tapTime = 300;
   holdTime = 300;
-  keyMaps =
-    {
-      caps.tap = "esc";
-    }
-    // mapAttrs (k: v: v // {mod = true;}) {
-      a.hold = "lmet";
-      s.hold = "lalt";
-      d.hold = "lsft";
-      f.hold = "lctl";
-      j.hold = "rctl";
-      k.hold = "rsft";
-      l.hold = "ralt";
-      ";".hold = "rmet";
+  layers = {
+    base = {
+      caps = {
+        tap = "esc";
+        hold = "(layer-switch mod-keys)";
+      };
     };
-  keys = attrNames keyMaps;
+    mod-keys =
+      mapAttrs (k: v: v // {mod = true;}) {
+        a.hold = "lmet";
+        s.hold = "lalt";
+        d.hold = "lsft";
+        f.hold = "lctl";
+        j.hold = "rctl";
+        k.hold = "rsft";
+        l.hold = "ralt";
+        ";".hold = "rmet";
+      }
+      // {
+        caps = {
+          tap = "esc";
+          hold = "(layer-switch base)";
+        };
+      };
+  };
 
-  sExp = args: "(${concatStringsSep " " (map toString args)})";
-  tapHold = tapKey: holdKey: sExp ["tap-hold" tapTime holdTime tapKey holdKey];
-
-  aliases =
-    concatStringsSep "\n  "
-    (map ({
-        name,
-        value,
-      }: let
-        tapHoldAction = tapHold (value.tap or name) (value.hold or name);
-      in "${name} ${
-        if value.mod or false
-        then sExp ["multi" "f24" tapHoldAction]
-        else tapHoldAction
-      }")
-      (attrsToList keyMaps));
+  mkSExp = value:
+    if typeOf value == "list"
+    then "(${concatStringsSep " " (map mkSExp value)})"
+    else if typeOf value == "set"
+    then "\n  ${replaceStrings ["\n"] ["\n  "] (concatMapAttrsStringSep "\n" (name: value: "${name} ${mkSExp value}") value)}\n"
+    else toString value;
 in {
   config = mkIf cfg.enable {
     services.kanata = {
@@ -48,19 +48,25 @@ in {
         extraDefCfg = ''
           process-unmapped-keys yes
         '';
-        config = ''
-          (defsrc
-            ${concatStringsSep " " keys}
-          )
-
-          (defalias
-            ${aliases}
-          )
-
-          (deflayer base
-            ${concatStringsSep " " (map (k: "@${k}") keys)}
-          )
-        '';
+        config = lib.traceVal (concatStringsSep "\n\n" (map mkSExp (
+          [
+            (["defsrc"] ++ (unique (concatLists (mapAttrsToList (layer: attrNames) layers))))
+          ]
+          ++ (mapAttrsToList (layer: keys: [
+              "deflayermap"
+              [layer]
+              (concatMapAttrs (key: alias: {
+                  ${key} = let
+                    action = ["tap-hold" tapTime holdTime (alias.tap or key) (alias.hold or key)];
+                  in
+                    if alias.mod or false
+                    then ["multi" "f24" action]
+                    else action;
+                })
+                keys)
+            ])
+            layers)
+        )));
       };
     };
   };
