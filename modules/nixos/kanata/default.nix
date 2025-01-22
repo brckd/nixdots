@@ -48,7 +48,7 @@ in {
         extraDefCfg = ''
           process-unmapped-keys yes
         '';
-        config = lib.traceVal (concatStringsSep "\n\n" (map mkSExp (
+        config = concatStringsSep "\n\n" (map mkSExp (
           [
             (["defsrc"] ++ (unique (concatLists (mapAttrsToList (layer: attrNames) layers))))
           ]
@@ -66,7 +66,7 @@ in {
                 keys)
             ])
             layers)
-        )));
+        ));
       };
     };
   };
