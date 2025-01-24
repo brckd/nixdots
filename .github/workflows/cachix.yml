@@ -20,3 +20,19 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Build NixOS configuration for desktop
         run: nix build .\#nixosConfigurations.desktop.config.system.build.toplevel --accept-flake-config
+  cache_home:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v25
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - name: Set up Cachix
+        uses: cachix/cachix-action@v14
+        with:
+          name: nixdots
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - name: Build Home Manager configuration for Bricked
+        run: nix build .\#homeConfigurations.bricked.activationPackage --accept-flake-config
