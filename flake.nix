@@ -228,6 +228,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-data = {
+      url = "github:snowfallorg/nix-data";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Formatter
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";

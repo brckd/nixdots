@@ -12,6 +12,7 @@
     nix-flatpak.nixosModules.nix-flatpak
     nixos-generators.nixosModules.all-formats
     nix-index-database.nixosModules.nix-index
+    nix-data.nixosModules.nix-data
   ];
 in {
   system.stateVersion = "25.05";

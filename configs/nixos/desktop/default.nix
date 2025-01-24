@@ -63,6 +63,11 @@ with lib; {
   };
   programs.nix-ld.enable = true;
   programs.nix-index-database.comma.enable = true;
+  programs.nix-data = {
+    enable = true;
+    systemconfig = "${./default.nix}";
+    flake = "${../../../flake.nix}";
+  };
 
   # Boot
   boot = {
