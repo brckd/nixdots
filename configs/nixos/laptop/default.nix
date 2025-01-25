@@ -79,6 +79,10 @@ with lib; {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
+  services.kanata = {
+    enable = true;
+    keyboards.default.devices = ["/dev/input/by-path/platform-i8042-serio-0-event-kbd"];
+  };
 
   # Shell
   programs.zsh.enable = true;
