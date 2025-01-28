@@ -5,6 +5,6 @@
 
   environment.packages = with pkgs; [zsh git];
 
-  user.shell = "${pkgs.zsh}/bin/zsh";
+  user.shell = "${pkgs.fish}/bin/fish";
   stylix.enable = true;
 }
