@@ -21,7 +21,7 @@ in {
         serif = sansSerif;
         monospace = {
           package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "JetBrainsMono Nerd Font Mono Regular";
+          name = "JetBrainsMono Nerd Font Mono";
         };
       };
       homeManagerIntegration.autoImport = false;
