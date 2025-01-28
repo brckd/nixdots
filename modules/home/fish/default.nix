@@ -8,6 +8,9 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     programs.fish = {
+      interactiveShellInit = ''
+        fish_vi_key_bindings
+      '';
       shellAbbrs = {
         sh = "$SHELL";
         pg = "$PAGER";
@@ -17,7 +20,8 @@ in {
         gf = "git fetch";
         gpl = "git pull";
         gp = "git push";
-        ga = "git add .";
+        ga = "git add";
+        gaa = "git add .";
         gc = "git commit";
         gcm = "git commit --message";
         gca = "git commit --amend";

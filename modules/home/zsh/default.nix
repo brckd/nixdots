@@ -5,9 +5,12 @@
 }:
 with lib; let
   cfg = config.programs.zsh;
+  dotDir = ".config/zsh";
 in {
   config = mkIf cfg.enable {
     programs.zsh = {
+      inherit dotDir;
+      history.path = "${dotDir}/.zsh_history";
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       history.ignoreSpace = true;
@@ -22,7 +25,8 @@ in {
           gf = "git fetch";
           gpl = "git pull";
           gp = "git push";
-          ga = "git add .";
+          ga = "git add";
+          gaa = "git add .";
           gc = "git commit";
           gcm = "git commit --message";
           gca = "git commit --amend";
