@@ -203,7 +203,7 @@ with lib; {
   environment.variables = {
     EDITOR = "nvim";
     PAGER = "moar";
-    MOAR = "--wrap --quit-if-one-screen --colors 8";
+    MOAR = "--wrap --quit-if-one-screen --colors 16";
   };
 
   services.flatpak.packages = [
