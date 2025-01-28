@@ -1,5 +1,4 @@
 {
-  nixpkgs.config.allowUnfree = true;
   home = {
     username = "nix-on-droid";
     homeDirectory = "/data/data/com.termux.nix/files/home";
@@ -11,7 +10,7 @@
   };
 
   # Terminal
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
   programs.starship.enable = true;
   programs.fastfetch.enable = true;
   programs.git.enable = true;
