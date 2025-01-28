@@ -192,6 +192,7 @@ with lib; {
     wl-clipboard
     jq
     ungoogled-chromium
+    httpie
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
