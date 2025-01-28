@@ -22,11 +22,13 @@ in {
         gp = "git push";
         ga = "git add";
         gaa = "git add .";
+        gr = "git reset";
         gc = "git commit";
         gcm = "git commit --message";
         gca = "git commit --amend";
         gcan = "git commit --amend --no-edit";
         gco = "git checkout";
+        gcob = "git checkout -b";
         gd = "git diff";
         gdn = "git diff --name-only";
         gdh = "git diff HEAD~ HEAD";
@@ -34,7 +36,7 @@ in {
         gdcn = "git diff --cached --name-only";
         gl = "git log";
         glo = "git log --oneline";
-        gr = "git rebase";
+        grb = "git rebase";
         gri = "git rebase --interactive --committer-date-is-author-date";
         n = "nix";
         ns = "nix shell";
