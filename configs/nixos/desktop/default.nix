@@ -106,7 +106,8 @@ with lib; {
 
   # Shell
   programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
 
   # Gaming
   programs.steam.enable = true;

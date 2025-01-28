@@ -47,6 +47,7 @@ in {
           nhh = "nh home switch .";
           nho = "nh os switch .";
           mkp = "mkdir --parent";
+          cpr = "cp --recursive";
         };
       };
     };
