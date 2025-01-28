@@ -10,7 +10,7 @@ in {
     programs.zsh = {
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      autocd = true;
+      history.ignoreSpace = true;
     };
   };
 }
