@@ -20,6 +20,7 @@ in {
         gf = "git fetch";
         gpl = "git pull";
         gp = "git push";
+        gpf = "git push --force";
         ga = "git add";
         gaa = "git add .";
         gr = "git reset";
