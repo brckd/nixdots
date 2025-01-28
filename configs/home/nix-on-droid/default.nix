@@ -1,4 +1,5 @@
 {
+  nixpkgs.config.allowUnfree = true;
   home = {
     username = "nix-on-droid";
     homeDirectory = "/data/data/com.termux.nix/files/home";
