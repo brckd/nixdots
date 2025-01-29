@@ -194,6 +194,8 @@ with lib; {
     jq
     ungoogled-chromium
     httpie
+    ollama-rocm
+    eyedropper
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
