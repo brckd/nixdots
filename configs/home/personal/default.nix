@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   nixpkgs.config.allowUnfree = true;
   home = {
     username = "personal";
@@ -9,6 +9,7 @@
 
   # Terminal
   programs.zsh.enable = true;
+  programs.fish.enable = true;
   programs.starship.enable = true;
   programs.direnv.enable = true;
   programs.kitty.enable = true;
@@ -31,5 +32,4 @@
   # Apps
   programs.librewolf.enable = true;
   programs.spicetify.enable = true;
-  home.packages = with pkgs; [onlyoffice-bin];
 }
