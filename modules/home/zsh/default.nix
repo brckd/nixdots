@@ -44,6 +44,9 @@ in {
           glo = "git log --oneline";
           grb = "git rebase";
           gri = "git rebase --interactive --committer-date-is-author-date";
+          gs = "git stash";
+          gsa = "git stash apply";
+          gcp = "git cherry-pick";
           n = "nix";
           ns = "nix shell";
           nr = "nix run";
