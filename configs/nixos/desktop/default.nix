@@ -144,11 +144,7 @@ with lib; {
   in ["L+ /var/lib/qemu/firmware - - - - ${firmware}"];
 
   environment.systemPackages = with pkgs; [
-    nodejs_23
     bun
-    deno
-    pnpm
-    aoc-cli
     rustc
     cargo
     rustfmt
