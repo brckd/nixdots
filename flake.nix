@@ -250,6 +250,7 @@
       inputs.git-hooks.follows = "git-hooks";
       inputs.systems.follows = "systems";
       inputs.home-manager.follows = "home-manager";
+      inputs.firefox-gnome-theme.follows = "firefox-gnome-theme";
     };
 
     # Programs
@@ -268,14 +269,13 @@
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
+      inputs.systems.follows = "systems";
     };
 
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
-      inputs.flake-utils.follows = "flake-utils";
     };
 
     nix-index-database = {
@@ -296,11 +296,10 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.1";
+      url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.pre-commit-hooks-nix.follows = "git-hooks";
     };
 
