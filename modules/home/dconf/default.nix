@@ -14,6 +14,7 @@ with lib; let
     caffeine
     forge
     gamemode-indicator-in-system-settings
+    rounded-window-corners-reborn
   ];
   workspacesCount = 10;
   mkSlug = str: concatStrings (filter (c: elem c lowerChars) (stringToCharacters (toLower str)));
