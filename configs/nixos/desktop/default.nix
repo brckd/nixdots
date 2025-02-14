@@ -151,6 +151,7 @@ with lib; {
     clang
     wineWowPackages.waylandFull
     winetricks
+    mono5
     cartridges
     heroic
     modrinth-app
