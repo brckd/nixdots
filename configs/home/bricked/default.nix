@@ -30,6 +30,7 @@
       };
       interactive.diffFilter = "riff --color=on";
     };
+    signing.format = "openpgp";
   };
   services.gnome-keyring.enable = true;
   programs.gpg.enable = true;
