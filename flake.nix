@@ -18,6 +18,8 @@
       systems = import inputs.systems;
       specialArgs = {inherit inputs self tree systems;};
       extraSpecialArgs = specialArgs;
+      inherit (builtins) readDir filter concatMap readFileType length elem;
+      inherit (lib) mapAttrsToList pipe flip hasSuffix removeSuffix last applyModuleArgsIfFunction unifyModuleSyntax setAttrByPath sublist remove optional;
     in {
       imports = [
         inputs.treefmt-nix.flakeModule
@@ -27,7 +29,97 @@
       inherit systems;
 
       flake = {
-        lib.dots = {
+        test = self.lib.dots.loaders.modules' {
+          src = ./configs;
+          excludedSegments = ["nixos" "droid"];
+          hoistedSegments = ["home"];
+        };
+        lib.dots = rec {
+          loaders = {
+            file = src: loaders.file' {inherit src;};
+            file' = {
+              src,
+              path ? [],
+              type ? readFileType src,
+            }: {
+              inherit src path type;
+            };
+            directory = src: loaders.directory' {inherit src;};
+            directory' = {
+              src,
+              path ? [],
+            }:
+              mapAttrsToList (
+                name: type:
+                  loaders.file' {
+                    inherit type;
+                    src = "${src}/${name}";
+                    path = path ++ [name];
+                  }
+              ) (readDir src);
+            tree = src: loaders.tree' {inherit src;};
+            tree' = {
+              src,
+              path ? [],
+            }:
+              concatMap (
+                {
+                  src,
+                  type,
+                  path,
+                } @ file:
+                  if type == "directory"
+                  then loaders.tree' {inherit src path;}
+                  else [file]
+              ) (loaders.directory' {inherit src path;});
+            modules = src: loaders.modules' {inherit src;};
+            modules' = {
+              src,
+              loader ? loaders.tree,
+              onlyModules ? true,
+              hoistDefault ? true,
+              excludedSegments ? [],
+              hoistedSegments ? [],
+            }:
+              pipe src (
+                [loader]
+                ++ optional onlyModules transformers.onlyModules
+                ++ optional hoistDefault transformers.hoistDefault
+                ++ [(flip pipe (map transformers.withoutSegment excludedSegments))]
+                ++ [(flip pipe (map transformers.hoistSegment hoistedSegments))]
+              );
+          };
+          transformers = {
+            mapName = f: files:
+              map (
+                {path, ...} @ file:
+                  file
+                  // {
+                    path = sublist 0 (length path - 1) path ++ [(f (last path))];
+                  }
+              )
+              files;
+            filterName = predicate: files: filter ({path, ...}: predicate (last path)) files;
+            mapPath = f: files: map ({path, ...} @ file: file // {path = f path;}) files;
+            filterPath = predicate: files: filter ({path, ...}: predicate path) files;
+            withSegment = segment: transformers.filterPath (elem segment);
+            withoutSegment = segment: transformers.filterPath (path: !elem segment path);
+            hoistSegment = segment: transformers.mapPath (remove segment);
+            hoistDefault = transformers.hoistSegment "default";
+            onlyExtension = extension:
+              flip pipe [
+                (transformers.filterName (hasSuffix ".${extension}"))
+                (transformers.mapName (removeSuffix ".${extension}"))
+              ];
+            onlyModules = transformers.onlyExtension "nix";
+          };
+          listFilesRecursive = dir:
+            lib.flatten (lib.mapAttrsToList (
+              name: type:
+                if type == "directory"
+                then lib.filesystem.listFilesRecursive (dir + "/${name}")
+                else dir + "/${name}"
+            ) (builtins.readDir dir));
           readModules = path:
             if builtins.pathExists path
             then
@@ -38,6 +130,67 @@
                   else {${lib.removeSuffix ".nix" item} = "${path}/${item}";}
               ) (builtins.readDir path)
             else {};
+
+          load = src: let
+            recurse = flip pipe [
+              ({
+                src,
+                path ? [],
+                ...
+              }:
+                mapAttrsToList (name: type: {inherit name type src path;}) (readDir src))
+              (map (flip pipe (map (f: self: self // f self) [
+                (self: {src = "${self.src}/${self.name}";})
+                (self: {name = removeSuffix ".nix" self.name;})
+                (self: {
+                  path =
+                    if self.name == "default"
+                    then self.path
+                    else self.path ++ [self.name];
+                })
+                (self: {name = last self.path;})
+              ])))
+              (filter ({
+                type,
+                src,
+                ...
+              }:
+                type == "directory" || hasSuffix ".nix" src))
+              (concatMap (
+                {
+                  src,
+                  path,
+                  type,
+                  ...
+                } @ module:
+                  if type == "directory"
+                  then
+                    recurse {
+                      inherit src path;
+                    }
+                  else [module]
+              ))
+            ];
+          in
+            (map ({
+              src,
+              path,
+              ...
+            }: args:
+              pipe (import src) [
+                (module: applyModuleArgsIfFunction src module args)
+                (module: unifyModuleSyntax src src module)
+                ({
+                    config,
+                    options,
+                    ...
+                  } @ module:
+                    module
+                    // {
+                      config = setAttrByPath path config;
+                      options = setAttrByPath path options;
+                    })
+              ])) (recurse {inherit src;});
         };
 
         homeModules = self.lib.dots.readModules "${tree.modules}/home";
