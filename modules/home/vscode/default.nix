@@ -22,6 +22,7 @@ in {
         esbenp.prettier-vscode
         ms-python.python
         visualstudiotoolsforunity.vstuc
+        unifiedjs.vscode-mdx
       ];
       userSettings = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
