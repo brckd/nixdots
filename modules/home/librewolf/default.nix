@@ -13,12 +13,15 @@ in {
       profiles = {
         default = {
           name = "Default";
-          extensions = with inputs.nur.legacyPackages.${pkgs.system}.repos.rycee.firefox-addons; [
-            ublock-origin
-            bitwarden
-            darkreader
-            libredirect
-          ];
+          extensions = {
+            packages = with inputs.nur.legacyPackages.${pkgs.system}.repos.rycee.firefox-addons; [
+              ublock-origin
+              bitwarden
+              libredirect
+              darkreader
+            ];
+            force = true;
+          };
           search = {
             default = "DuckDuckGo";
             force = true;
