@@ -16,9 +16,11 @@ in {
           extensions = {
             packages = with inputs.nur.legacyPackages.${pkgs.system}.repos.rycee.firefox-addons; [
               ublock-origin
+              privacy-badger
               bitwarden
               libredirect
               darkreader
+              webhint
             ];
             force = true;
           };
