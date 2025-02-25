@@ -213,5 +213,6 @@ with lib; {
     }
     "app.fotema.Fotema"
     "org.gnome.design.Palette"
+    "re.sonny.Eloquent"
   ];
 }
