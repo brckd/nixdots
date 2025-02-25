@@ -117,8 +117,10 @@ in {
           enable = true;
           settings = {
             buf_ignore = [];
-            hybrid_modes = ["i" "r"];
-            modes = ["n" "x"];
+            preview = {
+              hybrid_modes = ["i" "r"];
+              modes = ["n" "x"];
+            };
           };
         };
         hex.enable = true;

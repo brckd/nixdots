@@ -251,19 +251,14 @@
       inputs.systems.follows = "systems";
       inputs.home-manager.follows = "home-manager";
       inputs.firefox-gnome-theme.follows = "firefox-gnome-theme";
+      inputs.nur.follows = "nur";
     };
 
     # Programs
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.home-manager.follows = "home-manager";
-      inputs.nix-darwin.follows = "nix-darwin";
-      inputs.treefmt-nix.follows = "treefmt-nix";
-      inputs.devshell.follows = "devshell";
-      inputs.git-hooks.follows = "git-hooks";
     };
 
     spicetify-nix = {
