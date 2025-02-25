@@ -24,6 +24,11 @@ in {
           name = "JetBrainsMono Nerd Font Mono";
         };
       };
+      iconTheme = {
+        enable = true;
+        package = pkgs.morewaita-icon-theme;
+        dark = "MoreWaita";
+      };
       targets.librewolf = {
         profileNames = ["default"];
         colorTheme.enable = true;
