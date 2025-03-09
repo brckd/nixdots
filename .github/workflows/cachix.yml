@@ -51,4 +51,4 @@ jobs:
           name: nixdots
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Build nix-on-droid configuration
-        run: nix build .\#nixOnDroidConfigurations.phone.activationPackage --impure --accept-flake-config
+        run: nix build .\#nixOnDroidConfigurations.phone.config.build.activationPackage --impure --accept-flake-config

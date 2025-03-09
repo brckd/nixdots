@@ -2,12 +2,14 @@
   pkgs,
   lib,
   inputs,
+  self,
   ...
 }:
 with lib; {
-  imports = [./hardware.nix ./disko.nix];
+  imports = [self.nixosModules.all ./hardware.nix ./disko.nix];
 
   # System
+  system.stateVersion = "25.05";
   networking.hostName = "laptop";
   nixpkgs.config.allowUnfree = true;
 

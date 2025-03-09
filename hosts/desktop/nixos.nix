@@ -67,7 +67,7 @@ with lib; {
   programs.nix-data = {
     enable = true;
     systemconfig = "${./nixos.nix}";
-    flake = "${self.tree.dirs.root}/flake.nix";
+    flake = "${self.lib.tree.dirs.root}/flake.nix";
   };
 
   # Boot
