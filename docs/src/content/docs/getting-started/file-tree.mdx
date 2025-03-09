@@ -8,14 +8,31 @@ import { FileTree } from "@astrojs/starlight/components";
 Nixdots uses a semantic file structure inspired by the likes of [Ez-configs](https://github.com/ehllie/ez-configs), [Haumea](https://github.com/nix-community/haumea) and [Stylix](https://github.com/danth/stylix).
 
 <FileTree>
-  - flake.nix Flake definitions - flake.lock - compat.nix Flake compatibility
-  layer - default.nix - shell.nix - docs Documentation - src/content/docs
-  Documentation content - … - modules Nix modules - [module] E.g. stylix -
-  common.nix Shared module - home.nix Home Manager module - nixos.nix NixOS
-  module - droid.nix NixOnDroid module - hosts Per-host configurations - [host]
-  E.g. desktop - home.nix Home Manager configuration - nixos.nix NixOS
-  configuration - droid.nix NixOnDroid configuration - users Per-user
-  configurations - [user] E.g. bricked - home.nix Home Manager configuration -
-  [output] Flake outputs, e.g. legacyPackages - [key] E.g. homeConfigurations -
-  default.nix Output module
+
+- flake.nix Flake definitions
+- flake.lock
+- compat.nix Flake compatibility layer
+- default.nix
+- shell.nix
+- docs Documentation
+  - src/content/docs Documentation content
+    - …
+- modules Nix modules
+  - [module] E.g. stylix
+    - common.nix Shared module
+    - home.nix Home Manager module
+    - nixos.nix NixOS module
+    - droid.nix NixOnDroid module
+- hosts Per-host configurations
+  - [host] E.g. desktop
+    - home.nix Home Manager configuration
+    - nixos.nix NixOS configuration
+    - droid.nix NixOnDroid configuration
+- users Per-user configurations
+  - [user] E.g. bricked
+    - home.nix Home Manager configuration
+- [output] Flake outputs, e.g. legacyPackages
+  - [key] E.g. homeConfigurations
+    - default.nix Output module
+
 </FileTree>
