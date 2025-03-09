@@ -6,13 +6,25 @@
   ...
 }: let
   inherit (lib) concatMapAttrs;
-  inherit (self.lib.tree.paths.combined) configs;
+  inherit (inputs.home-manager.lib) homeManagerConfiguration;
+  inherit (self.lib) tree;
+  inherit (tree) modules;
+  extraSpecialArgs = tree.specialArgs.mixed;
 in
   concatMapAttrs (
-    name: module: {
-      ${name} = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [module self.homeModules.default];
-      };
-    }
-  ) (configs.home // configs.common)
+    userName: userModule:
+      {
+        ${userName} = homeManagerConfiguration {
+          inherit pkgs extraSpecialArgs;
+          modules = [userModule];
+        };
+      }
+      // concatMapAttrs (hostName: hostModule: {
+        "${userName}@${hostName}" = homeManagerConfiguration {
+          inherit pkgs extraSpecialArgs;
+          modules = [userModule hostModule];
+        };
+      })
+      modules.mixed.hosts.home
+  )
+  modules.mixed.users.home

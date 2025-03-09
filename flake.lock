@@ -352,16 +352,15 @@
       "locked": {
         "lastModified": 1741056285,
         "narHash": "sha256-/JKDMVqq8PIqcGonBVKbKq1SooV3kzGmv+cp3rKAgPA=",
-        "ref": "refs/heads/master",
+        "owner": "brckd",
+        "repo": "home-manager",
         "rev": "70fbbf05a5594b0a72124ab211bff1d502c89e3f",
-        "revCount": 4241,
-        "type": "git",
-        "url": "file:///home/bricked/Documents/home-manager"
+        "type": "github"
       },
       "original": {
-        "id": "local",
-        "ref": "home-manager",
-        "type": "indirect"
+        "owner": "brckd",
+        "repo": "home-manager",
+        "type": "github"
       }
     },
     "ixx": {

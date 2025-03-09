@@ -7,33 +7,10 @@
       self,
       ...
     }: let
-      inherit (builtins) isFunction isPath mapAttrs;
-      inherit (tree) paths;
+      inherit (tree) paths evalAll modules;
 
       systems = import inputs.systems;
-      tree = import ./lib/tree/default.nix generic.specialArgs;
-
-      combined = {
-        specialArgs = {inherit inputs self;};
-        extraSpecialArgs = combined.specialArgs;
-        paths = paths.combined;
-      };
-      generic = {
-        specialArgs = combined.specialArgs // {inherit lib;};
-        load = module: let
-          imported =
-            if isPath module
-            then import module
-            else module;
-          loaded =
-            if isFunction imported
-            then imported generic.specialArgs
-            else imported;
-        in
-          loaded;
-        paths = paths.generic;
-        modules = mapAttrs (name: mapAttrs (name: generic.load)) generic.paths;
-      };
+      tree = import ./lib/tree/default.nix {inherit lib self inputs;};
     in {
       imports = [
         inputs.treefmt-nix.flakeModule
@@ -43,41 +20,23 @@
       inherit systems;
 
       flake = {
-        inherit (generic.modules) lib;
-        inherit (generic.modules) templates;
-        homeModules = combined.paths.modules.home // combined.paths.modules.common;
-        nixosModules = combined.paths.modules.nixos // combined.paths.modules.common;
-        nixOnDroidModules = combined.paths.modules.droid // combined.paths.modules.common;
+        inherit (modules.generic) lib templates;
+        homeModules = modules.mixed.modules.home;
+        nixosModules = paths.mixed.modules.nixos;
+        nixOnDroidModules = paths.mixed.modules.droid;
       };
 
       perSystem = {
         config,
         options,
         pkgs,
+        system,
         ...
       }: let
-        generic' = {
-          specialArgs = generic.specialArgs // {inherit config options pkgs;};
-          load = module: let
-            imported =
-              if isPath module
-              then import module
-              else module;
-            loaded =
-              if isFunction imported
-              then imported generic'.specialArgs
-              else imported;
-          in
-            loaded;
-          inherit (generic) paths;
-          modules = mapAttrs (name: mapAttrs (name: generic'.load)) generic.paths;
-        };
+        specialArgs.generic' = tree.specialArgs.generic // {inherit config options pkgs system;};
+        modules.generic' = evalAll.generic specialArgs.generic' paths.generic;
       in {
-        inherit (generic'.modules) checks;
-        inherit (generic'.modules) apps;
-        inherit (generic'.modules) packages;
-        inherit (generic'.modules) legacyPackages;
-        inherit (generic'.modules) devShells;
+        inherit (modules.generic') checks apps packages legacyPackages devShells;
 
         treefmt.config = {
           projectRootFile = "flake.nix";
@@ -124,7 +83,7 @@
 
     # Systems
     home-manager = {
-      url = "flake:local/home-manager";
+      url = "github:brckd/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
