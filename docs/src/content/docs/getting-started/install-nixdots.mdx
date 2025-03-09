@@ -18,10 +18,10 @@ import { Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 Create a new configuration for the current system.
 
 ```sh
-config_dir=configs/nixos/$(hostname)
+config_dir=hosts/$(hostname)
 mkdir $config_dir
 nixos-generate-config --dir $config_dir
-mv $config_dir/configuration.nix $config_dir/default.nix
+mv $config_dir/configuration.nix $config_dir/nixos.nix
 ```
 
 </TabItem>
@@ -36,9 +36,9 @@ required.
 Create a new configuration for the current user.
 
 ```sh
-config_dir=configs/home/$(whoami)
+config_dir=users/$(whoami)
 mkdir $config_dir
-touch $config_dir/default.nix
+touch $config_dir/home.nix
 ```
 
 </TabItem>
