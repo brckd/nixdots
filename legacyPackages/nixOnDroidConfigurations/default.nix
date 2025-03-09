@@ -1,18 +1,20 @@
 {
   lib,
   self,
-  system,
+  pkgs,
+  inputs,
   ...
 }: let
   inherit (lib) concatMapAttrs;
+  inherit (inputs.nix-on-droid.lib) nixOnDroidConfiguration;
   inherit (self.lib) tree;
   inherit (tree) modules;
-  specialArgs = tree.specialArgs.mixed;
+  extraSpecialArgs = tree.specialArgs.mixed;
 in
   concatMapAttrs (
     name: module: {
-      ${name} = lib.nixosSystem {
-        inherit system specialArgs;
+      ${name} = nixOnDroidConfiguration {
+        inherit pkgs extraSpecialArgs;
         modules = [module (self.nixOnDroidModules.default or {})];
       };
     }

@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  self,
+  pkgs,
+  ...
+}: {
+  imports = [self.nixOnDroidModules.all];
+
   system.stateVersion = "24.05";
 
   nix.extraOptions = ''

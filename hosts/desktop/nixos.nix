@@ -66,8 +66,8 @@ with lib; {
   programs.nix-index-database.comma.enable = true;
   programs.nix-data = {
     enable = true;
-    systemconfig = "${./default.nix}";
-    flake = "${../../../flake.nix}";
+    systemconfig = "${./nixos.nix}";
+    flake = "${self.tree.dirs.root}/flake.nix";
   };
 
   # Boot
