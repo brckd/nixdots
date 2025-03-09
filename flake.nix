@@ -10,7 +10,7 @@
       inherit (tree) paths evalAll modules;
 
       systems = import inputs.systems;
-      tree = import ./lib/tree/default.nix {inherit lib self inputs;};
+      tree = import ./lib/tree/default.nix {inherit lib self inputs systems;};
     in {
       imports = [
         inputs.treefmt-nix.flakeModule

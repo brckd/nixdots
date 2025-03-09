@@ -2,6 +2,7 @@
   lib,
   inputs,
   self,
+  systems,
   ...
 }: let
   inherit (builtins) readDir mapAttrs;
@@ -31,7 +32,7 @@ in rec {
   };
 
   specialArgs = {
-    mixed = {inherit inputs self;};
+    mixed = {inherit inputs self systems;};
     generic = specialArgs.mixed // {inherit lib;};
   };
 
