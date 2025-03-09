@@ -15,6 +15,7 @@ export default defineConfig({
           items: [
             { slug: "getting-started/set-up-nix" },
             { slug: "getting-started/install-nixdots" },
+            { slug: "getting-started/file-tree" },
           ],
         },
         {
