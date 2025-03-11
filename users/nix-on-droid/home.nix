@@ -18,6 +18,7 @@
   };
 
   # Terminal
+  programs.zsh.enable = true;
   programs.fish.enable = true;
   programs.starship.enable = true;
   programs.fastfetch.enable = true;
