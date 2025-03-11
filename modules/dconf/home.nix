@@ -121,6 +121,7 @@ in {
           "org/gnome/desktop/wm/preferences" = {
             resize-with-right-button = true;
             num-workspaces = workspacesCount;
+            focus-mode = "sloppy"; # Focus windows on hover
           };
 
           "org/gnome/desktop/wm/keybindings" = {
