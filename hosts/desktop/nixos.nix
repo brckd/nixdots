@@ -195,6 +195,11 @@ with lib; {
     ollama-rocm
     eyedropper
     geopard
+    fd
+    sd
+    rm-improved
+    eza
+    cartero
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
