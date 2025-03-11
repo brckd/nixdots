@@ -4,7 +4,7 @@
   system,
   ...
 }: let
-  inherit (lib) concatMapAttrs nixosSystem;
+  inherit (lib) concatMapAttrs nixosSystem mkForce;
   inherit (self.lib) tree;
   inherit (tree) modules;
   specialArgs = tree.specialArgs.mixed;
@@ -19,14 +19,20 @@ in
         };
       }
       // concatMapAttrs (
-        userName: homeUserModule: let
-          homeHostModule = modules.mixed.hosts.home.${userName} or {};
+        userName: userHomeModule: let
+          hostHomeModule = modules.mixed.hosts.home.${userName} or {};
+          disableNixpkgsOptionsHomeModule = {
+            nixpkgs = {
+              config = mkForce null;
+              overlays = mkForce null;
+            };
+          };
           homeIntegrationModule = {
             home-manager = {
               inherit extraSpecialArgs;
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.${userName}.imports = [homeUserModule homeHostModule];
+              users.${userName}.imports = [userHomeModule hostHomeModule disableNixpkgsOptionsHomeModule];
             };
           };
         in {
