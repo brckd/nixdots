@@ -2,15 +2,18 @@
   "placements": {
     "widget-overflow-fixed-list": [],
     "unified-extensions-area": [
+      "jid1-mnnxcxisbpnsxq_jetpack-browser-action",
       "ublock0_raymondhill_net-browser-action",
       "7esoorv3_alefvanoon_anonaddy_me-browser-action",
-      "addon_darkreader_org-browser-action"
+      "addon_darkreader_org-browser-action",
+      "firefoxcolor_mozilla_com-browser-action"
     ],
     "nav-bar": [
       "back-button",
       "forward-button",
       "stop-reload-button",
       "new-tab-button",
+      "vertical-spacer",
       "customizableui-special-spring8",
       "urlbar-container",
       "customizableui-special-spring9",
@@ -30,7 +33,9 @@
     "ublock0_raymondhill_net-browser-action",
     "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action",
     "developer-button",
-    "profiler-button"
+    "profiler-button",
+    "firefoxcolor_mozilla_com-browser-action",
+    "jid1-mnnxcxisbpnsxq_jetpack-browser-action"
   ],
   "dirtyAreaCache": [
     "unified-extensions-area",
@@ -40,6 +45,6 @@
     "TabsToolbar",
     "vertical-tabs"
   ],
-  "currentVersion": 20,
+  "currentVersion": 21,
   "newElementCount": 9
 }
