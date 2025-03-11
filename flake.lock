@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "adwaita-for-steam": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1741201838,
+        "narHash": "sha256-wo8Y9bZjt3fzKUmZX4KlZaPXomZrXj0N2X6zQyjabeA=",
+        "owner": "tkashkin",
+        "repo": "Adwaita-for-Steam",
+        "rev": "71857bb55993109d2bc3767ad541c3dcd71ce81c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tkashkin",
+        "repo": "Adwaita-for-Steam",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -974,6 +990,7 @@
     },
     "stylix": {
       "inputs": {
+        "adwaita-for-steam": "adwaita-for-steam",
         "base16": "base16",
         "base16-fish": "base16-fish",
         "base16-helix": "base16-helix",
@@ -1010,11 +1027,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1741703660,
-        "narHash": "sha256-9YlUDLh6PVz957gm81BEK9RPCmDspVaeBJ39TMnqVX8=",
+        "lastModified": 1741730341,
+        "narHash": "sha256-r+5LLPXLMjgUdg/3aMdLPeStUM4ek9NaP8mOmMql1xE=",
         "owner": "brckd",
         "repo": "stylix",
-        "rev": "7eff7a8ea7a36bcb6141a6a3af82276a297567c7",
+        "rev": "791ece46d179fcd124991afbb58704553be99904",
         "type": "github"
       },
       "original": {
@@ -1105,11 +1122,11 @@
     "tinted-schemes": {
       "flake": false,
       "locked": {
-        "lastModified": 1740351358,
-        "narHash": "sha256-Hdk850xgAd3DL8KX0AbyU7tC834d3Lej1jOo3duWiOA=",
+        "lastModified": 1741468895,
+        "narHash": "sha256-YKM1RJbL68Yp2vESBqeZQBjTETXo8mCTTzLZyckCfZk=",
         "owner": "tinted-theming",
         "repo": "schemes",
-        "rev": "a1bc2bd89e693e7e3f5764cfe8114e2ae150e184",
+        "rev": "47c8c7726e98069cade5827e5fb2bfee02ce6991",
         "type": "github"
       },
       "original": {
@@ -1121,11 +1138,11 @@
     "tinted-tmux": {
       "flake": false,
       "locked": {
-        "lastModified": 1740272597,
-        "narHash": "sha256-/etfUV3HzAaLW3RSJVwUaW8ULbMn3v6wbTlXSKbcoWQ=",
+        "lastModified": 1740877430,
+        "narHash": "sha256-zWcCXgdC4/owfH/eEXx26y5BLzTrefjtSLFHWVD5KxU=",
         "owner": "tinted-theming",
         "repo": "tinted-tmux",
-        "rev": "b6c7f46c8718cc484f2db8b485b06e2a98304cd0",
+        "rev": "d48ee86394cbe45b112ba23ab63e33656090edb4",
         "type": "github"
       },
       "original": {

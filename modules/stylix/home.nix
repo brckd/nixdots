@@ -24,6 +24,7 @@ in {
         colorTheme.enable = true;
         firefoxGnomeTheme.enable = true;
       };
+      targets.vscode.profileNames = ["default"];
     };
   };
 }

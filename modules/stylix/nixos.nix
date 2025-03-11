@@ -15,6 +15,7 @@ in {
     stylix = {
       homeManagerIntegration.autoImport = false;
       targets.plymouth.enable = false;
+      targets.qt.enable = true;
     };
   };
 }
