@@ -8,7 +8,14 @@
   };
 
   programs.home-manager.enable = true;
-  stylix.enable = true;
+  stylix = {
+    enable = true;
+    autoEnable = false;
+    targets = {
+      nixvim.enable = true;
+      fish.enable = true;
+    };
+  };
 
   # Terminal
   programs.fish.enable = true;
