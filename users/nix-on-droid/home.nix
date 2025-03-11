@@ -1,6 +1,8 @@
 {self, ...}: {
   imports = [self.homeModules.all];
 
+  nixpkgs.config.allowUnfree = true;
+
   home = {
     stateVersion = "25.05";
     username = "nix-on-droid";
@@ -8,6 +10,7 @@
   };
 
   programs.home-manager.enable = true;
+
   stylix = {
     enable = true;
     autoEnable = false;
