@@ -17,16 +17,6 @@ in {
   networking.hostName = "school";
   nixpkgs.config.allowUnfree = true;
 
-  # Home Manager
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    useUserPackages = true;
-    useGlobalPkgs = true;
-    users.student = {
-      imports = [self.lib.tree.modules.mixed.users.home.student];
-    };
-  };
-
   # Users
   users.users.student = {
     isNormalUser = true;

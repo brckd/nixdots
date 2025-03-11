@@ -24,7 +24,7 @@ in {
         "udev.log_priority=3"
       ];
 
-      loader.timeout = 0;
+      loader.timeout = mkDefault 0;
     };
   };
 }

@@ -6,7 +6,7 @@
   ...
 }: let
   inherit (builtins) readDir mapAttrs;
-  inherit (lib) pathIsDirectory pathIsRegularFile filterAttrs genAttrs id concatMapAttrs isPath isFunction zipAttrs;
+  inherit (lib) pathIsDirectory pathIsRegularFile filterAttrs genAttrs id concatMapAttrs isPath isFunction;
   inherit (lib.path) append;
 in rec {
   dirs = {
@@ -15,7 +15,7 @@ in rec {
     mixed = genAttrs ["modules" "hosts" "users"] (append dirs.root);
   };
 
-  classes = genAttrs ["home" "nixos" "droid" "common"] id;
+  classes = genAttrs ["home" "nixos" "droid"] id;
 
   load = {
     dir = path:
