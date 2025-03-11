@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let
-  inherit (lib) concatMapAttrs mkForce;
+  inherit (lib) concatMapAttrs;
   inherit (inputs.nix-on-droid.lib) nixOnDroidConfiguration;
   inherit (self.lib) tree;
   inherit (tree) modules;
@@ -22,18 +22,10 @@ in
       // concatMapAttrs (
         userName: userHomeModule: let
           hostHomeModule = modules.mixed.hosts.home.${userName} or {};
-          disableNixpkgsOptionsHomeModule = {
-            nixpkgs = {
-              config = mkForce null;
-              overlays = mkForce null;
-            };
-          };
           homeIntegrationModule = {
             home-manager = {
               inherit extraSpecialArgs;
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              config.imports = [userHomeModule hostHomeModule disableNixpkgsOptionsHomeModule];
+              config.imports = [userHomeModule hostHomeModule];
             };
           };
         in {
