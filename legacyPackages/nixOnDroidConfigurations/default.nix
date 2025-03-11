@@ -12,11 +12,31 @@
   extraSpecialArgs = tree.specialArgs.mixed;
 in
   concatMapAttrs (
-    name: module: {
-      ${name} = nixOnDroidConfiguration {
-        inherit pkgs extraSpecialArgs;
-        modules = [module (self.nixOnDroidModules.default or {})];
-      };
-    }
+    hostName: hostModule:
+      {
+        ${hostName} = nixOnDroidConfiguration {
+          inherit pkgs extraSpecialArgs;
+          modules = [hostModule];
+        };
+      }
+      // concatMapAttrs (
+        userName: homeUserModule: let
+          homeHostModule = modules.mixed.hosts.home.${userName} or {};
+          homeIntegrationModule = {
+            home-manager = {
+              inherit extraSpecialArgs;
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              config.imports = [homeUserModule homeHostModule];
+            };
+          };
+        in {
+          "${userName}@${hostName}" = nixOnDroidConfiguration {
+            inherit pkgs extraSpecialArgs;
+            modules = [hostModule homeIntegrationModule];
+          };
+        }
+      )
+      modules.mixed.users.home
   )
   modules.mixed.hosts.droid
