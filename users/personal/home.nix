@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  self,
+  pkgs,
+  ...
+}: {
   imports = [self.homeModules.all];
 
   nixpkgs.config.allowUnfree = true;
@@ -26,13 +30,24 @@
       pull.rebase = true;
     };
   };
+  services.gnome-keyring.enable = true;
+  programs.gpg.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-gnome3;
+  };
   programs.gh.enable = true;
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   # Editor
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
   };
+  programs.vscode.enable = true;
 
   # Apps
   programs.librewolf.enable = true;
