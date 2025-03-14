@@ -1,12 +1,12 @@
 {
   config,
   lib,
-  pkgs,
   inputs,
   ...
 }:
 with lib; let
   cfg = config.programs.librewolf;
+  firefox-addons = inputs.firefox-addons.packages;
 in {
   config = mkIf cfg.enable {
     programs.librewolf = {
@@ -14,7 +14,7 @@ in {
         default = {
           name = "Default";
           extensions = {
-            packages = with inputs.nur.legacyPackages.${pkgs.system}.repos.rycee.firefox-addons; [
+            packages = with firefox-addons; [
               ublock-origin
               privacy-badger
               bitwarden
