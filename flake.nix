@@ -76,7 +76,7 @@
 
   inputs = {
     # Package reposities
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/a7abebc31a8f60011277437e000eebcc01702b9f";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nur = {
       url = "github:nix-community/NUR";
