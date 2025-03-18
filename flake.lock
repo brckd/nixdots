@@ -529,6 +529,32 @@
         "type": "github"
       }
     },
+    "nix-fast-build": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": [
+          "treefmt-nix"
+        ]
+      },
+      "locked": {
+        "lastModified": 1742314210,
+        "narHash": "sha256-tJGknjZhGQTpmfZCJA1Gd2LLvUwFDG0hNrYoOWgONcE=",
+        "owner": "brckd",
+        "repo": "nix-fast-build",
+        "rev": "337dcb42ee3338e97e7b25695dc2aed49bd70413",
+        "type": "github"
+      },
+      "original": {
+        "owner": "brckd",
+        "repo": "nix-fast-build",
+        "type": "github"
+      }
+    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1741903049,
@@ -899,6 +925,7 @@
         "nix-alien": "nix-alien",
         "nix-darwin": "nix-darwin",
         "nix-data": "nix-data",
+        "nix-fast-build": "nix-fast-build",
         "nix-flatpak": "nix-flatpak",
         "nix-index-database": "nix-index-database_2",
         "nix-on-droid": "nix-on-droid",
