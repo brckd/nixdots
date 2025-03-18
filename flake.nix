@@ -146,6 +146,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-fast-build = {
+      url = "github:brckd/nix-fast-build";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+    };
+
     # Formatter
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";

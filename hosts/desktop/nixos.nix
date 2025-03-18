@@ -200,6 +200,7 @@ with lib; {
     rm-improved
     eza
     cartero
+    inputs.nix-fast-build.packages.${system}.default
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
