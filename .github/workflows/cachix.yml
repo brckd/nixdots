@@ -16,6 +16,9 @@ jobs:
           nix run github:brckd/nix-fast-build --
           --no-nom --cachix-cache nixdots
           --flake ".#legacyPackages.x86_64-linux.nixosConfigurations.desktop.config.system.build.toplevel"
+        env:
+          CACHIX_AUTH_TOKEN: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
   cache_home:
     runs-on: ubuntu-latest
     steps:
@@ -28,6 +31,9 @@ jobs:
           nix run github:brckd/nix-fast-build --
           --no-nom --cachix-cache nixdots
           --flake ".#legacyPackages.x86_64-linux.homeConfigurations.bricked.activationPackage"
+        env:
+          CACHIX_AUTH_TOKEN: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
   cache_droid:
     runs-on: ubuntu-latest
     steps:
@@ -40,3 +46,5 @@ jobs:
           nix run github:brckd/nix-fast-build --
           --no-nom --cachix-cache nixdots
           --flake ".#legacyPackages.aarch64-linux.nixOnDroidConfigurations.phone.activationPackage"
+        env:
+          CACHIX_AUTH_TOKEN: "${{ secrets.CACHIX_AUTH_TOKEN }}"
