@@ -2,13 +2,15 @@
   config,
   lib,
   inputs,
+  pkgs,
   ...
 }:
 with lib; let
   cfg = config.programs.librewolf;
-  firefox-addons = inputs.firefox-addons.packages;
+  firefox-addons = inputs.firefox-addons.packages.${pkgs.system};
 in {
   config = mkIf cfg.enable {
+    lib.firefox-addons = firefox-addons;
     programs.librewolf = {
       profiles = {
         default = {
