@@ -63,6 +63,7 @@
       "https://nix-on-droid.cachix.org"
       "https://pre-commit-hooks.cachix.org"
       "https://statix.cachix.org"
+      "https://om.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nixdots.cachix.org-1:kWCfT049y6VtM5wAwMzuR3VOHkvom/53Sirq/784tYA="
@@ -71,6 +72,7 @@
       "nix-on-droid.cachix.org-1:56snoMJTXmDRC1Ei24CmKoUqvHJ9XCp+nidK7qkMQrU="
       "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
       "statix.cachix.org-1:Z9E/g1YjCjU117QOOt07OjhljCoRZddiAm4VVESvais="
+      "om.cachix.org-1:ifal/RLZJKN4sbpScyPGqJ2+appCslzu7ZZF/C01f2Q="
     ];
   };
 
@@ -151,6 +153,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.treefmt-nix.follows = "treefmt-nix";
+    };
+
+    omnix = {
+      url = "github:juspay/omnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.systems.follows = "systems";
+      inputs.git-hooks.follows = "git-hooks";
     };
 
     # Formatter
