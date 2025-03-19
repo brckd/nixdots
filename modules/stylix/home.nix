@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  pkgs,
   ...
 }:
 with lib; let
@@ -14,7 +15,11 @@ in {
   config = mkIf cfg.enable {
     stylix = {
       iconTheme.enable = true;
-      cursor.size = 24;
+      cursor = {
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Ice";
+        size = 24;
+      };
       targets.librewolf = {
         profileNames = ["default"];
         colorTheme.enable = true;
