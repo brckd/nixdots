@@ -10,6 +10,10 @@
 
   programs.home-manager.enable = true;
   stylix.enable = true;
+  themix = {
+    enable = true;
+    themes.adwaita.enable = true;
+  };
 
   # Terminal
   programs.zsh.enable = true;

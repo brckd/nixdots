@@ -182,6 +182,16 @@
       inputs.nur.follows = "nur";
     };
 
+    apple-fonts = {
+      url = "github:lyndeno/apple-fonts.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    whitesur-wallpapers = {
+      url = "github:vinceliuice/whitesur-wallpapers";
+      flake = false;
+    };
+
     # Programs
     nixvim = {
       url = "github:nix-community/nixvim";

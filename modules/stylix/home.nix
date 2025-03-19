@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   inputs,
   ...
 }:
@@ -14,11 +13,8 @@ in {
   ];
   config = mkIf cfg.enable {
     stylix = {
-      iconTheme = {
-        enable = true;
-        package = pkgs.morewaita-icon-theme;
-        dark = "MoreWaita";
-      };
+      iconTheme.enable = true;
+      cursor.size = 24;
       targets.librewolf = {
         profileNames = ["default"];
         colorTheme.enable = true;

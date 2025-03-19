@@ -29,6 +29,10 @@
     enable = true;
     targets.steam.adwaitaForSteam.enable = false;
   };
+  themix = {
+    enable = true;
+    themes.adwaita.enable = true;
+  };
 
   # Terminal
   programs.zsh.enable = true;
