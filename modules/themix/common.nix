@@ -13,6 +13,7 @@ in {
     themes = {
       adwaita.enable = mkEnableOption "Adwaita";
       breeze.enable = mkEnableOption "Breeze";
+      material.enable = mkEnableOption "Materia Design";
       macos.enable = mkEnableOption "MacOS";
       windows.enable = mkEnableOption "Windows";
     };

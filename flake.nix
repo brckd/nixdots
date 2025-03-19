@@ -192,6 +192,11 @@
       flake = false;
     };
 
+    orchis-theme = {
+      url = "github:vinceliuice/orchis-theme";
+      flake = false;
+    };
+
     # Programs
     nixvim = {
       url = "github:nix-community/nixvim";

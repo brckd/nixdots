@@ -1126,6 +1126,22 @@
         "type": "github"
       }
     },
+    "orchis-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1741531011,
+        "narHash": "sha256-fAXQLBlzLYL1seM5j2bPU612WHr1iNcKPyvgKOxHLsg=",
+        "owner": "vinceliuice",
+        "repo": "orchis-theme",
+        "rev": "fd3c0d16de30c7f0182e6a0d1927f2931826bbda",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vinceliuice",
+        "repo": "orchis-theme",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "apple-fonts": "apple-fonts",
@@ -1153,6 +1169,7 @@
         "nixvim": "nixvim",
         "nur": "nur",
         "omnix": "omnix",
+        "orchis-theme": "orchis-theme",
         "spicetify-nix": "spicetify-nix",
         "spicetify-waveform-extension": "spicetify-waveform-extension",
         "stylix": "stylix",

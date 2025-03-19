@@ -7,7 +7,7 @@
   ...
 }: let
   inherit (builtins) toJSON;
-  inherit (lib) mkIf mkMerge toSentenceCase gvariant;
+  inherit (lib) mkIf mkMerge toSentenceCase;
   inherit (config.lib.themix) mkForcable;
   cfg = config.themix;
 in {
@@ -24,6 +24,76 @@ in {
           dark = mkForcable "MoreWaita";
         };
       })
+    ]))
+
+    (mkIf cfg.themes.material.enable (mkMerge [
+      (mkIf cfg.targets.colors.enable {
+        stylix.override =
+          if cfg.polarity == "light"
+          then {
+            base00 = "f2f2f2";
+            base01 = "fafafa";
+            base02 = "fafafa";
+            base03 = "ffffff";
+            base04 = "ffffff";
+            base05 = "000000";
+
+            base08 = "f44336";
+            base0F = "f06202";
+            base07 = "ba68c8";
+            base0D = "3281ea";
+            base0C = "4db6ac";
+            base0B = "66bb6a";
+            base0A = "fbc02d";
+            base09 = "fb8c00";
+          }
+          else {
+            base00 = "212121";
+            base01 = "242424";
+            base02 = "2c2c2c";
+            base03 = "3c3c3c";
+            base04 = "464646";
+            base05 = "f5f5f5";
+
+            base08 = "e53935";
+            base0F = "ec407a";
+            base07 = "ab47bc";
+            base0D = "1a73e8";
+            base0C = "009688";
+            base0B = "4caf50";
+            base0A = "ffd600";
+            base09 = "f57c00";
+          };
+      })
+
+      (mkIf cfg.targets.wallpaper.enable {
+        stylix.image = mkForcable "${inputs.orchis-theme}/wallpaper/4k.jpg";
+      })
+
+      (mkIf cfg.targets.gtk.enable {
+        gtk.theme = {
+          package = mkForcable (pkgs.orchis-theme.overrideAttrs {
+            tweaks = ["solid" "primary"];
+            border-radius = 12;
+          });
+          name = mkForcable "Orchis-${toSentenceCase cfg.polarity}";
+        };
+        stylix.targets.gtk.flatpakSupport.enable = mkForcable false;
+      })
+
+      (mkIf cfg.targets.shell.enable (let
+        extensions = with pkgs.gnomeExtensions; [user-themes];
+      in {
+        home.packages = extensions;
+        dconf.settings = {
+          "org/gnome/shell/extensions/user-theme" = {
+            name = mkForcable "Orchis-${toSentenceCase cfg.polarity}";
+          };
+          "org/gnome/shell" = {
+            enabled-extensions = map (e: e.extensionUuid) extensions;
+          };
+        };
+      }))
     ]))
 
     (mkIf cfg.themes.windows.enable (mkMerge [
@@ -257,20 +327,20 @@ in {
             base0F = "e55e9c";
           }
           // {
-            light = rec {
+            light = {
               base00 = "ffffff";
               base01 = "f5f5f5";
               base02 = "f1f1f1";
               base03 = "1e333a";
-              base04 = base03;
+              base04 = "1e333a";
               base05 = "363636";
             };
-            dark = rec {
+            dark = {
               base00 = "242424";
               base01 = "333333";
               base02 = "2a2a2a";
               base03 = "d9dce3";
-              base04 = base03;
+              base04 = "d9dce3";
               base05 = "dadada";
             };
           }
