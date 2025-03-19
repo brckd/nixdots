@@ -27,11 +27,6 @@ with lib; {
       description = "Personal";
       extraGroups = ["networkmanager" "wheel" "uinput"];
     };
-    john = {
-      isNormalUser = true;
-      description = "John";
-      extraGroups = ["networkmanager"];
-    };
   };
 
   # Package Management
