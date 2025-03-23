@@ -15,6 +15,8 @@ with lib; let
     forge
     gamemode-indicator-in-system-settings
     rounded-window-corners-reborn
+    privacy-settings-menu
+    quick-settings-tweaker
   ];
   workspacesCount = 10;
   mkSlug = str: concatStrings (filter (c: elem c lowerChars) (stringToCharacters (toLower str)));
