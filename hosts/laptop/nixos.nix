@@ -25,11 +25,6 @@ with lib; {
       description = "Personal";
       extraGroups = ["networkmanager" "wheel"];
     };
-    john = {
-      isNormalUser = true;
-      description = "John";
-      extraGroups = ["networkmanager"];
-    };
   };
 
   # Nix
@@ -144,6 +139,7 @@ with lib; {
     collision
     gnome-boxes
     qemu
+    godot_4
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
