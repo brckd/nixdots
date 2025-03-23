@@ -5,12 +5,10 @@
 }:
 with lib; let
   cfg = config.programs.zsh;
-  dotDir = "${config.xdg.configHome}/zsh";
 in {
   config = mkIf cfg.enable {
     programs.zsh = {
-      inherit dotDir;
-      history.path = "${dotDir}/.zsh_history";
+      dotDir = "zsh";
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       history.ignoreSpace = true;
