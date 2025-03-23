@@ -13,7 +13,6 @@ in {
   ];
   config = mkIf cfg.enable {
     stylix = {
-      cursor.size = 24;
       homeManagerIntegration.autoImport = false;
       targets.plymouth.enable = false;
       targets.qt.enable = true;
