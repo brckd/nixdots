@@ -5,7 +5,7 @@
 }:
 with lib; let
   cfg = config.programs.zsh;
-  dotDir = ".config/zsh";
+  dotDir = "${config.xdg.configHome}/zsh";
 in {
   config = mkIf cfg.enable {
     programs.zsh = {
