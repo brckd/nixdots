@@ -31,7 +31,9 @@
   };
   themix = {
     enable = true;
-    themes.adwaita.enable = true;
+    force = true;
+    themes.windows.enable = true;
+    polarity = "light";
   };
 
   # Terminal
