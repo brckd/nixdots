@@ -192,6 +192,8 @@ in {
           date-menu-formatter
           appindicator
         ];
+        panelSize = 48;
+        iconPadding = 8;
       in {
         home.packages = extensions;
         dconf.settings = {
@@ -210,7 +212,7 @@ in {
           "org/gnome/shell/extensions/arcmenu" = {
             button-padding = 5;
             custom-menu-button-icon = "distributor-logo-windows";
-            custom-menu-button-icon-size = 48.0;
+            custom-menu-button-icon-size = panelSize - iconPadding + 0.0;
             force-menu-location = "BottomCentered";
             menu-button-icon = "Custom_Icon";
             menu-layout = "Eleven";
@@ -224,7 +226,7 @@ in {
           };
           "org/gnome/shell/extensions/dash-to-panel" = {
             appicon-margin = 0;
-            appicon-padding = 6;
+            appicon-padding = iconPadding;
             dot-style-focused = "DASHES";
             dot-style-unfocused = "DASHES";
             hide-overview-on-startup = true;
@@ -283,7 +285,7 @@ in {
               "0" = 100;
             };
             panel-sizes = toJSON {
-              "0" = 48;
+              "0" = panelSize;
             };
             primary-monitor = 0;
             tray-padding = 4;
