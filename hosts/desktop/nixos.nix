@@ -92,6 +92,7 @@ with lib; {
     enable = true;
     keyboards.default.devices = ["/dev/input/by-id/usb-Razer_Razer_Huntsman_Mini_00000000001A-event-kbd"];
   };
+  fonts.packages = [self.packages.${pkgs.system}.hanken-grotesk];
 
   # Desktop
   services.xserver = {
