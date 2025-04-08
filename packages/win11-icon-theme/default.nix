@@ -7,12 +7,12 @@
 in
   pkgs.stdenvNoCC.mkDerivation {
     pname = "win11-icon-theme";
-    version = "1.0.0";
+    version = "2025-03-31";
 
     src = fetchGit {
       url = "https://github.com/yeyushengfan258/Win11-icon-theme.git";
       ref = "main";
-      rev = "1e71bafc73d8731b74f294908ffd6ddabfe6e4a9";
+      rev = "6ecc3bfeee0d1cf0731809cc519424230715a800";
     };
 
     buildInputs = [pkgs.bash (pkgs.writeScriptBin "gtk-update-icon-cache" "")];
