@@ -129,6 +129,12 @@ with lib; {
     };
   };
 
+  services.hardware.openrgb = {
+    enable = true;
+    package = pkgs.openrgb-with-all-plugins;
+    motherboard = "amd";
+  };
+
   # Taken from https://github.com/NixOS/nixpkgs/issues/115996#issuecomment-2224296279
   # Fixes libvirtd QEMU integration for GNOME boxes
   systemd.tmpfiles.rules = let
