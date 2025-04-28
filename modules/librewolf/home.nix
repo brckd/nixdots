@@ -10,7 +10,6 @@ with lib; let
   firefox-addons = inputs.firefox-addons.packages.${pkgs.system};
 in {
   config = mkIf cfg.enable {
-    lib.firefox-addons = firefox-addons;
     programs.librewolf = {
       profiles = {
         default = {
@@ -98,14 +97,17 @@ in {
               };
             };
           };
-          bookmarks = [
-            {
-              name = "GitHub";
-              tags = ["git"];
-              keyword = "github";
-              url = "https://github.com/";
-            }
-          ];
+          bookmarks = {
+            force = true;
+            settings = [
+              {
+                name = "GitHub";
+                tags = ["git"];
+                keyword = "github";
+                url = "https://github.com/";
+              }
+            ];
+          };
           settings = {
             "extensions.autoDisableScopes" = 0; # Enable extensions
             "browser.aboutConfig.showWarning" = false;
