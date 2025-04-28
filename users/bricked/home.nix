@@ -104,5 +104,13 @@
       ActiveProfile = 0;
     };
   };
-  home.packages = with pkgs; [vesktop riffdiff];
+
+  xdg.desktopEntries.adwaitaDemo = {
+    name = "Adwaita Demo";
+    exec = "adwaita-1-demo";
+    icon = "org.gnome.Adwaita1.Demo-symbolic";
+    terminal = false;
+    categories = ["Development"];
+  };
+  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc];
 }

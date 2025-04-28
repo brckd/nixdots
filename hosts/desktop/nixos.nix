@@ -202,6 +202,7 @@ with lib; {
     rm-improved
     eza
     cartero
+    icon-library
     inputs.nix-fast-build.packages.${system}.default
     inputs.omnix.packages.${system}.default
     inputs.nix-alien.packages.${system}.nix-alien
