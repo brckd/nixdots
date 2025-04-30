@@ -146,6 +146,11 @@ with lib; {
     '';
   in ["L+ /var/lib/qemu/firmware - - - - ${firmware}"];
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   environment.systemPackages = with pkgs; [
     bun
     rustc
@@ -185,7 +190,6 @@ with lib; {
     turtle
     meld
     blender
-    appimage-run
     godot_4
     ripgrep
     moar
