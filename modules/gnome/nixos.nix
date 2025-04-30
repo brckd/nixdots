@@ -17,6 +17,7 @@ in {
       gnome-software
       gnome-weather
       gnome-system-monitor
+      evince
     ];
   };
 }

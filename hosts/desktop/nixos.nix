@@ -57,6 +57,7 @@ with lib; {
     ];
     overrides.global.Context.sockets = ["wayland" "!x11" "!fallback-x11"]; # Force Wayland by default
   };
+  services.snap.enable = true;
   programs.nix-ld.enable = true;
   programs.nix-index-database.comma.enable = true;
   programs.nix-data = {
@@ -208,6 +209,7 @@ with lib; {
     cartero
     icon-library
     protonvpn-gui
+    papers
     inputs.nix-fast-build.packages.${system}.default
     inputs.omnix.packages.${system}.default
     inputs.nix-alien.packages.${system}.nix-alien
