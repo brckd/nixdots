@@ -140,6 +140,7 @@ with lib; {
     gnome-boxes
     qemu
     godot_4
+    protonvpn-gui
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
   ];
