@@ -22,7 +22,6 @@ in {
       };
       targets.librewolf = {
         profileNames = ["default"];
-        colorTheme.enable = true;
         firefoxGnomeTheme.enable = true;
       };
       targets.vscode.profileNames = ["default"];
