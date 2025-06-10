@@ -7,7 +7,11 @@
   self,
   ...
 }:
-with lib; {
+with lib; let
+  amdgpu-kernel-module = pkgs.callPackage ./amdgpu-kernel-module.nix {
+    inherit (config.boot.kernelPackages) kernel;
+  };
+in {
   imports = [self.nixosModules.all ./hardware.nix];
 
   # System
@@ -79,6 +83,12 @@ with lib; {
     };
     plymouth.enable = true;
     silent = true;
+    # Workaround https://gitlab.freedesktop.org/drm/amd/-/issues?show=eyJpaWQiOiI0MjM4IiwiZnVsbF9wYXRoIjoiZHJtL2FtZCIsImlkIjoxMzMwODl9
+    extraModulePackages = [
+      (amdgpu-kernel-module.overrideAttrs (_: {
+        patches = [./amdgpu-revert.patch];
+      }))
+    ];
   };
 
   # Preferences
