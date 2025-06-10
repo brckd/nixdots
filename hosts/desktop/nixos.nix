@@ -203,7 +203,6 @@ with lib; {
     eza
     cartero
     icon-library
-    protonvpn-gui
     papers
     gimp3
     eloquent
