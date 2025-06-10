@@ -239,16 +239,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mutter = {
-      url = "gitlab:vanvugt/mutter?ref=triple-buffering-v4-47&host=gitlab.gnome.org";
-      flake = false;
-    };
-
-    gvdb = {
-      url = "gitlab:GNOME/gvdb?ref=main&host=gitlab.gnome.org";
-      flake = false;
-    };
-
     # Boot
     disko = {
       url = "github:nix-community/disko/latest";

@@ -454,25 +454,6 @@
         "type": "github"
       }
     },
-    "gvdb": {
-      "flake": false,
-      "locked": {
-        "host": "gitlab.gnome.org",
-        "lastModified": 1745502884,
-        "narHash": "sha256-4mqoHPlrMPenoGPwDqbtv4/rJ/uq9Skcm82pRvOxNIk=",
-        "owner": "GNOME",
-        "repo": "gvdb",
-        "rev": "4758f6fb7f889e074e13df3f914328f3eecb1fd3",
-        "type": "gitlab"
-      },
-      "original": {
-        "host": "gitlab.gnome.org",
-        "owner": "GNOME",
-        "ref": "main",
-        "repo": "gvdb",
-        "type": "gitlab"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -568,25 +549,6 @@
         "ref": "v0.4.2",
         "repo": "lanzaboote",
         "type": "github"
-      }
-    },
-    "mutter": {
-      "flake": false,
-      "locked": {
-        "host": "gitlab.gnome.org",
-        "lastModified": 1741153355,
-        "narHash": "sha256-6n5HSbocU8QDwuhBvhRuvkUE4NflUiUKE0QQ5DJEzwI=",
-        "owner": "vanvugt",
-        "repo": "mutter",
-        "rev": "4a884e571ea044e8078abc826cc1b1abd55c936c",
-        "type": "gitlab"
-      },
-      "original": {
-        "host": "gitlab.gnome.org",
-        "owner": "vanvugt",
-        "ref": "triple-buffering-v4-47",
-        "repo": "mutter",
-        "type": "gitlab"
       }
     },
     "nix-alien": {
@@ -1202,10 +1164,8 @@
         "flake-utils": "flake-utils",
         "git-hooks": "git-hooks",
         "gitignore": "gitignore",
-        "gvdb": "gvdb",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
-        "mutter": "mutter",
         "nix-alien": "nix-alien",
         "nix-darwin": "nix-darwin",
         "nix-data": "nix-data",

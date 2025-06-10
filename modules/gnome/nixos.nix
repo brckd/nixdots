@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 with lib; let
@@ -19,15 +18,6 @@ in {
       gnome-weather
       gnome-system-monitor
       evince
-    ];
-
-    nixpkgs.overlays = [
-      (final: prev: {
-        src = inputs.mutter;
-        preConfigure = ''
-          cp -a "${inputs.gvdb} ./subprojects/gvdb"
-        '';
-      })
     ];
   };
 }
