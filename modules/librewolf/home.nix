@@ -29,8 +29,8 @@ in {
             default = "ddg";
             force = true;
             engines = {
-              "Google".metaData.hidden = true;
-              "Bing".metaData.hidden = true;
+              "google".metaData.hidden = true;
+              "bing".metaData.hidden = true;
               "Startpage" = {
                 urls = singleton {template = "https://www.startpage.com/sp/search?query={searchTerms}";};
                 icon = "https://www.startpage.com/sp/cdn/favicons/favicon-96x96.png";
