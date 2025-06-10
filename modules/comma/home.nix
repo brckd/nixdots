@@ -42,7 +42,7 @@ in {
       }
     '';
 
-    programs.zsh.initExtra = mkIf cfg.enableZshIntegration ''
+    programs.zsh.initContent = mkIf cfg.enableZshIntegration ''
       command_not_found_handler() {
         ${getExe pkgs.comma} "$@" < /dev/stdin
         return $?
