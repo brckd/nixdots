@@ -194,7 +194,6 @@ with lib; {
     wl-clipboard
     jq
     ungoogled-chromium
-    httpie
     ollama-rocm
     eyedropper
     geopard
@@ -208,6 +207,12 @@ with lib; {
     papers
     gimp3
     eloquent
+    xh
+    jaq
+    ghex
+    hyperfine
+    tealdeer
+    yazi
     inputs.nix-fast-build.packages.${system}.default
     inputs.omnix.packages.${system}.default
     inputs.nix-alien.packages.${system}.nix-alien
