@@ -9,7 +9,7 @@ with lib; {
   imports = [self.nixosModules.all ./hardware.nix ./disko.nix];
 
   # System
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
   networking.hostName = "laptop";
   nixpkgs.config.allowUnfree = true;
 
