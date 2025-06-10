@@ -70,11 +70,8 @@ with lib; {
   };
 
   # Desktop
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
   services.kanata = {
     enable = true;
     keyboards.default.devices = ["/dev/input/by-path/platform-i8042-serio-0-event-kbd"];

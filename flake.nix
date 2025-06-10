@@ -83,6 +83,8 @@
     nix-snapd = {
       url = "github:nix-community/nix-snapd";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-parts.follows = "flake-parts";
     };
     nur = {
       url = "github:nix-community/NUR";
@@ -178,12 +180,12 @@
       url = "github:brckd/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.git-hooks.follows = "git-hooks";
       inputs.systems.follows = "systems";
       inputs.home-manager.follows = "home-manager";
       inputs.firefox-gnome-theme.follows = "firefox-gnome-theme";
       inputs.nur.follows = "nur";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
     apple-fonts = {
@@ -206,6 +208,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
+      inputs.systems.follows = "systems";
     };
 
     spicetify-nix = {
@@ -234,6 +237,16 @@
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    mutter = {
+      url = "gitlab:vanvugt/mutter?ref=triple-buffering-v4-47&host=gitlab.gnome.org";
+      flake = false;
+    };
+
+    gvdb = {
+      url = "gitlab:GNOME/gvdb?ref=main&host=gitlab.gnome.org";
+      flake = false;
     };
 
     # Boot

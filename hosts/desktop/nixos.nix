@@ -96,11 +96,8 @@ with lib; {
   fonts.packages = [self.packages.${pkgs.system}.hanken-grotesk];
 
   # Desktop
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Shell
   programs.zsh.enable = true;
@@ -160,7 +157,6 @@ with lib; {
     clang
     wineWowPackages.waylandFull
     winetricks
-    mono5
     cartridges
     heroic
     modrinth-app
@@ -210,6 +206,8 @@ with lib; {
     icon-library
     protonvpn-gui
     papers
+    gimp3
+    eloquent
     inputs.nix-fast-build.packages.${system}.default
     inputs.omnix.packages.${system}.default
     inputs.nix-alien.packages.${system}.nix-alien
@@ -223,14 +221,4 @@ with lib; {
     PAGER = "moar";
     MOAR = "--wrap --quit-if-one-screen --colors 16";
   };
-
-  services.flatpak.packages = [
-    {
-      appId = "org.gimp.GIMP";
-      origin = "flathub-beta";
-    }
-    "app.fotema.Fotema"
-    "org.gnome.design.Palette"
-    "re.sonny.Eloquent"
-  ];
 }

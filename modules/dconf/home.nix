@@ -13,7 +13,7 @@ with lib; let
     reboottouefi
     caffeine
     forge
-    gamemode-indicator-in-system-settings
+    gamemode-shell-extension
     rounded-window-corners-reborn
     privacy-settings-menu
   ];

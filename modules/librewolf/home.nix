@@ -26,7 +26,7 @@ in {
             force = true;
           };
           search = {
-            default = "DuckDuckGo";
+            default = "ddg";
             force = true;
             engines = {
               "Google".metaData.hidden = true;

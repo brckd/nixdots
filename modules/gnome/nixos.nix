@@ -2,10 +2,11 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 with lib; let
-  cfg = config.services.xserver.desktopManager.gnome;
+  cfg = config.services.desktopManager.gnome;
 in {
   config = mkIf cfg.enable {
     environment.gnome.excludePackages = with pkgs; [
@@ -18,6 +19,15 @@ in {
       gnome-weather
       gnome-system-monitor
       evince
+    ];
+
+    nixpkgs.overlays = [
+      (final: prev: {
+        src = inputs.mutter;
+        preConfigure = ''
+          cp -a "${inputs.gvdb} ./subprojects/gvdb"
+        '';
+      })
     ];
   };
 }
