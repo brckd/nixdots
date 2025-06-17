@@ -9,7 +9,6 @@ with lib; let
 in {
   config.programs.spicetify = {
     enabledExtensions = with spicePkgs.extensions; [
-      hidePodcasts
       beautifulLyrics
       {
         src = inputs.spicetify-waveform-extension;
