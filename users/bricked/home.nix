@@ -42,7 +42,6 @@
         log = "riff";
       };
       interactive.diffFilter = "riff --color=on";
-      core.editor = "re.sonny.Commit";
     };
     signing.format = "openpgp";
   };
@@ -118,5 +117,5 @@
     terminal = false;
     categories = ["Development"];
   };
-  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc protonvpn-gui commit];
+  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc protonvpn-gui];
 }
