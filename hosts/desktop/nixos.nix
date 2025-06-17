@@ -235,7 +235,7 @@ in {
   ];
 
   environment.variables = {
-    EDITOR = "nvim";
+    EDITOR = "hx";
     PAGER = "moar";
     MOAR = "--wrap --quit-if-one-screen --colors 16";
   };
