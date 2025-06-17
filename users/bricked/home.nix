@@ -42,6 +42,7 @@
         log = "riff";
       };
       interactive.diffFilter = "riff --color=on";
+      core.editor = "re.sonny.Commit";
     };
     signing.format = "openpgp";
   };
@@ -75,7 +76,8 @@
   };
 
   # Editor
-  programs.nixvim = {
+  programs.nixvim.enable = true;
+  programs.helix = {
     enable = true;
     defaultEditor = true;
   };
@@ -116,5 +118,5 @@
     terminal = false;
     categories = ["Development"];
   };
-  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc protonvpn-gui];
+  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc protonvpn-gui commit];
 }
