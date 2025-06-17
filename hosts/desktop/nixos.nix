@@ -222,6 +222,9 @@ in {
     hyperfine
     tealdeer
     yazi
+    morphosis
+    python313Packages.weasyprint
+    dialect
     inputs.nix-fast-build.packages.${system}.default
     inputs.omnix.packages.${system}.default
     inputs.nix-alien.packages.${system}.nix-alien
