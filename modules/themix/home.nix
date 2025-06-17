@@ -135,7 +135,9 @@ in {
               sha256 = "140zz2csz4lkr3fhs3m9gbyfmwmw61sgflw5mj3n6r3fqhd51sc7";
             };
           }
-          .${cfg.polarity};
+          .${
+            cfg.polarity
+          };
       })
 
       (mkIf cfg.targets.colors.enable {
@@ -179,7 +181,9 @@ in {
               base0F = "f06292";
             };
           }
-          .${cfg.polarity};
+          .${
+            cfg.polarity
+          };
       })
 
       (mkIf cfg.targets.shell.enable (let
@@ -346,7 +350,9 @@ in {
               base05 = "dadada";
             };
           }
-          .${cfg.polarity};
+          .${
+            cfg.polarity
+          };
       })
 
       (mkIf cfg.targets.icons.enable {
