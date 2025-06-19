@@ -25,33 +25,28 @@ with lib; let
       name = "System";
       categories = ["System" "Settings" "Documentation"];
       apps = map mkApp ["org.gnome.Extensions"];
-      excluded-apps = map mkApp ["lf"];
     }
 
     {
       name = "Core";
       categories = ["Core"];
       apps = map mkApp ["org.gnome.Maps" "org.gnome.clocks" "org.gnome.Calculator" "org.gnome.Contacts"];
-      excluded-apps = map mkApp ["yelp"];
     }
 
     {
       name = "Utility";
       categories = ["Utility"];
-      excluded-apps = map mkApp ["codium" "codium-url-handler" "yelp" "org.gnome.TextEditor" "org.gnome.Logs" "org.gnome.Extensions" "org.gnome.Maps" "org.gnome.Nautilus" "org.gnome.clocks" "org.gnome.Calculator" "com.belmoussaoui.Obfuscate" "io.gitlab.adhami3310.Converter" "io.github.seadve.Kooha" "winetricks" "com.usebottles.bottles"];
     }
 
     {
       name = "Network";
       categories = ["Network"];
-      excluded-apps = map mkApp ["steam"];
     }
 
     {
       name = "Graphics";
       categories = ["Graphics"];
       apps = map mkApp ["app.fotema.Fotema" "com.belmoussaoui.Obfuscate"];
-      excluded-apps = map mkApp ["draw" "org.gnome.Evince"];
     }
 
     {
@@ -62,25 +57,11 @@ with lib; let
     {
       name = "Development";
       categories = ["Development" "TextEditor"];
-      excluded-apps = map mkApp ["org.gnome.Boxes"];
     }
 
     {
       name = "Office";
       categories = ["Office"];
-      excluded-apps = map mkApp ["org.gnome.Calendar" "org.gnome.Contacts"];
-    }
-
-    {
-      name = "Education";
-      categories = ["Education"];
-      excluded-apps = map mkApp ["math"];
-    }
-
-    {
-      name = "Science";
-      categories = ["Science"];
-      excluded-apps = map mkApp ["math"];
     }
 
     {
@@ -96,7 +77,6 @@ with lib; let
     {
       name = "Wine";
       categories = ["Wine" "X-Wine" "Wine-Programs-Accessories" "Application"];
-      apps = map mkApp ["winetricks" "com.usebottles.bottles"];
     }
 
     {
