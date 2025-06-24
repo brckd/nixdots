@@ -69,10 +69,6 @@
     enableBashIntegration = false;
   };
   programs.nix-your-shell.enable = true;
-  xdg.autostart = {
-    enable = true;
-    entries = ["${pkgs.protonvpn-gui}/share/applications/protonvpn-app.desktop"];
-  };
 
   # Editor
   programs.nixvim.enable = true;
@@ -117,5 +113,5 @@
     terminal = false;
     categories = ["Development"];
   };
-  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc protonvpn-gui];
+  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc];
 }
