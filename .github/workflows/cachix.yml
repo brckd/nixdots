@@ -15,9 +15,9 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+        uses: cachix/install-nix-action@main
         with:
-          extra-conf: "${{ env.EXTRA_NIX_CONFIG }}"
+          extra_nix_config: "${{ env.EXTRA_NIX_CONFIG }}"
       - name: Build NixOS configuration for desktop
         run: >
           nix run github:brckd/nix-fast-build --
@@ -32,9 +32,9 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+        uses: cachix/install-nix-action@main
         with:
-          extra-conf: "${{ env.EXTRA_NIX_CONFIG }}"
+          extra_nix_config: "${{ env.EXTRA_NIX_CONFIG }}"
       - name: Build Home Manager configuration for Bricked
         run: >
           nix run github:brckd/nix-fast-build -- 
@@ -51,9 +51,9 @@ jobs:
       - name: Install Aarch dependencies
         run: sudo apt-get install -y qemu-user-static
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+        uses: cachix/install-nix-action@main
         with:
-          extra-conf: |
+          extra_nix_config: |
             ${{ env.EXTRA_NIX_CONFIG }}
             system = aarch64-linux
       - name: Build nix-on-droid configuration
