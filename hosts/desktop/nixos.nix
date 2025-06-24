@@ -129,6 +129,13 @@ in {
   boot.binfmt.emulatedSystems = filter (sys: sys != pkgs.system) systems;
   nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
 
+  # Networking
+  services.tailscale.enable = true;
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
   # Misc
   programs.nautilus = {
     enable = true;
