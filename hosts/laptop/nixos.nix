@@ -89,7 +89,7 @@ with lib; {
     enable = true;
     extensions.open-any-terminal = {
       enable = true;
-      terminal = "kitty";
+      terminal = "ghostty";
     };
   };
 
@@ -120,6 +120,7 @@ with lib; {
     libreoffice
     git
     kitty
+    ghostty
     kooha
     switcheroo
     conjure

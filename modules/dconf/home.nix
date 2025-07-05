@@ -114,7 +114,7 @@ in {
           };
 
           "org/gnome/shell" = {
-            favourite-apps = map mkApp ["librewolf" "nvim" "kitty"];
+            favourite-apps = map mkApp ["librewolf" "org.gnome.Nautilus" "com.mitchellh.ghostty"];
           };
 
           # App Picker
