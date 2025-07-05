@@ -79,6 +79,12 @@
   inputs = {
     # Package reposities
     nixpkgs.url = "github:brckd/nixpkgs/nixos-unstable";
+    # nix = {
+    #   url = "github:nixos/nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-parts.follows = "flake-parts";
+    #   inputs.git-hooks-nix.follows = "git-hooks";
+    # };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nix-snapd = {
       url = "github:nix-community/nix-snapd";
