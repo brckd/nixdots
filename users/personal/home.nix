@@ -45,10 +45,6 @@
     enable = true;
     enableZshIntegration = true;
   };
-  xdg.autostart = {
-    enable = true;
-    entries = ["${pkgs.protonvpn-gui}/share/applications/protonvpn-app.desktop"];
-  };
 
   # Editor
   programs.nixvim = {
@@ -61,5 +57,5 @@
   programs.librewolf.enable = true;
   programs.spicetify.enable = true;
 
-  home.packages = with pkgs; [vesktop protonvpn-gui];
+  home.packages = with pkgs; [vesktop];
 }
