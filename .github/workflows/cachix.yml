@@ -15,7 +15,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Install Nix
-        uses: cachix/install-nix-action@main
+        uses: cachix/install-nix-action@master
         with:
           extra_nix_config: "${{ env.EXTRA_NIX_CONFIG }}"
       - name: Build NixOS configuration for desktop
@@ -32,7 +32,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Install Nix
-        uses: cachix/install-nix-action@main
+        uses: cachix/install-nix-action@master
         with:
           extra_nix_config: "${{ env.EXTRA_NIX_CONFIG }}"
       - name: Build Home Manager configuration for Bricked
@@ -51,7 +51,7 @@ jobs:
       - name: Install Aarch dependencies
         run: sudo apt-get install -y qemu-user-static
       - name: Install Nix
-        uses: cachix/install-nix-action@main
+        uses: cachix/install-nix-action@master
         with:
           extra_nix_config: |
             ${{ env.EXTRA_NIX_CONFIG }}
