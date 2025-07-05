@@ -461,11 +461,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1751693185,
-        "narHash": "sha256-+LKghTO5wWBcR/MJAeoSarWR7c7dO6GyA8+jM8DHV08=",
+        "lastModified": 1751751012,
+        "narHash": "sha256-RWfS4S6bXX6M0Vw9S9JP8vKtxFx6SAl5cJWfbm6gjpM=",
         "owner": "brckd",
         "repo": "home-manager",
-        "rev": "36c57c6a1d03a5efbf5e23c04dbe21259d25f992",
+        "rev": "9f7bf86864a13e5a5ce108beec017bd83104eaea",
         "type": "github"
       },
       "original": {
@@ -969,11 +969,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1751492444,
-        "narHash": "sha256-26NgRXwhNM2x4hrok0C3CqSf2v0vi9byONNON5PzbHQ=",
+        "lastModified": 1751746175,
+        "narHash": "sha256-6JABU+UMkaL4c+ZJRQYyFyIkm9ry1fOkhNQgSSjK5OM=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "239d331bb48673dfd00d7187654892471cd60d44",
+        "rev": "ef0fa015a8236241bdcc27f32e6a4aa537d96cf8",
         "type": "github"
       },
       "original": {
@@ -1043,17 +1043,14 @@
         ],
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "treefmt-nix": [
-          "treefmt-nix"
         ]
       },
       "locked": {
-        "lastModified": 1751701159,
-        "narHash": "sha256-iDjz1tBd/ibtmZZse4k1NBxfPR8g9K5W4sRgCyOnrj0=",
+        "lastModified": 1751750855,
+        "narHash": "sha256-3tLfg52Nd4LHR7+0pAiAXRySg+s4t9UIqseQnl5HTOY=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "a26411970baba3604e425f23e5293da492069e4a",
+        "rev": "9d23437fa6fac62533bf9916148a82d2f7b0b676",
         "type": "github"
       },
       "original": {
@@ -1456,11 +1453,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1751656637,
-        "narHash": "sha256-x1uJ6wQ7C+N/Zx9liQzjyVOEwGf5tcKogSoGgxASZOg=",
+        "lastModified": 1751752329,
+        "narHash": "sha256-6USqQK8UavJtjD9b8MbTIHDKMXvURCxd7ncBj4Zr0tg=",
         "owner": "brckd",
         "repo": "stylix",
-        "rev": "606944b16862d43934fec3311f9cb9f478b7f99b",
+        "rev": "9806eccde344f4a46bb5a819c94bd80318012c19",
         "type": "github"
       },
       "original": {
