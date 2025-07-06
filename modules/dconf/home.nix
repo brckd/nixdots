@@ -111,6 +111,7 @@ in {
 
           "org/gnome/shell/extensions/forge" = {
             dnd-center-layout = "swap";
+            focus-border-toggle = false;
           };
 
           "org/gnome/shell" = {
