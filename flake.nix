@@ -79,12 +79,6 @@
   inputs = {
     # Package reposities
     nixpkgs.url = "github:brckd/nixpkgs/nixos-unstable";
-    # nix = {
-    #   url = "github:nixos/nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.flake-parts.follows = "flake-parts";
-    #   inputs.git-hooks-nix.follows = "git-hooks";
-    # };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nix-snapd = {
       url = "github:nix-community/nix-snapd";
@@ -96,7 +90,6 @@
       url = "github:nix-community/NUR";
       inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.treefmt-nix.follows = "treefmt-nix";
     };
 
     # Systems
@@ -262,11 +255,6 @@
     # Assets
     wallpapers = {
       url = "github:orangci/walls-catppuccin-mocha";
-      flake = false;
-    };
-
-    spicetify-waveform-extension = {
-      url = "github:spotlab-live/spicetify-waveform";
       flake = false;
     };
 

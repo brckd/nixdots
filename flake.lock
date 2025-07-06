@@ -461,11 +461,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1751751012,
-        "narHash": "sha256-RWfS4S6bXX6M0Vw9S9JP8vKtxFx6SAl5cJWfbm6gjpM=",
+        "lastModified": 1751824240,
+        "narHash": "sha256-aDDC0CHTlL7QDKWWhdbEgVPK6KwWt+ca0QkmHYZxMzI=",
         "owner": "brckd",
         "repo": "home-manager",
-        "rev": "9f7bf86864a13e5a5ce108beec017bd83104eaea",
+        "rev": "fd9e55f5fac45a26f6169310afca64d56b681935",
         "type": "github"
       },
       "original": {
@@ -1179,7 +1179,6 @@
         "omnix": "omnix",
         "orchis-theme": "orchis-theme",
         "spicetify-nix": "spicetify-nix",
-        "spicetify-waveform-extension": "spicetify-waveform-extension",
         "stylix": "stylix",
         "systems": "systems_3",
         "treefmt-nix": "treefmt-nix",
@@ -1396,22 +1395,6 @@
       "original": {
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "type": "github"
-      }
-    },
-    "spicetify-waveform-extension": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1736782836,
-        "narHash": "sha256-PCyqzlAXqQiA389w7ZSgcTQivOHS/gBd8ugYsBednwk=",
-        "owner": "spotlab-live",
-        "repo": "spicetify-waveform",
-        "rev": "2851e4bd4951f93a4de727be483549fdf1b25202",
-        "type": "github"
-      },
-      "original": {
-        "owner": "spotlab-live",
-        "repo": "spicetify-waveform",
         "type": "github"
       }
     },
