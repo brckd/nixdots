@@ -56,8 +56,13 @@ in {
                 icon = "https://search.nixos.org/favicon.png";
                 definedAliases = ["@nxp" "@nixpackages"];
               };
+              "Nixpkgs Issues" = {
+                urls = singleton {template = "https://github.com/nixos/nixpkgs/issues?q={searchTerms}";};
+                icon = "https://github.githubassets.com/favicons/favicon.png";
+                definedAliases = ["@nxi" "@nixpkgsissues"];
+              };
               "Searchix" = {
-                urls = singleton {template = "https://searchix.alanpearce.eu/all/search?query={searchTerms}";};
+                urls = singleton {template = "https://searchix.ovh/?query={searchTerms}";};
                 definedAliases = ["@sx" "@searchix"];
               };
               "NixOS Options" = {
@@ -75,6 +80,21 @@ in {
                 icon = "https://home-manager-options.extranix.com/images/favicon.png";
                 definedAliases = ["@hmo" "@homemmanageropts"];
               };
+              "Home Manager Issues" = {
+                urls = singleton {template = "https://github.com/nix-community/home-manager/issues?q={searchTerms}";};
+                icon = "https://github.githubassets.com/favicons/favicon.png";
+                definedAliases = ["@hmi" "@homemanagerissues"];
+              };
+              "Stylix Documentations" = {
+                urls = singleton {template = "https://nix-community.github.io/stylix/?search={searchTerms}";};
+                icon = "https://nix-community.github.io/stylix/favicon-de23e50b.svg";
+                definedAliases = ["@std" "@stylixdocs"];
+              };
+              "Stylix Issues" = {
+                urls = singleton {template = "https://github.com/nix-community/stylix/issues?q={searchTerms}";};
+                icon = "https://github.githubassets.com/favicons/favicon.png";
+                definedAliases = ["@sti" "@stylixissues"];
+              };
               "Flake Parts Docs" = {
                 urls = singleton {template = "https://flake.parts/?search={searchTerms}";};
                 icon = "https://flake.parts/favicon.svg";
@@ -90,10 +110,25 @@ in {
                 icon = "https://www.fancade.com/favicon.ico";
                 definedAliases = ["@fcw" "@fancadewiki"];
               };
-              "Deepl" = {
-                urls = singleton {template = "https://www.deepl.com/en/translator#en/en/{searchTerms}";};
-                icon = "https://static.deepl.com/img/logo/deepl-logo-blue.svg";
-                definedAliases = ["@dpl" "@deepl"];
+              "GitHub" = {
+                urls = singleton {template = "https://github.com/search?q={searchTerms}";};
+                icon = "https://github.githubassets.com/favicons/favicon.png";
+                definedAliases = ["@gh" "@github"];
+              };
+              "GitLab" = {
+                urls = singleton {template = "https://gitlab.com/search?search={searchTerms}";};
+                icon = "https://gitlab.com/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png";
+                definedAliases = ["@gl" "@gitlab"];
+              };
+              "Codeberg" = {
+                urls = singleton {template = "https://codeberg.org/explore/repos?q={searchTerms}";};
+                icon = "https://codeberg.org/assets/img/favicon.svg";
+                definedAliases = ["@cb" "@codeberg"];
+              };
+              "Reddit" = {
+                urls = singleton {template = "https://www.reddit.com/search/?q={searchTerms}";};
+                icon = "https://www.redditstatic.com/shreddit/assets/favicon/64x64.png";
+                definedAliases = ["@rd" "@reddt"];
               };
             };
           };
@@ -101,10 +136,109 @@ in {
             force = true;
             settings = [
               {
+                name = "Bricked";
+                tags = ["bricked"];
+                url = "https://bricked.dev";
+              }
+              {
+                name = "Git";
+                tags = ["bricked" "git"];
+                url = "https://git.bricked.dev";
+              }
+              {
+                name = "Dashboard";
+                tags = ["bricked"];
+                url = "https://dash.bricked.dev";
+              }
+              {
+                name = "Status";
+                tags = ["bricked"];
+                url = "https://status.bricke.dev";
+              }
+              {
                 name = "GitHub";
                 tags = ["git"];
-                keyword = "github";
-                url = "https://github.com/";
+                url = "https://github.com";
+              }
+              {
+                name = "Codeberg";
+                tags = ["git"];
+                url = "https://codeberg.org";
+              }
+              {
+                name = "GitLab";
+                tags = ["git"];
+                url = "https://gitlab.com";
+              }
+              {
+                name = "GNOME GitLab";
+                tags = ["gnome" "git"];
+                url = "https://gitlab.gnome.org";
+              }
+              {
+                name = "Nixpkgs Repository";
+                tags = ["nixpkgs" "git"];
+                url = "https://github.com/nixos/nixpkgs";
+              }
+              {
+                name = "Home Manager Repository";
+                tags = ["homemanager" "git"];
+                url = "https://github.com/nix-community/home-manager";
+              }
+              {
+                name = "Stylix Repository";
+                tags = ["stylix" "git"];
+                url = "https://github.com/nix-community/stylix";
+              }
+              {
+                name = "Deepl";
+                tags = ["translator"];
+                url = "https://deepl.com";
+              }
+              {
+                name = "Fancade Web";
+                tags = ["fancade" "gaming"];
+                url = "https://play.fancade.com";
+              }
+              {
+                name = "HypeHype App";
+                tags = ["hypehype" "gaming"];
+                url = "https://app.hypehype.com";
+              }
+              {
+                name = "HypeHype Learning Hub";
+                tags = ["hypehype" "gaming"];
+                url = "https://learn.hypehype.com";
+              }
+              {
+                name = "Proton Mail";
+                tags = ["proton" "mail"];
+                url = "https://mail.proton.me";
+              }
+              {
+                name = "AnonAddy";
+                tags = ["mail"];
+                url = "https://addy.io";
+              }
+              {
+                name = "SimpleLogin";
+                tags = ["mail"];
+                url = "https://simplelogin.com";
+              }
+              {
+                name = "Vercel";
+                tags = ["hosting"];
+                url = "https://vercel.com";
+              }
+              {
+                name = "Netlify";
+                tags = ["hosting"];
+                url = "https://netlify.com";
+              }
+              {
+                name = "Monkeytype";
+                tags = ["typing"];
+                url = "https://monkeytype.com";
               }
             ];
           };
@@ -133,6 +267,7 @@ in {
       };
       policies = {
         Cookies.Allow = map (d: "https://${d}") [
+          "bricked.dev"
           "github.com"
           "codeberg.org"
           "gitlab.com"
@@ -160,8 +295,6 @@ in {
           "tilde.zone"
           "feddit.org"
           "nope.chat"
-          "flaci.com"
-          "lernraum-berlin.de"
           "monkeytype.com"
           "typst.app"
           "keybr.com"
