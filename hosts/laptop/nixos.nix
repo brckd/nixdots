@@ -119,7 +119,6 @@ with lib; {
     tuba
     libreoffice
     git
-    kitty
     ghostty
     kooha
     switcheroo
@@ -140,6 +139,6 @@ with lib; {
     godot_4
     papers
     (uutils-coreutils.override {prefix = "";})
-    (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
+    (writeShellScriptBin "xdg-terminal-exec" "ghostty -e $@")
   ];
 }
