@@ -109,12 +109,9 @@ with lib; {
   programs.gamemode.enable = true;
 
   # Virtualisation
-  virtualisation = {
-    waydroid.enable = true;
-    libvirtd = {
-      enable = true;
-      qemu.swtpm.enable = true;
-    };
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.swtpm.enable = true;
   };
   boot.binfmt.emulatedSystems = filter (sys: sys != pkgs.system) systems;
   nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
