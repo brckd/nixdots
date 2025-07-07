@@ -169,7 +169,6 @@ with lib; {
     tuba
     libreoffice
     git
-    kitty
     ghostty
     kooha
     switcheroo
@@ -227,7 +226,7 @@ with lib; {
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
     (writeShellScriptBin "wine-mono" "mono")
-    (writeShellScriptBin "xdg-terminal-exec" "kitty -e $@")
+    (writeShellScriptBin "xdg-terminal-exec" "ghostty -e $@")
   ];
 
   environment.variables = {
