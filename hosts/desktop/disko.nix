@@ -1,7 +1,7 @@
 {
   disko.devices = {
     disk = {
-      main = {
+      root = {
         type = "disk";
         device = "/dev/nvme0n1";
         content = {
@@ -29,10 +29,33 @@
                       mountpoint = "/";
                       mountOptions = ["compress=zstd" "noatime"];
                     };
-                    "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = ["compress=zstd" "noatime"];
+                    "/swap" = {
+                      mountpoint = "/.swapvol";
+                      swap.swapfile.size = "4G";
                     };
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
+      home = {
+        type = "disk";
+        device = "/dev/nvme1n1";
+        content = {
+          type = "gpt";
+          partitions.luks = {
+            size = "100%";
+            content = {
+              type = "luks";
+              name = "crypted";
+              content = {
+                type = "btrfs";
+                subvolumes = {
+                  "/home" = {
+                    mountpoint = "/home";
+                    mountOptions = ["compress=zstd" "noatime"];
                   };
                 };
               };
