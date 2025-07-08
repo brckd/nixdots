@@ -1,6 +1,7 @@
 {
   self,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [self.homeModules.all];
@@ -20,12 +21,20 @@
     themes.adwaita.enable = true;
   };
 
+  wayland.windowManager.hyprland.enable = true;
+
   # Terminal
   programs.zsh.enable = true;
   programs.fish.enable = true;
   programs.starship.enable = true;
   programs.direnv.enable = true;
-  programs.ghostty.enable = true;
+  programs.ghostty = {
+    enable = true;
+    settings = {
+      gtk-titlebar = true;
+      window-decoration = "client";
+    };
+  };
   programs.lf.enable = true;
   programs.fastfetch.enable = true;
   programs.git = {
@@ -113,5 +122,6 @@
     terminal = false;
     categories = ["Development"];
   };
+
   home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc];
 }
