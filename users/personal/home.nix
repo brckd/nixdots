@@ -25,7 +25,6 @@
   programs.fish.enable = true;
   programs.starship.enable = true;
   programs.direnv.enable = true;
-  programs.kitty.enable = true;
   programs.ghostty.enable = true;
   programs.fastfetch.enable = true;
   programs.git = {
