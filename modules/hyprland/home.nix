@@ -1,0 +1,111 @@
+{
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.wayland.windowManager.hyprland;
+
+  inherit (lib) mkIf mkOption types range mapAttrsToList;
+
+  workspaceToKey = ws:
+    if ws == 10
+    then 0
+    else ws;
+
+  mkSwitchWorkspaceBind = ws: "${cfg.keys.modifiers.main}, ${toString (workspaceToKey ws)}, workspace, ${toString ws}";
+
+  mkMoveToWorkspaceBind = ws: "${cfg.keys.modifiers.main} ${cfg.keys.modifiers.alt}, ${toString (workspaceToKey ws)}, movetoworkspace, ${toString ws}";
+
+  mkDirectionOption = direction: default:
+    mkOption {
+      inherit default;
+      type = types.str;
+      description = "The key to move ${direction}.";
+    };
+
+  mkDirection = dir:
+    {
+      up = "u";
+      down = "d";
+      left = "l";
+      right = "r";
+    }.${
+      dir
+    };
+in {
+  options.wayland.windowManager.hyprland = {
+    keys = {
+      modifiers = {
+        main = mkOption {
+          type = types.str;
+          description = "The modifier key to use for window management actions.";
+          default = "SUPER";
+        };
+        alt = mkOption {
+          type = types.str;
+          description = "The modifier key to use for secondary window management actions.";
+          default = "SHIFT";
+        };
+      };
+      directions = {
+        up = mkDirectionOption "up" "I";
+        down = mkDirectionOption "down" "K";
+        left = mkDirectionOption "left" "J";
+        right = mkDirectionOption "right" "L";
+      };
+    };
+  };
+
+  config = mkIf cfg.enable {
+    wayland.windowManager.hyprland = {
+      systemd.enable = false;
+      settings = {
+        input.kb_layout = "de";
+        monitor = ",highres,auto,1";
+
+        general = {
+          gaps_in = 5;
+          gaps_out = 10;
+          border_size = 0;
+        };
+
+        decoration = {
+          rounding = 15;
+        };
+
+        animations = {
+          enabled = true;
+          bezier = "easeInOut, 0.5, 0, 0, 1";
+          animation = [
+            "windows, 1, 3, easeInOut"
+            "windowsOut, 1, 3, easeInOut, popin 80%"
+            "workspaces, 1, 3, easeInOut"
+            "border, 1, 3, easeInOut"
+            "borderangle, 1, 3, easeInOut"
+            "fade, 1, 3, easeInOut"
+          ];
+        };
+
+        bind =
+          [
+            "${cfg.keys.modifiers.main}, T, exec, ghostty"
+            "${cfg.keys.modifiers.main}, Q, killactive"
+            "${cfg.keys.modifiers.main} ${cfg.keys.modifiers.alt}, Q, exec, uwsm stop"
+            "${cfg.keys.modifiers.main}, D, togglefloating"
+            "${cfg.keys.modifiers.main}, F, fullscreen"
+            "${cfg.keys.modifiers.main}, mouse_down, workspace, r-1"
+            "${cfg.keys.modifiers.main}, mouse_up, workspace, r+1"
+          ]
+          ++ map mkMoveToWorkspaceBind (range 1 10)
+          ++ map mkSwitchWorkspaceBind (range 1 10)
+          ++ mapAttrsToList (dir: key: "${cfg.keys.modifiers.main}, ${key}, movefocus, ${mkDirection dir}") cfg.keys.directions
+          ++ mapAttrsToList (dir: key: "${cfg.keys.modifiers.main} ${cfg.keys.modifiers.alt}, ${key}, movewindow, ${mkDirection dir}") cfg.keys.directions;
+
+        bindm = [
+          "${cfg.keys.modifiers.main}, mouse:272, movewindow"
+          "${cfg.keys.modifiers.main}, mouse:273, resizewindow"
+        ];
+      };
+    };
+  };
+}
