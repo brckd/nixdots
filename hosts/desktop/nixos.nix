@@ -98,6 +98,7 @@ with lib; {
   # Desktop
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+  programs.hyprland.enable = true;
 
   # Shell
   programs.zsh.enable = true;
