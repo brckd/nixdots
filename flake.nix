@@ -79,13 +79,16 @@
   inputs = {
     # Package reposities
     nixpkgs.url = "github:brckd/nixpkgs/nixos-unstable";
+
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
     nix-snapd = {
       url = "github:nix-community/nix-snapd";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.flake-parts.follows = "flake-parts";
     };
+
     nur = {
       url = "github:nix-community/NUR";
       inputs.flake-parts.follows = "flake-parts";
@@ -200,6 +203,10 @@
     orchis-theme = {
       url = "github:vinceliuice/orchis-theme";
       flake = false;
+    };
+
+    mithril-shell = {
+      url = "github:andreashgk/mithril-shell";
     };
 
     # Programs
