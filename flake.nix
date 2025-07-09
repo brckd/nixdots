@@ -206,7 +206,7 @@
     };
 
     mithril-shell = {
-      url = "github:andreashgk/mithril-shell";
+      url = "github:bricked-contrib/mithril-shell";
     };
 
     # Programs

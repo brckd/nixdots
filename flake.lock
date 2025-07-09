@@ -657,15 +657,15 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1747731153,
-        "narHash": "sha256-ubNlSQj3YHXOHWdWfZ3EqQnmIl563Zpv5igb9oki/sc=",
-        "owner": "andreashgk",
+        "lastModified": 1752085193,
+        "narHash": "sha256-FPHBtube1bVp3FZ6Bl8YcuZHixcQuPyyJmGFxSrIr7g=",
+        "owner": "bricked-contrib",
         "repo": "mithril-shell",
-        "rev": "f181c1727fd80bcd6640a70b8d200b2dc767e5a8",
+        "rev": "eba2973e1edc10894f82c401b3ef02cec297af44",
         "type": "github"
       },
       "original": {
-        "owner": "andreashgk",
+        "owner": "bricked-contrib",
         "repo": "mithril-shell",
         "type": "github"
       }
