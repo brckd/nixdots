@@ -15,12 +15,13 @@
   };
 
   programs.home-manager.enable = true;
+
+  # Theming
   stylix.enable = true;
   themix = {
     enable = true;
     themes.adwaita.enable = true;
   };
-
   wayland.windowManager.hyprland.enable = true;
 
   # Terminal
@@ -119,5 +120,5 @@
     categories = ["Development"];
   };
 
-  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc];
+  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc ags self.packages.${system}.ags-shell];
 }
