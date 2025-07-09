@@ -23,6 +23,10 @@
     themes.adwaita.enable = true;
   };
   wayland.windowManager.hyprland.enable = true;
+  services.mithril-shell = {
+    enable = true;
+    integrations.hyprland.enable = true;
+  };
 
   # Terminal
   programs.zsh.enable = true;
@@ -120,5 +124,5 @@
     categories = ["Development"];
   };
 
-  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc ags self.packages.${system}.ags-shell];
+  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc];
 }
