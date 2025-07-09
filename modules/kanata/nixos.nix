@@ -10,13 +10,7 @@
   tapTime = 300;
   holdTime = 300;
   layers = {
-    base = {
-      caps = {
-        tap = "esc";
-        hold = "(layer-switch mod-keys)";
-      };
-    };
-    mod-keys =
+    base =
       mapAttrs (k: v: v // {mod = true;}) {
         a.hold = "lmet";
         s.hold = "lalt";
@@ -30,9 +24,15 @@
       // {
         caps = {
           tap = "esc";
-          hold = "(layer-switch base)";
+          hold = "(layer-switch plain)";
         };
       };
+    plain = {
+      caps = {
+        tap = "esc";
+        hold = "(layer-switch base)";
+      };
+    };
   };
 
   mkSExp = value:
