@@ -3,10 +3,12 @@
     "ags": {
       "inputs": {
         "astal": [
+          "nixdots",
           "astal"
         ],
         "gnim": "gnim",
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -27,6 +29,7 @@
     "apple-fonts": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ],
         "ny": "ny",
@@ -55,6 +58,7 @@
     "astal": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -203,6 +207,7 @@
     "devshell": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -223,6 +228,7 @@
     "disko": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -259,6 +265,7 @@
     "firefox-addons": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -328,6 +335,7 @@
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -348,6 +356,7 @@
     "flake-utils": {
       "inputs": {
         "systems": [
+          "nixdots",
           "systems"
         ]
       },
@@ -438,12 +447,15 @@
     "git-hooks": {
       "inputs": {
         "flake-compat": [
+          "nixdots",
           "flake-compat"
         ],
         "gitignore": [
+          "nixdots",
           "gitignore"
         ],
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -464,6 +476,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -517,6 +530,7 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -554,11 +568,13 @@
     "ixx": {
       "inputs": {
         "flake-utils": [
+          "nixdots",
           "nixvim",
           "nuschtosSearch",
           "flake-utils"
         ],
         "nixpkgs": [
+          "nixdots",
           "nixvim",
           "nuschtosSearch",
           "nixpkgs"
@@ -583,15 +599,19 @@
       "inputs": {
         "crane": "crane",
         "flake-compat": [
+          "nixdots",
           "flake-compat"
         ],
         "flake-parts": [
+          "nixdots",
           "flake-parts"
         ],
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ],
         "pre-commit-hooks-nix": [
+          "nixdots",
           "git-hooks"
         ],
         "rust-overlay": "rust-overlay"
@@ -614,10 +634,12 @@
     "nix-alien": {
       "inputs": {
         "flake-compat": [
+          "nixdots",
           "flake-compat"
         ],
         "nix-index-database": "nix-index-database",
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -638,6 +660,7 @@
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -658,6 +681,7 @@
     "nix-data": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ],
         "snowfall-lib": "snowfall-lib"
@@ -679,12 +703,15 @@
     "nix-fast-build": {
       "inputs": {
         "flake-parts": [
+          "nixdots",
           "flake-parts"
         ],
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ],
         "treefmt-nix": [
+          "nixdots",
           "treefmt-nix"
         ]
       },
@@ -720,6 +747,7 @@
     "nix-formatter-pack": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nix-on-droid",
           "nixpkgs"
         ],
@@ -743,6 +771,7 @@
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nix-alien",
           "nixpkgs"
         ]
@@ -764,6 +793,7 @@
     "nix-index-database_2": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -784,14 +814,17 @@
     "nix-on-droid": {
       "inputs": {
         "home-manager": [
+          "nixdots",
           "home-manager"
         ],
         "nix-formatter-pack": "nix-formatter-pack",
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ],
         "nixpkgs-docs": "nixpkgs-docs",
         "nixpkgs-for-bootstrap": [
+          "nixdots",
           "nixpkgs"
         ],
         "nmd": "nmd_2"
@@ -814,12 +847,15 @@
     "nix-snapd": {
       "inputs": {
         "flake-compat": [
+          "nixdots",
           "flake-compat"
         ],
         "flake-parts": [
+          "nixdots",
           "flake-parts"
         ],
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -841,9 +877,11 @@
       "inputs": {
         "nixos-appstream-data": "nixos-appstream-data",
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ],
         "utils": [
+          "nixdots",
           "flake-utils"
         ]
       },
@@ -921,6 +959,56 @@
         "type": "github"
       }
     },
+    "nixdots": {
+      "inputs": {
+        "ags": "ags",
+        "apple-fonts": "apple-fonts",
+        "astal": "astal",
+        "devshell": "devshell",
+        "disko": "disko",
+        "firefox-addons": "firefox-addons",
+        "firefox-gnome-theme": "firefox-gnome-theme",
+        "flake-compat": "flake-compat",
+        "flake-parts": "flake-parts",
+        "flake-utils": "flake-utils",
+        "git-hooks": "git-hooks",
+        "gitignore": "gitignore",
+        "home-manager": "home-manager",
+        "lanzaboote": "lanzaboote",
+        "nix-alien": "nix-alien",
+        "nix-darwin": "nix-darwin",
+        "nix-data": "nix-data",
+        "nix-fast-build": "nix-fast-build",
+        "nix-flatpak": "nix-flatpak",
+        "nix-index-database": "nix-index-database_2",
+        "nix-on-droid": "nix-on-droid",
+        "nix-snapd": "nix-snapd",
+        "nix-software-center": "nix-software-center",
+        "nixos-generators": "nixos-generators",
+        "nixpkgs": "nixpkgs",
+        "nixvim": "nixvim",
+        "nur": "nur",
+        "omnix": "omnix",
+        "orchis-theme": "orchis-theme",
+        "spicetify-nix": "spicetify-nix",
+        "stylix": "stylix",
+        "systems": [
+          "systems"
+        ],
+        "treefmt-nix": "treefmt-nix",
+        "wallpapers": "wallpapers",
+        "whitesur-wallpapers": "whitesur-wallpapers"
+      },
+      "locked": {
+        "path": "../..",
+        "type": "path"
+      },
+      "original": {
+        "path": "../..",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nixlib": {
       "locked": {
         "lastModified": 1736643958,
@@ -939,10 +1027,12 @@
     "nixos-appstream-data": {
       "inputs": {
         "flake-utils": [
+          "nixdots",
           "nix-software-center",
           "utils"
         ],
         "nixpkgs": [
+          "nixdots",
           "nix-software-center",
           "nixpkgs"
         ]
@@ -966,6 +1056,7 @@
       "inputs": {
         "nixlib": "nixlib",
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -1018,13 +1109,16 @@
     "nixvim": {
       "inputs": {
         "flake-parts": [
+          "nixdots",
           "flake-parts"
         ],
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ],
         "nuschtosSearch": "nuschtosSearch",
         "systems": [
+          "nixdots",
           "systems"
         ]
       },
@@ -1061,6 +1155,7 @@
     "nmd_2": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nix-on-droid",
           "nixpkgs-docs"
         ],
@@ -1099,9 +1194,11 @@
     "nur": {
       "inputs": {
         "flake-parts": [
+          "nixdots",
           "flake-parts"
         ],
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
@@ -1124,6 +1221,7 @@
         "flake-utils": "flake-utils_3",
         "ixx": "ixx",
         "nixpkgs": [
+          "nixdots",
           "nixvim",
           "nixpkgs"
         ]
@@ -1160,9 +1258,11 @@
         "devour-flake": "devour-flake",
         "false": "false",
         "flake-parts": [
+          "nixdots",
           "flake-parts"
         ],
         "git-hooks": [
+          "nixdots",
           "git-hooks"
         ],
         "inspect": "inspect",
@@ -1171,10 +1271,12 @@
         "nix-systems-x86_64-darwin": "nix-systems-x86_64-darwin",
         "nix-systems-x86_64-linux": "nix-systems-x86_64-linux",
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ],
         "rust-flake": "rust-flake",
         "systems": [
+          "nixdots",
           "systems"
         ],
         "true": "true"
@@ -1211,47 +1313,15 @@
     },
     "root": {
       "inputs": {
-        "ags": "ags",
-        "apple-fonts": "apple-fonts",
-        "astal": "astal",
-        "devshell": "devshell",
-        "disko": "disko",
-        "firefox-addons": "firefox-addons",
-        "firefox-gnome-theme": "firefox-gnome-theme",
-        "flake-compat": "flake-compat",
-        "flake-parts": "flake-parts",
-        "flake-utils": "flake-utils",
-        "git-hooks": "git-hooks",
-        "gitignore": "gitignore",
-        "home-manager": "home-manager",
-        "lanzaboote": "lanzaboote",
-        "nix-alien": "nix-alien",
-        "nix-darwin": "nix-darwin",
-        "nix-data": "nix-data",
-        "nix-fast-build": "nix-fast-build",
-        "nix-flatpak": "nix-flatpak",
-        "nix-index-database": "nix-index-database_2",
-        "nix-on-droid": "nix-on-droid",
-        "nix-snapd": "nix-snapd",
-        "nix-software-center": "nix-software-center",
-        "nixos-generators": "nixos-generators",
-        "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim",
-        "nur": "nur",
-        "omnix": "omnix",
-        "orchis-theme": "orchis-theme",
-        "spicetify-nix": "spicetify-nix",
-        "stylix": "stylix",
-        "systems": "systems_3",
-        "treefmt-nix": "treefmt-nix",
-        "wallpapers": "wallpapers",
-        "whitesur-wallpapers": "whitesur-wallpapers"
+        "nixdots": "nixdots",
+        "systems": "systems_3"
       }
     },
     "rust-flake": {
       "inputs": {
         "crane": "crane_2",
         "nixpkgs": [
+          "nixdots",
           "omnix",
           "nixpkgs"
         ],
@@ -1274,6 +1344,7 @@
     "rust-overlay": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "lanzaboote",
           "nixpkgs"
         ]
@@ -1295,6 +1366,7 @@
     "rust-overlay_2": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "omnix",
           "rust-flake",
           "nixpkgs"
@@ -1419,6 +1491,7 @@
         "flake-compat": "flake-compat_2",
         "flake-utils-plus": "flake-utils-plus",
         "nixpkgs": [
+          "nixdots",
           "nix-data",
           "nixpkgs"
         ]
@@ -1440,9 +1513,11 @@
     "spicetify-nix": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ],
         "systems": [
+          "nixdots",
           "systems"
         ]
       },
@@ -1467,28 +1542,36 @@
         "base16-helix": "base16-helix",
         "base16-vim": "base16-vim",
         "firefox-gnome-theme": [
+          "nixdots",
           "firefox-gnome-theme"
         ],
         "flake-compat": [
+          "nixdots",
           "flake-compat"
         ],
         "flake-parts": [
+          "nixdots",
           "flake-parts"
         ],
         "git-hooks": [
+          "nixdots",
           "git-hooks"
         ],
         "gnome-shell": "gnome-shell",
         "home-manager": [
+          "nixdots",
           "home-manager"
         ],
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ],
         "nur": [
+          "nixdots",
           "nur"
         ],
         "systems": [
+          "nixdots",
           "systems"
         ],
         "tinted-foot": "tinted-foot",
@@ -1640,6 +1723,7 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
+          "nixdots",
           "nixpkgs"
         ]
       },
