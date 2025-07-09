@@ -66,10 +66,6 @@
     enable = true;
     enableZshIntegration = true;
   };
-  programs.comma = {
-    enable = true;
-    package = null;
-  };
   programs.nix-index-database.comma.enable = true;
   programs.nix-index = {
     enable = true;
