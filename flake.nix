@@ -190,6 +190,13 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
+    mithril-shell = {
+      url = "github:bricked-contrib/mithril-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
     apple-fonts = {
       url = "github:lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -203,10 +210,6 @@
     orchis-theme = {
       url = "github:vinceliuice/orchis-theme";
       flake = false;
-    };
-
-    mithril-shell = {
-      url = "github:bricked-contrib/mithril-shell";
     };
 
     # Programs
