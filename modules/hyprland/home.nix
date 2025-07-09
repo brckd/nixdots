@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: let
@@ -103,9 +104,9 @@ in {
 
         bind =
           [
-            "${cfg.keys.modifiers.main}, T, exec, ghostty"
+            "${cfg.keys.modifiers.main}, T, exec, ${pkgs.ghostty}/bin/ghostty"
             "${cfg.keys.modifiers.main}, Q, killactive"
-            "${cfg.keys.modifiers.main} ${cfg.keys.modifiers.alt}, Q, exec, uwsm stop"
+            "${cfg.keys.modifiers.main} ${cfg.keys.modifiers.alt}, Q, exec, ${pkgs.uwsm}/bin/uwsm stop"
             "${cfg.keys.modifiers.main}, D, togglefloating"
             "${cfg.keys.modifiers.main}, F, fullscreen"
             "${cfg.keys.modifiers.main}, mouse_${
@@ -125,15 +126,15 @@ in {
           ++ mapAttrsToList (dir: key: "${cfg.keys.modifiers.main} ${cfg.keys.modifiers.alt}, ${key}, movewindow, ${mkDirection dir}") cfg.keys.directions;
 
         bindl = [
-          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-          ", XF86AudioPlay, exec, playerctl play-pause"
-          ", XF86AudioPrev, exec, playerctl previous"
-          ", XF86AudioNext, exec, playerctl next"
+          ", XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+          ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+          ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
         ];
 
         bindle = [
-          ", XF86AudioLowerVolume, exec, wpctl set-volume --limit ${toString cfg.volume.limit} @DEFAULT_AUDIO_SINK@ ${toString cfg.volume.step}-"
-          ", XF86AudioRaiseVolume, exec, wpctl set-volume --limit ${toString cfg.volume.limit} @DEFAULT_AUDIO_SINK@ ${toString cfg.volume.step}+"
+          ", XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume --limit ${toString cfg.volume.limit} @DEFAULT_AUDIO_SINK@ ${toString cfg.volume.step}-"
+          ", XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume --limit ${toString cfg.volume.limit} @DEFAULT_AUDIO_SINK@ ${toString cfg.volume.step}+"
         ];
 
         bindm = [
