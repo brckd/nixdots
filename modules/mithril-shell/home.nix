@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   inputs,
   ...
@@ -10,6 +11,9 @@ in {
   imports = [inputs.mithril-shell.homeManagerModules.default];
 
   config = mkIf (config.stylix.enable && cfg.integrations.stylix.enable) {
-    services.mithril-shell.theme.colors.primary = config.lib.stylix.colors.base0D;
+    services.mithril-shell = {
+      theme.colors.primary = config.lib.stylix.colors.base0D;
+      settings.lockCommand = "${pkgs.hyprlock}/bin/hyprlock --immediate";
+    };
   };
 }

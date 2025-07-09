@@ -71,6 +71,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    programs.hyprlock.enable = true;
     wayland.windowManager.hyprland = {
       systemd.enable = false;
       settings = {
