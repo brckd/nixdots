@@ -99,6 +99,8 @@ in {
           ];
         };
 
+        binds.scroll_event_delay = 0;
+
         bind =
           [
             "${cfg.keys.modifiers.main}, T, exec, ghostty"
