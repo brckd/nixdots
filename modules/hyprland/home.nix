@@ -106,7 +106,6 @@ in {
 
         bind =
           [
-            "${cfg.keys.modifiers.main}, T, exec, ${pkgs.ghostty}/bin/ghostty"
             "${cfg.keys.modifiers.main}, Q, killactive"
             "${cfg.keys.modifiers.main} ${cfg.keys.modifiers.alt}, Q, exec, ${pkgs.uwsm}/bin/uwsm stop"
             "${cfg.keys.modifiers.main}, D, togglefloating"
