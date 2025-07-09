@@ -142,6 +142,10 @@ in {
           "${cfg.keys.modifiers.main}, Super_L, exec, pkill -RTMIN sysmenu"
         ];
 
+        bindn = [
+          ", escape, exec, pkill -USR2 sysmenu"
+        ];
+
         bindm = [
           "${cfg.keys.modifiers.main}, mouse:272, movewindow"
           "${cfg.keys.modifiers.main}, mouse:273, resizewindow"
