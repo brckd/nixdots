@@ -624,11 +624,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752085193,
-        "narHash": "sha256-FPHBtube1bVp3FZ6Bl8YcuZHixcQuPyyJmGFxSrIr7g=",
+        "lastModified": 1752150388,
+        "narHash": "sha256-poen1+v1DNa89WPKxybgUAcW/oWnoRBAjQEhqpK+6fc=",
         "owner": "bricked-contrib",
         "repo": "mithril-shell",
-        "rev": "eba2973e1edc10894f82c401b3ef02cec297af44",
+        "rev": "0642928c9893d73eaa3b2263d3f5087137ce3bfa",
         "type": "github"
       },
       "original": {
