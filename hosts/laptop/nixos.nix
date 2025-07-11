@@ -84,6 +84,12 @@ with lib; {
   # Virtualisation
   virtualisation.libvirtd.enable = true;
 
+  # Networking
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
   # Misc
   programs.nautilus = {
     enable = true;
