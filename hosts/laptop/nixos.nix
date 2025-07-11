@@ -99,7 +99,7 @@ with lib; {
   };
 
   environment.systemPackages = with pkgs; [
-    gimp
+    gimp3
     fractal
     tuba
     libreoffice
