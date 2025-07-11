@@ -16,6 +16,7 @@ in {
       homeManagerIntegration.autoImport = false;
       targets.plymouth.enable = false;
       targets.qt.enable = true;
+      targets.gtksourceview.enable = false;
     };
   };
 }
