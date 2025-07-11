@@ -68,14 +68,15 @@ with lib; {
     units = "en_DK.UTF-8";
     layout = "de";
   };
-
-  # Desktop
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
   services.kanata = {
     enable = true;
     keyboards.default.devices = ["/dev/input/by-path/platform-i8042-serio-0-event-kbd"];
   };
+
+  # Desktop
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+  programs.hyprland.enable = true;
 
   # Shell
   programs.zsh.enable = true;
