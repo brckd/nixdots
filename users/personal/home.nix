@@ -14,10 +14,17 @@
   };
 
   programs.home-manager.enable = true;
+
+  # Theming
   stylix.enable = true;
   themix = {
     enable = true;
     themes.adwaita.enable = true;
+  };
+  wayland.windowManager.hyprland.enable = true;
+  services.mithril-shell = {
+    enable = true;
+    integrations.hyprland.enable = true;
   };
 
   # Terminal
