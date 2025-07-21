@@ -110,6 +110,10 @@ with lib; {
     enable = true;
     qemu.swtpm.enable = true;
   };
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
   boot.binfmt.emulatedSystems = filter (sys: sys != pkgs.system) systems;
   nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
 
@@ -137,6 +141,8 @@ with lib; {
 
   environment.systemPackages = with pkgs; [
     dconf2nix
+    distrobox
+    distroshelf
     eza
     fd
     git
