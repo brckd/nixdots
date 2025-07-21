@@ -35,6 +35,7 @@ in {
       pkgs.decibels # Audio player
       pkgs.dconf-editor # DConf editor
       pkgs.d-spy # D-Bus viewer
+      pkgs.eloquent # Proofreading software
       pkgs.fractal # Matrix client
       pkgs.geopard # Gemini browser
       pkgs.ghostty # Terminal emulator
@@ -50,6 +51,7 @@ in {
       pkgs.gnome-maps # Map application
       pkgs.gnome-weather # Weather application
       pkgs.ghex # Hex editor
+      pkgs.gradia # Screenshot annotation program
       pkgs.grim # Screenshot application
       pkgs.icon-library # Icon library
       pkgs.inspector # System information viewer
@@ -57,11 +59,12 @@ in {
       pkgs.loupe # Image viewer
       pkgs.mission-center # System monitor
       pkgs.nautilus # File manager
+      pkgs.papers # Document viewer
+      pkgs.pinta # Drawing program
       pkgs.snapshot # Camera application
       pkgs.totem # Movie player
       pkgs.tuba # Mastodon client
       pkgs.typewriter # Typst editor
-      pkgs.papers # Document viewer
       pkgs.wl-clipboard # Clipboard manager
       (pkgs.writeShellScriptBin "xdg-terminal-exec" "ghostty -e $@")
     ];
