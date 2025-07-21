@@ -1,7 +1,6 @@
 {
   self,
   pkgs,
-  inputs,
   ...
 }: {
   imports = [self.homeModules.all];
@@ -22,19 +21,12 @@
     enable = true;
     themes.adwaita.enable = true;
   };
-  wayland.windowManager.hyprland.enable = true;
-  services.mithril-shell = {
-    enable = true;
-    integrations.hyprland.enable = true;
-  };
+  services.mithril-shell.enable = true;
 
   # Terminal
-  programs.zsh.enable = true;
   programs.fish.enable = true;
   programs.starship.enable = true;
   programs.direnv.enable = true;
-  programs.lf.enable = true;
-  programs.fastfetch.enable = true;
   programs.ghostty.enable = true;
   programs.git = {
     enable = true;
@@ -55,27 +47,12 @@
   };
   services.gnome-keyring.enable = true;
   programs.gpg.enable = true;
-  services.gpg-agent = {
-    enable = true;
-    pinentry.package = pkgs.pinentry-gnome3;
-  };
   programs.gh.enable = true;
-  programs.npm.enable = true;
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-  programs.nix-index-database.comma.enable = true;
-  programs.nix-index = {
-    enable = true;
-    enableFishIntegration = false;
-    enableZshIntegration = false;
-    enableBashIntegration = false;
-  };
+  programs.zoxide.enable = true;
+  programs.nix-index.enable = true;
   programs.nix-your-shell.enable = true;
 
   # Editor
-  programs.nixvim.enable = true;
   programs.helix = {
     enable = true;
     defaultEditor = true;
@@ -85,30 +62,6 @@
   # Apps
   programs.librewolf.enable = true;
   programs.spicetify.enable = true;
-  programs.cavalier = {
-    enable = true;
-    settings.general = {
-      ShowControls = true;
-      ColorProfiles = [
-        {
-          Name = "Default";
-          FgColors = [
-            "#ffed333b"
-            "#ffffa348"
-            "#fff8e45c"
-            "#ff57e389"
-            "#ff62a0ea"
-            "#ffc061cb"
-          ];
-          BgColors = [
-            "#ff1e1e2e"
-          ];
-          Theme = 1;
-        }
-      ];
-      ActiveProfile = 0;
-    };
-  };
 
   xdg.desktopEntries.adwaitaDemo = {
     name = "Adwaita Demo";
@@ -118,5 +71,5 @@
     categories = ["Development"];
   };
 
-  home.packages = with pkgs; [vesktop riffdiff libadwaita.devdoc];
+  home.packages = [pkgs.riffdiff pkgs.libadwaita.devdoc];
 }
