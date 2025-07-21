@@ -21,19 +21,13 @@
     enable = true;
     themes.adwaita.enable = true;
   };
-  wayland.windowManager.hyprland.enable = true;
-  services.mithril-shell = {
-    enable = true;
-    integrations.hyprland.enable = true;
-  };
+  services.mithril-shell.enable = true;
 
   # Terminal
-  programs.zsh.enable = true;
   programs.fish.enable = true;
   programs.starship.enable = true;
   programs.direnv.enable = true;
   programs.ghostty.enable = true;
-  programs.fastfetch.enable = true;
   programs.git = {
     enable = true;
     extraConfig = {
@@ -41,17 +35,9 @@
       pull.rebase = true;
     };
   };
-  services.gnome-keyring.enable = true;
   programs.gpg.enable = true;
-  services.gpg-agent = {
-    enable = true;
-    pinentry.package = pkgs.pinentry-gnome3;
-  };
   programs.gh.enable = true;
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  programs.zoxide.enable = true;
 
   # Editor
   programs.nixvim = {
@@ -63,6 +49,4 @@
   # Apps
   programs.librewolf.enable = true;
   programs.spicetify.enable = true;
-
-  home.packages = with pkgs; [vesktop];
 }
