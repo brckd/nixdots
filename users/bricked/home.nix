@@ -33,15 +33,9 @@
   programs.fish.enable = true;
   programs.starship.enable = true;
   programs.direnv.enable = true;
-  programs.ghostty = {
-    enable = true;
-    settings = {
-      gtk-titlebar = true;
-      window-decoration = "client";
-    };
-  };
   programs.lf.enable = true;
   programs.fastfetch.enable = true;
+  programs.ghostty.enable = true;
   programs.git = {
     enable = true;
     userName = "bricked";
