@@ -89,10 +89,7 @@ with lib; {
     units = "en_DK.UTF-8";
     layout = "de";
   };
-  services.kanata = {
-    enable = true;
-    keyboards.default.devices = ["/dev/input/by-id/usb-Razer_Razer_Huntsman_Mini_00000000001A-event-kbd"];
-  };
+  services.kanata.enable = true;
   fonts.packages = [self.packages.${pkgs.system}.hanken-grotesk];
 
   # Desktop
