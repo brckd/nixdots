@@ -68,10 +68,7 @@ with lib; {
     units = "en_DK.UTF-8";
     layout = "de";
   };
-  services.kanata = {
-    enable = true;
-    keyboards.default.devices = ["/dev/input/by-path/platform-i8042-serio-0-event-kbd"];
-  };
+  services.kanata.enable = true;
 
   # Desktop
   services.displayManager.gdm.enable = true;
