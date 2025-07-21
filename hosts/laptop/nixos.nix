@@ -75,8 +75,7 @@ with lib; {
 
   # Desktop
   services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-  programs.hyprland.enable = true;
+  services.mithril-shell.enable = true;
 
   # Shell
   programs.zsh.enable = true;
@@ -89,38 +88,8 @@ with lib; {
     package = pkgs.mullvad-vpn;
   };
 
-  # Misc
-  programs.nautilus = {
-    enable = true;
-    extensions.open-any-terminal = {
-      enable = true;
-      terminal = "ghostty";
-    };
-  };
-
   environment.systemPackages = with pkgs; [
-    gimp3
-    fractal
-    tuba
-    libreoffice
     git
-    ghostty
-    kooha
-    switcheroo
-    conjure
-    upscaler
-    curtail
-    fragments
-    dconf-editor
-    dconf2nix
-    nurl
     nitch
-    cavalier
-    gnome-obfuscate
-    mission-center
-    collision
-    papers
-    (uutils-coreutils.override {prefix = "";})
-    (writeShellScriptBin "xdg-terminal-exec" "ghostty -e $@")
   ];
 }
