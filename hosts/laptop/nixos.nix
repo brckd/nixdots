@@ -91,5 +91,6 @@ with lib; {
   environment.systemPackages = with pkgs; [
     git
     nitch
+    vesktop
   ];
 }
