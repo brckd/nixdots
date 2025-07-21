@@ -97,8 +97,7 @@ with lib; {
 
   # Desktop
   services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-  programs.hyprland.enable = true;
+  services.mithril-shell.enable = true;
 
   # Shell
   programs.zsh.enable = true;
@@ -124,21 +123,6 @@ with lib; {
     package = pkgs.mullvad-vpn;
   };
 
-  # Misc
-  programs.nautilus = {
-    enable = true;
-    extensions.open-any-terminal = {
-      enable = true;
-      terminal = "ghostty";
-    };
-  };
-
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-    motherboard = "amd";
-  };
-
   # Taken from https://github.com/NixOS/nixpkgs/issues/115996#issuecomment-2224296279
   # Fixes libvirtd QEMU integration for GNOME boxes
   systemd.tmpfiles.rules = let
@@ -155,79 +139,24 @@ with lib; {
   };
 
   environment.systemPackages = with pkgs; [
-    bun
-    rustc
-    cargo
-    rustfmt
-    clang
-    wineWowPackages.waylandFull
-    winetricks
-    cartridges
-    heroic
-    modrinth-app
-    itch
-    fractal
-    tuba
-    libreoffice
-    git
-    ghostty
-    kooha
-    switcheroo
-    conjure
-    upscaler
-    curtail
-    fragments
-    dconf-editor
     dconf2nix
-    nurl
-    nitch
-    cavalier
-    gnome-obfuscate
-    bottles
-    mission-center
-    gnome-boxes
-    qemu
-    collision
-    swtpm
-    turtle
-    meld
-    blender
-    godot_4
-    ripgrep
-    moar
-    fzf
-    wl-clipboard
-    jq
-    ungoogled-chromium
-    ollama-rocm
-    eyedropper
-    geopard
-    fd
-    sd
-    rm-improved
     eza
-    cartero
-    icon-library
-    papers
-    gimp3
-    eloquent
-    xh
-    jaq
-    ghex
+    fd
+    git
+    gnome-boxes
     hyperfine
+    jaq
+    moar
+    nitch
+    qemu
+    ripgrep
+    rm-improved
+    sd
     tealdeer
-    yazi
-    morphosis
-    python313Packages.weasyprint
-    dialect
-    typewriter
-    inspector
+    xh
     inputs.nix-fast-build.packages.${system}.default
-    inputs.omnix.packages.${system}.default
     inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
-    (writeShellScriptBin "wine-mono" "mono")
-    (writeShellScriptBin "xdg-terminal-exec" "ghostty -e $@")
   ];
 
   environment.variables = {
