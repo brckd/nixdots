@@ -153,6 +153,7 @@ with lib; {
     rm-improved
     sd
     tealdeer
+    vesktop
     xh
     inputs.nix-fast-build.packages.${system}.default
     inputs.nix-alien.packages.${system}.nix-alien
