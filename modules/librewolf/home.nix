@@ -71,8 +71,8 @@ in {
                 definedAliases = ["@noo" "@nixosops"];
               };
               "NixOS Wiki" = {
-                urls = singleton {template = "https://nixos.wiki/index.php?search={searchTerms}";};
-                icon = "https://nixos.wiki/favicon.png";
+                urls = singleton {template = "https://wiki.nixos.org/w/index.php?search={searchTerms}";};
+                icon = "https://wiki.nixos.org/favicon.ico";
                 definedAliases = ["@now" "@nixoswiki"];
               };
               "Home Manager Options" = {
