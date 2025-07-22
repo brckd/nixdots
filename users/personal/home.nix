@@ -40,7 +40,7 @@
   programs.zoxide.enable = true;
 
   # Editor
-  programs.nixvim = {
+  programs.helix = {
     enable = true;
     defaultEditor = true;
   };
