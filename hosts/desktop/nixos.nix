@@ -97,7 +97,6 @@ with lib; {
   services.mithril-shell.enable = true;
 
   # Shell
-  programs.zsh.enable = true;
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
