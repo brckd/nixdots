@@ -22,6 +22,7 @@ in {
     programs.geary.enable = mkDefault true; # Mail client
     programs.gnome-disks.enable = mkDefault true; # Disks viewer
     programs.hyprland.enable = true; # Wayland compositor
+    programs.niri.enable = true; # Wayland compositor
     programs.seahorse.enable = mkDefault true; # Secrets manager
     services.udisks2.enable = mkDefault true; # Mount disks
     services.upower.enable = mkDefault true; # Battery status

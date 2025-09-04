@@ -12,6 +12,8 @@ in {
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.enable = true; # Wayland compositor
+    programs.niri.enable = true; # Wayland compositor
+    programs.hyprlock.enable = true; # Lock screen
     programs.anyrun.enable = true;
     services.swaync.enable = true; # Notification daemon
     services.gnome-keyring.enable = mkDefault true; # Secrets manager
