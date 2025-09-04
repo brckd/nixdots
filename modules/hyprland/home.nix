@@ -138,11 +138,7 @@ in {
         ];
 
         bindr = [
-          "${cfg.keys.modifiers.main}, Super_L, exec, ${pkgs.anyrun}/bin/anyrun"
-        ];
-
-        bindn = [
-          ", escape, exec, pkill -USR2 sysmenu"
+          "${cfg.keys.modifiers.main}, Super_L, exec, ${config.programs.anyrun.package}/bin/anyrun"
         ];
 
         bindm = [

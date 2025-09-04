@@ -1,20 +1,20 @@
-{config, lib, pkgs, inputs, ...}:
-
-let
+{
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) mkIf;
 
   cfg = config.programs.anyrun;
-
-  anyrunPkgs = inputs.anyrun.packages.${pkgs.system};
 in {
   config = mkIf cfg.enable {
     programs.anyrun.config = {
       closeOnClick = true;
 
       plugins = [
-        anyrunPkgs.applications
-        anyrunPkgs.symbols
-        anyrunPkgs.rink
+        "${cfg.package}/lib/libapplications.so"
+        "${cfg.package}/lib/libsymbols.so"
+        "${cfg.package}/lib/librink.so"
       ];
     };
   };
