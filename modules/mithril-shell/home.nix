@@ -18,7 +18,10 @@ in {
     services.gpg-agent = {
       enable = true;
       pinentry.package = pkgs.pinentry-gnome3; # Passphrase input
+      pinentry.program = "pinentry-gnome3";
     };
+    services.udiskie.enable = true;
+
     services.mithril-shell = mkMerge [
       {
         integrations.hyprland.enable = true;
