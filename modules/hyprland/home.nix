@@ -75,7 +75,10 @@ in {
     wayland.windowManager.hyprland = {
       systemd.enable = false;
       settings = {
-        input.kb_layout = "de";
+        input = {
+          kb_layout = "de";
+          touchpad.natural_scroll = true;
+        };
         monitor = ",highres,auto,1";
 
         general = {
