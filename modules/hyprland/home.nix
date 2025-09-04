@@ -72,7 +72,6 @@ in {
 
   config = mkIf cfg.enable {
     programs.hyprlock.enable = true;
-    home.packages = with pkgs; [sysmenu];
     wayland.windowManager.hyprland = {
       systemd.enable = false;
       settings = {
@@ -139,7 +138,7 @@ in {
         ];
 
         bindr = [
-          "${cfg.keys.modifiers.main}, Super_L, exec, pkill -RTMIN sysmenu"
+          "${cfg.keys.modifiers.main}, Super_L, exec, ${pkgs.anyrun}/bin/anyrun"
         ];
 
         bindn = [
@@ -149,10 +148,6 @@ in {
         bindm = [
           "${cfg.keys.modifiers.main}, mouse:272, movewindow"
           "${cfg.keys.modifiers.main}, mouse:273, resizewindow"
-        ];
-
-        exec-once = [
-          "${pkgs.sysmenu}/bin/sysmenu"
         ];
       };
     };

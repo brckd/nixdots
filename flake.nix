@@ -259,6 +259,13 @@
       inputs.astal.follows = "astal";
     };
 
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.systems.follows = "systems";
+    };
+
     # Boot
     disko = {
       url = "github:nix-community/disko/latest";

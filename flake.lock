@@ -24,6 +24,32 @@
         "type": "github"
       }
     },
+    "anyrun": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756983680,
+        "narHash": "sha256-6n/X+hpEayygMd84fhFSZKxSt76ApXUQMNddWpT+O0U=",
+        "owner": "anyrun-org",
+        "repo": "anyrun",
+        "rev": "4e0ebf9a198a21a4722c754b9202c63787eda76e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anyrun-org",
+        "repo": "anyrun",
+        "type": "github"
+      }
+    },
     "apple-fonts": {
       "inputs": {
         "nixpkgs": [
@@ -1238,6 +1264,7 @@
     "root": {
       "inputs": {
         "ags": "ags",
+        "anyrun": "anyrun",
         "apple-fonts": "apple-fonts",
         "astal": "astal",
         "devshell": "devshell",

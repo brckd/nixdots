@@ -12,6 +12,7 @@ in {
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.enable = true; # Wayland compositor
+    programs.anyrun.enable = true;
     services.swaync.enable = true; # Notification daemon
     services.gnome-keyring.enable = mkDefault true; # Secrets manager
     services.gpg-agent = {
