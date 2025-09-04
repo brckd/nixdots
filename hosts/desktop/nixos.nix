@@ -90,7 +90,6 @@ with lib; {
     layout = "de";
   };
   services.kanata.enable = true;
-  fonts.packages = [self.packages.${pkgs.system}.hanken-grotesk];
 
   # Desktop
   services.displayManager.gdm.enable = true;
