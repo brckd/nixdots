@@ -109,6 +109,7 @@ in {
             "${cfg.keys.modifiers.main} ${cfg.keys.modifiers.alt}, Q, exec, ${pkgs.uwsm}/bin/uwsm stop"
             "${cfg.keys.modifiers.main}, D, togglefloating"
             "${cfg.keys.modifiers.main}, F, fullscreen"
+            "${cfg.keys.modifiers.main}, T, exec, ghostty"
             "${cfg.keys.modifiers.main}, mouse_${
               if cfg.scrolling.enableNatural
               then "down"
