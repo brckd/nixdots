@@ -153,7 +153,7 @@ in {
               {
                 name = "Status";
                 tags = ["bricked"];
-                url = "https://status.bricke.dev";
+                url = "https://status.bricked.dev";
               }
               {
                 name = "GitHub";
@@ -236,6 +236,11 @@ in {
                 url = "https://netlify.com";
               }
               {
+                name = "Tailscale";
+                tags = ["hosting"];
+                url = "https://tailscale.com";
+              }
+              {
                 name = "Monkeytype";
                 tags = ["typing"];
                 url = "https://monkeytype.com";
@@ -245,13 +250,16 @@ in {
           settings = {
             "extensions.autoDisableScopes" = 0; # Enable extensions
             "browser.aboutConfig.showWarning" = false;
-            "webgl.disabled" = false;
             "browser.tabs.closeWindowWithLastTab" = false;
-            "browser.startup.page" = 3;
+
+            # Privacy
+            "privacy.sanitize.sanitizeOnShutdown" = false; # Keep history
+            "privacy.resistFingerprinting.letterboxing" = true;
 
             # Blank homepage
             "browser.newtabpage.enable" = false;
             "browser.startup.homepage" = "about:newtab";
+            "browser.startup.page" = 3;
             "browser.toolbars.bookmarks.visibility" = "never";
 
             # UI customization
@@ -299,6 +307,7 @@ in {
           "typst.app"
           "keybr.com"
           "cachix.org"
+          "tailscale.com"
         ];
       };
     };
