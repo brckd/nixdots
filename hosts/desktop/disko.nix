@@ -1,7 +1,7 @@
 {
   disko.devices = {
     disk = {
-      root = {
+      system = {
         type = "disk";
         device = "/dev/nvme0n1";
         content = {
@@ -21,7 +21,7 @@
               size = "100%";
               content = {
                 type = "luks";
-                name = "crypted";
+                name = "system-crypted";
                 content = {
                   type = "btrfs";
                   subvolumes = {
@@ -40,7 +40,7 @@
           };
         };
       };
-      home = {
+      user = {
         type = "disk";
         device = "/dev/nvme1n1";
         content = {
@@ -49,7 +49,7 @@
             size = "100%";
             content = {
               type = "luks";
-              name = "crypted";
+              name = "user-crypted";
               content = {
                 type = "btrfs";
                 subvolumes = {

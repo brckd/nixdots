@@ -8,7 +8,7 @@
   ...
 }:
 with lib; {
-  imports = [self.nixosModules.all ./hardware.nix];
+  imports = [self.nixosModules.all ./hardware.nix ./disko.nix];
 
   # System
   networking.hostName = "desktop";
