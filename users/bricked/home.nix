@@ -31,11 +31,10 @@
   programs.git = {
     enable = true;
     userName = "bricked";
-    userEmail = "git@bricked.dev";
+    userEmail = "spider@bricked.dev";
     extraConfig = {
       push.autoSetupRemote = true;
       pull.rebase = true;
-      commit.gpgsign = true;
       pager = {
         diff = "riff";
         show = "riff";
@@ -43,7 +42,11 @@
       };
       interactive.diffFilter = "riff --color=on";
     };
-    signing.format = "openpgp";
+    signing = {
+      signByDefault = true;
+      format = "openpgp";
+      key = "1EA6 A3AC FCAF D957 F6BC 727B B125 7D48 58CF 3348";
+    };
   };
   services.gnome-keyring.enable = true;
   programs.gpg.enable = true;
