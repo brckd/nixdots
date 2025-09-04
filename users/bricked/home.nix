@@ -36,11 +36,11 @@
       push.autoSetupRemote = true;
       pull.rebase = true;
       pager = {
-        diff = "riff";
-        show = "riff";
-        log = "riff";
+        diff = "${pkgs.riffdiff}/bin/riff";
+        show = "${pkgs.riffdiff}/bin/riff";
+        log = "${pkgs.riffdiff}/bin/riff";
       };
-      interactive.diffFilter = "riff --color=on";
+      interactive.diffFilter = "${pkgs.riffdiff}/bin/riff";
     };
     signing = {
       signByDefault = true;
@@ -73,6 +73,4 @@
     terminal = false;
     categories = ["Development"];
   };
-
-  home.packages = [pkgs.riffdiff pkgs.libadwaita.devdoc];
 }
