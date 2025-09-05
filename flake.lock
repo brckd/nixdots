@@ -956,6 +956,26 @@
         "type": "github"
       }
     },
+    "nixdg-ninja": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1753801159,
+        "narHash": "sha256-o61kRCyWVksQX/wxOuBy7GKKgOw5qqDRs9OVU9Nlzfc=",
+        "owner": "notashelf",
+        "repo": "nixdg-ninja",
+        "rev": "8c4a567632c453f3456abc177e2cda9cb311faed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "notashelf",
+        "repo": "nixdg-ninja",
+        "type": "github"
+      }
+    },
     "nixlib": {
       "locked": {
         "lastModified": 1736643958,
@@ -1271,6 +1291,7 @@
         "nix-on-droid": "nix-on-droid",
         "nix-snapd": "nix-snapd",
         "nix-software-center": "nix-software-center",
+        "nixdg-ninja": "nixdg-ninja",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",

@@ -212,6 +212,12 @@
       flake = false;
     };
 
+    # Customization
+    nixdg-ninja = {
+      url = "github:notashelf/nixdg-ninja";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Programs
     nixvim = {
       url = "github:nix-community/nixvim";

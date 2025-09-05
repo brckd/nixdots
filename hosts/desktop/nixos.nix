@@ -89,6 +89,7 @@ with lib; {
     units = "en_DK.UTF-8";
     layout = "de";
   };
+  programs.nixdg-ninja.enable = true;
   services.kanata.enable = true;
 
   # Desktop
