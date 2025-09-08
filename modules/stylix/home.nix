@@ -25,7 +25,6 @@ in {
         firefoxGnomeTheme.enable = true;
       };
       targets.vscode.profileNames = ["default"];
-      targets.steam.adwaitaTheme.enable = true;
     };
   };
 }

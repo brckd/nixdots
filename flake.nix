@@ -179,7 +179,7 @@
 
     # Theming
     stylix = {
-      url = "github:brckd/stylix";
+      url = "git+file:///home/bricked/Documents/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.git-hooks.follows = "git-hooks";
