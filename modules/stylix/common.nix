@@ -10,7 +10,7 @@ with lib; let
 in {
   config = mkIf cfg.enable {
     stylix = {
-      image = "${inputs.wallpapers}/pink-clouds.jpg";
+      image = inputs.wallpaper;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       override.base0C = "90c0e4"; # make teal less intense
       fonts = rec {

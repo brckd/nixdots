@@ -8,7 +8,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home = {
-    stateVersion = "25.11";
+    stateVersion = "25.05";
     username = "bricked";
     homeDirectory = "/home/bricked";
   };
@@ -65,12 +65,4 @@
   # Apps
   programs.librewolf.enable = true;
   programs.spicetify.enable = true;
-
-  xdg.desktopEntries.adwaitaDemo = {
-    name = "Adwaita Demo";
-    exec = "adwaita-1-demo";
-    icon = "org.gnome.Adwaita1.Demo-symbolic";
-    terminal = false;
-    categories = ["Development"];
-  };
 }

@@ -4,7 +4,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home = {
-    stateVersion = "25.11";
+    stateVersion = "25.05";
     username = "nix-on-droid";
     homeDirectory = "/data/data/com.termux.nix/files/home";
   };

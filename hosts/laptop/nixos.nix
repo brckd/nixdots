@@ -9,7 +9,7 @@ with lib; {
   imports = [self.nixosModules.all ./hardware.nix ./disko.nix];
 
   # System
-  system.stateVersion = "25.11";
+  system.stateVersion = "25.05";
   networking.hostName = "laptop";
   nixpkgs.config.allowUnfree = true;
 
@@ -71,7 +71,7 @@ with lib; {
   services.kanata.enable = true;
 
   # Desktop
-  services.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
   services.mithril-shell.enable = true;
 
   # Shell
@@ -85,8 +85,19 @@ with lib; {
   };
 
   environment.systemPackages = with pkgs; [
+    dconf2nix
+    eza
+    fd
     git
+    hyperfine
+    jaq
+    moar
     nitch
+    ripgrep
+    rm-improved
+    sd
+    tealdeer
     vesktop
+    xh
   ];
 }

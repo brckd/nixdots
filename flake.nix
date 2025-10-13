@@ -63,7 +63,6 @@
       "https://nix-on-droid.cachix.org"
       "https://pre-commit-hooks.cachix.org"
       "https://statix.cachix.org"
-      "https://om.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nixdots.cachix.org-1:kWCfT049y6VtM5wAwMzuR3VOHkvom/53Sirq/784tYA="
@@ -72,37 +71,16 @@
       "nix-on-droid.cachix.org-1:56snoMJTXmDRC1Ei24CmKoUqvHJ9XCp+nidK7qkMQrU="
       "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
       "statix.cachix.org-1:Z9E/g1YjCjU117QOOt07OjhljCoRZddiAm4VVESvais="
-      "om.cachix.org-1:ifal/RLZJKN4sbpScyPGqJ2+appCslzu7ZZF/C01f2Q="
     ];
   };
 
   inputs = {
     # Package reposities
-    nixpkgs.url = "github:brckd/nixpkgs/nixos-unstable";
-
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
-
-    nix-snapd = {
-      url = "github:nix-community/nix-snapd";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.flake-parts.follows = "flake-parts";
-    };
-
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     # Systems
     home-manager = {
-      url = "github:brckd/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-darwin = {
-      url = "github:lnl7/nix-darwin";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -156,21 +134,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-fast-build = {
-      url = "github:brckd/nix-fast-build";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.treefmt-nix.follows = "treefmt-nix";
-    };
-
-    omnix = {
-      url = "github:juspay/omnix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.systems.follows = "systems";
-      inputs.git-hooks.follows = "git-hooks";
-    };
-
     # Formatter
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -179,37 +142,20 @@
 
     # Theming
     stylix = {
-      url = "git+file:///home/bricked/Documents/stylix";
+      url = "github:nix-community/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.git-hooks.follows = "git-hooks";
       inputs.systems.follows = "systems";
       inputs.home-manager.follows = "home-manager";
-      inputs.firefox-gnome-theme.follows = "firefox-gnome-theme";
-      inputs.nur.follows = "nur";
       inputs.flake-parts.follows = "flake-parts";
     };
 
     mithril-shell = {
-      url = "github:bricked-contrib/mithril-shell";
+      url = "github:andreashgk/mithril-shell/fix/multi-user";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
       inputs.flake-utils.follows = "flake-utils";
-    };
-
-    apple-fonts = {
-      url = "github:lyndeno/apple-fonts.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    whitesur-wallpapers = {
-      url = "github:vinceliuice/whitesur-wallpapers";
-      flake = false;
-    };
-
-    orchis-theme = {
-      url = "github:vinceliuice/orchis-theme";
-      flake = false;
     };
 
     # Customization
@@ -219,50 +165,15 @@
     };
 
     # Programs
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.systems.follows = "systems";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
     };
 
-    nix-alien = {
-      url = "github:thiagokokada/nix-alien";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
-    };
-
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-software-center = {
-      url = "github:ljubitje/nix-software-center";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "flake-utils";
-    };
-
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    ags = {
-      url = "github:aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.astal.follows = "astal";
     };
 
     anyrun = {
@@ -287,13 +198,8 @@
     };
 
     # Assets
-    wallpapers = {
-      url = "github:orangci/walls-catppuccin-mocha";
-      flake = false;
-    };
-
-    firefox-gnome-theme = {
-      url = "github:rafaelmardojai/firefox-gnome-theme";
+    wallpaper = {
+      url = "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/40912e6418737e93b59a38bcf189270cbf26656d/pink-clouds.jpg";
       flake = false;
     };
   };

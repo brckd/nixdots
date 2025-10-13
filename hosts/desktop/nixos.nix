@@ -12,7 +12,7 @@ with lib; {
 
   # System
   networking.hostName = "desktop";
-  system.stateVersion = "25.11";
+  system.stateVersion = "25.05";
   nixpkgs.config.allowUnfree = true;
 
   # Users
@@ -93,7 +93,7 @@ with lib; {
   services.kanata.enable = true;
 
   # Desktop
-  services.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
   services.mithril-shell.enable = true;
 
   # Shell
