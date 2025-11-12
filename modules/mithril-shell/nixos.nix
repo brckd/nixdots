@@ -42,6 +42,7 @@ in {
       pkgs.gnome-weather # Weather application
       pkgs.ghex # Hex editor
       pkgs.grim # Screenshot application
+      pkgs.handbrake # Video converter
       pkgs.inspector # System information viewer
       pkgs.libreoffice # Office application
       pkgs.loupe # Image viewer
