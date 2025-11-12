@@ -15,7 +15,7 @@ in rec {
     mixed = genAttrs ["modules" "hosts" "users"] (append dirs.root);
   };
 
-  classes = genAttrs ["home" "nixos" "droid"] id;
+  classes = genAttrs ["home" "nixos"] id;
 
   load = {
     dir = path:

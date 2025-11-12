@@ -23,7 +23,6 @@
         inherit (modules.generic) lib templates;
         homeModules = modules.mixed.modules.home;
         nixosModules = paths.mixed.modules.nixos;
-        nixOnDroidModules = paths.mixed.modules.droid;
       };
 
       perSystem = {
@@ -60,7 +59,6 @@
       "https://nixdots.cachix.org"
       "https://cache.nixos.org"
       "https://nix-community.cachix.org"
-      "https://nix-on-droid.cachix.org"
       "https://pre-commit-hooks.cachix.org"
       "https://statix.cachix.org"
     ];
@@ -68,7 +66,6 @@
       "nixdots.cachix.org-1:kWCfT049y6VtM5wAwMzuR3VOHkvom/53Sirq/784tYA="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "nix-on-droid.cachix.org-1:56snoMJTXmDRC1Ei24CmKoUqvHJ9XCp+nidK7qkMQrU="
       "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
       "statix.cachix.org-1:Z9E/g1YjCjU117QOOt07OjhljCoRZddiAm4VVESvais="
     ];
@@ -82,13 +79,6 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-for-bootstrap.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
 
     nixos-generators = {
