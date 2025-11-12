@@ -17,11 +17,8 @@ in {
           extensions = {
             packages = with firefox-addons; [
               ublock-origin
-              privacy-badger
               bitwarden
-              libredirect
               darkreader
-              webhint
             ];
             force = true;
           };
