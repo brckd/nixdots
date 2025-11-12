@@ -1,9 +1,7 @@
 {
   pkgs,
-  config,
   lib,
   inputs,
-  systems,
   self,
   ...
 }:
@@ -43,28 +41,6 @@ with lib; {
     };
   };
   programs.nh.enable = true;
-  services.flatpak = {
-    enable = true;
-    remotes = [
-      {
-        name = "flathub";
-        location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
-      }
-      {
-        name = "flathub-beta";
-        location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
-      }
-    ];
-    overrides.global.Context.sockets = ["wayland" "!x11" "!fallback-x11"]; # Force Wayland by default
-  };
-  services.snap.enable = true;
-  programs.nix-ld.enable = true;
-  programs.nix-index-database.comma.enable = true;
-  programs.nix-data = {
-    enable = true;
-    systemconfig = "${./nixos.nix}";
-    flake = "${self.lib.tree.dirs.root}/flake.nix";
-  };
 
   # Boot
   boot = {
@@ -104,18 +80,6 @@ with lib; {
   programs.steam.enable = true;
   programs.gamemode.enable = true;
 
-  # Virtualisation
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu.swtpm.enable = true;
-  };
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
-  boot.binfmt.emulatedSystems = filter (sys: sys != pkgs.system) systems;
-  nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
-
   # Networking
   services.tailscale.enable = true;
   services.mullvad-vpn = {
@@ -123,42 +87,21 @@ with lib; {
     package = pkgs.mullvad-vpn;
   };
 
-  # Taken from https://github.com/NixOS/nixpkgs/issues/115996#issuecomment-2224296279
-  # Fixes libvirtd QEMU integration for GNOME boxes
-  systemd.tmpfiles.rules = let
-    firmware = pkgs.runCommandLocal "qemu-firmware" {} ''
-      mkdir $out
-      cp ${pkgs.qemu}/share/qemu/firmware/*.json $out
-      substituteInPlace $out/*.json --replace ${pkgs.qemu} /run/current-system/sw
-    '';
-  in ["L+ /var/lib/qemu/firmware - - - - ${firmware}"];
-
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
-
   environment.systemPackages = with pkgs; [
     dconf2nix
-    distrobox
-    distroshelf
     eza
     fd
     git
-    gnome-boxes
     hyperfine
     jaq
     moar
     nitch
-    qemu
     ripgrep
     rm-improved
     sd
     tealdeer
     vesktop
     xh
-    inputs.nix-fast-build.packages.${system}.default
-    inputs.nix-alien.packages.${system}.nix-alien
     (uutils-coreutils.override {prefix = "";})
   ];
 
