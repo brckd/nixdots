@@ -15,117 +15,151 @@ in {
         default = {
           name = "Default";
           extensions = {
+            force = true;
             packages = with firefox-addons; [
               ublock-origin
               bitwarden
               darkreader
             ];
-            force = true;
           };
           search = {
             default = "ddg";
             force = true;
             engines = {
-              "google".metaData.hidden = true;
               "bing".metaData.hidden = true;
-              "Startpage" = {
-                urls = singleton {template = "https://www.startpage.com/sp/search?query={searchTerms}";};
-                icon = "https://www.startpage.com/sp/cdn/favicons/favicon-96x96.png";
-                definedAliases = ["@sp" "@startpage"];
+              "google".metaData.hidden = true;
+              "perplexity".metaData.hidden = true;
+              "reddit".metaData.hidden = true;
+              "wikipedia".metaData.hidden = true;
+              "policy-DuckDuckGo Lite".metaData.hidden = true;
+              "policy-MetaGer".metaData.hidden = true;
+              "policy-Mojeek".metaData.hidden = true;
+              "policy-SearXNG - searx.be".metaData.hidden = true;
+              "policy-StartPage".metaData.hidden = true;
+
+              "AlternativeTo" = {
+                urls = singleton {template = "https://alternativeto.net/browse/search/?q={searchTerms}";};
+                icon = "https://alternativeto.net/static/icons/a2/favicon.svg";
+                definedAliases = ["@alternativeto" "@at"];
               };
-              "Noogle" = {
-                urls = singleton {template = "https://noogle.dev/q?term={searchTerms}";};
-                icon = "https://noogle.dev/favicon.png";
-                definedAliases = ["@ng" "@noogle"];
-              };
-              "Nix Documentation" = {
-                urls = singleton {template = "https://nix.dev/search.html?q={searchTerms}";};
-                icon = "https://nix.dev/_static/favicon.png";
-                definedAliases = ["@nxd" "@nixdocs"];
-              };
-              "Nix Manual" = {
-                urls = singleton {template = "https://nix.dev/manual/nix/latest/?search={searchTerms}";};
-                icon = "https://nix.dev/manual/nix/latest/favicon.svg";
-                definedAliases = ["@nxm" "@nixmanual"];
-              };
-              "Nix Packages" = {
-                urls = singleton {template = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";};
-                icon = "https://search.nixos.org/favicon.png";
-                definedAliases = ["@nxp" "@nixpackages"];
-              };
-              "Nixpkgs Issues" = {
-                urls = singleton {template = "https://github.com/nixos/nixpkgs/issues?q={searchTerms}";};
-                icon = "https://github.githubassets.com/favicons/favicon.png";
-                definedAliases = ["@nxi" "@nixpkgsissues"];
-              };
-              "Searchix" = {
-                urls = singleton {template = "https://searchix.ovh/?query={searchTerms}";};
-                definedAliases = ["@sx" "@searchix"];
-              };
-              "NixOS Options" = {
-                urls = singleton {template = "https://search.nixos.org/options?query={searchTerms}";};
-                icon = "https://search.nixos.org/favicon.png";
-                definedAliases = ["@noo" "@nixosops"];
-              };
-              "NixOS Wiki" = {
-                urls = singleton {template = "https://wiki.nixos.org/w/index.php?search={searchTerms}";};
-                icon = "https://wiki.nixos.org/favicon.ico";
-                definedAliases = ["@now" "@nixoswiki"];
-              };
-              "Home Manager Options" = {
-                urls = singleton {template = "https://home-manager-options.extranix.com/?query={searchTerms}";};
-                icon = "https://home-manager-options.extranix.com/images/favicon.png";
-                definedAliases = ["@hmo" "@homemmanageropts"];
-              };
-              "Home Manager Issues" = {
-                urls = singleton {template = "https://github.com/nix-community/home-manager/issues?q={searchTerms}";};
-                icon = "https://github.githubassets.com/favicons/favicon.png";
-                definedAliases = ["@hmi" "@homemanagerissues"];
-              };
-              "Stylix Documentations" = {
-                urls = singleton {template = "https://nix-community.github.io/stylix/?search={searchTerms}";};
-                icon = "https://nix-community.github.io/stylix/favicon-de23e50b.svg";
-                definedAliases = ["@std" "@stylixdocs"];
-              };
-              "Stylix Issues" = {
-                urls = singleton {template = "https://github.com/nix-community/stylix/issues?q={searchTerms}";};
-                icon = "https://github.githubassets.com/favicons/favicon.png";
-                definedAliases = ["@sti" "@stylixissues"];
-              };
-              "Flake Parts Docs" = {
-                urls = singleton {template = "https://flake.parts/?search={searchTerms}";};
-                icon = "https://flake.parts/favicon.svg";
-                definedAliases = ["@fpd" "flakepartsdocs"];
-              };
-              "NixVim Docs" = {
-                urls = singleton {template = "https://nix-community.github.io/nixvim/?search={searchTerms}";};
-                icon = "https://nix-community.github.io/nixvim/favicon.svg";
-                definedAliases = ["@nvd" "@nixvimdocs"];
-              };
-              "Fancade Wiki" = {
-                urls = singleton {template = "https://www.fancade.com/wiki/gollum/search?q={searchTerms}";};
-                icon = "https://www.fancade.com/favicon.ico";
-                definedAliases = ["@fcw" "@fancadewiki"];
-              };
-              "GitHub" = {
-                urls = singleton {template = "https://github.com/search?q={searchTerms}";};
-                icon = "https://github.githubassets.com/favicons/favicon.png";
-                definedAliases = ["@gh" "@github"];
-              };
-              "GitLab" = {
-                urls = singleton {template = "https://gitlab.com/search?search={searchTerms}";};
-                icon = "https://gitlab.com/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png";
-                definedAliases = ["@gl" "@gitlab"];
+              "Brave" = {
+                urls = singleton {template = "https://search.brave.com/search?q={searchTerms}";};
+                icon = "https://cdn.search.brave.com/serp/v3/_app/immutable/assets/brave-search-icon.CsIFM2aN.svg";
+                definedAliases = ["@brave" "@br"];
               };
               "Codeberg" = {
                 urls = singleton {template = "https://codeberg.org/explore/repos?q={searchTerms}";};
                 icon = "https://codeberg.org/assets/img/favicon.svg";
-                definedAliases = ["@cb" "@codeberg"];
+                definedAliases = ["@codeberg" "@cb"];
               };
-              "Reddit" = {
-                urls = singleton {template = "https://www.reddit.com/search/?q={searchTerms}";};
-                icon = "https://www.redditstatic.com/shreddit/assets/favicon/64x64.png";
-                definedAliases = ["@rd" "@reddt"];
+              "Fancade Wiki" = {
+                urls = singleton {template = "https://www.fancade.com/wiki/gollum/search?q={searchTerms}";};
+                icon = "https://www.fancade.com/favicon.ico";
+                definedAliases = ["@fancadewiki" "@fcw"];
+              };
+              "Flathub" = {
+                urls = singleton {template = "https://flathub.org/apps/search?q={searchTerms}";};
+                icon = "https://flathub.org/favicon.png";
+                definedAliases = ["@flathub" "@fh"];
+              };
+              "Flake Parts Docs" = {
+                urls = singleton {template = "https://flake.parts/?search={searchTerms}";};
+                icon = "https://flake.parts/favicon.svg";
+                definedAliases = ["@flakepartsdocs" "@fpd"];
+              };
+              "GitHub" = {
+                urls = singleton {template = "https://github.com/search?q={searchTerms}";};
+                icon = "https://github.githubassets.com/favicons/favicon.png";
+                definedAliases = ["@github" "@gh"];
+              };
+              "GitLab" = {
+                urls = singleton {template = "https://gitlab.com/search?search={searchTerms}";};
+                icon = "https://gitlab.com/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png";
+                definedAliases = ["@gitlab" "@gl"];
+              };
+              "Home Manager Issues" = {
+                urls = singleton {template = "https://github.com/nix-community/home-manager/issues?q={searchTerms}";};
+                icon = "https://github.githubassets.com/favicons/favicon.png";
+                definedAliases = ["@homemanagerissues" "@hmi"];
+              };
+              "Home Manager Options" = {
+                urls = singleton {template = "https://home-manager-options.extranix.com/?query={searchTerms}";};
+                icon = "https://home-manager-options.extranix.com/images/favicon.png";
+                definedAliases = ["@homemmanageropts" "@hmo"];
+              };
+              "MDN Web Docs" = {
+                urls = singleton {template = "https://developer.mozilla.org/search?q={searchTerms}";};
+                icon = "https://developer.mozilla.org/favicon.svg";
+                definedAliases = ["@mdnwebdocs" "@mdn"];
+              };
+              "Nix Documentation" = {
+                urls = singleton {template = "https://nix.dev/search.html?q={searchTerms}";};
+                icon = "https://nix.dev/_static/favicon.png";
+                definedAliases = ["@nixdocs" "@nxd"];
+              };
+              "Nix Manual" = {
+                urls = singleton {template = "https://nix.dev/manual/nix/latest/?search={searchTerms}";};
+                icon = "https://nix.dev/manual/nix/latest/favicon.svg";
+                definedAliases = ["@nixmanual" "@nxm"];
+              };
+              "Nix Packages" = {
+                urls = singleton {template = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";};
+                icon = "https://search.nixos.org/favicon.png";
+                definedAliases = ["@nixpackages" "@nxp"];
+              };
+              "NixOS Options" = {
+                urls = singleton {template = "https://search.nixos.org/options?query={searchTerms}";};
+                icon = "https://search.nixos.org/favicon.png";
+                definedAliases = ["@nixosoptions" "@noo"];
+              };
+              "NixOS Wiki" = {
+                urls = singleton {template = "https://wiki.nixos.org/w/index.php?search={searchTerms}";};
+                icon = "https://wiki.nixos.org/favicon.ico";
+                definedAliases = ["@nixoswiki" "@now"];
+              };
+              "Nixpkgs Issues" = {
+                urls = singleton {template = "https://github.com/nixos/nixpkgs/issues?q={searchTerms}";};
+                icon = "https://github.githubassets.com/favicons/favicon.png";
+                definedAliases = ["@nixpkgsissues" "@nxi"];
+              };
+              "Noogle" = {
+                urls = singleton {template = "https://noogle.dev/q?term={searchTerms}";};
+                icon = "https://noogle.dev/favicon.png";
+                definedAliases = ["@noogle" "@ng"];
+              };
+              "Searchix" = {
+                urls = singleton {template = "https://searchix.ovh/?query={searchTerms}";};
+                icon = "https://searchix.ovh/favicon.ico";
+                definedAliases = ["@searchix" "@sx"];
+              };
+              "Stylix Documentations" = {
+                urls = singleton {template = "https://nix-community.github.io/stylix/?search={searchTerms}";};
+                icon = "https://nix-community.github.io/stylix/favicon-de23e50b.svg";
+                definedAliases = ["@stylixdocs" "@std"];
+              };
+              "Stylix Issues" = {
+                urls = singleton {template = "https://github.com/nix-community/stylix/issues?q={searchTerms}";};
+                icon = "https://github.githubassets.com/favicons/favicon.png";
+                definedAliases = ["@stylixissues" "@sti"];
+              };
+              "StartPage" = {
+                urls = singleton {template = "https://noogle.dev/q?term={searchTerms}";};
+                icon = "https://noogle.dev/favicon.png";
+                definedAliases = ["@startpage" "@sp"];
+              };
+              "Wikipedia" = {
+                _id = "custom-wikipedia";
+                _name = "Wikipedia";
+                urls = singleton {template = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}";};
+                icon = "https://en.wikipedia.org/static/favicon/wikipedia.ico";
+                definedAliases = ["@wikipedia" "@wp"];
+              };
+              "Wikipedia (de)" = {
+                _id = "custom-wikipedia-de";
+                _name = "Wikipedia (de)";
+                urls = singleton {template = "https://de.wikipedia.org/wiki/Special:Search?search={searchTerms}";};
+                icon = "https://de.wikipedia.org/static/favicon/wikipedia.ico";
+                definedAliases = ["@wikipediade" "@wpd"];
               };
             };
           };
