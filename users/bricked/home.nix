@@ -52,7 +52,6 @@
   programs.gpg.enable = true;
   programs.gh.enable = true;
   programs.zoxide.enable = true;
-  programs.nix-index.enable = true;
   programs.nix-your-shell.enable = true;
 
   # Editor
