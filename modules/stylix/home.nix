@@ -14,7 +14,12 @@ in {
   ];
   config = mkIf cfg.enable {
     stylix = {
-      iconTheme.enable = true;
+      iconTheme = {
+        enable = true;
+        package = pkgs.morewaita-icon-theme;
+        light = "MoreWaita";
+        dark = "MoreWaita";
+      };
       cursor = {
         package = pkgs.bibata-cursors;
         name = "Bibata-Modern-Ice";

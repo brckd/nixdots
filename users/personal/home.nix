@@ -17,10 +17,6 @@
 
   # Theming
   stylix.enable = true;
-  themix = {
-    enable = true;
-    themes.adwaita.enable = true;
-  };
   services.mithril-shell.enable = true;
 
   # Terminal
