@@ -84,6 +84,7 @@ with lib; {
     package = pkgs.mullvad-vpn;
   };
 
+  services.flatpak.enable = true;
   environment.systemPackages = with pkgs; [
     dconf2nix
     eza
