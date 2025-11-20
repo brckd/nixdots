@@ -1,13 +1,13 @@
 ---
-title: Set Up Nix
-description: Learn how to quickly setup your Nix environment for NixDots.
+title: Set up Nix
+description: Learn how to quickly setup your Nix environment for my Nix config.
 ---
 
 import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 
 ## Platforms
 
-NixDots works on a variety of platforms. Follow the respective guides for
+My Nix config works on a variety of platforms. Follow the respective guides for
 obtaining those if you haven't already. It is recommended to install Home
 Manager on any of the listed operating systems.
 
@@ -33,7 +33,7 @@ separately.
 Install
 [Home Manager](https://nix-community.github.io/home-manager/index.xhtml#ch-nix-flakes)
 for user configurations in any Nix environment. This is required for most of the
-functionality of NixDots.
+functionality of my Nix config.
 
 </TabItem>
 <TabItem label="Standalone Nix">
@@ -48,7 +48,7 @@ non-NixOS systems, such as Linux distributions, MacOS or WSL.
 
 ## Enable flakes
 
-NixDots heavily relies on Nix flakes to provide most of its features. These
+My Nix config heavily relies on Nix flakes to provide most of its features. These
 aren't enabled by default on most Nix environments, so it's recommended but not
 required to set them up before proceding.
 
@@ -88,7 +88,7 @@ experimental-features = nix-command flakes
 
 ## Clone the Git repository
 
-NixDots uses Git to keep track of versions. Clone the repository into an
+My Nix config uses Git to keep track of versions. Clone the repository into an
 accessible location.
 
 <Steps>
@@ -101,7 +101,7 @@ Fetch the Git repository.
 <TabItem label="Git">
 
 ```sh
-git clone https://github.com/brckd/nixdots
+git clone https://codeberg.org/bricked/nix-config
 ```
 
 </TabItem>
@@ -110,14 +110,14 @@ git clone https://github.com/brckd/nixdots
 <TabItem label="Flakes enabled">
 
 ```sh
-nix flake clone github:brckd/nixdots --dest nixdots
+nix flake clone codeberg:bricked/nix-config --dest nix-config
 ```
 
 </TabItem>
 <TabItem label="Flakes disabled">
 
 ```sh
-nix --experimental-features 'nix-command flakes' flake clone github:brckd/nixdots --dest nixdots
+nix --experimental-features 'nix-command flakes' flake clone codeberg:bricked/nix-config --dest nix-config
 ```
 
 </TabItem>
@@ -131,7 +131,7 @@ nix --experimental-features 'nix-command flakes' flake clone github:brckd/nixdot
 Enter the cloned repository for all future instructions.
 
 ```sh
-cd nixdots
+cd nix-config
 ```
 
 </li>

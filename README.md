@@ -1,16 +1,7 @@
-<div align="center">
+# Bricked's Nix config
 
-# NixDots
-
-simple &ndash; sleek &ndash; secure
-
-</div>
-
-Nix configurations as simple as possible. Runs anywhere Nix does!
-
-![A preview of the tiling window management](assets/tiling.png)
-![A preview of the launcher](assets/launcher.png)
+A simple Nix config for me and my laptop <3
 
 ## Documentation
 
-See the [official documentation](https://nixdots.bricked.dev), or browse the [local one](./docs/src/content/docs/index.mdx).
+See the [official documentation](https://nix-config.bricked.dev).

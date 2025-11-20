@@ -5,16 +5,16 @@ import catppuccin from "starlight-theme-catppuccin";
 export default defineConfig({
   integrations: [
     starlight({
-      title: "NixDots",
+      title: "Nix Config",
       social: {
-        github: "https://github.com/brckd/nixdots",
+        codeberg: "https://codeberg.org/bricke/nix-config",
       },
       sidebar: [
         {
           label: "Getting Started",
           items: [
             { slug: "getting-started/set-up-nix" },
-            { slug: "getting-started/install-nixdots" },
+            { slug: "getting-started/install-nix-config" },
             { slug: "getting-started/file-tree" },
           ],
         },
