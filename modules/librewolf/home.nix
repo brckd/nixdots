@@ -87,6 +87,11 @@ in {
                 icon = "https://home-manager-options.extranix.com/images/favicon.png";
                 definedAliases = ["@homemmanageropts" "@hmo"];
               };
+              "Lib.rs" = {
+                urls = singleton {template = "https://lib.rs/search?q={searchTerms}";};
+                icon = "https://lib.rs/logo.svg";
+                definedAliases = ["@librs" "@lr"];
+              };
               "MDN Web Docs" = {
                 urls = singleton {template = "https://developer.mozilla.org/search?q={searchTerms}";};
                 icon = "https://developer.mozilla.org/favicon.svg";
@@ -127,6 +132,11 @@ in {
                 icon = "https://noogle.dev/favicon.png";
                 definedAliases = ["@noogle" "@ng"];
               };
+              "Porkbun" = {
+                urls = singleton {template = "https://porkbun.com/checkout/search?q={searchTerms}";};
+                icon = "https://porkbun.com/images/favicons/favicon-96x96.png";
+                definedAliases = ["@porkbun" "@pb"];
+              };
               "Searchix" = {
                 urls = singleton {template = "https://searchix.ovh/?query={searchTerms}";};
                 icon = "https://searchix.ovh/favicon.ico";
@@ -146,6 +156,11 @@ in {
                 urls = singleton {template = "https://noogle.dev/q?term={searchTerms}";};
                 icon = "https://noogle.dev/favicon.png";
                 definedAliases = ["@startpage" "@sp"];
+              };
+              "TLD-List" = {
+                urls = singleton {template = "https://tld-list.com/?q={searchTerms}";};
+                icon = "https://tld-list.com/favicon.ico";
+                definedAliases = ["@tldlist" "@tl"];
               };
               "Wikipedia" = {
                 _id = "custom-wikipedia";
